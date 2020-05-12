@@ -2,7 +2,7 @@
 starship init fish | source
 
 # Use Solorized Dark colorscheme
-eval (dircolors -c $HOME/.git/dircolors-solarized/dircolors.256dark)
+eval (dircolors -c $HOME/.local/git/dircolors-solarized/dircolors.256dark)
 
 # Set PATH
 set PATH $PATH /mnt/c/Windows
