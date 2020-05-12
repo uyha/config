@@ -11,3 +11,9 @@ set PATH $PATH $HOME/.local/bin
 # Init conda
 eval /home/uy/.miniconda3/bin/conda "shell.fish" "hook" $argv | source
 
+# Cursor shape
+set fish_cursor_default block
+set fish_cursor_insert line
+set fish_cursor_replace_one underscore
+set fish_cursor_visual block
+
