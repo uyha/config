@@ -17,3 +17,6 @@ set fish_cursor_insert line
 set fish_cursor_replace_one underscore
 set fish_cursor_visual block
 
+# Set visual and editor to neovim
+set -gx VISUAL nvim
+set -gx EDITOR $VISUAL
