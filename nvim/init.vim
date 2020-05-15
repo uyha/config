@@ -13,6 +13,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'dag/vim-fish'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'tpope/vim-commentary'
+Plugin 'ycm-core/YouCompleteMe'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -29,3 +30,6 @@ set expandtab
 
 " Number column
 set number relativenumber
+
+" Visual selection
+set virtualedit=block
