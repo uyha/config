@@ -5,8 +5,8 @@ set shell=/bin/bash
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+set rtp+=$HOME/.vim/bundle/Vundle.vim
+call vundle#begin('$HOME/.vim/bundle')
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
@@ -33,3 +33,6 @@ set number relativenumber
 
 " Visual selection
 set virtualedit=block
+
+" Set language
+language en_US.utf8
