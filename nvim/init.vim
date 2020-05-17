@@ -12,15 +12,16 @@ else
 endif
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'dag/vim-fish'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'tpope/vim-commentary'
-Plugin 'ycm-core/YouCompleteMe'
 Plugin 'sonph/onehalf', {'rtp': 'vim'}
 
 " Plugins for Windows
 if has("win32")
- Plugin 'PProvost/vim-ps1' 
+  Plugin 'PProvost/vim-ps1' 
+else
+  Plugin 'dag/vim-fish'
+  Plugin 'ycm-core/YouCompleteMe'
 endif
 
 call vundle#end()            " required

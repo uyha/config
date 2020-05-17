@@ -9,7 +9,7 @@ set PATH $PATH /mnt/c/Windows
 set PATH $PATH $HOME/.local/bin
 
 # Init conda
-eval /home/uy/.miniconda3/bin/conda "shell.fish" "hook" $argv | source
+# eval /home/uy/.miniconda3/bin/conda "shell.fish" "hook" $argv | source
 
 # Cursor shape
 set fish_cursor_default block
