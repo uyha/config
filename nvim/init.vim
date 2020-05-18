@@ -15,6 +15,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'sonph/onehalf', {'rtp': 'vim'}
+Plugin 'tpope/vim-fugitive'
 
 " Plugins for Windows
 if has("win32")
