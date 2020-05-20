@@ -16,6 +16,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'sonph/onehalf', {'rtp': 'vim'}
 Plugin 'tpope/vim-fugitive'
+Plugin 'terryma/vim-multiple-cursors'
 
 " Plugins for Windows
 if has("win32")
