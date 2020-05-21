@@ -16,6 +16,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'sonph/onehalf', {'rtp': 'vim'}
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
 Plugin 'terryma/vim-multiple-cursors'
 
 " Plugins for Windows
