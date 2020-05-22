@@ -20,3 +20,7 @@ set fish_cursor_visual block
 # Set visual and editor to neovim
 set -gx VISUAL nvim
 set -gx EDITOR $VISUAL
+
+# Set environment variables
+set -x config "$HOME/.config"
+set -x local "$HOME/.local"
