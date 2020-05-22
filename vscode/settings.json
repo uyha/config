@@ -1,0 +1,8 @@
+{
+    // Latex Workshop configurations
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.latex.outDir": "%DIR%/build",
+
+    // Visual Studio Code configurations
+    "terminal.integrated.shell.windows": "D:\\Applications\\PowerShell\\7\\pwsh.exe"
+}
