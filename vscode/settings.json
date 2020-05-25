@@ -1,19 +1,21 @@
 {
-  // Latex Workshop configurations
+  // Latex Workshop
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.latex.outDir": "%DIR%/build",
 
-  // Visual Studio Code configurations
+  // Terminal
   "terminal.integrated.shell.windows": "D:\\Applications\\PowerShell\\7\\pwsh.exe",
 
   // CMake
   "cmake.cmakePath": "D:\\Applications\\Microsoft Visual Studio\\2019\\\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe",
+  "cmake.configureOnOpen": true,
 
   // Git settings
   "git.autofetch": true,
-  "cmake.configureOnOpen": true,
+  "git.confirmSync": false,
 
-  // Editor settings
+  // Editor
   "editor.formatOnSave": true,
-  "git.confirmSync": false
+  "editor.lineNumbers": "relative",
+  "editor.fontFamily": "Comic Code, monospace"
 }
