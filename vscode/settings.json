@@ -17,5 +17,14 @@
   // Editor
   "editor.formatOnSave": true,
   "editor.lineNumbers": "relative",
-  "editor.fontFamily": "Comic Code, monospace"
+  "editor.fontFamily": "Comic Code, monospace",
+
+  // Powershell
+  "powershell.powerShellAdditionalExePaths": [
+    {
+      "exePath": "D:\\Applications\\PowerShell\\7\\pwsh.exe",
+      "versionName": "7.0.1"
+    }
+  ],
+  "powershell.powerShellDefaultVersion": "7.0.1"
 }

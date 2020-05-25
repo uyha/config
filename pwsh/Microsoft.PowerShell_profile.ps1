@@ -1,10 +1,6 @@
 # Environment Variables
-$config="D:\Config"
-$local="D:\Local"
-$Env:XDG_CONFIG_HOME=$config
-$Env:XDG_DATA_HOME=$local
-$Env:RUSTUP_HOME="D:\Programming\Rust\Rustup"
-$Env:CARGO_HOME="D:\Programming\Rust\Cargo"
+$config = "D:\Config"
+$local = "D:\Local"
 
 # Alias
 Set-Alias lua lua53
