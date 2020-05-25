@@ -13,3 +13,5 @@ mimeapps.list
 pulse/**
 user-dirs.dirs
 user-dirs.locale
+rst-automation/**
+nvim/.netrwhist
