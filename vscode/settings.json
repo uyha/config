@@ -2,23 +2,18 @@
   // Latex Workshop
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.latex.outDir": "%DIR%/build",
-
   // Terminal
   "terminal.integrated.shell.windows": "D:\\Applications\\PowerShell\\7\\pwsh.exe",
-
   // CMake
   "cmake.cmakePath": "D:\\Applications\\Microsoft Visual Studio\\2019\\\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe",
   "cmake.configureOnOpen": true,
-
   // Git settings
   "git.autofetch": true,
   "git.confirmSync": false,
-
   // Editor
   "editor.formatOnSave": true,
   "editor.lineNumbers": "relative",
   "editor.fontFamily": "Comic Code, monospace",
-
   // Powershell
   "powershell.powerShellAdditionalExePaths": [
     {
@@ -26,5 +21,74 @@
       "versionName": "7.0.1"
     }
   ],
-  "powershell.powerShellDefaultVersion": "7.0.1"
+  "powershell.powerShellDefaultVersion": "7.0.1",
+  // Latex Workshop
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": [
+        "-shell-escape",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-pdf",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "lualatexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-lualatex",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "latexmk_rconly",
+      "command": "latexmk",
+      "args": [
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "pdflatex",
+      "command": "pdflatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "bibtex",
+      "command": "bibtex",
+      "args": [
+        "%DOCFILE%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "rnw2tex",
+      "command": "Rscript",
+      "args": [
+        "-e",
+        "knitr::opts_knit$set(concordance = TRUE); knitr::knit('%DOCFILE_EXT%')"
+      ],
+      "env": {}
+    }
+  ],
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
 }
