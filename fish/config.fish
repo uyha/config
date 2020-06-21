@@ -24,3 +24,6 @@ set -gx EDITOR $VISUAL
 # Set environment variables
 set -x config "$HOME/.config"
 set -x local "$HOME/.local"
+
+# Set DISPLAY for Server X
+set -x DISPLAY (grep -oP "nameserver \K.*" /etc/resolv.conf):0.0
