@@ -4,9 +4,6 @@
   "latex-workshop.latex.outDir": "%DIR%/build",
   // Terminal
   "terminal.integrated.shell.windows": "D:\\Applications\\PowerShell\\7\\pwsh.exe",
-  // CMake
-  "cmake.cmakePath": "D:\\Applications\\Microsoft Visual Studio\\2019\\\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe",
-  "cmake.configureOnOpen": true,
   // Git settings
   "git.autofetch": true,
   "git.confirmSync": false,
@@ -14,6 +11,8 @@
   "editor.formatOnSave": true,
   "editor.lineNumbers": "relative",
   "editor.fontFamily": "Comic Code, monospace",
+  "editor.wordWrap": "on",
+  "editor.tabSize": 2,
   // Powershell
   "powershell.powerShellAdditionalExePaths": [
     {
@@ -22,6 +21,14 @@
     }
   ],
   "powershell.powerShellDefaultVersion": "7.0.1",
+  // C-Cpp
+  "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+  // CMake
+  "cmake.cmakePath": "cmake",
+  "cmake.configureOnOpen": true,
+  "cmake.configureArgs": [
+    "-DBoost_INCLUDE_DIR=D:/Programming/Boost/1.73.0"
+  ],
   // Latex Workshop
   "latex-workshop.latex.tools": [
     {
@@ -90,5 +97,20 @@
   ],
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
-  }
+  },
+  "workbench.colorTheme": "One Dark Pro",
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "window.zoomLevel": 0,
+  "sqltools.useNodeRuntime": true,
+  "sqltools.connections": [
+    {
+      "database": "D:\\Work\\neobot\\main_system-2020-06-04-14-44-46.sqlite",
+      "driver": "SQLite",
+      "name": "KWZ",
+      "previewLimit": 50
+    }
+  ],
+  "python.pythonPath": "D:\\Programming\\Miniconda\\3\\python.exe",
 }
