@@ -30,6 +30,8 @@ endif
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+let mapleader = "-"
+
 " Vim colorscheme
 syntax on
 set background=dark
@@ -48,3 +50,6 @@ set virtualedit=block
 
 " Set language
 language en_US.utf8
+
+" Map == to indent whole file
+nnoremap <leader>= m`gg=G``
