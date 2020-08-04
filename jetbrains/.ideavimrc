@@ -1,2 +1,5 @@
 set number relativenumber
 set surround
+
+let mapleader="-"
+nnoremap <leader>v ggVG
