@@ -52,3 +52,4 @@ set virtualedit=block
 language en_US.utf8
 
 nnoremap <leader>= m`gg=G``
+nnoremap <leader>v ggVG
