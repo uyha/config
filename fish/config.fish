@@ -1,5 +1,4 @@
 # Set PATH
-set PATH $PATH /mnt/c/Windows
 set PATH $PATH $HOME/.local/bin
 
 # Set starship as the default prompt
