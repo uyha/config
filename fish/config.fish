@@ -8,8 +8,8 @@ starship init fish | source
 # Use Solorized Dark colorscheme
 eval (dircolors -c $HOME/.local/git/dircolors-solarized/dircolors.256dark)
 
-# Init conda
-# eval /home/uy/.miniconda3/bin/conda "shell.fish" "hook" $argv | source
+# Init venv
+. $HOME/.venv/base/bin/activate.fish
 
 # Cursor shape
 set fish_cursor_default block
