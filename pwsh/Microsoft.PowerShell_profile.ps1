@@ -14,3 +14,6 @@ function d {
 
 # Use Starship as prompt
 Invoke-Expression (&starship init powershell)
+
+# Use python's venv
+Invoke-Expression ("$local\venv\base\Scripts\Activate.ps1")
