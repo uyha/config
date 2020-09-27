@@ -16,4 +16,7 @@ function d {
 Invoke-Expression (&starship init powershell)
 
 # Use python's venv
-Invoke-Expression ("$local\venv\base\Scripts\Activate.ps1")
+$base_location=Get-Content $config\poetry\location
+$Env:VIRTUAL_ENV_DISABLE_PROMPT=$true
+Invoke-Expression ("$base_location\Scripts\Activate.ps1")
+Remove-Variable base_location

@@ -18,4 +18,5 @@ nvim/.netrwhist
 onedrive/**
 terminator/**
 configstore
-poetry/poetry.lock
+poetry/**
+!poetry/pyproject.toml
