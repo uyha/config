@@ -8,8 +8,8 @@ starship init fish | source
 # Use Solorized Dark colorscheme
 eval (dircolors -c $HOME/.local/git/dircolors-solarized/dircolors.256dark)
 
-# Init venv
-. $HOME/.venv/base/bin/activate.fish
+# Init poetry
+
 
 # Cursor shape
 set fish_cursor_default block
