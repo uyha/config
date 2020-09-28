@@ -9,7 +9,7 @@ starship init fish | source
 eval (dircolors -c $HOME/.local/git/dircolors-solarized/dircolors.256dark)
 
 # Init poetry
-
+. (cat $config/poetry/location)/activate.fish
 
 # Cursor shape
 set fish_cursor_default block
