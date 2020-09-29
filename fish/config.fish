@@ -8,8 +8,6 @@ starship init fish | source
 # Use Solorized Dark colorscheme
 eval (dircolors -c $HOME/.local/git/dircolors-solarized/dircolors.256dark)
 
-# Init poetry
-#. (cat $config/poetry/location)/bin/activate.fish
 
 # Cursor shape
 set fish_cursor_default block
@@ -27,3 +25,6 @@ set -x local "$HOME/.local"
 
 # Set DISPLAY for Server X
 set -x DISPLAY (grep -oP "nameserver \K.*" /etc/resolv.conf):0.0
+
+# Init poetry
+. (cat $config/poetry/location)/bin/activate.fish
