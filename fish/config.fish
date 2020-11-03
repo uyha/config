@@ -24,5 +24,3 @@ set -gx EDITOR $VISUAL
 set -x config "$HOME/.config"
 set -x local "$HOME/.local"
 
-# Conda
-eval "$HOME/miniconda3/bin/conda" "shell.fish" "hook" $argv | source
