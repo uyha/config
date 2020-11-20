@@ -32,4 +32,6 @@ rclone/**
 sqlitebrowser/**
 vscode-sqltools/**
 
-remmina
+remmina/**
+teamviewer/**
+totem/**

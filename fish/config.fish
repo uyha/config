@@ -1,5 +1,6 @@
 # Set PATH
 set PATH $PATH $HOME/.local/bin
+set PATH $PATH $HOME/.cargo/bin
 
 # Set starship as the default prompt
 starship init fish | source

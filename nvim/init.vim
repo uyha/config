@@ -17,6 +17,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'sonph/onehalf', {'rtp': 'vim'}
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
+Plugin 'cespare/vim-toml'
 Plugin 'terryma/vim-multiple-cursors'
 
 " Plugins for Windows
