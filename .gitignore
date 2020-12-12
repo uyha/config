@@ -19,4 +19,5 @@ onedrive/**
 terminator/**
 configstore
 poetry/**
-!poetry/pyproject.toml
+scoop/**
+
