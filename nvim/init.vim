@@ -4,8 +4,8 @@ filetype off                  " required
 
 " Starting Vundle
 if has("win32")
-  set rtp+=D:\Applications\Scoop\apps\neovim\current\bundle\Vundle.vim
-  call vundle#begin('D:\Applications\Scoop\apps\neovim\current\bundle')
+  set rtp+=D:\Local\nvim\bundle\Vundle.vim
+  call vundle#begin('D:\Local\nvim\bundle\')
 else
   set rtp+=~/.vim/bundle/Vundle.vim
   call vundle#begin()
