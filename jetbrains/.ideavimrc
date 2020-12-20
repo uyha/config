@@ -1,5 +1,6 @@
 set number relativenumber
 set surround
+set ideajoin
 
 let mapleader="-"
 nnoremap <leader>v ggVG

@@ -112,5 +112,5 @@
       "previewLimit": 50
     }
   ],
-  "python.pythonPath": "D:\\Programming\\Miniconda\\3\\python.exe",
+  "python.defaultInterpreterPath": "D:\\Programming\\Miniconda\\3\\python.exe",
 }
