@@ -1,6 +1,7 @@
 # Environment Variables
 $config = "D:\Config"
 $local = "D:\Local"
+$env:STARSHIP_CONFIG = "$config\starship\config.toml"
 
 # Alias
 Set-Alias vim nvim
