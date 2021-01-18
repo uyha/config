@@ -43,11 +43,9 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
-" Number column
-set number relativenumber
-
-" Visual selection
-set virtualedit=block
+set number relativenumber " Number column
+set virtualedit=block " Visual selection
+set smartcase " Ignore case when search words are all lower case
 
 " Set language
 language en_US.utf8
