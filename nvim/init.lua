@@ -1,14 +1,9 @@
 -- Adapted from https://github.com/ojroques/dotfiles/blob/master/nvim/init.lua
-local api, cmd, fn, g = vim.api, vim.cmd, vim.fn, vim.g
-
-local map = function(mode, lhs, rhs, opts)
-  local options = {noremap = true}
-  if opts then options = vim.tbl_extend('force', options, opts) end
-  api.nvim_set_keymap(mode, lhs, rhs, options)
-end
+local cmd = vim.cmd
 
 require 'options'
 require 'variables'
+require 'mappings'
 require 'plugins'
 require 'lsp'
 require 'treesitter'
