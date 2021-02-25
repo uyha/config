@@ -15,7 +15,7 @@ end
 
 require('plugins')
 
-cmd 'lang en'
+cmd 'lang en_US.utf8'
 cmd 'colorscheme onedark'
 
 local indent = 2
