@@ -12,4 +12,5 @@ use {'joshdick/onedark.vim'}
 use {'tpope/vim-commentary'}
 use {'tpope/vim-fugitive'}
 use {'tpope/vim-surround'}
+use {'vim-airline/vim-airline'}
 use {'wbthomason/packer.nvim', opt = true}
