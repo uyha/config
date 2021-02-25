@@ -21,12 +21,7 @@ Plugin 'cespare/vim-toml'
 Plugin 'terryma/vim-multiple-cursors'
 
 " Plugins for Windows
-if has("win32")
-  Plugin 'PProvost/vim-ps1' 
-else
-  Plugin 'dag/vim-fish'
-  Plugin 'ycm-core/YouCompleteMe'
-endif
+Plugin 'PProvost/vim-ps1' 
 
 call vundle#end()            " required
 filetype plugin indent on    " required
