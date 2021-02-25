@@ -7,9 +7,9 @@ local map = function(mode, lhs, rhs, opts)
   api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-
-require 'plugins'
 require 'options'
+require 'plugins'
+require 'treesitter'
 
 cmd 'lang en_US.utf8'
 cmd 'colorscheme onedark'
