@@ -20,4 +20,4 @@ terminator/**
 configstore
 poetry/**
 scoop/**
-
+nvim/plugin/**
