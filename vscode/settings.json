@@ -3,7 +3,7 @@
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.latex.outDir": "%DIR%/build",
   // Terminal
-  "terminal.integrated.shell.windows": "D:\\Applications\\PowerShell\\7\\pwsh.exe",
+  "terminal.integrated.shell.windows": "D:\\Applications\\Scoop\\apps\\pwsh\\current\\pwsh.exe",
   // Git settings
   "git.autofetch": true,
   "git.confirmSync": false,
@@ -16,11 +16,11 @@
   // Powershell
   "powershell.powerShellAdditionalExePaths": [
     {
-      "exePath": "D:\\Applications\\PowerShell\\7\\pwsh.exe",
-      "versionName": "7.0.1"
+      "exePath": "D:\\Applications\\Scoop\\apps\\pwsh\\current\\pwsh.exe",
+      "versionName": "7.1.2"
     }
   ],
-  "powershell.powerShellDefaultVersion": "7.0.1",
+  "powershell.powerShellDefaultVersion": "7.1.2",
   // C-Cpp
   "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
   // CMake
@@ -112,5 +112,5 @@
       "previewLimit": 50
     }
   ],
-  "python.defaultInterpreterPath": "D:\\Programming\\Miniconda\\3\\python.exe",
+  "python.defaultInterpreterPath": "D:\\Applications\\Scoop\\apps\\python\\3.9.2\\python.exe",
 }
