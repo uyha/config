@@ -8,7 +8,9 @@ local map = function(mode, lhs, rhs, opts)
 end
 
 require 'options'
+require 'variables'
 require 'plugins'
+require 'lsp'
 require 'treesitter'
 
 cmd 'lang en_US.utf8'
