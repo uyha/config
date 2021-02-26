@@ -36,3 +36,5 @@ opt('w', 'relativenumber', true)          -- Relative line numbers
 opt('w', 'signcolumn', 'yes')             -- Show sign column
 opt('w', 'wrap', false)                   -- Disable line wrap
 
+opt('o', 'guifont', 'Comic Code')                     -- Use Comic Code font
+opt('o', 'mouse', 'a')                                -- Enable mouse scrolling
