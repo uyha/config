@@ -4,5 +4,5 @@ local map = function(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-map('', '<leader>c', '"+y')
-map('', '<leader>v', '"+p')
+map('', '<leader>y', '"+y')
+map('', '<leader>p', '"+p')
