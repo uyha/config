@@ -1,10 +1,11 @@
 -- Adapted from https://github.com/ojroques/dotfiles/blob/master/nvim/init.lua
-require 'lsp'
-require 'mappings'
+
 require 'options'
+require 'variables'       --'variables' needs to be loaded before 'mapping'
 require 'plugins'
+require 'mappings'
 require 'treesitter'
-require 'variables'
+require 'lsp'
 
 local cmd = vim.cmd
 cmd 'lang en_US.utf8'
