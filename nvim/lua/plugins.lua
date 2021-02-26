@@ -11,6 +11,7 @@ use {'cespare/vim-toml'}
 use {'joshdick/onedark.vim'}
 use {'luochen1990/rainbow'}
 use {'neovim/nvim-lspconfig'}
+use {'nvim-lua/completion-nvim'}
 use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 use {'tpope/vim-commentary'}
 use {'tpope/vim-fugitive'}
