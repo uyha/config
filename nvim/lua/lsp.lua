@@ -45,7 +45,7 @@ local on_attach = function(client, bufnr)
   end
 end
 
-local servers = {"pyright", "cmake"}
+local servers = {"pyright", "cmake", "clangd", "rust_analyzer"}
 for _, server in ipairs(servers) do
   lsp[server].setup {
     on_attach = on_attach
