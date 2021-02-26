@@ -6,6 +6,7 @@ require 'plugins'
 require 'mappings'
 require 'treesitter'
 require 'lsp'
+require 'autocomplete'
 
 local cmd = vim.cmd
 cmd 'lang en_US.utf8'
