@@ -1,9 +1,4 @@
-local scopes = {o = vim.o, b = vim.bo, w = vim.wo}
-local opt = function(scope, key, value)
-  scopes[scope][key] = value
-  scopes['o'][key] = value
-end
-
+local opt = require'utils'.opt
 local indent = 2
 local width = 120
 
