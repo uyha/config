@@ -5,3 +5,4 @@ local map = function(mode, lhs, rhs, opts)
 end
 
 map('', '<leader>c', '"+y')
+map('', '<leader>v', '"+p')
