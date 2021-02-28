@@ -8,6 +8,7 @@ authors = ["Your Name <you@example.com>"]
 python = "^3.9"
 ipython = "*"
 cmake-language-server = "*"
+pynvim = "*"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
