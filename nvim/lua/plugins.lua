@@ -13,6 +13,7 @@ use {'luochen1990/rainbow'}
 use {'neovim/nvim-lspconfig'}
 use {'nvim-lua/completion-nvim'}
 use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+use {'sirver/UltiSnips'}
 use {'tpope/vim-commentary'}
 use {'tpope/vim-fugitive'}
 use {'tpope/vim-surround'}
