@@ -12,6 +12,7 @@ opt('o', 'completeopt', 'menuone,noinsert,noselect')  -- Completion options
 opt('o', 'guifont', 'Comic Code:b')                   -- Use Comic Code font
 opt('o', 'hidden', true)                              -- Enable background buffers
 opt('o', 'ignorecase', true)                          -- Ignore case
+opt('o', 'shortmess', vim.o.shortmess .. 'c')         -- Don't insert completion menu
 opt('o', 'joinspaces', false)                         -- No double spaces with join
 opt('o', 'mouse', 'a')                                -- Enable mouse scrolling
 opt('o', 'pastetoggle', '<F2>')                       -- Paste mode
