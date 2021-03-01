@@ -35,3 +35,4 @@ vscode-sqltools/**
 remmina/**
 teamviewer/**
 totem/**
+nvim/plugin/**
