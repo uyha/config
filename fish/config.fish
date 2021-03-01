@@ -23,7 +23,4 @@ set -x config "$HOME/.config"
 set -x local "$HOME/.local"
 
 #Init poetry
-pushd $config/poetry
-poetry shell -q
-popd
-
+source (cat $config/poetry/location)/bin/activate.fish
