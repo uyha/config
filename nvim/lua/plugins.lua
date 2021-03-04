@@ -7,6 +7,7 @@ local use = packer.use
 packer.init()
 
 use {'PProvost/vim-ps1'}
+use {'alvan/vim-closetag'}
 use {'cespare/vim-toml'}
 use {'joshdick/onedark.vim'}
 use {'luochen1990/rainbow'}
