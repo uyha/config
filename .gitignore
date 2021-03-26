@@ -36,3 +36,5 @@ remmina/**
 teamviewer/**
 totem/**
 nvim/plugin/**
+poetry/poetry.lock
+poetry/location
