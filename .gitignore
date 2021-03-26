@@ -18,5 +18,5 @@ nvim/.netrwhist
 onedrive/**
 terminator/**
 htop/**
-poetry/**
-!poetry/pyproject.toml
+poetry/poetry.lock
+poetry/location

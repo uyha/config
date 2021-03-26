@@ -1,13 +1,12 @@
 # Set PATH
-set PATH $PATH /mnt/c/Windows
 set PATH $PATH $HOME/.local/bin
+set PATH $PATH $HOME/.cargo/bin
 
 # Set starship as the default prompt
 starship init fish | source
 
 # Use Solorized Dark colorscheme
 eval (dircolors -c $HOME/.local/git/dircolors-solarized/dircolors.256dark)
-
 
 # Cursor shape
 set fish_cursor_default block
@@ -29,3 +28,6 @@ set -x DISPLAY (grep -oP "nameserver \K.*" /etc/resolv.conf):0.0
 
 # Init poetry
 . (cat $config/poetry/location)/bin/activate.fish
+
+#Init poetry
+source (cat $config/poetry/location)/bin/activate.fish
