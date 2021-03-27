@@ -5,7 +5,7 @@ description = ""
 authors = ["Uy Ha<hchanuy@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.8"
 ipython = "*"
 cmake-language-server = "*"
 pynvim = "*"
