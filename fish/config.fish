@@ -1,5 +1,5 @@
 # Set PATH
-set PATH $PATH $HOME/.local/bin $HOME/.cargo/bin $HOME/.yarn/bin
+set PATH $PATH $HOME/.local/bin $HOME/.cargo/bin $HOME/.yarn/bin /mnt/c/Windows /mnt/c/Windows/System32
 
 # Set starship as the default prompt
 starship init fish | source
