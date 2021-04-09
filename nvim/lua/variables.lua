@@ -12,3 +12,5 @@ g.UltiSnipsSnippetDirectories = {"ultisnippets"}
 -- vim-closetag
 g.closetag_filenames = '*.xml'
 g.closetag_filetypes = '*.xml'
+
+g.nvim_tree_auto_open = 1

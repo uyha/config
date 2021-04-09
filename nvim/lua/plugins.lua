@@ -10,6 +10,8 @@ use {'PProvost/vim-ps1'}
 use {'alvan/vim-closetag'}
 use {'cespare/vim-toml'}
 use {'joshdick/onedark.vim'}
+use {'kyazdani42/nvim-tree.lua'}
+use {'kyazdani42/nvim-web-devicons'}
 use {'luochen1990/rainbow'}
 use {'neovim/nvim-lspconfig'}
 use {'nvim-lua/completion-nvim'}
