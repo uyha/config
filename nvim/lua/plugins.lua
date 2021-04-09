@@ -18,5 +18,7 @@ use {'sirver/UltiSnips'}
 use {'tpope/vim-commentary'}
 use {'tpope/vim-fugitive'}
 use {'tpope/vim-surround'}
+use {'kyazdani42/nvim-web-devicons'}
+use {'kyazdani42/nvim-tree.lua'}
 use {'vim-airline/vim-airline'}
 use {'wbthomason/packer.nvim', opt = true}
