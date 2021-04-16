@@ -21,3 +21,5 @@ htop/**
 poetry/poetry.lock
 poetry/location
 yarn/**
+bottom/**
+nvim/plugin/**
