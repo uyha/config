@@ -52,3 +52,7 @@ for _, server in ipairs(servers) do
   }
 end
 
+lsp["powershell_es"].setup {
+  on_attach = on_attach,
+  bundle_path = "D:/Applications/PowerShellEditorServices"
+}
