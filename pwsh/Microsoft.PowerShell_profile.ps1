@@ -4,20 +4,23 @@ $local = "D:\Local"
 $env:STARSHIP_CONFIG = "$config\starship\config.toml"
 
 # Alias
-Set-Alias vim nvim
-Set-Alias ex explorer
+Set-Alias -Name vim -Value nvim
+Set-Alias -Name ex  -Value explorer
 
-# Fu D:
 function d {
-  sl D:\
+  param(
+    [string]
+    [Parameter(Position=0)]
+    $path
+  )
+  Set-Location D:/$path
 }
+
+function pip {
+  python -m pip $args
+}
+
 
 # Use Starship as prompt
 Invoke-Expression (&starship init powershell)
-
-# Use Poetry environment
-$env:VIRTUAL_ENV_DISABLE_PROMPT=$FALSE
-Push-Location $config\poetry
-& "$(poetry env info -p)\Scripts\activate.ps1"
-Pop-Location
 
