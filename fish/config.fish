@@ -28,5 +28,3 @@ set -x DISPLAY (grep -oP "nameserver \K.*" /etc/resolv.conf):0.0
 # Init poetry
 . (cat $config/poetry/location)/bin/activate.fish
 
-#Init poetry
-source (cat $config/poetry/location)/bin/activate.fish
