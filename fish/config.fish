@@ -25,6 +25,3 @@ set -x POETRY_HOME $local
 # Set DISPLAY for Server X
 set -x DISPLAY (grep -oP "nameserver \K.*" /etc/resolv.conf):0.0
 
-# Init poetry
-. (cat $config/poetry/location)/bin/activate.fish
-
