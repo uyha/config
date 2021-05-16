@@ -1,5 +1,10 @@
 # Set PATH
-set PATH $PATH $HOME/.local/bin $HOME/.cargo/bin $HOME/.yarn/bin /mnt/c/Windows
+set PATH $HOME/.local/python3.9/bin \
+         $HOME/.local/bin \
+         $HOME/.cargo/bin \
+         $HOME/.yarn/bin \
+         /mnt/c/Windows \
+         $PATH
 
 # Set starship as the default prompt
 starship init fish | source
