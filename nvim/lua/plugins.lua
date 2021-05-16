@@ -18,7 +18,7 @@ use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvi
 use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 use {'rust-lang/rust.vim'}
 use {'sbdchd/neoformat'}
--- use {'sirver/UltiSnips'}
+use {'sirver/UltiSnips'}
 use {'tpope/vim-commentary'}
 use {'tpope/vim-fugitive'}
 use {'tpope/vim-surround'}
