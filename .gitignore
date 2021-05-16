@@ -25,4 +25,6 @@ bottom/**
 nvim/plugin/**
 fish/completions/**
 fish/fish_plugins
+fish/functions/**
+fish/fish_variables
 fish/functions/fisher.fish
