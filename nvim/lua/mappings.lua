@@ -4,7 +4,7 @@ map('', '<leader>p', '"+p')
 
 map('', '<C-n>', ':NvimTreeToggle<CR>')
 
-map('', '<leader>`', ':15sp term://pwsh<CR>')
+map('', '<leader>`', ':15sp term://fish<CR>')
 
 -- Windows movements
 map('', '<leader>-', ':resize -5<CR>')
