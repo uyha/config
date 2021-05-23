@@ -1,0 +1,49 @@
+snippet sh
+#!/bin/sh
+
+set -eu
+endsnippet
+
+snippet bash
+#!/usr/bin/env bash
+
+set -euo pipefail
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+endsnippet
+
+snippet colors
+black="\e[30m"
+red="\e[31m"
+green="\e[32m"
+brown="\e[33m"
+blue="\e[34m"
+purple="\e[35m"
+cyan="\e[36m"
+gray="\e[37m"
+
+black_bg="\e[40m"
+red_bg="\e[41m"
+green_bg="\e[42m"
+brown_bg="\e[43m"
+blue_bg="\e[44m"
+purple_bg="\e[45m"
+cyan_bg="\e[46m"
+gray_bg="\e[47m"
+
+reset="\e[0m"
+bold="\e[1m"
+uline="\e[4m"
+blinking="\e[5m"
+endsnippet
+
+snippet parse_args
+while [[ $# -gt 0 ]]
+do
+  case "\$1" in
+    *)
+      printf "Unexcepted argument %s" "\$1"
+      exit 1
+      ;;
+  esac
+done
+endsnippet
