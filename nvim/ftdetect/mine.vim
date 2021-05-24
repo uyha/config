@@ -1,1 +1,1 @@
-au BufRead,BufNewFile *.docker  set filetype=dockerfile
+autocmd BufRead,BufNewFile *.docker  set filetype=dockerfile
