@@ -11,6 +11,7 @@ require 'options'
 require 'plugins'
 require 'treesitter'
 require 'variables'
+require 'branch_mod'
 
 cmd [[lang en_US.utf8]]
 cmd [[colorscheme onedark]]
