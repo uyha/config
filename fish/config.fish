@@ -7,6 +7,7 @@ set PATH $HOME/.local/python3.9/bin \
          $PATH
 
 # Set starship as the default prompt
+set -x STARSHIP_CONFIG $HOME/.config/starship.toml
 starship init fish | source
 
 # Use Solorized Dark colorscheme
