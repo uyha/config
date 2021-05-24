@@ -10,5 +10,5 @@ require 'lsp'
 local cmd = vim.cmd
 cmd 'lang en_US.utf8'
 cmd 'colorscheme onedark'
-cmd "autocmd BufEnter * lua require'completion'.on_attach()"
+cmd 'autocmd BufEnter * lua require'completion'.on_attach()'
 
