@@ -1,14 +1,19 @@
 -- Adapted from https://github.com/ojroques/dotfiles/blob/master/nvim/init.lua
 
-require 'options'
-require 'variables'       --'variables' needs to be loaded before 'mapping'
-require 'plugins'
-require 'mappings'
-require 'treesitter'
-require 'lsp'
-
 local cmd = vim.cmd
-cmd 'lang en_US.utf8'
-cmd 'colorscheme onedark'
-cmd "autocmd BufEnter * lua require'completion'.on_attach()"
+local g   = vim.g
+
+g.mapleader = ' '
+
+require 'lsp'
+require 'mappings'
+require 'options'
+require 'plugins'
+require 'treesitter'
+require 'variables'
+require 'branch_mod'
+
+cmd [[lang en_US.utf8]]
+cmd [[colorscheme onedark]]
+cmd [[autocmd BufEnter * lua require'completion'.on_attach()]]
 
