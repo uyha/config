@@ -1,1 +1,12 @@
-nvim/plugin/**
+*
+
+!nvim
+!nvim/ftdetect/**
+!nvim/init.nvim
+!nvim/lua/**
+!nvim/ultisnippets/**
+
+!jetbrains
+!jetbrains/.ideavimrc
+
+!starship.toml
