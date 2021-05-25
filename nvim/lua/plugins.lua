@@ -8,6 +8,7 @@ packer.init()
 
 use {'PProvost/vim-ps1'}
 use {'cespare/vim-toml'}
+use {'folke/which-key.nvim', config = function() require'which-key'.setup{} end}
 use {'joshdick/onedark.vim'}
 use {'kyazdani42/nvim-tree.lua'}
 use {'kyazdani42/nvim-web-devicons'}
