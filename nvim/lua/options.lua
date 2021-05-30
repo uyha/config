@@ -29,6 +29,8 @@ opt('o', 'virtualedit', 'all')                        -- Allow cursor more than 
 opt('o', 'wildmode', 'list:longest')                  -- Command-line completion mode
 
 opt('w', 'colorcolumn', tostring(width))              -- Line length marker
+opt('w', 'foldmethod', 'expr')                        -- Set foldmethod in order to use `nvim-treesitter` folding
+opt('w', 'foldexpr', 'nvim_treesitter#foldexpr()')    -- Use nvim-treesitter folding
 opt('w', 'cursorline', true)                          -- Highlight cursor line
 opt('w', 'list', true)                                -- Show some invisible characters
 opt('w', 'number', true)                              -- Show line numbers
