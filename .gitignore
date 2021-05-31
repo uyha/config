@@ -1,15 +1,9 @@
 *
 
 !nvim
-!nvim/ftdetect
-!nvim/ftdetect/**
-!nvim/init.nvim
-!nvim/lua
-!nvim/lua/**
-!nvim/ultisnippets
-!nvim/ultisnippets/**
+!nvim/**
 
 !jetbrains
-!jetbrains/.ideavimrc
+!jetbrains/**
 
 !starship.toml
