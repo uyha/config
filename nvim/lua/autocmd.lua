@@ -1,4 +1,4 @@
-vim.api.vim_exec[[
+vim.api.nvim_exec[[
   augroup fmt
     autocmd!
     autocmd BufWritePre * undojoin | Neoformat
