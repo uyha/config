@@ -1,5 +1,6 @@
 vim.api.vim_exec[[
-  autogroup fmt
-  autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
+  augroup fmt
+    autocmd!
+    autocmd BufWritePre * undojoin | Neoformat
+  augroup END
 ]]
