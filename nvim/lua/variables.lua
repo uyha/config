@@ -12,4 +12,4 @@ g.nvim_tree_auto_open = 1
 g.nvim_tree_auto_close = 1
 g.nvim_tree_disable_window_picker = 1
 
-g.neoformat_enabled_javascript = ['prettier']
+g.neoformat_enabled_javascript = {'prettier'}
