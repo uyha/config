@@ -1,7 +1,7 @@
 local lsp = require 'lspconfig'
 local on_attach = require 'on_attach'
 
-local servers = {'pyright', 'cmake', 'clangd', 'rust_analyzer'}
+local servers = {'pyright', 'cmake', 'clangd', 'rust_analyzer', 'tsserver'}
 for _, server in ipairs(servers) do
   lsp[server].setup {
     on_attach = on_attach
