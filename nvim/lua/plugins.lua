@@ -14,7 +14,7 @@ use {'kyazdani42/nvim-tree.lua'}
 use {'kyazdani42/nvim-web-devicons'}
 use {'luochen1990/rainbow'}
 use {'neovim/nvim-lspconfig'}
-use {'nvim-lua/completion-nvim'}
+use {'hrsh7th/nvim-compe'}
 use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}}
 use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 use {'rust-lang/rust.vim'}

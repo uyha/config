@@ -5,16 +5,16 @@ local g   = vim.g
 
 g.mapleader = ' '
 
+require 'plugins'
 require 'lsp'
 require 'mappings'
 require 'options'
-require 'plugins'
 require 'treesitter'
 require 'variables'
 require 'autocmd'
+require 'autocomplete'
 require 'branch_mod'
 
 cmd [[lang en_US.utf8]]
 cmd [[colorscheme onedark]]
-cmd [[autocmd BufEnter * lua require'completion'.on_attach()]]
 
