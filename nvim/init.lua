@@ -13,7 +13,7 @@ require 'setup'
 require 'branch_mod'
 
 cmd [[lang en_US.utf8]]
-cmd [[colorscheme onedark]]
+cmd [[colorscheme base16-onedark]]
 -- Automatically format file when it is saved
 cmd [[
   augroup fmt

@@ -7,14 +7,15 @@ local use = packer.use
 packer.init()
 
 use {'PProvost/vim-ps1'}
+use {'RRethy/nvim-base16'}
 use {'cespare/vim-toml'}
 use {'folke/which-key.nvim', config = function() require'which-key'.setup{} end}
+use {'hrsh7th/nvim-compe'}
 use {'joshdick/onedark.vim'}
 use {'kyazdani42/nvim-tree.lua'}
 use {'kyazdani42/nvim-web-devicons'}
 use {'luochen1990/rainbow'}
 use {'neovim/nvim-lspconfig'}
-use {'hrsh7th/nvim-compe'}
 use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}}
 use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 use {'rust-lang/rust.vim'}
