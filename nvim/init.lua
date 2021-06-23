@@ -6,15 +6,19 @@ local g   = vim.g
 g.mapleader = ' '
 
 require 'plugins'
-require 'lsp'
 require 'mappings'
 require 'options'
-require 'treesitter'
 require 'variables'
-require 'autocmd'
-require 'autocomplete'
+require 'setup'
 require 'branch_mod'
 
 cmd [[lang en_US.utf8]]
 cmd [[colorscheme onedark]]
+-- Automatically format file when it is saved
+cmd [[
+  augroup fmt
+    autocmd!
+    autocmd BufWritePre * undojoin | Neoformat
+  augroup END
+]]
 
