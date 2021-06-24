@@ -11,7 +11,6 @@ use {'RRethy/nvim-base16'}
 use {'cespare/vim-toml'}
 use {'folke/which-key.nvim', config = function() require'which-key'.setup{} end}
 use {'hrsh7th/nvim-compe'}
-use {'joshdick/onedark.vim'}
 use {'kyazdani42/nvim-tree.lua'}
 use {'kyazdani42/nvim-web-devicons'}
 use {'luochen1990/rainbow'}
