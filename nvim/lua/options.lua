@@ -1,5 +1,5 @@
 local opt = require'utils'.opt
-local indent = 4
+local indent = 2
 local width = 120
 
 opt('b', 'expandtab', true)                           -- Use spaces instead of tabs
