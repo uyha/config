@@ -5,16 +5,20 @@ local g   = vim.g
 
 g.mapleader = ' '
 
-require 'lsp'
+require 'plugins'
 require 'mappings'
 require 'options'
-require 'plugins'
-require 'treesitter'
 require 'variables'
-require 'autocmd'
+require 'setup'
 require 'branch_mod'
 
 cmd [[lang en_US.utf8]]
-cmd [[colorscheme onedark]]
-cmd [[autocmd BufEnter * lua require'completion'.on_attach()]]
+cmd [[colorscheme base16-onedark]]
+-- Automatically format file when it is saved
+cmd [[
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
+augroup END
+]]
 
