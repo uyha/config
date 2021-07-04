@@ -10,6 +10,9 @@ use {'PProvost/vim-ps1'}
 use {'RRethy/nvim-base16'}
 use {'cespare/vim-toml'}
 use {'folke/which-key.nvim', config = function() require'which-key'.setup{} end}
+use {'folke/todo-comments.nvim',
+  requires = 'nvim-lua/plenary.nvim',
+  config = function() require'todo-comments'.setup{} end }
 use {'hrsh7th/nvim-compe'}
 use {'kyazdani42/nvim-tree.lua'}
 use {'kyazdani42/nvim-web-devicons'}
