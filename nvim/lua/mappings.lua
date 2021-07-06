@@ -1,37 +1,37 @@
-local map = require 'utils'.map
-map('', '<leader>y', '"+y')
-map('', '<leader>p', '"+p')
+local map = require("utils").map
+map("", "<leader>y", '"+y')
+map("", "<leader>p", '"+p')
 
-map('', '<C-n>', ':NvimTreeToggle<CR>')
+map("", "<C-n>", ":NvimTreeToggle<CR>")
 
 -- Windows movements
-map('', '<leader>-', ':resize -5<CR>')
-map('', '<leader>=', ':resize +5<CR>')
-map('', '<leader>,', ':vertical resize -5<CR>')
-map('', '<leader>.', ':vertical resize +5<CR>')
+map("", "<leader>-", ":resize -5<CR>")
+map("", "<leader>=", ":resize +5<CR>")
+map("", "<leader>,", ":vertical resize -5<CR>")
+map("", "<leader>.", ":vertical resize +5<CR>")
 
-map('', '<leader>h', '<C-w>h')
-map('', '<leader>j', '<C-w>j')
-map('', '<leader>k', '<C-w>k')
-map('', '<leader>l', '<C-w>l')
+map("", "<leader>h", "<C-w>h")
+map("", "<leader>j", "<C-w>j")
+map("", "<leader>k", "<C-w>k")
+map("", "<leader>l", "<C-w>l")
 
 -- Make escape works in terminal emulator
-map('t', '<Esc>', '<C-\\><C-n>')
+map("t", "<Esc>", "<C-\\><C-n>")
 
 -- telescope.vim
-map('', '<leader>ff', '<cmd> Telescope find_files<cr>')
-map('', '<leader>fg', '<cmd> Telescope live_grep<cr>')
-map('', '<leader>fb', '<cmd> Telescope buffers<cr>')
-map('', '<leader>fh', '<cmd> Telescope help_tags<cr>')
+map("", "<leader>ff", "<cmd> Telescope find_files<cr>")
+map("", "<leader>fg", "<cmd> Telescope live_grep<cr>")
+map("", "<leader>fb", "<cmd> Telescope buffers<cr>")
+map("", "<leader>fh", "<cmd> Telescope help_tags<cr>")
 
 -- neoformat
-map('', '<leader>F', '<cmd> Neoformat<cr>')
+map("", "<leader>F", "<cmd> Neoformat<cr>")
 
 -- nvim-compe
-map('i', '<C-k>', [[compe#complete()]], {silent = true, expr = true})
-map('i', '<CR>',  [[compe#confirm('<CR>')]], {silent = true, expr = true})
-map('i', '<C-e>', [[compe#close('<C-e>')]], {silent = true, expr = true})
-map('i', '<C-f>', [[compe#scroll({ 'delta': +4 })]], {silent = true, expr = true})
-map('i', '<C-d>', [[compe#scroll({ 'delta': -4 })]], {silent = true, expr = true})
-map('i', '<Tab>', [[pumvisible() ? "\<C-n>" : "\<Tab>"]], {expr = true})
-map('i', '<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], {expr = true})
+map("i", "<C-k>", [[compe#complete()]], { silent = true, expr = true })
+map("i", "<CR>", [[compe#confirm('<CR>')]], { silent = true, expr = true })
+map("i", "<C-e>", [[compe#close('<C-e>')]], { silent = true, expr = true })
+map("i", "<C-f>", [[compe#scroll({ 'delta': +4 })]], { silent = true, expr = true })
+map("i", "<C-d>", [[compe#scroll({ 'delta': -4 })]], { silent = true, expr = true })
+map("i", "<Tab>", [[pumvisible() ? "\<C-n>" : "\<Tab>"]], { expr = true })
+map("i", "<S-Tab>", [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { expr = true })
