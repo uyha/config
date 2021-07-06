@@ -1,24 +1,21 @@
--- Adapted from https://github.com/ojroques/dotfiles/blob/master/nvim/init.lua
-
 local cmd = vim.cmd
-local g   = vim.g
+local g = vim.g
 
-g.mapleader = ' '
+g.mapleader = " "
 
-require 'plugins'
-require 'mappings'
-require 'options'
-require 'variables'
-require 'setup'
-require 'branch_mod'
+require("plugins")
+require("mappings")
+require("options")
+require("variables")
+require("setup")
+require("branch_mod")
 
-cmd [[lang en_US.utf8]]
-cmd [[colorscheme base16-onedark]]
+cmd([[lang en_US.utf8]])
+cmd([[colorscheme base16-onedark]])
 -- Automatically format file when it is saved
-cmd [[
+cmd([[
 augroup fmt
   autocmd!
   autocmd BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
 augroup END
-]]
-
+]])
