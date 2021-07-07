@@ -2,3 +2,5 @@
   editor=vim
 [merge]
   ff=only
+[pull]
+  ff=only
