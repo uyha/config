@@ -7,3 +7,6 @@
 !jetbrains/**
 
 !starship.toml
+
+!git
+!git/**
