@@ -1,3 +1,4 @@
 local map = require 'utils'.map
 
-map('', '<leader>`', ':15sp term://fish<CR>')
+map('', '<leader>t', ':15sp term://fish<CR>')
+map('', '<leader>T', ':vsp term://fish<CR>')
