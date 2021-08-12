@@ -9,5 +9,6 @@ g.rustfmt_autosave = 1
 
 g.nvim_tree_tab_open = 1
 g.nvim_tree_gitignore = 1
+g.nvim_tree_auto_resize = 0
 
 g.neoformat_enabled_javascript = { "prettier" }
