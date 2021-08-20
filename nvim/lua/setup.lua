@@ -39,3 +39,6 @@ require("nvim-treesitter.configs").setup {
     enable = true,
   },
 }
+
+-- indent-blankline.nvim
+require("indent_blankline").setup {}

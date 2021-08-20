@@ -25,6 +25,7 @@ use {
 use { "hrsh7th/nvim-compe" }
 use { "kyazdani42/nvim-tree.lua" }
 use { "kyazdani42/nvim-web-devicons" }
+use { "lukas-reineke/indent-blankline.nvim" }
 use { "neovim/nvim-lspconfig" }
 use { "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } } }
 use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
