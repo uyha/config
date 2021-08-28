@@ -1,10 +1,11 @@
 # Set PATH
 set PATH $HOME/.local/python3.9/bin \
-         $HOME/.local/bin \
-         $HOME/.cargo/bin \
-         $HOME/.yarn/bin \
-         /mnt/c/Windows \
-         $PATH
+    $HOME/.local/bin \
+    $HOME/.local/python/bin \
+    $HOME/.cargo/bin \
+    $HOME/.yarn/bin \
+    /mnt/c/Windows \
+    $PATH
 
 # Set starship as the default prompt
 set -x STARSHIP_CONFIG $HOME/.config/starship.toml
@@ -30,4 +31,3 @@ set -x POETRY_HOME $local
 
 # Set DISPLAY for Server X
 set -x DISPLAY (grep -oP "nameserver \K.*" /etc/resolv.conf):0.0
-
