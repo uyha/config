@@ -1,7 +1,11 @@
 set bell-style visible
 set completion-ignore-case on
 
+# Use vi mode
 set editing-mode vi
+# Change cursor shape between command and insert modes
 set show-mode-in-prompt on
+# Make cursor blinking block shaped in command mode
 set vi-cmd-mode-string "\1\e[1 q\2"
+# Make cursor blinking line shaped in command mode
 set vi-ins-mode-string "\1\e[5 q\2"
