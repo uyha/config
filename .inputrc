@@ -9,3 +9,5 @@ set show-mode-in-prompt on
 set vi-cmd-mode-string "\1\e[1 q\2"
 # Make cursor blinking line shaped in command mode
 set vi-ins-mode-string "\1\e[5 q\2"
+
+TAB: menu-complete
