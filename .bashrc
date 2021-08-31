@@ -1,4 +1,8 @@
-export PATH+=:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.local/python/bin
+export PATH+=:$HOME/.local/bin
+export PATH+=:$HOME/.cargo/bin
+export PATH+=:$HOME/.local/python/bin
+export PATH+=:/opt/nodejs/bin
+export PATH+=:/opt/poetry/bin
 
 export config=$HOME/.config
 export local=$HOME/.local
