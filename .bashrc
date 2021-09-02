@@ -17,7 +17,7 @@ exists() {
 exists vim && export MANPAGER='vim +Man!'
 
 # Use `exa` instead of built-in `ls` if it exists
-if command -v exa &>/dev/null; then
+if exists exa; then
   alias ls="exa"
   alias la="ls -a"
   alias ll="ls -la"
