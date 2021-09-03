@@ -1,5 +1,6 @@
 export LOCAL=$HOME/.local
-export LOCAL_OPT=$LOCAL/opt export LOCAL_BIN=$LOCAL/bin
+export LOCAL_OPT=$LOCAL/opt
+export LOCAL_BIN=$LOCAL/bin
 export LOCAL_SHARE=$LOCAL/share
 export LOCAL_STATE=$LOCAL/state
 
@@ -9,6 +10,7 @@ export XDG_CONFIG_HOME=$CONFIG
 export XDG_DATA_HOME=$LOCAL_SHARE
 export XDG_STATE_HOME=$LOCAL_STATE
 
+export PATH+=:$LOCAL_BIN
 export PATH+=:$LOCAL_OPT/python/bin
 export PATH+=:$LOCAL_OPT/nodejs/bin
 export PATH+=:$LOCAL_OPT/poetry/bin
