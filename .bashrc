@@ -1,12 +1,28 @@
-export PATH+=:$HOME/.local/bin
-export PATH+=:$HOME/.cargo/bin
-export PATH+=:$HOME/.local/python/bin
-export PATH+=:/opt/nodejs/bin
-export PATH+=:/opt/poetry/bin
+export LOCAL=$HOME/.local
+export LOCAL_OPT=$LOCAL/opt
+export LOCAL_BIN=$LOCAL/bin
+export LOCAL_SHARE=$LOCAL/share
+export LOCAL_STATE=$LOCAL/state
 
-export config=$HOME/.config
-export local=$HOME/.local
+export CONFIG=$HOME/.config
 
+export XDG_CONFIG_HOME=$CONFIG
+export XDG_DATA_HOME=$LOCAL_SHARE
+export XDG_STATE_HOME=$LOCAL_STATE
+
+export PATH+=:$LOCAL_BIN
+export PATH+=:$LOCAL_OPT/python/bin
+export PATH+=:$LOCAL_OPT/nodejs/bin
+export PATH+=:$LOCAL_OPT/poetry/bin
+export PATH+=:$LOCAL_OPT/cargo/bin
+export PATH+=:$LOCAL_OPT/nvim/bin
+
+export POETRY_HOME=$LOCAL_OPT/poetry
+export RUSTUP_HOME=$LOCAL_OPT/rustup
+export CARGO_HOME=$LOCAL_OPT/cargo
+
+# Make `man` use vim as manpage viewer
+export MANPAGER='vim +Man!'
 
 exists() {
   command -v $1 &>/dev/null
