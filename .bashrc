@@ -47,5 +47,6 @@ FZF_KEY_BINDINGS=$LOCAL_OPT/fzf/share/shell/key-bindings.bash
 [[ -f $FZF_KEY_BINDINGS ]] && source $FZF_KEY_BINDINGS
 
 exists thefuck && eval "$(thefuck --alias)"
-
 exists starship && eval "$(starship init bash)"
+
+unset -f exists
