@@ -47,6 +47,12 @@ FZF_KEY_BINDINGS=$LOCAL_OPT/fzf/share/shell/key-bindings.bash
 [[ -f $FZF_KEY_BINDINGS ]] && source $FZF_KEY_BINDINGS
 
 exists thefuck && eval "$(thefuck --alias)"
-exists starship && eval "$(starship init bash)"
 
 unset -f exists
+
+BASH_IT=$LOCAL_OPT/bash-it
+if [[ -d "$BASH_IT" ]]; then
+  export BASH_IT="$BASH_IT"
+  export BASH_IT_THEME="bobby"
+  source "$BASH_IT/bash_it.sh"
+fi
