@@ -22,9 +22,6 @@ export POETRY_HOME=$LOCAL_OPT/poetry
 export RUSTUP_HOME=$LOCAL_OPT/rustup
 export CARGO_HOME=$LOCAL_OPT/cargo
 
-# Make `man` use vim as manpage viewer
-export MANPAGER='vim +Man!'
-
 exists() {
   command -v $1 &>/dev/null
   return $?
