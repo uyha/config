@@ -38,6 +38,9 @@ if exists exa; then
   alias tree="ls --tree"
 fi
 
+DIRCOLORS=$LOCAL_OPT/dircolors-solarized/dircolors.ansi-dark
+[[ -f DIRCOLORS ]] && eval "$(dircolors $DIRCOLORS)"
+
 FZF_COMPLETION=$LOCAL_OPT/fzf/share/shell/completion.bash
 FZF_KEY_BINDINGS=$LOCAL_OPT/fzf/share/shell/key-bindings.bash
 [[ -f $FZF_COMPLETION ]] && source $FZF_COMPLETION
