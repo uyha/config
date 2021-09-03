@@ -1,5 +1,0 @@
-set number relativenumber
-set visualbell
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-set ideajoin

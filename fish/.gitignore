@@ -1,9 +1,0 @@
-completions/**
-functions/**
-fish_plugins
-fish_variables
-!functions/explorer.fish
-!functions/gaExplorer.fish
-!functions/ls.fish
-!functions/pip.fish
-!functions/vim.fish
