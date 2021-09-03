@@ -22,6 +22,13 @@ export POETRY_HOME=$LOCAL_OPT/poetry
 export RUSTUP_HOME=$LOCAL_OPT/rustup
 export CARGO_HOME=$LOCAL_OPT/cargo
 
+BASH_IT=$LOCAL_OPT/bash-it
+if [[ -d "$BASH_IT" ]]; then
+  export BASH_IT="$BASH_IT"
+  export BASH_IT_THEME="bobby"
+  source "$BASH_IT/bash_it.sh"
+fi
+
 exists() {
   command -v $1 &>/dev/null
   return $?
@@ -49,10 +56,3 @@ FZF_KEY_BINDINGS=$LOCAL_OPT/fzf/share/shell/key-bindings.bash
 exists thefuck && eval "$(thefuck --alias)"
 
 unset -f exists
-
-BASH_IT=$LOCAL_OPT/bash-it
-if [[ -d "$BASH_IT" ]]; then
-  export BASH_IT="$BASH_IT"
-  export BASH_IT_THEME="bobby"
-  source "$BASH_IT/bash_it.sh"
-fi
