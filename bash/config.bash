@@ -36,13 +36,8 @@ if exists exa; then
   alias tree="ls --tree"
 fi
 
-DIRCOLORS=$LOCAL_OPT/dircolors-solarized/dircolors.ansi-dark
-[[ -f DIRCOLORS ]] && eval "$(dircolors $DIRCOLORS)"
-
 exists thefuck && eval "$(thefuck --alias)"
 exists starship && eval "$(starship init bash)"
-
-unset -f exists
 
 if [[ -d $CONFIG/bash/config.d ]]; then
   # Remember original value of globstar
@@ -56,3 +51,5 @@ if [[ -d $CONFIG/bash/config.d ]]; then
   # Restore original value of globstar
   shopt -$globstar_opt globstar
 fi
+
+unset -f exists
