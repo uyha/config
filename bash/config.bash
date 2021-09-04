@@ -29,14 +29,6 @@ exists() {
 exists vim && export MANPAGER='vim +Man!'
 
 # Use `exa` instead of built-in `ls` if it exists
-if exists exa; then
-  alias ls="exa"
-  alias la="ls -a"
-  alias ll="ls -la"
-  alias tree="ls --tree"
-fi
-
-exists thefuck && eval "$(thefuck --alias)"
 exists starship && eval "$(starship init bash)"
 
 if [[ -d $CONFIG/bash/config.d ]]; then
