@@ -39,12 +39,20 @@ fi
 DIRCOLORS=$LOCAL_OPT/dircolors-solarized/dircolors.ansi-dark
 [[ -f DIRCOLORS ]] && eval "$(dircolors $DIRCOLORS)"
 
-FZF_COMPLETION=$LOCAL_OPT/fzf/share/shell/completion.bash
-FZF_KEY_BINDINGS=$LOCAL_OPT/fzf/share/shell/key-bindings.bash
-[[ -f $FZF_COMPLETION ]] && source $FZF_COMPLETION
-[[ -f $FZF_KEY_BINDINGS ]] && source $FZF_KEY_BINDINGS
-
 exists thefuck && eval "$(thefuck --alias)"
 exists starship && eval "$(starship init bash)"
 
 unset -f exists
+
+if [[ -d $CONFIG/bash/config.d ]]; then
+  # Remember original value of globstar
+  if shopt globstar >/dev/null; then globstar_opt=s; else globstar_opt=u; fi
+  shopt -s globstar
+
+  for config_file in $CONFIG/bash/config.d/**; do
+    [[ -f $config_file ]] && source $config_file
+  done
+
+  # Restore original value of globstar
+  shopt -$globstar_opt globstar
+fi
