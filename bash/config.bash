@@ -11,12 +11,9 @@ export XDG_DATA_HOME=$LOCAL_SHARE
 export XDG_STATE_HOME=$LOCAL_STATE
 
 export PATH+=:$LOCAL_BIN
-export PATH+=:$LOCAL_OPT/python/bin
-export PATH+=:$LOCAL_OPT/nodejs/bin
-export PATH+=:$LOCAL_OPT/poetry/bin
-export PATH+=:$LOCAL_OPT/cargo/bin
-export PATH+=:$LOCAL_OPT/nvim/bin
-export PATH+=:$LOCAL_OPT/fzf/bin
+for dir in $LOCAL_OPT/*/bin; do
+  export PATH+=:$(realpath $dir)
+done
 
 export POETRY_HOME=$LOCAL_OPT/poetry
 export RUSTUP_HOME=$LOCAL_OPT/rustup
