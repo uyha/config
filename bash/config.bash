@@ -21,12 +21,7 @@ export PATH+=:$LOCAL_OPT/fzf/bin
 export POETRY_HOME=$LOCAL_OPT/poetry
 export RUSTUP_HOME=$LOCAL_OPT/rustup
 export CARGO_HOME=$LOCAL_OPT/cargo
-
-BASH_IT=$LOCAL_OPT/bash-it
-if [[ -d "$BASH_IT" ]]; then
-  export BASH_IT="$BASH_IT"
-  source "$BASH_IT/bash_it.sh"
-fi
+export INPUTRC=$CONFIG/bash/inputrc
 
 exists() {
   command -v $1 &>/dev/null
