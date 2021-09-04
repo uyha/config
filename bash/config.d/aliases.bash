@@ -8,7 +8,6 @@ config-aliases() {
 
   exists thefuck && eval "$(thefuck --alias)"
   exists explorer.exe && alias explorer="explorer.exe"
-  exists clip.exe && alias clip="clip.exe"
 }
 
 config-aliases
