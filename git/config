@@ -3,3 +3,7 @@
   autocrlf = input
 [pull]
   ff=only
+[diff]
+  tool=vim -d
+[difftool]
+  prompt=false
