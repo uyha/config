@@ -2,3 +2,7 @@
   editor=vim
 [pull]
   ff=only
+[diff]
+  tool=vim -d
+[difftool]
+  prompt=false
