@@ -4,6 +4,8 @@
 [pull]
   ff=only
 [diff]
-  tool=vim -d
+  tool=nvimdiff
 [difftool]
   prompt=false
+[difftool "nvimdiff"]
+  cmd="nvim -d \"$LOCAL\" \"$REMOTE\""
