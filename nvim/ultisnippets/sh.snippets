@@ -47,3 +47,15 @@ do
   esac
 done
 endsnippet
+
+snippet setup
+$1_version=$2
+$1_dir=$LOCAL_OPT/$1
+$1_link=
+$1_tmp=$(mktemp)
+$1_tmp_dir=$(mktemp -d)
+
+wget -O \$$1_tmp \$$1_link
+
+rm -rf \$$1_tmp \$$1_tmp_dir
+endsnippet
