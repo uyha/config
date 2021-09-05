@@ -25,7 +25,11 @@ map("", "<leader>fb", "<cmd> Telescope buffers<cr>")
 map("", "<leader>fh", "<cmd> Telescope help_tags<cr>")
 
 -- neoformat
-map("", "<leader>F", "<cmd> Neoformat<cr>")
+map(
+  "",
+  "<leader>F",
+  "<cmd> try | undojoin | Neoformat | catch /^Vim%((\a+))=:E790/ | finally | silent Neoformat | endtry<cr>"
+)
 
 -- nvim-compe
 map("i", "<C-k>", [[compe#complete()]], { silent = true, expr = true })
