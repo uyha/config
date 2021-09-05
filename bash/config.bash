@@ -1,3 +1,4 @@
+# Environment variables
 export LOCAL=$HOME/.local
 export LOCAL_OPT=$LOCAL/opt
 export LOCAL_BIN=$LOCAL/bin
@@ -20,6 +21,8 @@ export RUSTUP_HOME=$LOCAL_OPT/rustup
 export CARGO_HOME=$LOCAL_OPT/cargo
 export INPUTRC=$CONFIG/bash/inputrc
 
+shopt -s globstar direxpand
+
 exists() {
   command -v $1 &>/dev/null
   return $?
@@ -27,21 +30,12 @@ exists() {
 
 # Use `vim` as the man page viewr if it exists
 exists vim && export MANPAGER='vim +Man!'
-
-# Use `exa` instead of built-in `ls` if it exists
 exists starship && eval "$(starship init bash)"
 
 if [[ -d $CONFIG/bash/config.d ]]; then
-  # Remember original value of globstar
-  if shopt globstar >/dev/null; then globstar_opt=s; else globstar_opt=u; fi
-  shopt -s globstar
-
   for config_file in $CONFIG/bash/config.d/**; do
     [[ -f $config_file ]] && source $config_file
   done
-
-  # Restore original value of globstar
-  shopt -$globstar_opt globstar
 fi
 
 unset -f exists
