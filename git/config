@@ -1,6 +1,6 @@
 [core]
   editor=vim
-  autocrlf = input
+  autocrlf=input
 [pull]
   ff=only
 [diff]
