@@ -14,7 +14,6 @@ export PATH+=:$LOCAL_BIN
 for dir in $LOCAL_OPT/*/bin; do
   export PATH+=:$(realpath $dir)
 done
-export PATH+=:/mnt/c/Windows
 
 export POETRY_HOME=$LOCAL_OPT/poetry
 export RUSTUP_HOME=$LOCAL_OPT/rustup
