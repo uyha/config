@@ -10,11 +10,6 @@ map("", "<leader>=", ":resize +5<CR>")
 map("", "<leader>,", ":vertical resize -5<CR>")
 map("", "<leader>.", ":vertical resize +5<CR>")
 
-map("", "<leader>h", "<C-w>h")
-map("", "<leader>j", "<C-w>j")
-map("", "<leader>k", "<C-w>k")
-map("", "<leader>l", "<C-w>l")
-
 -- Make escape works in terminal emulator
 map("t", "<Esc>", "<C-\\><C-n>")
 
