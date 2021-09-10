@@ -1,7 +1,9 @@
 add-local-opt-to-path() {
   for dir in $LOCAL_OPT/*/bin; do
     current_path="$(realpath $dir)"
-    [[ ! $PATH =~ $current_path ]] && export PATH+=:$current_path
+    if [[ ! $PATH =~ $current_path ]]; then
+      export PATH+=:$current_path
+    fi
   done
 }
 
@@ -44,3 +46,5 @@ if [[ -d $CONFIG/bash/config.d ]]; then
 fi
 
 unset -f exists
+
+export -f add-local-opt-to-path
