@@ -1,6 +1,7 @@
 add-local-opt-to-path() {
   for dir in $LOCAL_OPT/*/bin; do
-    export PATH+=:$(realpath $dir)
+    current_path="$(realpath $dir)"
+    [[ ! $PATH =~ $current_path ]] && export PATH+=:$current_path
   done
 }
 
