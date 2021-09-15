@@ -33,6 +33,10 @@ export RUSTUP_HOME=$LOCAL_OPT/rustup
 export CARGO_HOME=$LOCAL_OPT/cargo
 export INPUTRC=$CONFIG/bash/inputrc
 
+if exists tmux && [[ "$-" =~ i ]] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [[ -z "$TMUX" ]]; then
+  exec tmux
+fi
+
 shopt -s globstar direxpand
 
 # Use `vim` as the man page viewr if it exists
