@@ -1,10 +1,10 @@
 add-local-opt-to-path() {
-  for dir in $LOCAL_OPT/*/bin; do
+  while IFS="<newline>" read dir; do
     current_path="$(realpath $dir)"
     if [[ ! $PATH =~ $current_path ]]; then
       export PATH+=:$current_path
     fi
-  done
+  done < <(find $LOCAL_OPT -maxdepth 2 -mindepth 2 -type d -wholename '*/bin')
 }
 
 exists() {
@@ -26,7 +26,6 @@ export XDG_DATA_HOME=$LOCAL_SHARE
 export XDG_STATE_HOME=$LOCAL_STATE
 
 export PATH+=:$LOCAL_BIN
-add-local-opt-to-path
 
 export POETRY_HOME=$LOCAL_OPT/poetry
 export RUSTUP_HOME=$LOCAL_OPT/rustup
