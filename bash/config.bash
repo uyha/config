@@ -31,6 +31,7 @@ export POETRY_HOME=$LOCAL_OPT/poetry
 export RUSTUP_HOME=$LOCAL_OPT/rustup
 export CARGO_HOME=$LOCAL_OPT/cargo
 export INPUTRC=$CONFIG/bash/inputrc
+export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 
 if exists tmux && [[ "$-" =~ i ]] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [[ -z "$TMUX" ]]; then
   exec tmux
