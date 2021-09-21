@@ -39,8 +39,8 @@ fi
 
 shopt -s globstar direxpand
 
-# Use `vim` as the man page viewr if it exists
-exists vim && export MANPAGER='vim +Man!'
+# Use `nvim` as the man page viewr if it exists
+exists nvim && export MANPAGER='nvim +Man!'
 exists starship && eval "$(starship init bash)"
 
 if [[ -d $CONFIG/bash/config.d ]]; then
