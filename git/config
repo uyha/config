@@ -9,3 +9,5 @@
   prompt=false
 [difftool "nvimdiff"]
   cmd="nvim -d \"$LOCAL\" \"$REMOTE\""
+[alias]
+  dt = difftool
