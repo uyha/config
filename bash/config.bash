@@ -30,7 +30,7 @@ export PATH+=:$LOCAL_BIN
 export POETRY_HOME=$LOCAL_OPT/poetry
 export RUSTUP_HOME=$LOCAL_OPT/rustup
 export CARGO_HOME=$LOCAL_OPT/cargo
-export INPUTRC=$CONFIG/bash/inputrc
+export INPUTRC=$CONFIG/inputrc
 
 export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 export LANG=en_US.UTF-8
