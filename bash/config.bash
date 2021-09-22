@@ -31,7 +31,9 @@ export POETRY_HOME=$LOCAL_OPT/poetry
 export RUSTUP_HOME=$LOCAL_OPT/rustup
 export CARGO_HOME=$LOCAL_OPT/cargo
 export INPUTRC=$CONFIG/bash/inputrc
+
 export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
+export LANG=en_US.UTF-8
 
 if exists tmux && [[ "$-" =~ i ]] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [[ -z "$TMUX" ]]; then
   exec tmux
@@ -44,9 +46,9 @@ exists nvim && export MANPAGER='nvim +Man!'
 exists starship && eval "$(starship init bash)"
 
 if [[ -d $CONFIG/bash/config.d ]]; then
-  for config_file in $CONFIG/bash/config.d/**; do
+  while IFS="<newline>" read config_file; do
     [[ -f $config_file ]] && source $config_file
-  done
+  done < <(find $CONFIG/bash/config.d -type f -name '*.bash')
 fi
 
 unset -f exists
