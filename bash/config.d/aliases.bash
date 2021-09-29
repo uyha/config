@@ -8,6 +8,7 @@ config-aliases() {
 
   exists thefuck && eval "$(thefuck --alias)"
   exists explorer.exe && alias explorer="explorer.exe"
+  exists nvim && alias vim="nvim"
 }
 
 config-aliases
