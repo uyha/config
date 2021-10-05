@@ -42,3 +42,11 @@ require("nvim-treesitter.configs").setup {
 
 -- indent-blankline.nvim
 require("indent_blankline").setup {}
+
+-- nvim-tree.lua
+require("nvim-tree").setup {
+  open_on_tab = true,
+  view = {
+    auto_resize = false
+  }
+}

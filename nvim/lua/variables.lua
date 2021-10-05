@@ -7,10 +7,7 @@ g.UltiSnipsSnippetDirectories = { "ultisnippets" }
 
 g.rustfmt_autosave = 1
 
-g.nvim_tree_tab_open = 1
 g.nvim_tree_gitignore = 1
-g.nvim_tree_auto_resize = 0
-g.nvim_tree_auto_resize = 0
 g.nvim_tree_refresh_wait = 10
 
 g.neoformat_enabled_javascript = { "prettier" }
