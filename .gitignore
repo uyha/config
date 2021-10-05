@@ -17,5 +17,8 @@
 !bash
 !bash/**
 
+!nixpkgs
+!nixpkgs/**
+
 !tmux.conf
 !inputrc
