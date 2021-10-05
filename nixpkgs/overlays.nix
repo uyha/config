@@ -4,5 +4,6 @@
       meta = oldAttrs.meta // { priority = 15; };
     });
     gcc = super.gcc10;
+    python = super.python310;
   })
 ]
