@@ -53,3 +53,6 @@ require("nvim-tree").setup {
 
 -- feline.nvim
 require("feline").setup {}
+
+-- gitsigns.nvim
+require("gitsigns").setup {}

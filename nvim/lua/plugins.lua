@@ -27,11 +27,11 @@ use { "hrsh7th/nvim-compe" }
 use { "kyazdani42/nvim-tree.lua" }
 use { "kyazdani42/nvim-web-devicons" }
 use { "lukas-reineke/indent-blankline.nvim" }
+use { "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } }
 use { "neovim/nvim-lspconfig" }
 use { "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } } }
 use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 use { "nvim-treesitter/playground" }
-use { "airblade/vim-gitgutter" }
 use { "p00f/nvim-ts-rainbow" }
 use { "rust-lang/rust.vim" }
 use { "sbdchd/neoformat" }
