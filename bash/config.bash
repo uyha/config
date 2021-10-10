@@ -35,9 +35,9 @@ export INPUTRC=$CONFIG/inputrc
 export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 export LANG=en_US.UTF-8
 
-if exists tmux && [[ "$-" =~ i ]] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [[ -z "$TMUX" ]]; then
-  exec tmux
-fi
+#if exists tmux && [[ "$-" =~ i ]] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [[ -z "$TMUX" ]]; then
+# exec tmux
+#fi
 
 shopt -s globstar direxpand
 
