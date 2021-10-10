@@ -41,6 +41,11 @@ export LANG=en_US.UTF-8
 
 shopt -s globstar direxpand
 
+nix_profile="$HOME/.nix-profile/etc/profile.d/nix.sh"
+if [[ -e "$nix_profile" ]]; then
+  source "$nix_profile"
+fi
+
 # Use `nvim` as the man page viewr if it exists
 exists nvim && export MANPAGER='nvim +Man!'
 exists starship && eval "$(starship init bash)"
@@ -52,5 +57,6 @@ if [[ -d $CONFIG/bash/config.d ]]; then
 fi
 
 unset -f exists
+unset nix_profile
 
 export -f add-local-opt-to-path
