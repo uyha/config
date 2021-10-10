@@ -47,8 +47,8 @@ require("indent_blankline").setup {}
 require("nvim-tree").setup {
   open_on_tab = true,
   view = {
-    auto_resize = false
-  }
+    auto_resize = false,
+  },
 }
 
 -- feline.nvim

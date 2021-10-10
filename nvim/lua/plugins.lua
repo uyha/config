@@ -11,16 +11,16 @@ use { "RRethy/nvim-base16" }
 use { "cespare/vim-toml" }
 use { "famiu/feline.nvim" }
 use {
-  "folke/which-key.nvim",
-  config = function()
-    require("which-key").setup {}
-  end,
-}
-use {
   "folke/todo-comments.nvim",
   requires = "nvim-lua/plenary.nvim",
   config = function()
     require("todo-comments").setup {}
+  end,
+}
+use {
+  "folke/which-key.nvim",
+  config = function()
+    require("which-key").setup {}
   end,
 }
 use { "hrsh7th/nvim-compe" }
