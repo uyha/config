@@ -9,6 +9,7 @@ packer.init()
 use { "PProvost/vim-ps1" }
 use { "RRethy/nvim-base16" }
 use { "cespare/vim-toml" }
+use { "famiu/feline.nvim" }
 use {
   "folke/which-key.nvim",
   config = function()
@@ -38,5 +39,4 @@ use { "sirver/UltiSnips" }
 use { "tpope/vim-commentary" }
 use { "tpope/vim-fugitive" }
 use { "tpope/vim-surround" }
-use { "glepnir/galaxyline.nvim" }
 use { "wbthomason/packer.nvim", opt = true }

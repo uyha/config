@@ -50,3 +50,6 @@ require("nvim-tree").setup {
     auto_resize = false
   }
 }
+
+-- feline.nvim
+require("feline").setup {}
