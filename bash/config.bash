@@ -35,10 +35,6 @@ export INPUTRC=$CONFIG/inputrc
 export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 export LANG=en_US.UTF-8
 
-#if exists tmux && [[ "$-" =~ i ]] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [[ -z "$TMUX" ]]; then
-# exec tmux
-#fi
-
 shopt -s globstar direxpand
 
 nix_profile="$HOME/.nix-profile/etc/profile.d/nix.sh"
@@ -54,6 +50,10 @@ if [[ -d $CONFIG/bash/config.d ]]; then
   while IFS="<newline>" read config_file; do
     [[ -f $config_file ]] && source $config_file
   done < <(find $CONFIG/bash/config.d -type f -name '*.bash')
+fi
+
+if exists tmux && [[ "$-" =~ i ]] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [[ -z "$TMUX" ]]; then
+ exec tmux
 fi
 
 unset -f exists
