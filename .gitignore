@@ -1,5 +1,8 @@
 *
 
+!.gitignore
+!.gitmodules
+
 !nvim
 !nvim/**
 
@@ -20,5 +23,7 @@
 !nixpkgs
 !nixpkgs/**
 
-!tmux.conf
+!tmux
+!tmux/**
+
 !inputrc
