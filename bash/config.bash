@@ -29,11 +29,9 @@ export LANG=en_US.UTF-8
 shopt -s globstar direxpand
 
 while IFS="<newline>" read dir; do
-  current_path="$(realpath $dir)"
-  if [[ ! $PATH =~ $current_path ]]; then
-    export PATH="$current_path:$PATH"
-  fi
-done < <(find $LOCAL_OPT -maxdepth 2 -mindepth 2 -type d -wholename '*/bin')
+  export PATH="$dir:$PATH"
+done < <(find $LOCAL_OPT -maxdepth 2 -mindepth 2 -type d -wholename '*/bin' -exec realpath {} \;)
+
 
 if [[ -d $CONFIG/bash/config.d ]]; then
   while IFS="<newline>" read config_file; do
