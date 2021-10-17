@@ -32,6 +32,9 @@ while IFS="<newline>" read dir; do
   export PATH="$dir:$PATH"
 done < <(find $LOCAL_OPT -maxdepth 2 -mindepth 2 -type d -wholename '*/bin' -exec realpath {} \;)
 
+while IFS="<newline>" read pkg_config_dir; do
+  export PKG_CONFIG_PATH+="$pkg_config_dir:"
+done < <(find $LOCAL_OPT -type f -name '*.pc' -exec dirname {} \; | xargs realpath | sort -u)
 
 if [[ -d $CONFIG/bash/config.d ]]; then
   while IFS="<newline>" read config_file; do
