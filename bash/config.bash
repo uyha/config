@@ -1,12 +1,3 @@
-add-local-opt-to-path() {
-  while IFS="<newline>" read dir; do
-    current_path="$(realpath $dir)"
-    if [[ ! $PATH =~ $current_path ]]; then
-      export PATH+=:$current_path
-    fi
-  done < <(find $LOCAL_OPT -maxdepth 2 -mindepth 2 -type d -wholename '*/bin')
-}
-
 exists() {
   command -v $1 &>/dev/null
   return $?
@@ -37,14 +28,12 @@ export LANG=en_US.UTF-8
 
 shopt -s globstar direxpand
 
-nix_profile="$HOME/.nix-profile/etc/profile.d/nix.sh"
-if [[ -e "$nix_profile" ]]; then
-  source "$nix_profile"
-fi
-
-# Use `nvim` as the man page viewr if it exists
-exists nvim && export MANPAGER='nvim +Man!'
-exists starship && eval "$(starship init bash)"
+while IFS="<newline>" read dir; do
+  current_path="$(realpath $dir)"
+  if [[ ! $PATH =~ $current_path ]]; then
+    export PATH="$current_path:$PATH"
+  fi
+done < <(find $LOCAL_OPT -maxdepth 2 -mindepth 2 -type d -wholename '*/bin')
 
 if [[ -d $CONFIG/bash/config.d ]]; then
   while IFS="<newline>" read config_file; do
@@ -56,7 +45,10 @@ if exists tmux && [[ "$-" =~ i ]] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =
  exec tmux
 fi
 
+# Use `nvim` as the man page viewr if it exists
+exists nvim && export MANPAGER='nvim +Man!'
+exists starship && eval "$(starship init bash)"
+
 unset -f exists
 unset nix_profile
 
-export -f add-local-opt-to-path
