@@ -25,7 +25,6 @@ opt("o", "splitbelow", true) -- Put new windows below current
 opt("o", "splitright", true) -- Put new windows right of current
 opt("o", "termguicolors", true) -- True color support
 opt("o", "updatetime", 200) -- Delay before swap file is saved
-opt("o", "virtualedit", "all") -- Allow cursor more than actual line length
 opt("o", "wildmode", "list:longest") -- Command-line completion mode
 
 opt("w", "colorcolumn", tostring(width)) -- Line length marker
