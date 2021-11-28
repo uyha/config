@@ -49,6 +49,9 @@ require("nvim-tree").setup {
   view = {
     auto_resize = false,
   },
+  git = {
+    ignore = true
+  }
 }
 
 -- feline.nvim
