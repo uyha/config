@@ -16,7 +16,7 @@ export XDG_CONFIG_HOME=$CONFIG
 export XDG_DATA_HOME=$LOCAL_SHARE
 export XDG_STATE_HOME=$LOCAL_STATE
 
-export PATH+=:$LOCAL_BIN
+export PATH=$LOCAL_BIN:$XDG_DATA_HOME/lipm/runtime/bin:$PATH
 
 export POETRY_HOME=$LOCAL_OPT/poetry
 export RUSTUP_HOME=$LOCAL_OPT/rustup
