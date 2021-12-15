@@ -1,0 +1,22 @@
+snippet unit
+[Unit]
+Description=$1
+Requires=
+After=
+
+[Service]
+Type=$2
+ExecStart=$3
+Restart=
+
+[Install]
+WantedBy=multi-user.target
+endsnippet
+
+snippet path
+[Path]
+PathChanged=$1
+
+[Install]
+WantedBy=multi-user.target
+endsnippet
