@@ -2,7 +2,7 @@
 local lsp = require "lspconfig"
 local on_attach = require("utils").on_attach
 
-local servers = { "pyright", "cmake", "clangd", "rust_analyzer", "tsserver", "svelte"}
+local servers = { "pyright", "cmake", "clangd", "rust_analyzer", "tsserver", "svelte" }
 for _, server in ipairs(servers) do
   lsp[server].setup {
     on_attach = on_attach,
@@ -50,8 +50,8 @@ require("nvim-tree").setup {
     auto_resize = false,
   },
   git = {
-    ignore = true
-  }
+    ignore = true,
+  },
 }
 
 -- feline.nvim
@@ -59,3 +59,9 @@ require("feline").setup {}
 
 -- gitsigns.nvim
 require("gitsigns").setup {}
+
+-- nvim-lint
+require("lint").linters_by_ft = {
+  sh = { "shellcheck" },
+}
+

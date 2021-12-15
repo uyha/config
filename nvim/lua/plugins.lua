@@ -29,6 +29,8 @@ use { "kyazdani42/nvim-web-devicons" }
 use { "lambdalisue/suda.vim" }
 use { "lukas-reineke/indent-blankline.nvim" }
 use { "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } }
+use { "mfussenegger/nvim-lint" }
+use { "wgwoods/vim-systemd-syntax" }
 use { "neovim/nvim-lspconfig" }
 use { "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } } }
 use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
