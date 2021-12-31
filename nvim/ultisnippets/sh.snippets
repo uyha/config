@@ -8,7 +8,7 @@ snippet bash
 #!/usr/bin/env bash
 
 set -euo pipefail
-DIR="$( cd "$( dirname $(realpath("${BASH_SOURCE[0]}") )" &> /dev/null && pwd )"
+SCRIPT_DIR=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 endsnippet
 
 snippet colors
