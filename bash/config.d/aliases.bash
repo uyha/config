@@ -6,6 +6,10 @@ config-aliases() {
   alias la="ls -a"
   alias ll="ls -la"
 
+  alias rm="rm -I"
+  alias mv="rm -i"
+  alias cp="rm -i"
+
   exists thefuck && eval "$(thefuck --alias)"
   exists explorer.exe && alias explorer="explorer.exe"
   exists nvim && alias vim="nvim"
