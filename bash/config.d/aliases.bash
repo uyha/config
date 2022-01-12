@@ -7,8 +7,8 @@ config-aliases() {
   alias ll="ls -la"
 
   alias rm="rm -I"
-  alias mv="rm -i"
-  alias cp="rm -i"
+  alias mv="mv -i"
+  alias cp="cp -i"
 
   exists thefuck && eval "$(thefuck --alias)"
   exists explorer.exe && alias explorer="explorer.exe"
