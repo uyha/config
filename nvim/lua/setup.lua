@@ -2,7 +2,7 @@
 local lsp = require "lspconfig"
 local on_attach = require("utils").on_attach
 
-local servers = { "pyright", "cmake", "clangd", "rust_analyzer", "tsserver", "svelte", "html"}
+local servers = { "pyright", "cmake", "clangd", "rust_analyzer", "tsserver", "svelte", "html" }
 for _, server in ipairs(servers) do
   lsp[server].setup {
     on_attach = on_attach,
@@ -64,4 +64,4 @@ require("gitsigns").setup {}
 require("lint").linters_by_ft = {
   sh = { "shellcheck" },
 }
-
+require("lint").linters.shellcheck.args = { "-x", "--format", "json", "-" }
