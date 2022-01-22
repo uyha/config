@@ -59,3 +59,33 @@ wget -O \$$1_tmp \$$1_link
 
 rm -rf \$$1_tmp \$$1_tmp_dir
 endsnippet
+
+snippet lfs
+#!/usr/bin/env bash
+
+set -euo pipefail
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+LFS="$(realpath "$SCRIPT_DIR/../lfs")"
+LFS_TGT="x86_64-lfs-linux-gnu"
+SRC_DIR="$(realpath "$SCRIPT_DIR/../src")"
+BUILD_DIR="$(realpath "$SCRIPT_DIR/../build")"
+PATH="$LFS/tools/bin:$PATH"
+
+(
+mkdir -p "$SRC_DIR/$1"
+curl -L '$2' | \
+  tar \
+	--extract \
+	--$3 \
+	--file - \
+	--strip-components=1 \
+	--directory="$SRC_DIR/$1"
+
+mkdir -p "$BUILD_DIR/$1"
+cd "$BUILD_DIR/$1"
+"$SRC_DIR/$1/configure"
+
+make --jobs="$(nproc)"
+make $4 install --jobs="$(nproc)"
+)
+endsnippet
