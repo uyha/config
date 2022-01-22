@@ -72,20 +72,20 @@ BUILD_DIR="$(realpath "$SCRIPT_DIR/../build")"
 PATH="$LFS/tools/bin:$PATH"
 
 (
-mkdir -p "$SRC_DIR/$1"
-curl -L '$2' | \
+mkdir -p "$SRC_DIR/${1:name}"
+curl -L '${2:url}' | \
   tar \
 	--extract \
-	--$3 \
+	--${3:format} \
 	--file - \
 	--strip-components=1 \
 	--directory="$SRC_DIR/$1"
 
-mkdir -p "$BUILD_DIR/$1"
-cd "$BUILD_DIR/$1"
-"$SRC_DIR/$1/configure"
+mkdir -p "$BUILD_DIR/${4:build-name}"
+cd "$BUILD_DIR/$4"
+"$SRC_DIR/$1/configure" ${5:config-options}
 
 make --jobs="$(nproc)"
-make $4 install --jobs="$(nproc)"
+make ${6:variables} install --jobs="$(nproc)"
 )
 endsnippet
