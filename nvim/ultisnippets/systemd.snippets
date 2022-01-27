@@ -14,9 +14,27 @@ WantedBy=multi-user.target
 endsnippet
 
 snippet path
+[Unit]
+Description=$1
+
 [Path]
 PathChanged=$1
 
 [Install]
 WantedBy=multi-user.target
+endsnippet
+
+snippet mount
+[Unit]
+Description=$1
+Requires=
+After=
+
+[Mount]
+What=$2
+Where=$3
+
+[Install]
+WantedBy=multi-user.target
+
 endsnippet
