@@ -89,3 +89,12 @@ make --jobs="$(nproc)"
 make ${6:variables} install --jobs="$(nproc)"
 )
 endsnippet
+
+snippet join
+join() {
+  local delimiter=\$1 first=\$2
+  if shift 2; then
+    printf "%s" "$first" "${@/#/$delimiter}"
+  fi
+}
+endsnippet
