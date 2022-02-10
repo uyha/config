@@ -31,11 +31,3 @@ map(
   "<cmd> try | undojoin | Neoformat | catch /^Vim%((\a+))=:E790/ | finally | silent Neoformat | endtry<cr>"
 )
 
--- nvim-compe
-map("i", "<C-k>", [[compe#complete()]], { silent = true, expr = true })
-map("i", "<CR>", [[compe#confirm('<CR>')]], { silent = true, expr = true })
-map("i", "<C-e>", [[compe#close('<C-e>')]], { silent = true, expr = true })
-map("i", "<C-f>", [[compe#scroll({ 'delta': +4 })]], { silent = true, expr = true })
-map("i", "<C-d>", [[compe#scroll({ 'delta': -4 })]], { silent = true, expr = true })
-map("i", "<Tab>", [[pumvisible() ? "\<C-n>" : "\<Tab>"]], { expr = true })
-map("i", "<S-Tab>", [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { expr = true })

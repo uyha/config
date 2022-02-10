@@ -3,23 +3,86 @@ local lsp = require "lspconfig"
 local on_attach = require("utils").on_attach
 
 local servers = { "pyright", "cmake", "clangd", "rust_analyzer", "tsserver", "svelte", "html" }
+local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 for _, server in ipairs(servers) do
   lsp[server].setup {
     on_attach = on_attach,
+    capabilities = capabilities,
   }
 end
 
--- nvim-compe
-require("compe").setup {
-  source = {
-    path = true,
-    buffer = true,
-    calc = true,
-    spell = true,
-    tags = true,
-    nvim_lsp = true,
-    nvim_lua = true,
-    ultisnips = true,
+-- nvim-cmp
+local cmp = require "cmp"
+cmp.setup {
+  snippet = {
+    expand = function(args)
+      vim.fn["UltiSnips#Anon"](args.body)
+    end,
+  },
+  mapping = {
+    ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
+    ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
+    ["<C-k>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+    ["<C-e>"] = cmp.mapping {
+      i = cmp.mapping.abort(),
+      c = cmp.mapping.close(),
+    },
+    ["<CR>"] = cmp.mapping.confirm { select = true },
+    ["<Tab>"] = cmp.mapping {
+      c = function()
+        if cmp.visible() then
+          cmp.select_next_item { behavior = cmp.SelectBehavior.Insert }
+        else
+          cmp.complete()
+        end
+      end,
+      i = function(fallback)
+        if cmp.visible() then
+          cmp.select_next_item { behavior = cmp.SelectBehavior.Insert }
+        elseif vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
+          vim.api.nvim_feedkeys(t "<Plug>(ultisnips_jump_forward)", "m", true)
+        else
+          fallback()
+        end
+      end,
+      s = function(fallback)
+        if vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
+          vim.fn["UltiSnips#ExpandSnippet"]()
+        else
+          fallback()
+        end
+      end,
+    },
+    ["<S-Tab>"] = cmp.mapping {
+      c = function()
+        if cmp.visible() then
+          cmp.select_prev_item { behavior = cmp.SelectBehavior.Insert }
+        else
+          cmp.complete()
+        end
+      end,
+      i = function(fallback)
+        if cmp.visible() then
+          cmp.select_prev_item { behavior = cmp.SelectBehavior.Insert }
+        elseif vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
+          return vim.api.nvim_feedkeys(t "<Plug>(ultisnips_jump_backward)", "m", true)
+        else
+          fallback()
+        end
+      end,
+      s = function(fallback)
+        if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
+          return vim.api.nvim_feedkeys(t "<Plug>(ultisnips_jump_backward)", "m", true)
+        else
+          fallback()
+        end
+      end,
+    },
+  },
+  sources = cmp.config.sources {
+    { name = "nvim_lsp" },
+    { name = "ultisnips" },
+    { name = "buffer" },
   },
 }
 

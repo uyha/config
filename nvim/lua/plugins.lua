@@ -23,7 +23,7 @@ use {
     require("which-key").setup {}
   end,
 }
-use { "hrsh7th/nvim-compe" }
+use { "hrsh7th/nvim-cmp", requires = { { "hrsh7th/cmp-nvim-lsp" }, { "quangnguyen30192/cmp-nvim-ultisnips" } } }
 use { "kyazdani42/nvim-tree.lua" }
 use { "kyazdani42/nvim-web-devicons" }
 use { "lambdalisue/suda.vim" }
