@@ -102,6 +102,10 @@ make ${6:variables} install --jobs="$(nproc)"
 )
 endsnippet
 
+snippet fn
+$1(){$2}
+endsnippet
+
 snippet join
 join() {
   local delimiter=\$1 first=\$2
@@ -109,4 +113,8 @@ join() {
     printf "%s" "$first" "${@/#/$delimiter}"
   fi
 }
+endsnippet
+
+snippet trans
+$1=("\${$1[@]/$2/$3}")
 endsnippet
