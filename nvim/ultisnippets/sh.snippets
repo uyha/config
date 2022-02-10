@@ -36,16 +36,28 @@ uline="\e[4m"
 blinking="\e[5m"
 endsnippet
 
-snippet parse_args
+snippet parse "Parse command line arguments"
 while [[ $# -gt 0 ]]
 do
   case "\$1" in
+		$1
     *)
       printf "Unexcepted argument %s" "\$1"
       exit 1
       ;;
   esac
 done
+endsnippet
+
+snippet arg "Cases while parsing command line arguments"
+--$1|-$2)
+	$3=\$1
+	shift 2
+	;;
+--$1=*|-$2=*)
+	$3=\$(echo "\$1" | perl -pe 's/.*?=//')
+	shift 1
+	;;
 endsnippet
 
 snippet setup
