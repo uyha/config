@@ -38,7 +38,16 @@ use { "nvim-treesitter/playground" }
 use { "p00f/nvim-ts-rainbow" }
 use { "rust-lang/rust.vim" }
 use { "sbdchd/neoformat" }
-use { "sirver/UltiSnips" }
+use {
+  "sirver/UltiSnips",
+  config = function()
+    vim.g.UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
+    vim.g.UltiSnipsJumpForwardTrigger = "<Plug>(ultisnips_jump_forward)"
+    vim.g.UltiSnipsJumpBackwardTrigger = "<Plug>(ultisnips_jump_backward)"
+    vim.g.UltiSnipsListSnippets = "<c-x><c-s>"
+    vim.g.UltiSnipsRemoveSelectModeMappings = 0
+  end,
+}
 use { "tpope/vim-commentary" }
 use { "tpope/vim-fugitive" }
 use { "tpope/vim-surround" }
