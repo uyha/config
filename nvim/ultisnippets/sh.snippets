@@ -156,3 +156,7 @@ if [[ -r $1 ]]; then
 	$2=$(cat $1)$0
 fi
 endsnippet
+
+snippet errcho "Echo to stderr"
+echo >&2 "$1"
+endsnippet
