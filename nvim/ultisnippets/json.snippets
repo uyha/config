@@ -12,8 +12,9 @@ snippet cmake-preset
       "displayName": "Default Config",
       "description": "Default build using Ninja generator",
       "generator": "Ninja",
-      "binaryDir": "${sourceDir}/build/default",
+      "binaryDir": "${sourceDir}/build",
       "cacheVariables": {
+				"CPACK_GENERATOR": "DEB"
       },
       "environment": {
       }
