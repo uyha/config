@@ -149,3 +149,9 @@ endsnippet
 snippet nounused "Disable shellcheck for unused variable"
 #shellcheck disable=SC2034
 endsnippet
+
+snippet testassign "If a file is readable, assign its content to a variable"
+if [[ -r $1 ]]; then
+	$2=$(cat $1)$0
+fi
+endsnippet
