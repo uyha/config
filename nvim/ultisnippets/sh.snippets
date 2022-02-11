@@ -118,3 +118,11 @@ endsnippet
 snippet trans
 $1=("\${$1[@]/$2/$3}")
 endsnippet
+
+snippet "readconfig" "Read config from a key=value file"
+while read line; do
+	key="${line%%=*}"
+	value="${line#*=}"
+	eval $key="\\$value"
+done < $1
+endsnippet
