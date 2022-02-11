@@ -37,13 +37,14 @@ blinking="\e[5m"
 endsnippet
 
 snippet parse "Parse command line arguments"
+positional_args=()
 while [[ $# -gt 0 ]]
 do
   case "\$1" in
 		$1
     *)
-      printf "Unexcepted argument %s" "\$1"
-      exit 1
+			positional_args+=("\$1")
+			shift 1
       ;;
   esac
 done
