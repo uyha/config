@@ -119,10 +119,33 @@ snippet trans
 $1=("\${$1[@]/$2/$3}")
 endsnippet
 
-snippet "readconfig" "Read config from a key=value file"
-while read line; do
-	key="${line%%=*}"
-	value="${line#*=}"
-	eval $key="\\$value"
-done < $1
+snippet contain "Function for check if an array contains an value"
+contain() {
+	declare -n array=\$1
+	declare val=\$2
+	for elem in "\${array[@]}"; do
+		if [[ "$elem" == "$val" ]]; then
+			return 0
+		fi
+	done
+	return 1
+}
+endsnippet
+
+snippet readconfig "Read config from a key=value file"
+read-config() {
+	while read -r line; do
+		local key="${line%%=*}"
+		local value="${line#*=}"
+		if contain $1 "$key"; then
+			eval "declare -g \$key=\$value"
+		else
+			echo >&2 "Unrecognized key: \$key"
+		fi
+	done < $2
+}
+endsnippet
+
+snippet nounused "Disable shellcheck for unused variable"
+#shellcheck disable=SC2034
 endsnippet
