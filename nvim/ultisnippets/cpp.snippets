@@ -4,3 +4,41 @@ snippet "gen header"
 namespace $1{
 }
 endsnippet
+
+snippet "decl copycons" "Declare copy constructor"
+$1($1 const &other) noexcept;
+endsnippet
+
+snippet "dele copycons" "Delete copy constructor"
+$1($1 const &) = delete;
+endsnippet
+
+snippet "decl movecons" "Declare move constructor"
+$1($1 &&other) noexcept;
+endsnippet
+
+snippet "dele movecons" "Delete move constructor"
+$1($1 &&) = delete;
+endsnippet
+
+snippet "decl destructor" "Declare destructor"
+~$1() noexcept;
+endsnippet
+
+snippet "def fd object" "Defind a wrapper object for Linux file descriptor"
+class $1 {
+public:
+	$1($1 const &) = delete;
+	$1($1 &&other) noexcept;
+
+	auto operator=($1 const &) -> $1 & = delete;
+	auto operator=($1 &&other) noexcept -> $1 &;
+
+	~$1() noexcept;
+
+private:
+	$1(int fd) noexcept;
+
+	int m_fd;
+};
+endsnippet
