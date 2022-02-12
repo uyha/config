@@ -42,3 +42,26 @@ private:
 	int m_fd;
 };
 endsnippet
+
+snippet "def fd functions" "Define special member functions for a wrapper object for Linux file descriptor"
+$1::$1($1 &&other) noexcept
+    : m_fd{other.m_fd} {
+  other.m_fd = -1;
+}
+auto $1::operator=($1 &&other) noexcept -> $1 & {
+  m_fd       = other.m_fd;
+  other.m_fd = -1;
+
+  return *this;
+}
+
+$1::~$1() noexcept {
+  if (m_fd == -1) {
+    return;
+  }
+  ::$2(m_fd);
+}
+
+$1::$1(int fd) noexcept
+    : m_fd{fd} {}
+endsnippet
