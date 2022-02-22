@@ -65,3 +65,11 @@ $1::~$1() noexcept {
 $1::$1(int fd) noexcept
     : m_fd{fd} {}
 endsnippet
+
+snippet "map error" "Define function for mapping error to enum members"
+[[nodiscard]] ${1:static} constexpr auto map_$2_error(int ${3:error}) noexcept -> $4 {
+	switch($3) {
+	default: return static_cast<$4>($3);
+	}
+}
+endsnippet

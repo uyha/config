@@ -49,8 +49,8 @@ cmp.setup {
         end
       end,
       s = function(fallback)
-        if vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
-          vim.fn["UltiSnips#ExpandSnippet"]()
+        if vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
+          vim.api.nvim_feedkeys(t "<Plug>(ultisnips_jump_forward)", "m", true)
         else
           fallback()
         end
