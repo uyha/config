@@ -25,13 +25,13 @@ snippet "decl destructor" "Declare destructor"
 ~$1() noexcept;
 endsnippet
 
-snippet "def fd object" "Defind a wrapper object for Linux file descriptor"
+snippet "def fd class" "Defind a wrapper class for Linux file descriptor"
 class $1 {
 public:
 	$1($1 const &) = delete;
-	$1($1 &&other) noexcept;
-
 	auto operator=($1 const &) -> $1 & = delete;
+
+	$1($1 &&other) noexcept;
 	auto operator=($1 &&other) noexcept -> $1 &;
 
 	~$1() noexcept;
