@@ -86,8 +86,23 @@ cmp.setup {
     { name = "nvim_lsp" },
     { name = "ultisnips" },
     { name = "buffer" },
+    { name = "path" },
   },
 }
+
+cmp.setup.cmdline("/", {
+  sources = {
+    { name = "buffer" },
+  },
+})
+
+cmp.setup.cmdline(":", {
+  sources = cmp.config.sources({
+    { name = "path" },
+  }, {
+    { name = "cmdline" },
+  }),
+})
 
 -- nvim-treesitter
 require("nvim-treesitter.configs").setup {
