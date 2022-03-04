@@ -4,7 +4,7 @@ config-fzf() {
   local FZF_COMPLETION=$FZF_HOME/shell/completion.bash
   local FZF_KEY_BINDINGS=$FZF_HOME/shell/key-bindings.bash
 
-  [[ -d $FZF_BIN ]] && PATH+=:$FZF_BIN
+  [[ -d $FZF_BIN && ! "$PATH" =~ "$FZF_BIN" ]] && PATH+=:$FZF_BIN
   [[ -f $FZF_COMPLETION ]] && source $FZF_COMPLETION
   [[ -f $FZF_KEY_BINDINGS ]] && source $FZF_KEY_BINDINGS
 }

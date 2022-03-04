@@ -16,7 +16,7 @@ export XDG_CONFIG_HOME=$CONFIG
 export XDG_DATA_HOME=$LOCAL_SHARE
 export XDG_STATE_HOME=$LOCAL_STATE
 
-export PATH=$LOCAL_BIN:$XDG_DATA_HOME/lipm/runtime/bin:$PATH
+[[ "$PATH" =~ "$LOCAL_BIN:$XDG_DATA_HOME/lipm/runtime/bin:$PATH" ]] || export PATH=$LOCAL_BIN:$XDG_DATA_HOME/lipm/runtime/bin:$PATH
 
 export POETRY_HOME=$LOCAL_OPT/poetry
 export RUSTUP_HOME=$LOCAL_OPT/rustup
@@ -29,11 +29,11 @@ export LANG=en_US.UTF-8
 shopt -s globstar direxpand
 
 while IFS="<newline>" read dir; do
-  export PATH="$dir:$PATH"
+  [[ "$PATH" =~ "$dir" ]] || export PATH="$dir:$PATH"
 done < <(find $LOCAL_OPT -maxdepth 2 -mindepth 2 -type d -wholename '*/bin' -exec realpath {} \;)
 
 while IFS="<newline>" read pkg_config_dir; do
-  export PKG_CONFIG_PATH+="$pkg_config_dir:"
+  [[ "$PKG_CONFIG_PATH" =~ "$pkg_config_dir" ]] || export PKG_CONFIG_PATH+="$pkg_config_dir:"
 done < <(find $LOCAL_OPT -type f -name '*.pc' -exec dirname {} \; | xargs realpath | sort -u)
 
 if [[ -d $CONFIG/bash/config.d ]]; then
@@ -51,5 +51,4 @@ exists nvim && export MANPAGER='nvim +Man!'
 exists starship && eval "$(starship init bash)"
 
 unset -f exists
-unset nix_profile
 
