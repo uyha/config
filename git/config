@@ -11,3 +11,7 @@
   cmd="nvim -d \"$LOCAL\" \"$REMOTE\""
 [alias]
   dt = difftool
+[pager]
+  log=perl /usr/share/doc/git/contrib/diff-highlight/diff-highlight | less
+  show=perl /usr/share/doc/git/contrib/diff-highlight/diff-highlight | less
+  diff=perl /usr/share/doc/git/contrib/diff-highlight/diff-highlight | less
