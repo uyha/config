@@ -57,6 +57,7 @@ use {
     vim.g.UltiSnipsRemoveSelectModeMappings = 0
   end,
 }
+use { "tpope/vim-abolish" }
 use { "tpope/vim-commentary" }
 use { "tpope/vim-fugitive" }
 use { "tpope/vim-surround" }
