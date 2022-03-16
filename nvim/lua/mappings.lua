@@ -31,3 +31,4 @@ map(
   "<cmd> try | undojoin | Neoformat | catch /^Vim%((\a+))=:E790/ | finally | silent Neoformat | endtry<cr>"
 )
 
+map("", "<leader>g", "<cmd>tabnew +0G<cr>")
