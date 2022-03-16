@@ -73,3 +73,17 @@ snippet "map error" "Define function for mapping error to enum members"
 	}
 }
 endsnippet
+
+snippet "define error_category" "Define a category for an error_code"
+struct $1 : std::error_category {
+  auto name() const noexcept -> char const * {
+    return "$2";
+  }
+  auto message(int error) const -> std::string {
+    switch (static_cast<$3>(error)) {
+    /* default: return "Unknown error"; */
+    }
+  }
+} const $4{};
+
+endsnippet
