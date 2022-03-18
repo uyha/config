@@ -9,7 +9,7 @@ packer.init()
 use { "PProvost/vim-ps1" }
 use { "RRethy/nvim-base16" }
 use { "cespare/vim-toml" }
-use { "famiu/feline.nvim" }
+use { "feline-nvim/feline.nvim" }
 use {
   "folke/todo-comments.nvim",
   requires = "nvim-lua/plenary.nvim",
