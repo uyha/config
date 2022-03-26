@@ -1,0 +1,2 @@
+[requires]
+fmt/8.1.1

@@ -27,3 +27,6 @@
 !tmux/**
 
 !inputrc
+
+!conan
+!conan/**
