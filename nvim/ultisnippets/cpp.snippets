@@ -49,6 +49,8 @@ $1::$1($1 &&other) noexcept
   other.m_fd = -1;
 }
 auto $1::operator=($1 &&other) noexcept -> $1 & {
+	this->~$1();
+
   m_fd       = other.m_fd;
   other.m_fd = -1;
 
