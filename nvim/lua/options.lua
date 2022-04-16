@@ -14,6 +14,7 @@ opt("o", "guifont", "Comic Code:b") -- Use Comic Code font
 opt("o", "hidden", true) -- Enable background buffers
 opt("o", "ignorecase", true) -- Ignore case
 opt("o", "joinspaces", false) -- No double spaces with join
+opt("o", "laststatus", 3) -- Make status line global
 opt("o", "mouse", "a") -- Enable mouse scrolling
 opt("o", "pastetoggle", "<F2>") -- Paste mode
 opt("o", "scrolloff", 4) -- Lines of context
