@@ -1,31 +1,11 @@
-snippet "gen header"
+snippet "header"
 #pragma once
 
 namespace $1{
 }
 endsnippet
 
-snippet "decl copycons" "Declare copy constructor"
-$1($1 const &other) noexcept;
-endsnippet
-
-snippet "dele copycons" "Delete copy constructor"
-$1($1 const &) = delete;
-endsnippet
-
-snippet "decl movecons" "Declare move constructor"
-$1($1 &&other) noexcept;
-endsnippet
-
-snippet "dele movecons" "Delete move constructor"
-$1($1 &&) = delete;
-endsnippet
-
-snippet "decl destructor" "Declare destructor"
-~$1() noexcept;
-endsnippet
-
-snippet "def fd class" "Defind a wrapper class for Linux file descriptor"
+snippet "fd-cls" "Defind a wrapper class for Linux file descriptor"
 class $1 {
 public:
 	$1($1 const &) = delete;
@@ -43,7 +23,7 @@ private:
 };
 endsnippet
 
-snippet "def fd functions" "Define special member functions for a wrapper object for Linux file descriptor"
+snippet "fd-fn" "Define special member functions for a wrapper object for Linux file descriptor"
 $1::$1($1 &&other) noexcept
     : m_fd{other.m_fd} {
   other.m_fd = -1;
@@ -68,15 +48,7 @@ $1::$1(int fd) noexcept
     : m_fd{fd} {}
 endsnippet
 
-snippet "map error" "Define function for mapping error to enum members"
-[[nodiscard]] ${1:static} constexpr auto map_$2_error(int ${3:error}) noexcept -> $4 {
-	switch($3) {
-	default: return static_cast<$4>($3);
-	}
-}
-endsnippet
-
-snippet "define error_category" "Define a category for an error_code"
+snippet "error-category" "Define a category for an error_code"
 struct $1 : std::error_category {
   auto name() const noexcept -> char const * {
     return "$2";
