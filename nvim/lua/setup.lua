@@ -128,6 +128,7 @@ require("indent_blankline").setup {}
 require("nvim-tree").setup {
   view = {
     auto_resize = false,
+    relativenumber = true,
   },
   git = {
     ignore = true,
