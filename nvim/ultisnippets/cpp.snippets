@@ -1,11 +1,11 @@
-snippet "header"
+snippet header
 #pragma once
 
 namespace $1{
 }
 endsnippet
 
-snippet "fd-cls" "Defind a wrapper class for Linux file descriptor"
+snippet fd-cls "Defind a wrapper class for Linux file descriptor"
 class $1 {
 public:
 	$1($1 const &) = delete;
@@ -23,7 +23,7 @@ private:
 };
 endsnippet
 
-snippet "fd-fn" "Define special member functions for a wrapper object for Linux file descriptor"
+snippet fd-fn "Define special member functions for a wrapper object for Linux file descriptor"
 $1::$1($1 &&other) noexcept
     : m_fd{other.m_fd} {
   other.m_fd = -1;
@@ -48,7 +48,7 @@ $1::$1(int fd) noexcept
     : m_fd{fd} {}
 endsnippet
 
-snippet "error-category" "Define a category for an error_code"
+snippet error-category "Define a category for an error_code"
 struct $1 : std::error_category {
   auto name() const noexcept -> char const * {
     return "$2";
