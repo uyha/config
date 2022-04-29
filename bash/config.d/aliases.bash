@@ -1,6 +1,6 @@
 # shellcheck shell=bash
 if exists exa; then
-  alias ls="exa"
+  alias ls="exa --icons"
   alias tree="ls --tree"
 fi
 alias la="ls -a"
