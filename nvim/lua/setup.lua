@@ -127,7 +127,6 @@ require("indent_blankline").setup {}
 -- nvim-tree.lua
 require("nvim-tree").setup {
   view = {
-    auto_resize = false,
     relativenumber = true,
   },
   git = {
