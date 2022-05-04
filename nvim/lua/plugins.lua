@@ -47,6 +47,7 @@ use { "nvim-treesitter/playground" }
 use { "p00f/nvim-ts-rainbow" }
 use { "rust-lang/rust.vim" }
 use { "sbdchd/neoformat" }
+use { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" }
 use {
   "sirver/UltiSnips",
   config = function()
