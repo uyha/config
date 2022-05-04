@@ -30,3 +30,6 @@
 
 !conan
 !conan/**
+
+!alacritty
+!alacritty/**
