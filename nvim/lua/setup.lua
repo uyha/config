@@ -146,3 +146,6 @@ require("lint").linters_by_ft = {
   sh = { "shellcheck" },
 }
 require("lint").linters.shellcheck.args = { "-x", "--format", "json", "-" }
+
+require("onedark").setup { style = "darker" }
+require("onedark").load()

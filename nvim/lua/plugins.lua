@@ -6,8 +6,6 @@ local use = packer.use
 
 packer.init()
 
-use { "PProvost/vim-ps1" }
-use { "RRethy/nvim-base16" }
 use { "cespare/vim-toml" }
 use { "feline-nvim/feline.nvim" }
 use {
@@ -39,12 +37,13 @@ use { "lambdalisue/suda.vim" }
 use { "lukas-reineke/indent-blankline.nvim" }
 use { "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } }
 use { "mfussenegger/nvim-lint" }
-use { "wgwoods/vim-systemd-syntax" }
+use { "navarasu/onedark.nvim" }
 use { "neovim/nvim-lspconfig" }
 use { "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } } }
 use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 use { "nvim-treesitter/playground" }
 use { "p00f/nvim-ts-rainbow" }
+use { "PProvost/vim-ps1" }
 use { "rust-lang/rust.vim" }
 use { "sbdchd/neoformat" }
 use { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" }
@@ -63,3 +62,4 @@ use { "tpope/vim-commentary" }
 use { "tpope/vim-fugitive" }
 use { "tpope/vim-surround" }
 use { "wbthomason/packer.nvim", opt = true }
+use { "wgwoods/vim-systemd-syntax" }
