@@ -1,34 +1,37 @@
 local map = require("utils").map
-map("", "<leader>y", '"+y')
-map("", "<leader>p", '"+p')
+opt = { silent = true }
 
-map("", "<C-n>", ":NvimTreeToggle<CR>")
+map("", "<leader>y", '"+y', opt)
+map("", "<leader>p", '"+p', opt)
+
+map("", "<C-n>", ":NvimTreeToggle<CR>", opt)
 
 -- Windows movements
-map("", "<leader>-", ":resize -5<CR>")
-map("", "<leader>=", ":resize +5<CR>")
-map("", "<leader>,", ":vertical resize -5<CR>")
-map("", "<leader>.", ":vertical resize +5<CR>")
+map("", "<leader>-", ":resize -5<CR>", opt)
+map("", "<leader>=", ":resize +5<CR>", opt)
+map("", "<leader>,", ":vertical resize -5<CR>", opt)
+map("", "<leader>.", ":vertical resize +5<CR>", opt)
 
-map("", "<C-h>", "<C-w>h")
-map("", "<C-j>", "<C-w>j")
-map("", "<C-k>", "<C-w>k")
-map("", "<C-l>", "<C-w>l")
+map("", "<C-h>", "<C-w>h", opt)
+map("", "<C-j>", "<C-w>j", opt)
+map("", "<C-k>", "<C-w>k", opt)
+map("", "<C-l>", "<C-w>l", opt)
 
 -- Make escape works in terminal emulator
-map("t", "<Esc>", "<C-\\><C-n>")
+map("t", "<Esc>", "<C-\\><C-n>", opt)
 
 -- telescope.vim
-map("", "<leader>ff", "<cmd> Telescope find_files<cr>")
-map("", "<leader>fg", "<cmd> Telescope live_grep<cr>")
-map("", "<leader>fb", "<cmd> Telescope buffers<cr>")
-map("", "<leader>fh", "<cmd> Telescope help_tags<cr>")
+map("", "<leader>ff", "<cmd> Telescope find_files<cr>", opt)
+map("", "<leader>fg", "<cmd> Telescope live_grep<cr>", opt)
+map("", "<leader>fb", "<cmd> Telescope buffers<cr>", opt)
+map("", "<leader>fh", "<cmd> Telescope help_tags<cr>", opt)
 
 -- neoformat
 map(
   "",
   "<leader>F",
-  "<cmd> try | undojoin | Neoformat | catch /^Vim%((\a+))=:E790/ | finally | silent Neoformat | endtry<cr>"
+  "<cmd> try | undojoin | Neoformat | catch /^Vim%((\a+))=:E790/ | finally | silent Neoformat | endtry<cr>",
+  opt
 )
 
-map("", "<leader>g", "<cmd>tabnew +0G<cr>")
+map("", "<leader>g", "<cmd>tabnew +0G<cr>", opt)
