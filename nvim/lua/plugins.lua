@@ -6,6 +6,7 @@ local use = packer.use
 
 packer.init()
 
+use { "akinsho/bufferline.nvim" }
 use { "cespare/vim-toml" }
 use { "feline-nvim/feline.nvim" }
 use {

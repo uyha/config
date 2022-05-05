@@ -35,3 +35,7 @@ map(
 )
 
 map("", "<leader>g", "<cmd>tabnew +0G<cr>", opt)
+
+-- bufferline.nvim
+map("", "<leader>[", ":BufferLineCyclePrev<CR>", opt)
+map("", "<leader>]", ":BufferLineCycleNext<CR>", opt)
