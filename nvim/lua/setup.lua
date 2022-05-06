@@ -150,4 +150,8 @@ require("lint").linters.shellcheck.args = { "-x", "--format", "json", "-" }
 require("onedark").setup { style = "darker" }
 require("onedark").load()
 
-require("bufferline").setup {}
+require("bufferline").setup {
+  options = {
+    offsets = { { filetype = "NvimTree", text = "File Explorer", text_align = "left" } },
+  },
+}

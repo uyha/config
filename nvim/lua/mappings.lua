@@ -5,6 +5,7 @@ map("", "<leader>y", '"+y', opt)
 map("", "<leader>p", '"+p', opt)
 
 map("", "<C-n>", ":NvimTreeToggle<CR>", opt)
+map("", "<leader>g", ":G ++curwin<CR>", opt)
 
 -- Windows movements
 map("", "<leader>-", ":resize -5<CR>", opt)
@@ -34,7 +35,6 @@ map(
   opt
 )
 
-map("", "<leader>g", "<cmd>tabnew +0G<cr>", opt)
 
 -- bufferline.nvim
 map("", "<leader>[", ":BufferLineCyclePrev<CR>", opt)
