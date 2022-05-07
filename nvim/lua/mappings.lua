@@ -35,7 +35,6 @@ map(
   opt
 )
 
-
 -- bufferline.nvim
-map("", "<leader>[", ":BufferLineCyclePrev<CR>", opt)
-map("", "<leader>]", ":BufferLineCycleNext<CR>", opt)
+map("", "<M-[>", ":BufferLineCyclePrev<CR>", opt)
+map("", "<M-]>", ":BufferLineCycleNext<CR>", opt)
