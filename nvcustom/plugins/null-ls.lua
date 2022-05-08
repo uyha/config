@@ -9,16 +9,20 @@ return {
       null_ls.setup {
          debug = true,
          sources = {
+            -- Web stuff
             formatting.prettierd.with { filetypes = { "html", "markdown", "css" } },
             formatting.deno_fmt,
 
+            -- Lua
             formatting.stylua,
             diagnostics.luacheck.with { extra_args = { "--globals vim" } },
 
-            formatting.shfmt.with {
-               extra_args = {"-i", "2"},
-            },
+            -- Shell
+            formatting.shfmt.with { extra_args = { "-i", "2" } },
             diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
+
+            -- C/C++
+            formatting.clang_format,
          },
          on_attach = function(client)
             if client.resolved_capabilities.document_formatting then
