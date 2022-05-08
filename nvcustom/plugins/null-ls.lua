@@ -15,7 +15,7 @@ return {
 
             -- Lua
             formatting.stylua,
-            diagnostics.luacheck.with { extra_args = { "--globals vim" } },
+            diagnostics.luacheck.with { extra_args = { "--globals", "vim" } },
 
             -- Shell
             formatting.shfmt.with { extra_args = { "-i", "2" } },
