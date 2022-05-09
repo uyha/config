@@ -1,6 +1,6 @@
 local M = {}
 
-M.ui = { theme = "tokyodark" }
+M.ui = { theme = "onedark" }
 
 M.plugins = {
    user = require "custom.plugins",
