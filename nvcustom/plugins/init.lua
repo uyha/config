@@ -8,4 +8,11 @@ return {
    ["tpope/vim-abolish"] = {},
    ["tpope/vim-fugitive"] = {},
    ["tpope/vim-surround"] = {},
+   ["L3MON4D3/LuaSnip"] = {
+      wants = "friendly-snippets",
+      after = "nvim-cmp",
+      config = function()
+         require("custom.plugins.luasnip").setup()
+      end,
+   },
 }
