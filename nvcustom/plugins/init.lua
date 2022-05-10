@@ -15,4 +15,5 @@ return {
          require("custom.plugins.luasnip").setup()
       end,
    },
+   ["wgwoods/vim-systemd-syntax"] = {},
 }
