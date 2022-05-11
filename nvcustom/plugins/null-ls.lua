@@ -2,7 +2,7 @@ local null_ls = require "null-ls"
 local builtins = null_ls.builtins
 local formatting = builtins.formatting
 local diagnostics = builtins.diagnostics
-local map = require("core.utils").map
+local map = nvchad.map
 
 return {
    setup = function()
