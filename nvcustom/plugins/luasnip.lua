@@ -26,6 +26,63 @@ local function add_snippets()
       }),
    })
    -- stylua: ignore end
+
+   local cmake_generators = {
+      t "Unix Makefiles",
+      t "Ninja",
+      t "Green Hills MULTI",
+      t "Ninja Multi-Config",
+      t "Watcom WMake",
+      t "CodeBlocks - Ninja",
+      t "CodeBlocks - Unix Makefiles",
+      t "CodeLite - Ninja",
+      t "CodeLite - Unix Makefiles",
+      t "Eclipse CDT4 - Ninja",
+      t "Eclipse CDT4 - Unix Makefiles",
+      t "Kate - Ninja",
+      t "Kate - Unix Makefiles",
+      t "Sublime Text 2 - Ninja",
+      t "Sublime Text 2 - Unix Makefiles",
+   }
+   -- stylua: ignore start
+   ls.add_snippets("json", {
+      s("cmake-preset", {
+         t { [=[{]=], ""},
+         t { [=[  "version": ]=] }, i(1, "3"), t { ",", '' },
+         t { [=[  "cmakeMinimumRequired": {]=], '' },
+         t { [=[    "major": ]=] }, i(2, "3"), t { ",", '' },
+         t { [=[    "minor": ]=] }, i(3, "21"), t { ",", '' },
+         t { [=[    "patch": ]=] }, i(4, "0"), t { '', '' },
+         t { [=[  },]=], "" },
+         t { [=[  "configurePresets": [],]=], '' },
+         t { [=[  "buildPresets": [],]=], ''},
+         t { [=[  "testPresets": []]=], ''},
+         t { [=[}]=]},
+      }),
+      s("cmake-config-preset", {
+        t { [=[{]=], ""},
+        t { [=[  "name": "]=] }, i(1, "name"), t {'",', ''},
+        t { [=[  "displayName": "]=] }, i(2, "Display Name"), t {'",', ''},
+        t { [=[  "description": "]=] }, i(3, "Description for this preset"), t {'",', ''},
+        t { [=[  "generator": "]=] }, c(4, cmake_generators), t {'",', ''},
+        t { [=[  "toolchainFile": "]=]}, i(5, "path/to/toolchain"), t {'",', ''},
+        t { [=[  "binaryDir": "]=]}, i(6, "${sourceDir}/cmake-build-${presetName}"), t {'",', ''},
+        t { [=[  "cacheVariables": {},]=], "" },
+        t { [=[  "environment": {}]=], "" },
+        t { [=[}]=]},
+      }),
+      s("cmake-build-preset", {
+        t { [=[{]=], ""},
+        t { [=[  "name": "]=] }, i(1, "name"), t {'",', ''},
+        t { [=[  "displayName": "]=] }, i(2, "Display Name"), t {'",', ''},
+        t { [=[  "description": "]=] }, i(3, "Description for this preset"), t {'",', ''},
+        t { [=[  "environment": {},]=], "" },
+        t { [=[  "configurePreset": "]=] }, i(4, "configureName"), t {'",', ''},
+        t { [=[  "targets": []]=], "" },
+        t { [=[}]=]},
+      })
+   })
+   -- stylua: ignore end
 end
 
 M.setup = function()
