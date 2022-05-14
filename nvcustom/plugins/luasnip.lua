@@ -42,6 +42,7 @@ local function add_snippets()
    local fmt = require("luasnip.extras.fmt").fmt
    local m = require("luasnip.extras").m
    local lambda = require("luasnip.extras").l
+   local rp = require("luasnip.extras").rep
 
    -- stylua: ignore start
    ls.add_snippets("cmake", {
@@ -123,6 +124,110 @@ local function add_snippets()
        t { [=[    }]=], '' },
        t { [=[  }]=], '' },
        t { [=[} ]=] },  lambda(snake_case(lambda._1), 1), t ';'
+     })
+   })
+   -- stylua: ignore end
+
+   -- stylua: ignore start
+   ls.add_snippets("sh", {
+     s("bash", {
+       t { [=[#!/usr/bin/env bash]=], '' },
+       t { '', '' },
+       t { [=[set -euo pipefail]=], '' },
+       t { [=[# shellcheck disable=SC2034]=], '' },
+       t { [=[SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)]=] }
+     }),
+     s("colors", {
+       t { [=[black="\e[30m"]=], '' },
+       t { [=[red="\e[31m"]=], '' },
+       t { [=[green="\e[32m"]=], '' },
+       t { [=[brown="\e[33m"]=], '' },
+       t { [=[blue="\e[34m"]=], '' },
+       t { [=[purple="\e[35m"]=], '' },
+       t { [=[cyan="\e[36m"]=], '' },
+       t { [=[gray="\e[37m"]=], '' },
+       t { '', '' },
+       t { [=[black_bg="\e[40m"]=], '' },
+       t { [=[red_bg="\e[41m"]=], '' },
+       t { [=[green_bg="\e[42m"]=], '' },
+       t { [=[brown_bg="\e[43m"]=], '' },
+       t { [=[blue_bg="\e[44m"]=], '' },
+       t { [=[purple_bg="\e[45m"]=], '' },
+       t { [=[cyan_bg="\e[46m"]=], '' },
+       t { [=[gray_bg="\e[47m"]=], '' },
+       t { [=[reset="\e[0m"]=], '' },
+       t { '', '' },
+       t { [=[bold="\e[1m"]=], '' },
+       t { [=[uline="\e[4m"]=], '' },
+       t { [=[blinking="\e[5m"]=], '' },
+     }),
+     s("parse", {
+       t { [=[positional_args=()]=], '' },
+       t { [=[while [[ $# -gt 0 ]]]=], '' },
+       t { [=[do]=], '' },
+       t { [=[  case "$1" in]=], '' },
+       t { [=[  ]=]}, i(1), t { '', '' },
+       t { [=[  *)]=], '' },
+       t { [=[    positional_args+=("\$1")]=], '' },
+       t { [=[    shift 1]=], '' },
+       t { [=[    ;;]=], '' },
+       t { [=[  esac]=], '' },
+       t { [=[done]=], '' },
+     }),
+     s("arg", {
+       t { [=[--]=] }, i(1), t '|-', i(2), t { ')', '' },
+       t { [=[  ]=]}, i(3), t { '=$2', '' },
+       t { [=[  shift 2]=], '' },
+       t { [=[  ;;]=], '' },
+       t { [=[--]=] }, rp(1), t { '=*)', '' },
+       t { [=[  ]=]}, rp(3), t '="${1#--', rp(1), t { '=}"', '' },
+       t { [=[  shift 1]=], '' },
+       t { [=[  ;;]=], '' },
+       t { [=[-]=]}, rp(2), t { '=*)', '' },
+       t { [=[  ]=]}, rp(3), t '="${1#-', rp(2), t { '=}"', '' },
+       t { [=[  shift 1]=], '' },
+       t { [=[  ;;]=], '' },
+       t { [=[-]=]}, rp(2), t { '*)', '' },
+       t { [=[  ]=]}, rp(3), t '="${1#-', rp(2), t { '}"', '' },
+       t { [=[  shift 1]=], '' },
+       t { [=[  ;;]=], '' },
+     }),
+     s("join", {
+       t { [=[join() {]=], '' },
+       t { [=[  local delimiter=$1 first=$2]=], '' },
+       t { [=[  if shift 2; then]=], '' },
+       t { [=[    printf "%s" "$first" "${@/#/$delimiter}"]=], '' },
+       t { [=[  fi]=], '' },
+       t { [=[}]=], '' },
+     }),
+     s("contain", {
+       t { [=[contain() {]=], '' },
+       t { [=[  declare -n array=$1]=], '' },
+       t { [=[  declare val=$2]=], '' },
+       t { [=[  for elem in "${array[@]}"; do]=], '' },
+       t { [=[    if [[ "$elem" == "$val" ]]; then]=], '' },
+       t { [=[      return 0]=], '' },
+       t { [=[    fi]=], '' },
+       t { [=[  done]=], '' },
+       t { [=[  return 1]=], '' },
+       t { [=[}]=], '' },
+     }),
+     s("readconfig", {
+       t { [=[read-config() {]=], '' },
+       t { [=[  while read -r line; do]=], '' },
+       t { [=[    local key="${line%%=*}"]=], '' },
+       t { [=[    # shellcheck disable=SC2034]=], ''},
+       t { [=[    local value="${line#*=}"]=], '' },
+       t { [=[    if contain "$1" "$key"; then]=], '' },
+       t { [=[      eval "declare -g \$key=\$value"]=], '' },
+       t { [=[    else]=], '' },
+       t { [=[      echo >&2 "Unrecognized key: \$key"]=], '' },
+       t { [=[    fi]=], '' },
+       t { [=[  done < "$2"]=], '' },
+       t { [=[}]=], '' },
+     }),
+     s("nounused", {
+       t { [=[#shellcheck disable=SC2034]=] }
      })
    })
    -- stylua: ignore end
