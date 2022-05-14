@@ -43,15 +43,3 @@ snippet fd-fn
   
   ${1}::${1}(int fd) noexcept
       : m_fd{fd} {}
-
-snippet error-category
-  struct ${1} : std::error_category {
-    auto name() const noexcept -> char const * {
-      return "${2}";
-    }
-    auto message(int error) const -> std::string {
-      switch (static_cast<${3}>(error)) {
-      /* default: return "Unknown error"; */
-      }
-    }
-  } const ${4}{};

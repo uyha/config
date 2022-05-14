@@ -109,6 +109,23 @@ local function add_snippets()
       })
    })
    -- stylua: ignore end
+
+   -- stylua: ignore start
+   ls.add_snippets("cpp", {
+     s("error-category", {
+       t { [=[struct ]=]}, i(1), t { [=[ : std::error_category {]=], '' },
+       t { [=[  auto name() const noexcept -> char const * {]=], '' },
+       t { [=[    return "]=] }, i(2), t { '";', '' },
+       t { [=[  }]=], '' },
+       t { [=[  auto messages(int error) const -> std::string {]=], '' },
+       t { [=[    switch (static_cast<]=]}, i(3), t { [=[>(error)) {]=], '' },
+       t { [=[    // default: return "Unknown error";]=], '' },
+       t { [=[    }]=], '' },
+       t { [=[  }]=], '' },
+       t { [=[} ]=] },  lambda(snake_case(lambda._1), 1), t ';'
+     })
+   })
+   -- stylua: ignore end
 end
 
 M.setup = function()
