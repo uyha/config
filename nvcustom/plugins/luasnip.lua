@@ -231,6 +231,49 @@ local function add_snippets()
      })
    })
    -- stylua: ignore end
+
+   -- stylua: ignore start
+   ls.add_snippets("systemd", {
+     s("service", {
+       t { [=[[Unit]]=], '' },
+       t { [=[Description=]=] }, i(1), t { '', '' },
+       t { [=[Requires=]=], '' },
+       t { [=[After=]=], '' },
+       t { '' , '' },
+       t { [=[[Service]]=], '' },
+       t { [=[Type=]=] }, i(2), t { '', '' },
+       t { [=[ExecStart=]=] }, i(3), t { '', '' },
+       t { [=[Restart=]=], '' },
+       t { '' , '' },
+       t { [=[[Install]]=], '' },
+       t { [=[WantedBy=multi-user.target]=], '' },
+     }),
+     s("path", {
+       t { [=[[Unit]]=], '' },
+       t { [=[Description=]=] }, i(1), t { '', '' },
+       t { '' , '' },
+       t { [=[[Path]]=], '' },
+       t { [=[PathChanged=]=] }, i(2), t { '', '' },
+       t { [=[Unit=]=] }, i(3), t { '', '' },
+       t { '' , '' },
+       t { [=[[Install]]=], '' },
+       t { [=[WantedBy=multi-user.target]=], '' },
+     }),
+     s("mount", {
+       t { [=[[Unit]]=], '' },
+       t { [=[Description=]=] }, i(1), t { '', '' },
+       t { [=[Requires=]=], '' },
+       t { [=[After=]=], '' },
+       t { '' , '' },
+       t { [=[[Mount]]=], '' },
+       t { [=[What=]=] }, i(2), t { '', '' },
+       t { [=[Where=]=] }, i(3), t { '', '' },
+       t { '' , '' },
+       t { [=[[Install]]=], '' },
+       t { [=[WantedBy=multi-user.target]=], '' },
+     })
+   })
+   -- stylua: ignore end
 end
 
 M.setup = function()
