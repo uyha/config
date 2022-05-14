@@ -93,18 +93,18 @@ local function add_snippets()
         t { [=[  "generator": "]=] }, c(4, cmake_generators), t {'",', ''},
         t { [=[  "toolchainFile": "]=]}, i(5, "path/to/toolchain"), t {'",', ''},
         t { [=[  "binaryDir": "]=]}, i(6, "${sourceDir}/cmake-build-${presetName}"), t {'",', ''},
-        t { [=[  "cacheVariables": {},]=], "" },
+        t { [=[  "cacheVariables": {},]=], '' },
         t { [=[  "environment": {}]=], "" },
         t { [=[}]=]},
       }),
       s("cmake-build-preset", {
-        t { [=[{]=], ""},
+        t { [=[{]=], ''},
         t { [=[  "name": "]=] }, i(1, "name"), t {'",', ''},
         t { [=[  "displayName": "]=] }, i(2, "Display Name"), t {'",', ''},
         t { [=[  "description": "]=] }, i(3, "Description for this preset"), t {'",', ''},
-        t { [=[  "environment": {},]=], "" },
+        t { [=[  "environment": {},]=], '' },
         t { [=[  "configurePreset": "]=] }, i(4, "configureName"), t {'",', ''},
-        t { [=[  "targets": []]=], "" },
+        t { [=[  "targets": []]=], '' },
         t { [=[}]=]},
       })
    })
