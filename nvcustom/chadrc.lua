@@ -9,17 +9,7 @@ M.plugins = {
          setup_lspconf = "custom.plugins.lspconfig",
       },
    },
-   override = {
-      ["NvChad/nvterm"] = {
-         mappings = {
-            toggle = {
-               float = "<A-i>",
-               horizontal = "<A-t>",
-               vertical = "<A-v>",
-            },
-         },
-      },
-   },
 }
 
+M.mappings = require "custom.mappings"
 return M
