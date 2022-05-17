@@ -1,56 +1,36 @@
 local M = {}
 
+local function termcodes(str)
+   return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+M.general = {
+   n = {
+      ["<leader>g"] = { "<cmd>:G ++curwin<CR>", " open git" },
+   },
+   t = {
+      ["jk"] = "",
+      ["<C-x>"] = { termcodes "<C-\\><C-N>", "   escape terminal mode" },
+   },
+}
+
 M.nvterm = {
    t = {
-      ["<A-i>"] = {
-         function()
-            require("nvterm.terminal").toggle "float"
-         end,
-         "   toggle floating term",
-      },
+      ["<A-h>"] = "",
       ["<A-t>"] = {
          function()
             require("nvterm.terminal").toggle "horizontal"
          end,
          "   toggle horizontal term",
-      },
-      ["<A-v>"] = {
-         function()
-            require("nvterm.terminal").toggle "vertical"
-         end,
-         "   toggle vertical term",
       },
    },
    n = {
-      ["<A-i>"] = {
-         function()
-            require("nvterm.terminal").toggle "float"
-         end,
-         "   toggle floating term",
-      },
+      ["<A-h>"] = "",
       ["<A-t>"] = {
          function()
             require("nvterm.terminal").toggle "horizontal"
          end,
          "   toggle horizontal term",
-      },
-      ["<A-v>"] = {
-         function()
-            require("nvterm.terminal").toggle "vertical"
-         end,
-         "   toggle vertical term",
-      },
-      ["<leader>h"] = {
-         function()
-            require("nvterm.terminal").new "horizontal"
-         end,
-         "   new horizontal term",
-      },
-      ["<leader>v"] = {
-         function()
-            require("nvterm.terminal").new "vertical"
-         end,
-         "   new vertical term",
       },
    },
 }
