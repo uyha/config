@@ -9,14 +9,12 @@ M.general = {
       ["<leader>g"] = { "<cmd>:G ++curwin<CR>", " open git" },
    },
    t = {
-      ["jk"] = "",
       ["<C-x>"] = { termcodes "<C-\\><C-N>", "   escape terminal mode" },
    },
 }
 
 M.nvterm = {
    t = {
-      ["<A-h>"] = "",
       ["<A-t>"] = {
          function()
             require("nvterm.terminal").toggle "horizontal"
@@ -25,13 +23,22 @@ M.nvterm = {
       },
    },
    n = {
-      ["<A-h>"] = "",
       ["<A-t>"] = {
          function()
             require("nvterm.terminal").toggle "horizontal"
          end,
          "   toggle horizontal term",
       },
+   },
+}
+
+M.disabled = {
+   n = {
+      ["<A-h>"] = "",
+   },
+   t = {
+      ["jk"] = "",
+      ["<A-h>"] = "",
    },
 }
 
