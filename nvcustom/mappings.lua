@@ -7,6 +7,12 @@ end
 M.general = {
    n = {
       ["<leader>g"] = { "<cmd>:G ++curwin<CR>", " open git" },
+      ["<leader>e"] = {
+         function()
+            vim.diagnostic.open_float()
+         end,
+         " open diagnostic on a floating window"
+      },
    },
    t = {
       ["<C-x>"] = { termcodes "<C-\\><C-N>", "   escape terminal mode" },

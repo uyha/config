@@ -30,9 +30,6 @@ return {
                   vim.lsp.buf.formatting()
                end)
             end
-            map("n", "<leader>e", function()
-               vim.diagnostic.open_float()
-            end)
          end,
       }
    end,
