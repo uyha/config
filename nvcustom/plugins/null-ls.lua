@@ -23,6 +23,9 @@ return {
 
             -- C/C++
             formatting.clang_format,
+
+            -- Python
+            formatting.black,
          },
          on_attach = function(client)
             if client.resolved_capabilities.document_formatting then
