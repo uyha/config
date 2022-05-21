@@ -36,3 +36,6 @@
 
 !nvcustom
 !nvcustom/**
+
+!gitui
+!gitui/**
