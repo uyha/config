@@ -53,6 +53,11 @@ if exists tmux &&
   exec tmux
 fi
 
+# Setup ssh-agent
+eval "$(ssh-agent -s)" >/dev/null
+ssh-add "$HOME"/.ssh/personal 2>/dev/null
+ssh-add "$HOME"/.ssh/work 2>/dev/null
+
 # Use `nvim` as the man page viewr if it exists
 exists nvim && export MANPAGER='nvim +Man!'
 exists starship && eval "$(starship init bash)"
