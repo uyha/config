@@ -161,6 +161,9 @@ local function add_snippets()
        t { [=[uline="\e[4m"]=], '' },
        t { [=[blinking="\e[5m"]=], '' },
      }),
+     s("paint", {
+       t { [=[${]=] }, i(1), t'}', i(2), t'${reset}', i(0)
+     }),
      s("parse", {
        t { [=[positional_args=()]=], '' },
        t { [=[while [[ $# -gt 0 ]]]=], '' },
