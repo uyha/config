@@ -18,3 +18,8 @@ exists nvim && alias vim="nvim"
 exists bat && alias cat="bat"
 exists lazygit && alias lzgit="lazygit"
 exists fdfind && alias fd="fdfind"
+
+if exists git; then
+  alias pgit="GIT_SSH_COMMAND='ssh -i ~/.ssh/personal' git"
+  alias wgit="GIT_SSH_COMMAND='ssh -i ~/.ssh/work' git"
+fi
