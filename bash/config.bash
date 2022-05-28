@@ -6,17 +6,12 @@ exists() {
   return $?
 }
 
-# Prevent * glob becoming literal when none is match
-shopt -s nullglob
+source "$HOME/.config/bash/env-var.bash"
+source "$HOME/.config/bash/shell-options.bash"
 
-# Allow **
-shopt -s globstar
 
-# When the shell exits, append to the history file instead of overwriting it
-shopt -s histappend
-
-if [[ -d $CONFIG/bash/config.d ]]; then
-  for config_file in "$CONFIG/bash/config.d"/*.bash; do
+if [[ -d $HOME/.config/bash/config.d ]]; then
+  for config_file in "$HOME/.config/bash/config.d"/*.bash; do
     source "$config_file"
   done
 fi
