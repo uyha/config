@@ -2,7 +2,6 @@ local null_ls = require "null-ls"
 local builtins = null_ls.builtins
 local formatting = builtins.formatting
 local diagnostics = builtins.diagnostics
-local map = nvchad.map
 
 return {
    setup = function()
@@ -29,7 +28,7 @@ return {
          },
          on_attach = function(client)
             if client.resolved_capabilities.document_formatting then
-               map("n", "<leader>fm", function()
+               vim.keymap.set("n", "<leader>fm", function()
                   vim.lsp.buf.formatting()
                end)
             end
