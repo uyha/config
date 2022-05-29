@@ -1,10 +1,10 @@
 # shellcheck shell=bash
 
-# Prevent * glob becoming literal when none is match
-shopt -s nullglob
+options=(
+  nullglob   # Prevent * glob becoming literal when none is match
+  globstar   # Allow **
+  histappend # When the shell exits, append to the history file instead of overwriting it
+  direxpand  # Expand variable when using tab
+)
 
-# Allow **
-shopt -s globstar
-
-# When the shell exits, append to the history file instead of overwriting it
-shopt -s histappend
+shopt -s "${options[@]}"
