@@ -160,6 +160,8 @@ local function add_snippets()
        t { [=[bold="\e[1m"]=], '' },
        t { [=[uline="\e[4m"]=], '' },
        t { [=[blinking="\e[5m"]=], '' },
+       t { '', ''},
+       t { [=[clear="\033[0K\r"]=]}
      }),
      s("paint", {
        t { [=[${]=] }, i(1), t'}', i(2), t'${reset}', i(0)
