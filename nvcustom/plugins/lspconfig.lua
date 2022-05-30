@@ -2,7 +2,7 @@ local M = {}
 
 M.setup_lsp = function(attach, capabilities)
    local lspconfig = require "lspconfig"
-   local servers = { "pyright" }
+   local servers = { "pyright", "bashls" }
 
    for _, lsp in ipairs(servers) do
       lspconfig[lsp].setup {
