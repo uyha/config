@@ -233,7 +233,12 @@ local function add_snippets()
      }),
      s("nounused", {
        t { [=[#shellcheck disable=SC2034]=] }
-     })
+     }),
+     s("trim", {
+       t { [=[trim() {]=], '' },
+       t { [=[  perl -pe "s/^\s*(.*)\s*$/\1/" ]=], '' },
+       t { [=[}]=], '' }
+     }),
    })
    -- stylua: ignore end
 
