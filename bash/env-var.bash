@@ -1,11 +1,6 @@
 # shellcheck shell=bash
 
 export LOCAL=$HOME/.local
-export LOCAL_OPT=$LOCAL/opt
-export LOCAL_BIN=$LOCAL/bin
-export LOCAL_SHARE=$LOCAL/share
-export LOCAL_STATE=$LOCAL/state
-
 export CONFIG=$HOME/.config
 
 export POETRY_HOME=$LOCAL/opt/poetry
