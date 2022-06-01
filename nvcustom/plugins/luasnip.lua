@@ -124,6 +124,19 @@ local function add_snippets()
        t { [=[    }]=], '' },
        t { [=[  }]=], '' },
        t { [=[} ]=] },  lambda(snake_case(lambda._1), 1), t ';'
+     }),
+     s("ros-node", {
+       t { [=[class ]=]}, i(1), t { [=[ : public rclcpp::Node { ]=], '' },
+       t { [=[public: ]=], '' },
+       t { [=[  ]=]}, rp(1), t { [=[() : Node("]=] }, lambda(snake_case(lambda._1), 1), t{ [=["){]=]}, i(2), t { '}', '' },
+       t { [=[private:]=], '' },
+       t { [=[};]=], '' },
+     }),
+     s("ros-main", {
+       t { [=[rclcpp::init(argc, argv);]=], '' },
+       t { [=[auto node = std::make_shared<]=] }, i(1), t { '>(' }, i(2), t { ');', '' },
+       t { [=[rclcpp::spin(node);]=], '' },
+       t { [=[rclcpp::shutdown();]=], '' },
      })
    })
    -- stylua: ignore end
