@@ -6,7 +6,6 @@ return {
       end,
    },
    ["tpope/vim-abolish"] = {},
-   ["tpope/vim-fugitive"] = {},
    ["tpope/vim-surround"] = {},
    ["L3MON4D3/LuaSnip"] = {
       wants = "friendly-snippets",
