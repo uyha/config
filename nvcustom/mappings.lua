@@ -6,7 +6,6 @@ end
 
 M.general = {
    n = {
-      ["<leader>g"] = { "<cmd>:G ++curwin<CR>", " open git" },
       ["<leader>e"] = {
          function()
             vim.diagnostic.open_float()
