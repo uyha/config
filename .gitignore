@@ -39,3 +39,6 @@
 
 !gitui
 !gitui/**
+
+!lazygit
+!lazygit/**
