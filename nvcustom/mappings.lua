@@ -10,7 +10,31 @@ M.general = {
          function()
             vim.diagnostic.open_float()
          end,
-         " open diagnostic on a floating window"
+         " open diagnostic on a floating window",
+      },
+      ["<leader>."] = {
+         function()
+            vim.cmd "vertical resize +10"
+         end,
+         "Narrow the current window",
+      },
+      ["<leader>,"] = {
+         function()
+            vim.cmd "vertical resize -10"
+         end,
+         "Widen the current window",
+      },
+      ["<leader>="] = {
+         function()
+            vim.cmd "resize +10"
+         end,
+         "Increase the height of current window",
+      },
+      ["<leader>-"] = {
+         function()
+            vim.cmd "resize -10"
+         end,
+         "Decrease the height of current window",
       },
    },
    t = {
