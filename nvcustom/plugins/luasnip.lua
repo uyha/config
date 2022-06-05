@@ -1,5 +1,22 @@
 local M = {}
 
+local ls = require "luasnip"
+local s = ls.snippet
+local sn = ls.snippet_node
+local isn = ls.indent_snippet_node
+local t = ls.text_node
+local i = ls.insert_node
+local f = ls.function_node
+local c = ls.choice_node
+local d = ls.dynamic_node
+local r = ls.restore_node
+local events = require "luasnip.util.events"
+local ai = require "luasnip.nodes.absolute_indexer"
+local fmt = require("luasnip.extras.fmt").fmt
+local m = require("luasnip.extras").m
+local lambda = require("luasnip.extras").l
+local rp = require("luasnip.extras").rep
+
 local function snake_case(str)
    str = str:gsub("::", "/")
    str = str:gsub("(%u+)(%u%l)", "%1_%2")
@@ -26,24 +43,7 @@ local function mixed_case(str)
    return str
 end
 
-local function add_snippets()
-   local ls = require "luasnip"
-   local s = ls.snippet
-   local sn = ls.snippet_node
-   local isn = ls.indent_snippet_node
-   local t = ls.text_node
-   local i = ls.insert_node
-   local f = ls.function_node
-   local c = ls.choice_node
-   local d = ls.dynamic_node
-   local r = ls.restore_node
-   local events = require "luasnip.util.events"
-   local ai = require "luasnip.nodes.absolute_indexer"
-   local fmt = require("luasnip.extras.fmt").fmt
-   local m = require("luasnip.extras").m
-   local lambda = require("luasnip.extras").l
-   local rp = require("luasnip.extras").rep
-
+local function add_cmake_snippets()
    -- stylua: ignore start
    ls.add_snippets("cmake", {
       s("project", {
@@ -110,7 +110,9 @@ local function add_snippets()
       })
    })
    -- stylua: ignore end
+end
 
+local function add_cpp_snippets()
    -- stylua: ignore start
    ls.add_snippets("cpp", {
      s("error-category", {
@@ -140,7 +142,9 @@ local function add_snippets()
      })
    })
    -- stylua: ignore end
+end
 
+local function add_sh_snippets()
    -- stylua: ignore start
    ls.add_snippets("sh", {
      s("bash", {
@@ -254,7 +258,9 @@ local function add_snippets()
      }),
    })
    -- stylua: ignore end
+end
 
+local function add_systemd_snippets()
    -- stylua: ignore start
    ls.add_snippets("systemd", {
      s("service", {
@@ -297,6 +303,13 @@ local function add_snippets()
      })
    })
    -- stylua: ignore end
+end
+
+local function add_snippets()
+   add_cmake_snippets()
+   add_cpp_snippets()
+   add_sh_snippets()
+   add_systemd_snippets()
 end
 
 M.setup = function()
