@@ -1,6 +1,9 @@
 [core]
   editor=nvim
   autocrlf=input
+[alias]
+  sm = submodule
+  st = status
 [pull]
   ff=only
 [diff]
