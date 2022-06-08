@@ -24,6 +24,9 @@ return {
 
             -- Python
             formatting.black,
+
+            -- Perl
+            formatting.perltidy,
          },
          on_attach = function(client)
             if client.resolved_capabilities.document_formatting then
