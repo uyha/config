@@ -16,7 +16,7 @@ exists thefuck && eval "$(thefuck --alias)"
 exists explorer.exe && alias explorer="explorer.exe"
 exists nvim && alias vim="nvim"
 exists bat && alias cat="bat"
-exists lazygit && alias lzgit="lazygit"
+exists lazygit && alias lg="lazygit"
 exists fdfind && alias fd="fdfind"
 
 if exists git; then
