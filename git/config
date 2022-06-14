@@ -12,6 +12,10 @@
   prompt=false
 [difftool "nvimdiff"]
   cmd="nvim -d \"$LOCAL\" \"$REMOTE\""
+[merge]
+  tool=nvim
+[mergetool "nvim"]
+  cmd="nvim -f -c \"Gvdiffsplit!\" \"$MERGED\""
 [alias]
   dt = difftool
 [pager]
