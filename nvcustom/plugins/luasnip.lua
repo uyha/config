@@ -44,15 +44,25 @@ local function mixed_case(str)
 end
 
 local function add_cmake_snippets()
-   -- stylua: ignore start
    ls.add_snippets("cmake", {
-      s("project", {
-         t { "cmake_minimum_required(VERSION " }, i(1, "3.21"), t { ")", "" },
-         t { "project(" }, i(2, "Project Name"), t { " VERSION " }, i(3, "0.1"), t { " LANGUAGES " }, i(4, "CXX"), t { ")", "", "" },
-         t { [[list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")]] },
-      }),
+      s(
+         "project",
+         fmt(
+            [[
+            cmake_minimum_required(VERSION {})
+            project({} VERSION {} LANGUAGES {})
+
+            list(APPEND CMAKE_MODULE_PATH "${{CMAKE_CURRENT_SOURCE_DIR}}/cmake")
+            ]],
+            {
+               i(1, "3.21"),
+               i(2, "Project Name"),
+               i(3, "0.1.0"),
+               i(4, "CXX"),
+            }
+         )
+      ),
    })
-   -- stylua: ignore end
 
    local cmake_generators = {
       t "Unix Makefiles",
@@ -71,238 +81,417 @@ local function add_cmake_snippets()
       t "Sublime Text 2 - Ninja",
       t "Sublime Text 2 - Unix Makefiles",
    }
-   -- stylua: ignore start
    ls.add_snippets("json", {
-      s("cmake-preset", {
-         t { [=[{]=], ""},
-         t { [=[  "version": ]=] }, i(1, "3"), t { ",", '' },
-         t { [=[  "cmakeMinimumRequired": {]=], '' },
-         t { [=[    "major": ]=] }, i(2, "3"), t { ",", '' },
-         t { [=[    "minor": ]=] }, i(3, "21"), t { ",", '' },
-         t { [=[    "patch": ]=] }, i(4, "0"), t { '', '' },
-         t { [=[  },]=], "" },
-         t { [=[  "configurePresets": [],]=], '' },
-         t { [=[  "buildPresets": [],]=], ''},
-         t { [=[  "testPresets": []]=], ''},
-         t { [=[}]=]},
-      }),
-      s("cmake-config-preset", {
-        t { [=[{]=], ""},
-        t { [=[  "name": "]=] }, i(1, "name"), t {'",', ''},
-        t { [=[  "displayName": "]=] }, i(2, "Display Name"), t {'",', ''},
-        t { [=[  "description": "]=] }, i(3, "Description for this preset"), t {'",', ''},
-        t { [=[  "generator": "]=] }, c(4, cmake_generators), t {'",', ''},
-        t { [=[  "toolchainFile": "]=]}, i(5, "path/to/toolchain"), t {'",', ''},
-        t { [=[  "binaryDir": "]=]}, i(6, "${sourceDir}/cmake-build-${presetName}"), t {'",', ''},
-        t { [=[  "cacheVariables": {},]=], '' },
-        t { [=[  "environment": {}]=], "" },
-        t { [=[}]=]},
-      }),
-      s("cmake-build-preset", {
-        t { [=[{]=], ''},
-        t { [=[  "name": "]=] }, i(1, "name"), t {'",', ''},
-        t { [=[  "displayName": "]=] }, i(2, "Display Name"), t {'",', ''},
-        t { [=[  "description": "]=] }, i(3, "Description for this preset"), t {'",', ''},
-        t { [=[  "environment": {},]=], '' },
-        t { [=[  "configurePreset": "]=] }, i(4, "configureName"), t {'",', ''},
-        t { [=[  "targets": []]=], '' },
-        t { [=[}]=]},
-      })
+      s(
+         "cmake-preset",
+         fmt(
+            [[
+            {{
+              "version": {},
+              "cmakeMinimumRequired": {{
+                "major": {},
+                "minor": {},
+                "patch": {}
+              }},
+              "configurePresets": [],
+              "buildPresets": [],
+              "testPresets": []
+            }}
+            ]],
+            {
+               i(1, "3"),
+               i(2, "3"),
+               i(3, "21"),
+               i(4, "3"),
+            }
+         )
+      ),
+      s(
+         "cmake-config-preset",
+         fmt(
+            [[
+            {{
+              "name": "{}",
+              "displayName": "{}",
+              "description": "{}",
+              "generator": "{}",
+              "toolchainFile": "{}",
+              "binaryDir": "{}",
+              "cacheVariables": {{}},
+              "environment": {{}}
+            }}
+            ]],
+            {
+               i(1, "name"),
+               i(2, "Display Name"),
+               i(3, "Description for this preset"),
+               c(4, cmake_generators),
+               i(5, "path/to/toolchain"),
+               i(6, "${sourceDir}/cmake-build-${presetName}"),
+            }
+         )
+      ),
+      s(
+         "cmake-build-preset",
+         fmt(
+            [[
+            {{
+              "name": "{}",
+              "displayName": "{}",
+              "description": "{}",
+              "environment": {{}},
+              "configurePreset": "{}",
+              "targets": []
+            }}
+            ]],
+            {
+               i(1, "name"),
+               i(2, "Display Name"),
+               i(3, "Description for this preset"),
+               i(4, "configureName"),
+            }
+         )
+      ),
    })
-   -- stylua: ignore end
 end
 
 local function add_cpp_snippets()
-   -- stylua: ignore start
    ls.add_snippets("cpp", {
-     s("error-category", {
-       t { [=[struct ]=]}, i(1), t { [=[ : std::error_category {]=], '' },
-       t { [=[  auto name() const noexcept -> char const * {]=], '' },
-       t { [=[    return "]=] }, i(2), t { '";', '' },
-       t { [=[  }]=], '' },
-       t { [=[  auto messages(int error) const -> std::string {]=], '' },
-       t { [=[    switch (static_cast<]=]}, i(3), t { [=[>(error)) {]=], '' },
-       t { [=[    // default: return "Unknown error";]=], '' },
-       t { [=[    }]=], '' },
-       t { [=[  }]=], '' },
-       t { [=[} ]=] },  lambda(snake_case(lambda._1), 1), t ';'
-     }),
-     s("ros-node", {
-       t { [=[class ]=]}, i(1), t { [=[ : public rclcpp::Node { ]=], '' },
-       t { [=[public: ]=], '' },
-       t { [=[  ]=]}, rp(1), t { [=[() : Node("]=] }, lambda(snake_case(lambda._1), 1), t{ [=["){]=]}, i(2), t { '}', '' },
-       t { [=[private:]=], '' },
-       t { [=[};]=], '' },
-     }),
-     s("ros-main", {
-       t { [=[rclcpp::init(argc, argv);]=], '' },
-       t { [=[auto node = std::make_shared<]=] }, i(1), t { '>(' }, i(2), t { ');', '' },
-       t { [=[rclcpp::spin(node);]=], '' },
-       t { [=[rclcpp::shutdown();]=], '' },
-     })
+      s(
+         "error-category",
+         fmt(
+            [[
+            struct {} : std::error_category {{
+              auto name() const noexcept -> char const * {{
+                return "{}";
+              }}
+              auto messages(int error) const -> std::string {{
+                switch (static_cast<{}>(error)) {{
+                // default: return "Unknown error";
+                }}
+              }}
+            }} {};
+            ]],
+            {
+               i(1),
+               i(2),
+               i(3),
+               lambda(snake_case(lambda._1), 1),
+            }
+         )
+      ),
+      s(
+         "ros-node",
+         fmt(
+            [[
+            class {} : public rclcpp::Node {{
+            public:
+              {} : Node({}) {{{}}}
+            private:
+            }};
+            ]],
+            {
+               i(1, "Node"),
+               rp(1),
+               lambda(snake_case(lambda._1), 1),
+               i(0),
+            }
+         )
+      ),
+      s(
+         "ros-main",
+         fmt(
+            [[
+            rlcpp::init(argc, argv);
+            auto node = std::make_shared<{}>({});
+            rclcpp::spin(node);
+            rclcpp::shutdown();
+            ]],
+            {
+               i(1),
+               i(0),
+            }
+         )
+      ),
    })
-   -- stylua: ignore end
 end
 
 local function add_sh_snippets()
-   -- stylua: ignore start
    ls.add_snippets("sh", {
-     s("bash", {
-       t { [=[#!/usr/bin/env bash]=], '' },
-       t { '', '' },
-       t { [=[set -euo pipefail]=], '' },
-       t { [=[# shellcheck disable=SC2034]=], '' },
-       t { [=[SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)]=] }
-     }),
-     s("colors", {
-       t { [=[black="\e[30m"]=], '' },
-       t { [=[red="\e[31m"]=], '' },
-       t { [=[green="\e[32m"]=], '' },
-       t { [=[brown="\e[33m"]=], '' },
-       t { [=[blue="\e[34m"]=], '' },
-       t { [=[purple="\e[35m"]=], '' },
-       t { [=[cyan="\e[36m"]=], '' },
-       t { [=[gray="\e[37m"]=], '' },
-       t { '', '' },
-       t { [=[black_bg="\e[40m"]=], '' },
-       t { [=[red_bg="\e[41m"]=], '' },
-       t { [=[green_bg="\e[42m"]=], '' },
-       t { [=[brown_bg="\e[43m"]=], '' },
-       t { [=[blue_bg="\e[44m"]=], '' },
-       t { [=[purple_bg="\e[45m"]=], '' },
-       t { [=[cyan_bg="\e[46m"]=], '' },
-       t { [=[gray_bg="\e[47m"]=], '' },
-       t { [=[reset="\e[0m"]=], '' },
-       t { '', '' },
-       t { [=[bold="\e[1m"]=], '' },
-       t { [=[uline="\e[4m"]=], '' },
-       t { [=[blinking="\e[5m"]=], '' },
-       t { '', ''},
-       t { [=[clear="\033[0K\r"]=]}
-     }),
-     s("paint", {
-       t { [=[${]=] }, i(1), t'}', i(2), t'${reset}', i(0)
-     }),
-     s("parse", {
-       t { [=[positional_args=()]=], '' },
-       t { [=[while [[ $# -gt 0 ]]]=], '' },
-       t { [=[do]=], '' },
-       t { [=[  case "$1" in]=], '' },
-       t { [=[  ]=]}, i(1), t { '', '' },
-       t { [=[  *)]=], '' },
-       t { [=[    positional_args+=("\$1")]=], '' },
-       t { [=[    shift 1]=], '' },
-       t { [=[    ;;]=], '' },
-       t { [=[  esac]=], '' },
-       t { [=[done]=], '' },
-     }),
-     s("arg", {
-       t { [=[--]=] }, i(1), t '|-', i(2), t { ')', '' },
-       t { [=[  ]=]}, i(3), t { '=$2', '' },
-       t { [=[  shift 2]=], '' },
-       t { [=[  ;;]=], '' },
-       t { [=[--]=] }, rp(1), t { '=*)', '' },
-       t { [=[  ]=]}, rp(3), t '="${1#--', rp(1), t { '=}"', '' },
-       t { [=[  shift 1]=], '' },
-       t { [=[  ;;]=], '' },
-       t { [=[-]=]}, rp(2), t { '=*)', '' },
-       t { [=[  ]=]}, rp(3), t '="${1#-', rp(2), t { '=}"', '' },
-       t { [=[  shift 1]=], '' },
-       t { [=[  ;;]=], '' },
-       t { [=[-]=]}, rp(2), t { '*)', '' },
-       t { [=[  ]=]}, rp(3), t '="${1#-', rp(2), t { '}"', '' },
-       t { [=[  shift 1]=], '' },
-       t { [=[  ;;]=], '' },
-     }),
-     s("join", {
-       t { [=[join() {]=], '' },
-       t { [=[  local delimiter=$1 first=$2]=], '' },
-       t { [=[  if shift 2; then]=], '' },
-       t { [=[    printf "%s" "$first" "${@/#/$delimiter}"]=], '' },
-       t { [=[  fi]=], '' },
-       t { [=[}]=], '' },
-     }),
-     s("contain", {
-       t { [=[contain() {]=], '' },
-       t { [=[  declare -n array=$1]=], '' },
-       t { [=[  declare val=$2]=], '' },
-       t { [=[  for elem in "${array[@]}"; do]=], '' },
-       t { [=[    if [[ "$elem" == "$val" ]]; then]=], '' },
-       t { [=[      return 0]=], '' },
-       t { [=[    fi]=], '' },
-       t { [=[  done]=], '' },
-       t { [=[  return 1]=], '' },
-       t { [=[}]=], '' },
-     }),
-     s("readconfig", {
-       t { [=[read-config() {]=], '' },
-       t { [=[  while read -r line; do]=], '' },
-       t { [=[    local key="${line%%=*}"]=], '' },
-       t { [=[    # shellcheck disable=SC2034]=], ''},
-       t { [=[    local value="${line#*=}"]=], '' },
-       t { [=[    if contain "$1" "$key"; then]=], '' },
-       t { [=[      eval "declare -g \$key=\$value"]=], '' },
-       t { [=[    else]=], '' },
-       t { [=[      echo >&2 "Unrecognized key: \$key"]=], '' },
-       t { [=[    fi]=], '' },
-       t { [=[  done < "$2"]=], '' },
-       t { [=[}]=], '' },
-     }),
-     s("nounused", {
-       t { [=[#shellcheck disable=SC2034]=] }
-     }),
-     s("trim", {
-       t { [=[trim() {]=], '' },
-       t { [=[  perl -pe "s/^\s*(.*)\s*$/\1/" ]=], '' },
-       t { [=[}]=], '' }
-     }),
+      s(
+         "bash",
+         fmt(
+            [[
+            #!/usr/bin/env bash
+
+            set -euo pipefail
+
+            #shellcheck disable=SC2034
+            SCRIPT_DIR=$(cd "$(dirname "${{BASH_SOURCE[0]}}")" && pwd)
+            ]],
+            {}
+         )
+      ),
+      s(
+         "colors",
+         fmt(
+            [[
+            black="\e[30m"
+            red="\e[31m"
+            green="\e[32m"
+            brown="\e[33m"
+            blue="\e[34m"
+            purple="\e[35m"
+            cyan="\e[36m"
+            gray="\e[37m"
+
+            black_bg="\e[40m"
+            red_bg="\e[41m"
+            green_bg="\e[42m"
+            brown_bg="\e[43m"
+            blue_bg="\e[44m"
+            purple_bg="\e[45m"
+            cyan_bg="\e[46m"
+            gray_bg="\e[47m"
+            reset="\e[0m"
+
+            bold="\e[1m"
+            uline="\e[4m"
+            blinking="\e[5m"
+
+            clear="\033[0K\r"
+            ]],
+            {}
+         )
+      ),
+      s(
+         "paint",
+         fmt(
+            [[
+            ${{{}}}{}${{reset}}{}
+            ]],
+            {
+               i(1, "color"),
+               i(2, "var"),
+               i(0),
+            }
+         )
+      ),
+      s(
+         "parse",
+         fmt(
+            [=[
+            declare -a postional_args=()
+
+            while [[ $# -gt 0 ]]; do
+              case "$1" in
+              {}
+              *)
+                positional_args+=("$1")
+                shift 1
+                ;;
+              esac
+            done
+            ]=],
+            {
+               i(0),
+            }
+         )
+      ),
+      s(
+         "arg",
+         fmt(
+            [=[
+            --{}|-{})
+              {}="$2"
+              shift 2
+              ;;
+            --{}=*)
+              {}="${{1#--{}=}}"
+              shift 1
+              ;;
+            -{}=*)
+              {}="${{1#-{}=}}"
+              shift 1
+              ;;
+            -{}*)
+              {}="${{1#-{}}}"
+              shift 1
+              ;;
+            ]=],
+            {
+               i(1, "long"),
+               i(2, "short"),
+               i(3, "var"),
+               rp(1),
+               rp(3),
+               rp(1),
+               rp(2),
+               rp(3),
+               rp(2),
+               rp(2),
+               rp(3),
+               rp(2),
+            }
+         )
+      ),
+      s(
+         "join",
+         fmt(
+            [[
+            join() {{
+              local delimiter="$1"
+              local first="$2"
+
+              if shift 2; then
+                printf "%s" "$first" "${{@/#/$delimiter}}"
+              fi
+            }}
+            ]],
+            {}
+         )
+      ),
+      s(
+         "contain",
+         fmt(
+            [=[
+            contain() {{
+              declare -n array="$1"
+              declare val="$2"
+
+              for elem in "${{array[@]}}"; do
+                if [[ "$elem" == "$val" ]]; then
+                  return 0
+                fi
+              done
+
+              return 1
+            }}
+            ]=],
+            {}
+         )
+      ),
+      s(
+         "readconfig",
+         fmt(
+            [[
+            read-config() {{
+              while read -r line; do
+                local expected_keys="$1"
+                local config_file="$2"
+
+                # shellcheck disable=SC2034
+                local value="${{line#*=}}"
+                local key="${{line%%=*}}"
+
+
+                if contain "$expected_keys" "$key"; then
+                  eval "declare -g $key=$value"
+                else
+                  echo >&2 "Unrecognized key: $key"
+                fi
+              done < "$config_file"
+            }}
+            ]],
+            {}
+         )
+      ),
+      s("nounused", {
+         t { [=[#shellcheck disable=SC2034]=] },
+      }),
+      s(
+         "trim",
+         fmt(
+            [[
+            trim() {{
+              perl -pe "s/^\s*(.*)\s*$/\1/" 
+            }}
+            ]],
+            {}
+         )
+      ),
    })
-   -- stylua: ignore end
 end
 
 local function add_systemd_snippets()
-   -- stylua: ignore start
    ls.add_snippets("systemd", {
-     s("service", {
-       t { [=[[Unit]]=], '' },
-       t { [=[Description=]=] }, i(1), t { '', '' },
-       t { [=[Requires=]=], '' },
-       t { [=[After=]=], '' },
-       t { '' , '' },
-       t { [=[[Service]]=], '' },
-       t { [=[Type=]=] }, i(2), t { '', '' },
-       t { [=[ExecStart=]=] }, i(3), t { '', '' },
-       t { [=[Restart=]=], '' },
-       t { '' , '' },
-       t { [=[[Install]]=], '' },
-       t { [=[WantedBy=multi-user.target]=], '' },
-     }),
-     s("path", {
-       t { [=[[Unit]]=], '' },
-       t { [=[Description=]=] }, i(1), t { '', '' },
-       t { '' , '' },
-       t { [=[[Path]]=], '' },
-       t { [=[PathChanged=]=] }, i(2), t { '', '' },
-       t { [=[Unit=]=] }, i(3), t { '', '' },
-       t { '' , '' },
-       t { [=[[Install]]=], '' },
-       t { [=[WantedBy=multi-user.target]=], '' },
-     }),
-     s("mount", {
-       t { [=[[Unit]]=], '' },
-       t { [=[Description=]=] }, i(1), t { '', '' },
-       t { [=[Requires=]=], '' },
-       t { [=[After=]=], '' },
-       t { '' , '' },
-       t { [=[[Mount]]=], '' },
-       t { [=[What=]=] }, i(2), t { '', '' },
-       t { [=[Where=]=] }, i(3), t { '', '' },
-       t { '' , '' },
-       t { [=[[Install]]=], '' },
-       t { [=[WantedBy=multi-user.target]=], '' },
-     })
+      s(
+         "service",
+         fmt(
+            [[
+            [Unit]
+            Description={}
+            Requires={}
+            After={}
+
+            [Service]
+            Type={}
+            ExecStart={}
+            Restart={}
+
+            [Install]
+            WantedBy={}
+            ]],
+            {
+               i(1),
+               i(2),
+               i(3),
+               i(4),
+               i(5),
+               i(6),
+               i(7, "multi-user.target"),
+            }
+         )
+      ),
+      s(
+         "path",
+         fmt(
+            [[
+            [Unit]
+            Description={}
+
+            [Path]
+            PathChanged={}
+            Unit={}
+
+            [Install]
+            WantedBy={}
+            ]],
+            {
+               i(1),
+               i(2),
+               i(3),
+               i(4, "multi-user.target"),
+            }
+         )
+      ),
+      s(
+         "mount",
+         fmt(
+            [[
+            [Unit]
+            Description={}
+            Requires={}
+            After={}
+
+            [Mount]
+            What={}
+            Where={}
+
+            [Install]
+            WantedBy={}
+            ]],
+            {
+               i(1),
+               i(2),
+               i(3),
+               i(4),
+               i(5),
+               i(6, "multi-user.target"),
+            }
+         )
+      ),
    })
-   -- stylua: ignore end
 end
 
 local function add_snippets()
