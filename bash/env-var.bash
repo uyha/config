@@ -7,8 +7,6 @@ export POETRY_HOME=$LOCAL/opt/poetry
 export RUSTUP_HOME=$LOCAL/opt/rustup
 export CARGO_HOME=$LOCAL/opt/cargo
 
-export INPUTRC=$CONFIG/inputrc
-
 export LANG=en_US.UTF-8
 
 export XDG_CONFIG_HOME=$CONFIG

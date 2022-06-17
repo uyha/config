@@ -6,9 +6,10 @@ exists() {
   return $?
 }
 
+declare -a post_run=()
+
 source "$HOME/.config/bash/env-var.bash"
 source "$HOME/.config/bash/shell-options.bash"
-
 
 if [[ -d $HOME/.config/bash/config.d ]]; then
   for config_file in "$HOME/.config/bash/config.d"/*.bash; do
@@ -16,4 +17,9 @@ if [[ -d $HOME/.config/bash/config.d ]]; then
   done
 fi
 
+for fn in "${post_run[@]}"; do
+  "$fn"
+done
+
 unset -f exists
+unset post_run

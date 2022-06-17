@@ -3,13 +3,17 @@
 !.gitignore
 !.gitmodules
 
-!nvim
-!nvim/**
+!alacritty
+!alacritty/**
 
-!jetbrains
-!jetbrains/**
+!bash
+!bash/**
 
-!starship.toml
+!blesh
+!blesh/**
+
+!conan
+!conan/**
 
 !fish
 !fish/**
@@ -17,28 +21,27 @@
 !git
 !git/**
 
-!bash
-!bash/**
+!gitui
+!gitui/**
+
+!inputrc
+
+!jetbrains
+!jetbrains/**
+
+!lazygit
+!lazygit/**
 
 !nixpkgs
 !nixpkgs/**
 
-!tmux
-!tmux/**
-
-!inputrc
-
-!conan
-!conan/**
-
-!alacritty
-!alacritty/**
-
 !nvcustom
 !nvcustom/**
 
-!gitui
-!gitui/**
+!nvim
+!nvim/**
 
-!lazygit
-!lazygit/**
+!starship.toml
+
+!tmux
+!tmux/**
