@@ -16,11 +16,7 @@ M.setup_lsp = function(attach, capabilities)
       offsetEncoding = { "utf-16" },
    })
    lspconfig["clangd"].setup {
-      on_attach = function(client, bufnr)
-         attach(client, bufnr)
-         client.resolved_capabilities.document_formatting = false
-         client.resolved_capabilities.document_range_formatting = false
-      end,
+      on_attach = attach,
       capabilities = clangd_caps,
    }
 end
