@@ -502,7 +502,21 @@ local function add_snippets()
 end
 
 M.setup = function()
-   require("plugins.configs.others").luasnip()
+
+  print("loading")
+   local present, luasnip = pcall(require, "luasnip")
+
+   if not present then
+      return
+   end
+
+   local options = {
+      history = true,
+      updateevents = "TextChanged,TextChangedI",
+   }
+
+   luasnip.config.set_config(options)
+
    require("luasnip.loaders.from_snipmate").load {
       paths = { "~/.config/nvcustom/snippets" },
    }
