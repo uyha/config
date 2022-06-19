@@ -213,6 +213,107 @@ local function add_cpp_snippets()
             }
          )
       ),
+      s(
+         "header",
+         fmt(
+            [[
+            #pragma once
+
+            namespace {}{{{}}}
+            ]],
+            {
+               i(1),
+               i(0),
+            }
+         )
+      ),
+      s(
+         "unique-resource-class",
+         fmt(
+            [[
+            class {} {{
+            public:
+              {}({} const &) = delete;
+              auto operator=({} const &) -> {} & = delete;
+
+              {}({} &&other) noexcept;
+              auto operator=({} &&other) noexcept -> {} &;
+
+              ~{}() noexcept;
+            private:
+              {}({} {}) noexcept;
+
+              {} m_{};
+            }};
+            ]],
+            {
+               i(1, "ResourceType"), -- class name
+               rp(1),
+               rp(1),
+               rp(1),
+               rp(1),
+               rp(1),
+               rp(1),
+               rp(1),
+               rp(1),
+               rp(1),
+               rp(1),
+               i(2, "handle_t"),
+               i(3, "handle"),
+               rp(2),
+               rp(3),
+            }
+         )
+      ),
+      s(
+         "unique-resource-functions",
+         fmt(
+            [[
+            {}::{}({} &&other) noexcept : m_{}{{other.m_{}}} {{
+              other.m_{} = {};
+            }}
+            auto {}::operator=({} &&other) noexcept -> {} & {{
+              this->~{}();
+
+              m_{}       = other.m_{};
+              other.m_{} = {};
+
+              return *this;
+            }}
+
+            {}::~{}() noexcept {{
+              if (m_{} == {}) {{
+                return ;
+              }}
+
+              {}(m_{});
+            }}
+            ]],
+            {
+               i(1, "ResourceType"),
+               rp(1),
+               rp(1),
+               i(2, "handle"),
+               rp(2),
+               rp(2),
+               i(3, "uninitialized_value"),
+               rp(1),
+               rp(2),
+               rp(1),
+               rp(1),
+               rp(2),
+               rp(2),
+               rp(2),
+               rp(3),
+               rp(1),
+               rp(1),
+               rp(2),
+               rp(3),
+               i(4, "destruct_function"),
+               rp(2),
+            }
+         )
+      ),
    })
 end
 
@@ -502,8 +603,6 @@ local function add_snippets()
 end
 
 M.setup = function()
-
-  print("loading")
    local present, luasnip = pcall(require, "luasnip")
 
    if not present then
@@ -516,10 +615,6 @@ M.setup = function()
    }
 
    luasnip.config.set_config(options)
-
-   require("luasnip.loaders.from_snipmate").load {
-      paths = { "~/.config/nvcustom/snippets" },
-   }
    add_snippets()
 end
 
