@@ -1,24 +1,52 @@
 [core]
   editor=nvim
   autocrlf=input
+  pager=delta
+
 [alias]
   sm = submodule
   st = status
+
 [pull]
   ff=only
+
 [diff]
-  tool=nvimdiff
+  colorMoved=default
+
 [difftool]
   prompt=false
+
 [difftool "nvimdiff"]
   cmd="nvim -d \"$LOCAL\" \"$REMOTE\""
+
+[add.interactive]
+  useBuiltin=false
+
 [merge]
-  tool=nvim
+  conflictStyle=diff3
+
 [mergetool "nvim"]
   cmd="nvim -f -c \"Gvdiffsplit!\" \"$MERGED\""
+
+[interactive]
+  diffFilter="delta --color-only --features=interactive"
+
+[delta]
+  navigate=true
+  light=false
+  features=decorations
+
+[delta "interactive"]
+    keep-plus-minus-markers = false
+
+[delta "decorations"]
+    commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax
+
 [alias]
   dt = difftool
-[pager]
-  log=perl /usr/share/doc/git/contrib/diff-highlight/diff-highlight | less
-  show=perl /usr/share/doc/git/contrib/diff-highlight/diff-highlight | less
-  diff=perl /usr/share/doc/git/contrib/diff-highlight/diff-highlight | less
