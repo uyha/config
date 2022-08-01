@@ -6,12 +6,14 @@
 [alias]
   sm = submodule
   st = status
+  dt = difftool
 
 [pull]
   ff=only
 
 [diff]
   colorMoved=default
+  tool = "nvimdiff"
 
 [difftool]
   prompt=false
@@ -48,5 +50,3 @@
     hunk-header-line-number-style = "#067a00"
     hunk-header-style = file line-number syntax
 
-[alias]
-  dt = difftool
