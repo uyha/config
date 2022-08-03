@@ -25,11 +25,12 @@ M.plugins = {
       end,
     },
     ["wgwoods/vim-systemd-syntax"] = {},
-  },
-  options = {
-    lspconfig = {
-      setup_lspconf = "custom.lspconfig",
-    },
+    ["neovim/nvim-lspconfig"] = {
+      config = function()
+        require "plugins.configs.lspconfig"
+        require "custom.lspconfig"
+      end
+    }
   },
   override = {
     ["kyazdani42/nvim-tree.lua"] = {
