@@ -16,6 +16,6 @@ local clangd_caps = vim.tbl_deep_extend("force", capabilities, {
   offsetEncoding = { "utf-16" },
 })
 lspconfig["clangd"].setup {
-  on_attach = attach,
+  on_attach = on_attach,
   capabilities = clangd_caps,
 }
