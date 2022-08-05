@@ -18,74 +18,74 @@ local lambda = require("luasnip.extras").l
 local rp = require("luasnip.extras").rep
 
 local function snake_case(str)
-   str = str:gsub("::", "/")
-   str = str:gsub("(%u+)(%u%l)", "%1_%2")
-   str = str:gsub("(%u+)(%u%l)", "%1_%2")
-   str = str:gsub("(%l)(%u)", "%1_%2")
-   str = str:gsub("(%d)(%u)", "%1_%2")
-   str = str:gsub("[.-]", "_")
-   return str:lower()
+  str = str:gsub("::", "/")
+  str = str:gsub("(%u+)(%u%l)", "%1_%2")
+  str = str:gsub("(%u+)(%u%l)", "%1_%2")
+  str = str:gsub("(%l)(%u)", "%1_%2")
+  str = str:gsub("(%d)(%u)", "%1_%2")
+  str = str:gsub("[.-]", "_")
+  return str:lower()
 end
 
 local function camel_case(str)
-   str = str:gsub("-", "_")
+  str = str:gsub("-", "_")
 
-   local _start, _end = str:find "^_+"
-   _start = _start or 0
-   _end = _end or 0
+  local _start, _end = str:find "^_+"
+  _start = _start or 0
+  _end = _end or 0
 
-   str = str:sub(_start, _end) .. str:sub(_end + 1):gsub("_(%l)", string.upper)
-   return str
+  str = str:sub(_start, _end) .. str:sub(_end + 1):gsub("_(%l)", string.upper)
+  return str
 end
 
 local function mixed_case(str)
-   str = camel_case(str):gsub("^(_*%l)", string.upper)
-   return str
+  str = camel_case(str):gsub("^(_*%l)", string.upper)
+  return str
 end
 
 local function add_cmake_snippets()
-   ls.add_snippets("cmake", {
-      s(
-         "project",
-         fmt(
-            [[
+  ls.add_snippets("cmake", {
+    s(
+      "project",
+      fmt(
+        [[
             cmake_minimum_required(VERSION {})
             project({} VERSION {} LANGUAGES {})
 
             list(APPEND CMAKE_MODULE_PATH "${{CMAKE_CURRENT_SOURCE_DIR}}/cmake")
             ]],
-            {
-               i(1, "3.21"),
-               i(2, "Project Name"),
-               i(3, "0.1.0"),
-               i(4, "CXX"),
-            }
-         )
-      ),
-   })
+        {
+          i(1, "3.21"),
+          i(2, "Project Name"),
+          i(3, "0.1.0"),
+          i(4, "CXX"),
+        }
+      )
+    ),
+  })
 
-   local cmake_generators = {
-      t "Unix Makefiles",
-      t "Ninja",
-      t "Green Hills MULTI",
-      t "Ninja Multi-Config",
-      t "Watcom WMake",
-      t "CodeBlocks - Ninja",
-      t "CodeBlocks - Unix Makefiles",
-      t "CodeLite - Ninja",
-      t "CodeLite - Unix Makefiles",
-      t "Eclipse CDT4 - Ninja",
-      t "Eclipse CDT4 - Unix Makefiles",
-      t "Kate - Ninja",
-      t "Kate - Unix Makefiles",
-      t "Sublime Text 2 - Ninja",
-      t "Sublime Text 2 - Unix Makefiles",
-   }
-   ls.add_snippets("json", {
-      s(
-         "cmake-preset",
-         fmt(
-            [[
+  local cmake_generators = {
+    t "Unix Makefiles",
+    t "Ninja",
+    t "Green Hills MULTI",
+    t "Ninja Multi-Config",
+    t "Watcom WMake",
+    t "CodeBlocks - Ninja",
+    t "CodeBlocks - Unix Makefiles",
+    t "CodeLite - Ninja",
+    t "CodeLite - Unix Makefiles",
+    t "Eclipse CDT4 - Ninja",
+    t "Eclipse CDT4 - Unix Makefiles",
+    t "Kate - Ninja",
+    t "Kate - Unix Makefiles",
+    t "Sublime Text 2 - Ninja",
+    t "Sublime Text 2 - Unix Makefiles",
+  }
+  ls.add_snippets("json", {
+    s(
+      "cmake-preset",
+      fmt(
+        [[
             {{
               "version": {},
               "cmakeMinimumRequired": {{
@@ -98,18 +98,18 @@ local function add_cmake_snippets()
               "testPresets": []
             }}
             ]],
-            {
-               i(1, "3"),
-               i(2, "3"),
-               i(3, "21"),
-               i(4, "3"),
-            }
-         )
-      ),
-      s(
-         "cmake-config-preset",
-         fmt(
-            [[
+        {
+          i(1, "3"),
+          i(2, "3"),
+          i(3, "21"),
+          i(4, "3"),
+        }
+      )
+    ),
+    s(
+      "cmake-config-preset",
+      fmt(
+        [[
             {{
               "name": "{}",
               "displayName": "{}",
@@ -121,20 +121,20 @@ local function add_cmake_snippets()
               "environment": {{}}
             }}
             ]],
-            {
-               i(1, "name"),
-               i(2, "Display Name"),
-               i(3, "Description for this preset"),
-               c(4, cmake_generators),
-               i(5, "path/to/toolchain"),
-               i(6, "${sourceDir}/cmake-build-${presetName}"),
-            }
-         )
-      ),
-      s(
-         "cmake-build-preset",
-         fmt(
-            [[
+        {
+          i(1, "name"),
+          i(2, "Display Name"),
+          i(3, "Description for this preset"),
+          c(4, cmake_generators),
+          i(5, "path/to/toolchain"),
+          i(6, "${sourceDir}/cmake-build-${presetName}"),
+        }
+      )
+    ),
+    s(
+      "cmake-build-preset",
+      fmt(
+        [[
             {{
               "name": "{}",
               "displayName": "{}",
@@ -144,23 +144,23 @@ local function add_cmake_snippets()
               "targets": []
             }}
             ]],
-            {
-               i(1, "name"),
-               i(2, "Display Name"),
-               i(3, "Description for this preset"),
-               i(4, "configureName"),
-            }
-         )
-      ),
-   })
+        {
+          i(1, "name"),
+          i(2, "Display Name"),
+          i(3, "Description for this preset"),
+          i(4, "configureName"),
+        }
+      )
+    ),
+  })
 end
 
 local function add_cpp_snippets()
-   ls.add_snippets("cpp", {
-      s(
-         "error-category",
-         fmt(
-            [[
+  ls.add_snippets("cpp", {
+    s(
+      "error-category",
+      fmt(
+        [[
             struct {} : std::error_category {{
               auto name() const noexcept -> char const * {{
                 return "{}";
@@ -172,65 +172,65 @@ local function add_cpp_snippets()
               }}
             }} {};
             ]],
-            {
-               i(1),
-               i(2),
-               i(3),
-               lambda(snake_case(lambda._1), 1),
-            }
-         )
-      ),
-      s(
-         "ros-node",
-         fmt(
-            [[
+        {
+          i(1),
+          i(2),
+          i(3),
+          lambda(snake_case(lambda._1), 1),
+        }
+      )
+    ),
+    s(
+      "ros-node",
+      fmt(
+        [[
             class {} : public rclcpp::Node {{
             public:
               {} : Node({}) {{{}}}
             private:
             }};
             ]],
-            {
-               i(1, "Node"),
-               rp(1),
-               lambda(snake_case(lambda._1), 1),
-               i(0),
-            }
-         )
-      ),
-      s(
-         "ros-main",
-         fmt(
-            [[
+        {
+          i(1, "Node"),
+          rp(1),
+          lambda(snake_case(lambda._1), 1),
+          i(0),
+        }
+      )
+    ),
+    s(
+      "ros-main",
+      fmt(
+        [[
             rlcpp::init(argc, argv);
             auto node = std::make_shared<{}>({});
             rclcpp::spin(node);
             rclcpp::shutdown();
             ]],
-            {
-               i(1),
-               i(0),
-            }
-         )
-      ),
-      s(
-         "header",
-         fmt(
-            [[
+        {
+          i(1),
+          i(0),
+        }
+      )
+    ),
+    s(
+      "header",
+      fmt(
+        [[
             #pragma once
 
             namespace {}{{{}}}
             ]],
-            {
-               i(1),
-               i(0),
-            }
-         )
-      ),
-      s(
-         "unique-resource-class",
-         fmt(
-            [[
+        {
+          i(1),
+          i(0),
+        }
+      )
+    ),
+    s(
+      "unique-resource-class",
+      fmt(
+        [[
             class {} {{
             public:
               {}({} const &) = delete;
@@ -246,29 +246,29 @@ local function add_cpp_snippets()
               {} m_{};
             }};
             ]],
-            {
-               i(1, "ResourceType"), -- class name
-               rp(1),
-               rp(1),
-               rp(1),
-               rp(1),
-               rp(1),
-               rp(1),
-               rp(1),
-               rp(1),
-               rp(1),
-               rp(1),
-               i(2, "handle_t"),
-               i(3, "handle"),
-               rp(2),
-               rp(3),
-            }
-         )
-      ),
-      s(
-         "unique-resource-functions",
-         fmt(
-            [[
+        {
+          i(1, "ResourceType"), -- class name
+          rp(1),
+          rp(1),
+          rp(1),
+          rp(1),
+          rp(1),
+          rp(1),
+          rp(1),
+          rp(1),
+          rp(1),
+          rp(1),
+          i(2, "handle_t"),
+          i(3, "handle"),
+          rp(2),
+          rp(3),
+        }
+      )
+    ),
+    s(
+      "unique-resource-functions",
+      fmt(
+        [[
             {}::{}({} &&other) noexcept : m_{}{{other.m_{}}} {{
               other.m_{} = {};
             }}
@@ -289,40 +289,40 @@ local function add_cpp_snippets()
               {}(m_{});
             }}
             ]],
-            {
-               i(1, "ResourceType"),
-               rp(1),
-               rp(1),
-               i(2, "handle"),
-               rp(2),
-               rp(2),
-               i(3, "uninitialized_value"),
-               rp(1),
-               rp(2),
-               rp(1),
-               rp(1),
-               rp(2),
-               rp(2),
-               rp(2),
-               rp(3),
-               rp(1),
-               rp(1),
-               rp(2),
-               rp(3),
-               i(4, "destruct_function"),
-               rp(2),
-            }
-         )
-      ),
-   })
+        {
+          i(1, "ResourceType"),
+          rp(1),
+          rp(1),
+          i(2, "handle"),
+          rp(2),
+          rp(2),
+          i(3, "uninitialized_value"),
+          rp(1),
+          rp(2),
+          rp(1),
+          rp(1),
+          rp(2),
+          rp(2),
+          rp(2),
+          rp(3),
+          rp(1),
+          rp(1),
+          rp(2),
+          rp(3),
+          i(4, "destruct_function"),
+          rp(2),
+        }
+      )
+    ),
+  })
 end
 
 local function add_sh_snippets()
-   ls.add_snippets("sh", {
-      s(
-         "bash",
-         fmt(
-            [[
+  ls.add_snippets("sh", {
+    s(
+      "bash",
+      fmt(
+        [[
             #!/usr/bin/env bash
 
             set -euo pipefail
@@ -330,13 +330,13 @@ local function add_sh_snippets()
             #shellcheck disable=SC2034
             SCRIPT_DIR=$(cd "$(dirname "${{BASH_SOURCE[0]}}")" && pwd)
             ]],
-            {}
-         )
-      ),
-      s(
-         "colors",
-         fmt(
-            [[
+        {}
+      )
+    ),
+    s(
+      "colors",
+      fmt(
+        [[
             black="\e[30m"
             red="\e[31m"
             green="\e[32m"
@@ -362,26 +362,26 @@ local function add_sh_snippets()
 
             clear="\033[0K\r"
             ]],
-            {}
-         )
-      ),
-      s(
-         "paint",
-         fmt(
-            [[
+        {}
+      )
+    ),
+    s(
+      "paint",
+      fmt(
+        [[
             ${{{}}}{}${{reset}}{}
             ]],
-            {
-               i(1, "color"),
-               i(2, "var"),
-               i(0),
-            }
-         )
-      ),
-      s(
-         "parse",
-         fmt(
-            [=[
+        {
+          i(1, "color"),
+          i(2, "var"),
+          i(0),
+        }
+      )
+    ),
+    s(
+      "parse",
+      fmt(
+        [=[
             declare -a postional_args=()
 
             while [[ $# -gt 0 ]]; do
@@ -394,15 +394,15 @@ local function add_sh_snippets()
               esac
             done
             ]=],
-            {
-               i(0),
-            }
-         )
-      ),
-      s(
-         "arg",
-         fmt(
-            [=[
+        {
+          i(0),
+        }
+      )
+    ),
+    s(
+      "arg",
+      fmt(
+        [=[
             --{}|-{})
               {}="$2"
               shift 2
@@ -420,26 +420,26 @@ local function add_sh_snippets()
               shift 1
               ;;
             ]=],
-            {
-               i(1, "long"),
-               i(2, "short"),
-               i(3, "var"),
-               rp(1),
-               rp(3),
-               rp(1),
-               rp(2),
-               rp(3),
-               rp(2),
-               rp(2),
-               rp(3),
-               rp(2),
-            }
-         )
-      ),
-      s(
-         "join",
-         fmt(
-            [[
+        {
+          i(1, "long"),
+          i(2, "short"),
+          i(3, "var"),
+          rp(1),
+          rp(3),
+          rp(1),
+          rp(2),
+          rp(3),
+          rp(2),
+          rp(2),
+          rp(3),
+          rp(2),
+        }
+      )
+    ),
+    s(
+      "join",
+      fmt(
+        [[
             join() {{
               local delimiter="$1"
               local first="$2"
@@ -449,13 +449,13 @@ local function add_sh_snippets()
               fi
             }}
             ]],
-            {}
-         )
-      ),
-      s(
-         "contain",
-         fmt(
-            [=[
+        {}
+      )
+    ),
+    s(
+      "contain",
+      fmt(
+        [=[
             contain() {{
               declare -n array="$1"
               declare val="$2"
@@ -469,13 +469,13 @@ local function add_sh_snippets()
               return 1
             }}
             ]=],
-            {}
-         )
-      ),
-      s(
-         "readconfig",
-         fmt(
-            [[
+        {}
+      )
+    ),
+    s(
+      "readconfig",
+      fmt(
+        [[
             read-config() {{
               while read -r line; do
                 local expected_keys="$1"
@@ -494,32 +494,32 @@ local function add_sh_snippets()
               done < "$config_file"
             }}
             ]],
-            {}
-         )
-      ),
-      s("nounused", {
-         t { [=[#shellcheck disable=SC2034]=] },
-      }),
-      s(
-         "trim",
-         fmt(
-            [[
+        {}
+      )
+    ),
+    s("nounused", {
+      t { [=[#shellcheck disable=SC2034]=] },
+    }),
+    s(
+      "trim",
+      fmt(
+        [[
             trim() {{
               perl -pe "s/^\s*(.*)\s*$/\1/" 
             }}
             ]],
-            {}
-         )
-      ),
-   })
+        {}
+      )
+    ),
+  })
 end
 
 local function add_systemd_snippets()
-   ls.add_snippets("systemd", {
-      s(
-         "service",
-         fmt(
-            [[
+  ls.add_snippets("systemd", {
+    s(
+      "service",
+      fmt(
+        [[
             [Unit]
             Description={}
             Requires={}
@@ -533,21 +533,21 @@ local function add_systemd_snippets()
             [Install]
             WantedBy={}
             ]],
-            {
-               i(1),
-               i(2),
-               i(3),
-               i(4),
-               i(5),
-               i(6),
-               i(7, "multi-user.target"),
-            }
-         )
-      ),
-      s(
-         "path",
-         fmt(
-            [[
+        {
+          i(1),
+          i(2),
+          i(3),
+          i(4),
+          i(5),
+          i(6),
+          i(7, "multi-user.target"),
+        }
+      )
+    ),
+    s(
+      "path",
+      fmt(
+        [[
             [Unit]
             Description={}
 
@@ -558,18 +558,18 @@ local function add_systemd_snippets()
             [Install]
             WantedBy={}
             ]],
-            {
-               i(1),
-               i(2),
-               i(3),
-               i(4, "multi-user.target"),
-            }
-         )
-      ),
-      s(
-         "mount",
-         fmt(
-            [[
+        {
+          i(1),
+          i(2),
+          i(3),
+          i(4, "multi-user.target"),
+        }
+      )
+    ),
+    s(
+      "mount",
+      fmt(
+        [[
             [Unit]
             Description={}
             Requires={}
@@ -582,40 +582,61 @@ local function add_systemd_snippets()
             [Install]
             WantedBy={}
             ]],
-            {
-               i(1),
-               i(2),
-               i(3),
-               i(4),
-               i(5),
-               i(6, "multi-user.target"),
-            }
-         )
-      ),
-   })
+        {
+          i(1),
+          i(2),
+          i(3),
+          i(4),
+          i(5),
+          i(6, "multi-user.target"),
+        }
+      )
+    ),
+    s(
+      "timer",
+      fmt(
+        [[
+        [Unit]
+        Description={}
+
+        [Timer]
+        OnActiveSec=
+        OnBootSec=
+        OnStartupSec=
+        OnUnitActiveSec=
+        OnUnitInactiveSec=
+        Unit={}
+
+        [Install]
+        WantedBy={}
+        ]],
+        { i(1), i(2), i(3, "multi-user.target") }
+      )
+    ),
+  })
 end
 
 local function add_snippets()
-   add_cmake_snippets()
-   add_cpp_snippets()
-   add_sh_snippets()
-   add_systemd_snippets()
+  add_cmake_snippets()
+  add_cpp_snippets()
+  add_sh_snippets()
+  add_systemd_snippets()
 end
 
 M.setup = function()
-   local present, luasnip = pcall(require, "luasnip")
+  local present, luasnip = pcall(require, "luasnip")
 
-   if not present then
-      return
-   end
+  if not present then
+    return
+  end
 
-   local options = {
-      history = true,
-      updateevents = "TextChanged,TextChangedI",
-   }
+  local options = {
+    history = true,
+    updateevents = "TextChanged,TextChangedI",
+  }
 
-   luasnip.config.set_config(options)
-   add_snippets()
+  luasnip.config.set_config(options)
+  add_snippets()
 end
 
 return M
