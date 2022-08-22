@@ -382,7 +382,7 @@ local function add_sh_snippets()
       "parse",
       fmt(
         [=[
-            declare -a postional_args=()
+            declare -a positional_args=()
 
             while [[ $# -gt 0 ]]; do
               case "$1" in
