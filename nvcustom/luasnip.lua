@@ -616,11 +616,29 @@ local function add_systemd_snippets()
   })
 end
 
+local function add_desktop_snippets()
+  ls.add_snippets("desktop", {
+    s(
+      "desktop",
+      fmt(
+        [[
+        [Desktop Entry]
+        Type={}
+        Name={}
+        Exec={}
+        ]],
+        { i(1, "Application"), i(2, "Application Name"), i(3) }
+      )
+    ),
+  })
+end
+
 local function add_snippets()
   add_cmake_snippets()
   add_cpp_snippets()
   add_sh_snippets()
   add_systemd_snippets()
+  add_desktop_snippets()
 end
 
 M.setup = function()
