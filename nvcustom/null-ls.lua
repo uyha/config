@@ -9,7 +9,7 @@ return {
       debug = true,
       sources = {
         -- Web stuff
-        formatting.prettier,
+        formatting.prettier.with { extra_filetypes = { "svelte" } },
 
         -- Lua
         formatting.stylua,
