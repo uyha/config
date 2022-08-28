@@ -633,12 +633,28 @@ local function add_desktop_snippets()
   })
 end
 
+local function add_sshconfig_snippets()
+  ls.add_snippets("sshconfig", {
+    s(
+      "host",
+      fmt(
+        [[
+      Host {}
+        HostName {}
+      ]],
+        { i(1), i(2) }
+      )
+    ),
+  })
+end
+
 local function add_snippets()
   add_cmake_snippets()
   add_cpp_snippets()
   add_sh_snippets()
   add_systemd_snippets()
   add_desktop_snippets()
+  add_sshconfig_snippets()
 end
 
 M.setup = function()
