@@ -26,6 +26,9 @@ return {
 
         -- Perl
         formatting.perltidy,
+
+        -- Rust
+        formatting.rustfmt,
       },
       on_attach = function(client)
         if client.resolved_capabilities.document_formatting then
