@@ -12,7 +12,11 @@ M.plugins = {
     },
     ["tpope/vim-abolish"] = {},
     ["tpope/vim-fugitive"] = {},
-    ["tpope/vim-surround"] = {},
+    ["kylechui/nvim-surround"] = {
+      config = function()
+        require("nvim-surround").setup()
+      end,
+    },
     ["L3MON4D3/LuaSnip"] = {
       after = "nvim-cmp",
       config = function()
@@ -29,8 +33,8 @@ M.plugins = {
       config = function()
         require "plugins.configs.lspconfig"
         require "custom.lspconfig"
-      end
-    }
+      end,
+    },
   },
   override = {
     ["kyazdani42/nvim-tree.lua"] = {
