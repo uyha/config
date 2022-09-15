@@ -52,6 +52,11 @@ M.nvterm = {
       end,
       "   toggle horizontal term",
     },
+    ["<Esc>"] = { "<C-\\><C-n>" },
+    ["<C-h>"] = { "<cmd> wincmd h <CR>" },
+    ["<C-j>"] = { "<cmd> wincmd j <CR>" },
+    ["<C-k>"] = { "<cmd> wincmd k <CR>" },
+    ["<C-l>"] = { "<cmd> wincmd l <CR>" },
   },
   n = {
     ["<A-t>"] = {
@@ -60,6 +65,10 @@ M.nvterm = {
       end,
       "   toggle horizontal term",
     },
+    ["<C-h>"] = { "<cmd> wincmd h <CR>" },
+    ["<C-j>"] = { "<cmd> wincmd j <CR>" },
+    ["<C-k>"] = { "<cmd> wincmd k <CR>" },
+    ["<C-l>"] = { "<cmd> wincmd l <CR>" },
   },
 }
 
