@@ -46,6 +46,9 @@ M.plugins = {
       },
     },
   },
+  ["folke/which-key.nvim"] = {
+    disable = false,
+  },
 }
 
 M.mappings = require "custom.mappings"
