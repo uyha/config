@@ -1,3 +1,7 @@
+if ! status is-interactive;
+  exit 0
+end
+
 if command --query exa;
   alias ls="exa"
   alias tree="ls --tree"
