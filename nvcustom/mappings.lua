@@ -40,7 +40,7 @@ M.general = {
     ["<A-p>"] = { "<cmd> cp <CR>", "Jump to next item in the Quickfix list" },
   },
   t = {
-    ["<C-x>"] = { termcodes "<C-\\><C-N>", "   escape terminal mode" },
+    ["<Esc>"] = { termcodes "<C-\\><C-N>", "   escape terminal mode" },
   },
 }
 
@@ -52,7 +52,6 @@ M.nvterm = {
       end,
       "   toggle horizontal term",
     },
-    ["<Esc>"] = { "<C-\\><C-n>" },
     ["<C-h>"] = { "<cmd> wincmd h <CR>" },
     ["<C-j>"] = { "<cmd> wincmd j <CR>" },
     ["<C-k>"] = { "<cmd> wincmd k <CR>" },
