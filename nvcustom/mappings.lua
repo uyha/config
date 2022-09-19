@@ -37,7 +37,8 @@ M.general = {
       "Decrease the height of current window",
     },
     ["<A-n>"] = { "<cmd> cn <CR>", "Jump to next item in the Quickfix list" },
-    ["<A-p>"] = { "<cmd> cp <CR>", "Jump to next item in the Quickfix list" },
+    ["<A-p>"] = { "<cmd> cp <CR>", "Jump to previous item in the Quickfix list" },
+    ["<A-c>"] = { "<cmd> ccl <CR>", "Close the Quickfix list" },
   },
   t = {
     ["<Esc>"] = { termcodes "<C-\\><C-N>", "   escape terminal mode" },
