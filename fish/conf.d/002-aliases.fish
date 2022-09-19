@@ -7,6 +7,10 @@ if command --query exa;
   alias tree="ls --tree"
 end
 
+if command --query fd;
+  alias fa="fd --no-ignore"
+end
+
 alias la="ls -a"
 alias ll="ls -la"
 
