@@ -1,6 +1,8 @@
 # shellcheck shell=bash
 # shellcheck source=/dev/null
 
+return 0
+
 if [[ $- == *i* &&
   -f /usr/local/share/blesh/ble.sh &&
   -r /usr/local/share/blesh/ble.sh ]]; then
