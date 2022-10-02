@@ -477,9 +477,9 @@ local function add_sh_snippets()
       fmt(
         [[
             read-config() {{
+              local expected_keys="$1"
+              local config_file="$2"
               while read -r line; do
-                local expected_keys="$1"
-                local config_file="$2"
 
                 # shellcheck disable=SC2034
                 local value="${{line#*=}}"
