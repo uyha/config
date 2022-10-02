@@ -41,6 +41,9 @@ M.plugins = {
           resize_window = false,
         },
       },
+      view = {
+        adaptive_size = false
+      },
       git = {
         enable = true,
       },
