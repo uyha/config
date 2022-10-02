@@ -18,6 +18,8 @@ alias rm="rm -I"
 alias mv="mv -i"
 alias cp="cp -i"
 
+alias g="git"
+
 command --query nvim && alias vim="nvim"
 command --query bat && alias cat="bat"
 command --query lazygit && alias lzg="lazygit"
