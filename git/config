@@ -31,6 +31,9 @@
 [mergetool "nvim"]
   cmd="nvim -f -c \"Gvdiffsplit!\" \"$MERGED\""
 
+[merge]
+  tool="nvim"
+
 [interactive]
   diffFilter="delta --color-only --features=interactive"
 
