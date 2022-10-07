@@ -7,9 +7,6 @@ if command --query exa;
   alias tree="ls --tree"
 end
 
-if command --query fd;
-  alias fa="fd --no-ignore"
-end
 
 alias la="ls -a"
 alias ll="ls -la"
@@ -23,6 +20,7 @@ alias g="git"
 command --query nvim && alias vim="nvim"
 command --query bat && alias cat="bat"
 command --query lazygit && alias lzg="lazygit"
+command --query fd && alias fa="fd --no-ignore"
 
 if command --query git;
   alias pgit="GIT_SSH_COMMAND='ssh -i ~/.ssh/personal' git"
