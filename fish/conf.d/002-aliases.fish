@@ -21,6 +21,7 @@ command --query nvim && alias vim="nvim"
 command --query bat && alias cat="bat"
 command --query lazygit && alias lzg="lazygit"
 command --query fd && alias fa="fd --no-ignore"
+command --query explorer.exe && alias explorer="explorer.exe"
 
 if command --query git;
   alias pgit="GIT_SSH_COMMAND='ssh -i ~/.ssh/personal' git"
