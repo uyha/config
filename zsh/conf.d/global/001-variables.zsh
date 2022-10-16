@@ -9,7 +9,7 @@ export XDG_STATE_HOME="$LOCAL/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
 if command -v nvim &>/dev/null; then
-  export MANPAGE="nvim +Man!"
+  export MANPAGER="nvim +Man!"
 fi
 
 # zsh-autosuggestions
