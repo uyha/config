@@ -8,9 +8,4 @@ source "$ZINIT_HOME/zinit.zsh"
 zinit load "zsh-users/zsh-autosuggestions"
 zinit load "zsh-users/zsh-syntax-highlighting"
 
-zinit for \
-  atload"zicompinit; zicdreplay" \
-  blockf \
-  lucid \
-  wait \
-  "zsh-users/zsh-completions"
+zinit for atload"zicompinit; zicdreplay" blockf lucid wait "zsh-users/zsh-completions"
