@@ -45,3 +45,6 @@
 
 !tmux
 !tmux/**
+
+!zsh
+!zsh/**
