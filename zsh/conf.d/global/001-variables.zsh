@@ -12,3 +12,5 @@ if command -v nvim &>/dev/null; then
   export MANPAGE="nvim +Man!"
 fi
 
+# zsh-autosuggestions
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)

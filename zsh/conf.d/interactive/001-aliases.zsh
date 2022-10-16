@@ -1,7 +1,3 @@
-if ! [[ $- == *i* ]]; then
-  exit 0
-fi
-
 if command -v exa &>/dev/null; then
   alias ls="exa"
   alias tree="ls --tree"
