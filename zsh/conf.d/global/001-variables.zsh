@@ -14,3 +14,7 @@ fi
 
 # zsh-autosuggestions
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+if [[ -d "$LOCAL/bin" ]]; then
+  export PATH="$LOCAL/bin:$PATH"
+fi
