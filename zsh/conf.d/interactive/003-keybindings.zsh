@@ -3,3 +3,4 @@ if [[ -f "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh" ]]; then
 fi
 
 bindkey '^[[Z' reverse-menu-complete
+bindkey '^f' autosuggest-accept
