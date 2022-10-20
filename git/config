@@ -8,6 +8,7 @@
   st = status
   dt = difftool
   d  = diff
+  m  = mergetool
 
 [pull]
   ff=only
@@ -29,7 +30,7 @@
   conflictStyle=diff3
 
 [mergetool "nvim"]
-  cmd="nvim -f -c \"Gvdiffsplit!\" \"$MERGED\""
+  cmd="nvim -c DiffviewOpen"
 
 [merge]
   tool="nvim"
