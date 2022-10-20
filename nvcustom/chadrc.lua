@@ -10,7 +10,6 @@ M.plugins = {
     end,
   },
   ["tpope/vim-abolish"] = {},
-  ["tpope/vim-fugitive"] = {},
   ["kylechui/nvim-surround"] = {
     config = function()
       require("nvim-surround").setup()
@@ -42,7 +41,7 @@ M.plugins = {
         },
       },
       view = {
-        adaptive_size = false
+        adaptive_size = false,
       },
       git = {
         enable = true,
@@ -52,6 +51,10 @@ M.plugins = {
   ["folke/which-key.nvim"] = {
     disable = false,
   },
+  ["sindrets/diffview.nvim"] = {
+    requires = "nvim-lua/plenary.nvim",
+  },
+  ["nvim-lua/plenary.nvim"] = { rm_default_opts = true },
 }
 
 M.mappings = require "custom.mappings"
