@@ -23,13 +23,6 @@ local startup = function(use)
     end,
   }
   use {
-    "nvim-tree/nvim-tree.lua",
-    requires = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("nvim-tree").setup {}
-    end,
-  }
-  use {
     "catppuccin/nvim",
     as = "catppuccin",
     config = function()
@@ -40,10 +33,28 @@ local startup = function(use)
     end,
   }
   use {
+    "nvim-tree/nvim-tree.lua",
+    requires = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("nvim-tree").setup {}
+      require("mappings.nvim-tree").setup {}
+    end,
+    cmd = { "NvimTreeToggle", "NvimTreeFindFile" },
+    keys = {
+      { "n", "<C-n>" },
+      { "n", "<C-f>" },
+    },
+  }
+  use {
     "akinsho/toggleterm.nvim",
     config = function()
-      require("toggleterm").setup()
+      require("plugins.toggleterm").setup()
     end,
+    cmd = { "ToggleTerm" },
+    keys = {
+      { "n", "<leader>lzg" },
+      { "n", "<M-t>" },
+    },
   }
 end
 
