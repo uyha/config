@@ -1,21 +1,21 @@
-local treesitter_cmds = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSEnable", "TSDisable", "TSModuleInfo" }
-local packer_cmds = {
-  "PackerSnapshot",
-  "PackerSnapshotRollback",
-  "PackerSnapshotDelete",
-  "PackerInstall",
-  "PackerUpdate",
-  "PackerSync",
-  "PackerClean",
-  "PackerCompile",
-  "PackerStatus",
-  "PackerProfile",
-  "PackerLoad",
-}
-
 vim.cmd [[packadd packer.nvim]]
 local startup = function(use)
-  use { "wbthomason/packer.nvim", cmd = packer_cmds }
+  use {
+    "wbthomason/packer.nvim",
+    cmd = {
+      "PackerSnapshot",
+      "PackerSnapshotRollback",
+      "PackerSnapshotDelete",
+      "PackerInstall",
+      "PackerUpdate",
+      "PackerSync",
+      "PackerClean",
+      "PackerCompile",
+      "PackerStatus",
+      "PackerProfile",
+      "PackerLoad",
+    },
+  }
   use {
     "feline-nvim/feline.nvim",
     config = function() require("feline").setup() end,
@@ -48,6 +48,11 @@ local startup = function(use)
       { "n", "<leader>lzg" },
       { "n", "<M-t>" },
     },
+  }
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+    cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSEnable", "TSDisable", "TSModuleInfo" },
   }
 end
 
