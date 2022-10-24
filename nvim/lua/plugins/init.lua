@@ -18,9 +18,7 @@ local startup = function(use)
   use { "wbthomason/packer.nvim", cmd = packer_cmds }
   use {
     "feline-nvim/feline.nvim",
-    config = function()
-      require("feline").setup()
-    end,
+    config = function() require("feline").setup() end,
   }
   use {
     "catppuccin/nvim",
@@ -47,9 +45,7 @@ local startup = function(use)
   }
   use {
     "akinsho/toggleterm.nvim",
-    config = function()
-      require("plugins.toggleterm").setup()
-    end,
+    config = function() require("plugins.toggleterm").setup() end,
     cmd = { "ToggleTerm" },
     keys = {
       { "n", "<leader>lzg" },
