@@ -33,10 +33,7 @@ local startup = function(use)
   use {
     "nvim-tree/nvim-tree.lua",
     requires = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("nvim-tree").setup {}
-      require("mappings.nvim-tree").setup {}
-    end,
+    config = function() require("plugins.nvim-tree").setup {} end,
     cmd = { "NvimTreeToggle", "NvimTreeFindFile" },
     keys = {
       { "n", "<C-n>" },

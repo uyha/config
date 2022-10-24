@@ -5,7 +5,7 @@ local termcodes = function(sequence) return vim.api.nvim_replace_termcodes(seque
 local termesc = function(sequence) return termcodes("<C-\\><C-N>" .. (sequence or "")) end
 
 local on_open = function(term)
-  local config = { buffer = true , silent = true}
+  local config = { buffer = true, silent = true }
 
   vim.keymap.set("t", "<Esc>", termesc(), config)
   vim.keymap.set("t", "<M-t>", function() term:toggle() end, config)
