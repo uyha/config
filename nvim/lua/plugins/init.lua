@@ -53,6 +53,7 @@ local startup = function(use)
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
     cmd = { "TSInstall", "TSInstallInfo", "TSBufEnable", "TSBufDisable", "TSEnable", "TSDisable", "TSModuleInfo" },
+    config = function() require("plugins.nvim-treesitter").setup() end,
   }
 end
 
