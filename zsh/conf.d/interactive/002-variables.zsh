@@ -2,4 +2,5 @@
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 export HISTFILE="$HOME/.zsh_history"
-export SAVEHIST=100000
+export HISTSIZE=10000
+export SAVEHIST=10000
