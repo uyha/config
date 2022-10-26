@@ -52,7 +52,16 @@ local startup = function(use)
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
-    cmd = { "TSInstall", "TSInstallInfo", "TSBufEnable", "TSBufDisable", "TSEnable", "TSDisable", "TSModuleInfo" },
+    cmd = {
+      "TSInstall",
+      "TSInstallInfo",
+      "TSBufEnable",
+      "TSBufDisable",
+      "TSEnable",
+      "TSDisable",
+      "TSModuleInfo",
+      "TSUpdate",
+    },
     config = function() require("plugins.nvim-treesitter").setup() end,
   }
 end
@@ -64,3 +73,13 @@ local config = {
 }
 
 require("packer").startup { startup, config = config }
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufWinEnter", "BufNewFile" }, {
+  group = vim.api.nvim_create_augroup("MyTreesitterPreload", {}),
+  callback = function(params)
+    if not params.file:match "NvimTree_1" and params.file ~= "" then
+      require("packer").loader "nvim-treesitter"
+      vim.api.nvim_del_autocmd(params.id)
+    end
+  end,
+})
