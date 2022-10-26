@@ -8,7 +8,7 @@ local Terminal = require("toggleterm.terminal").Terminal
 
 local main = Terminal:new {
   hidden = false,
-  on_open = function(term)
+  on_create = function(term)
     local config = { buffer = term.bufnr, silent = true }
 
     vim.keymap.set({ "t", "n" }, "<M-t>", function() term:close() end, config)
