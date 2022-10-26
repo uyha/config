@@ -22,7 +22,7 @@ local main = Terminal:new {
     vim.api.nvim_create_autocmd({ "TermEnter" }, {
       group = vim.api.nvim_create_augroup("MyToggleTermMain", { clear = true }),
       buffer = term.bufnr,
-      callback = function() vim.cmd [[startinsert]] end,
+      command = ":startinsert"
     })
   end,
 }
