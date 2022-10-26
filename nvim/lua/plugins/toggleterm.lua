@@ -18,6 +18,12 @@ local main = Terminal:new {
     vim.keymap.set("t", "<C-j>", termesc "<C-w>j", config)
     vim.keymap.set("t", "<C-k>", termesc "<C-w>k", config)
     vim.keymap.set("t", "<C-l>", termesc "<C-w>l", config)
+
+    vim.api.nvim_create_autocmd({ "TermEnter" }, {
+      group = vim.api.nvim_create_augroup("MyToggleTermMain", { clear = true }),
+      buffer = term.bufnr,
+      callback = function() vim.cmd [[startinsert]] end,
+    })
   end,
 }
 
