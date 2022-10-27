@@ -78,6 +78,13 @@ local startup = function(use)
     event = { "BufRead", "BufWinEnter", "BufNewFile" },
     cond = require("plugins.utils").is_normal_file,
   }
+  use {
+    "jose-elias-alvarez/null-ls.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
+    config = function() require("plugins.null-ls").setup() end,
+    event = { "BufRead", "BufWinEnter", "BufNewFile" },
+    cond = require("plugins.utils").is_normal_file,
+  }
 end
 
 local config = {
