@@ -63,6 +63,20 @@ local startup = function(use)
       "TSUpdate",
     },
     config = function() require("plugins.nvim-treesitter").setup() end,
+    event = { "BufRead", "BufWinEnter", "BufNewFile" },
+    cond = require("plugins.utils").is_normal_file,
+  }
+  use {
+    "lewis6991/gitsigns.nvim",
+    config = function() require("gitsigns").setup() end,
+    event = { "BufRead", "BufWinEnter", "BufNewFile" },
+    cond = require("plugins.utils").is_normal_file,
+  }
+  use {
+    "numToStr/Comment.nvim",
+    config = function() require("Comment").setup() end,
+    event = { "BufRead", "BufWinEnter", "BufNewFile" },
+    cond = require("plugins.utils").is_normal_file,
   }
 end
 
@@ -73,13 +87,3 @@ local config = {
 }
 
 require("packer").startup { startup, config = config }
-
-vim.api.nvim_create_autocmd({ "BufRead", "BufWinEnter", "BufNewFile" }, {
-  group = vim.api.nvim_create_augroup("MyTreesitterPreload", {}),
-  callback = function(params)
-    if not params.file:match "NvimTree_1" and params.file ~= "" then
-      require("packer").loader "nvim-treesitter"
-      vim.api.nvim_del_autocmd(params.id)
-    end
-  end,
-})
