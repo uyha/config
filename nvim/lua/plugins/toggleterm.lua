@@ -8,6 +8,7 @@ local Terminal = require("toggleterm.terminal").Terminal
 
 local main = Terminal:new {
   hidden = false,
+  start_in_insert = true,
   on_create = function(term)
     local config = { buffer = term.bufnr, silent = true }
 
@@ -18,12 +19,6 @@ local main = Terminal:new {
     vim.keymap.set("t", "<C-j>", termesc "<C-w>j", config)
     vim.keymap.set("t", "<C-k>", termesc "<C-w>k", config)
     vim.keymap.set("t", "<C-l>", termesc "<C-w>l", config)
-
-    vim.api.nvim_create_autocmd({ "TermEnter" }, {
-      group = vim.api.nvim_create_augroup("MyToggleTermMain", { clear = true }),
-      buffer = term.bufnr,
-      command = ":startinsert"
-    })
   end,
 }
 
@@ -31,13 +26,12 @@ local lazygit = Terminal:new {
   cmd = "lazygit",
   direction = "float",
   hidden = true,
+  exit_on_close = true,
   on_close = function() vim.cmd "NvimTreeRefresh" end,
 }
 
 M.setup = function()
-  require("toggleterm").setup {
-    on_open = on_open,
-  }
+  require("toggleterm").setup {}
 
   vim.keymap.set("n", "<M-t>", function() main:open() end)
   vim.keymap.set("n", "<leader>lzg", function() lazygit:open() end)
