@@ -86,6 +86,12 @@ local startup = function(use)
     event = { "BufRead", "BufWinEnter", "BufNewFile" },
     cond = require("plugins.utils").is_normal_file,
   }
+  use {
+    "j-hui/fidget.nvim",
+    config = function() require("fidget").setup() end,
+    event = { "BufRead", "BufWinEnter", "BufNewFile" },
+    cond = require("plugins.utils").is_normal_file,
+  }
 end
 
 local config = {
