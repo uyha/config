@@ -33,17 +33,12 @@ local startup = function(use)
   use {
     "nvim-tree/nvim-tree.lua",
     requires = { "nvim-tree/nvim-web-devicons" },
-    config = function() require("plugins.nvim-tree").setup {} end,
+    config = function() require("nvim-tree").setup {} end,
     cmd = { "NvimTreeToggle", "NvimTreeFindFile" },
-    keys = {
-      { "n", "<C-n>" },
-      { "n", "<C-f>" },
-    },
   }
   use {
     "akinsho/toggleterm.nvim",
     config = function() require("plugins.toggleterm").setup() end,
-    cmd = { "ToggleTerm" },
     keys = {
       { "n", "<leader>lzg" },
       { "n", "<M-t>" },
@@ -82,6 +77,12 @@ local startup = function(use)
     "jose-elias-alvarez/null-ls.nvim",
     requires = { "nvim-lua/plenary.nvim" },
     config = function() require("plugins.null-ls").setup() end,
+    event = { "BufRead", "BufWinEnter", "BufNewFile" },
+    cond = require("plugins.utils").is_normal_file,
+  }
+  use {
+    "neovim/nvim-lspconfig",
+    config = function() require("plugins.nvim-lspconfig").setup() end,
     event = { "BufRead", "BufWinEnter", "BufNewFile" },
     cond = require("plugins.utils").is_normal_file,
   }
