@@ -103,6 +103,12 @@ local startup = function(use)
 
   use { "L3MON4D3/LuaSnip", after = { "nvim-cmp" } }
   use { "saadparwaiz1/cmp_luasnip", after = { "LuaSnip" } }
+
+  use {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function() require("indent_blankline").setup() end,
+    event = { "VimEnter" },
+  }
 end
 
 local config = {
