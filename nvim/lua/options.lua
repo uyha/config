@@ -9,6 +9,9 @@ vim.o.shiftwidth = 2
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 
+-- Autocomplete
+vim.o.completeopt = "menu,menuone,noselect"
+
 vim.g.mapleader = " "
 
 -- Disable default plugins

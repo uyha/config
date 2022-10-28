@@ -19,10 +19,11 @@ local on_attach = function(client, bufnr)
 end
 
 local servers = { "pyright", "bashls", "svelte", "tsserver", "rust_analyzer", "cssls", "jsonls", "sumneko_lua" }
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 M.setup = function()
   for _, lsp in ipairs(servers) do
-    require("lspconfig")[lsp].setup { on_attach = on_attach }
+    require("lspconfig")[lsp].setup { on_attach = on_attach, capabilities = capabilities }
   end
 end
 

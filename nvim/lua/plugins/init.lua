@@ -72,6 +72,7 @@ local startup = function(use)
     "neovim/nvim-lspconfig",
     config = function() require("plugins.nvim-lspconfig").setup() end,
     event = { "VimEnter" },
+    after = { "cmp-nvim-lsp" },
   }
   use {
     "folke/noice.nvim",
@@ -93,6 +94,15 @@ local startup = function(use)
     config = function() require("which-key").setup() end,
     event = { "VimEnter" },
   }
+  use { "hrsh7th/nvim-cmp", config = function() require("plugins.nvim-cmp").setup() end }
+
+  use { "hrsh7th/cmp-nvim-lsp", after = { "nvim-cmp" } }
+  use { "hrsh7th/cmp-buffer", after = { "nvim-cmp" } }
+  use { "hrsh7th/cmp-path", after = { "nvim-cmp" } }
+  use { "hrsh7th/cmp-cmdline", after = { "nvim-cmp" } }
+
+  use { "L3MON4D3/LuaSnip", after = { "nvim-cmp" } }
+  use { "saadparwaiz1/cmp_luasnip", after = { "LuaSnip" } }
 end
 
 local config = {
