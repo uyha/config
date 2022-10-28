@@ -19,6 +19,7 @@ local startup = function(use)
   use {
     "feline-nvim/feline.nvim",
     config = function() require("feline").setup() end,
+    event = { "VimEnter" },
   }
   use {
     "catppuccin/nvim",
@@ -29,12 +30,13 @@ local startup = function(use)
       }
       vim.api.nvim_command "colorscheme catppuccin"
     end,
+    event = { "VimEnter" },
   }
   use {
     "nvim-tree/nvim-tree.lua",
     requires = { "nvim-tree/nvim-web-devicons" },
     config = function() require("nvim-tree").setup {} end,
-    cmd = { "NvimTreeToggle", "NvimTreeFindFile" },
+    cmd = { "NvimTreeToggle", "NvimTreeFindFile", "NvimTreeRefresh" },
   }
   use {
     "akinsho/toggleterm.nvim",
@@ -87,10 +89,18 @@ local startup = function(use)
     cond = require("plugins.utils").is_normal_file,
   }
   use {
-    "j-hui/fidget.nvim",
-    config = function() require("fidget").setup() end,
-    event = { "BufRead", "BufWinEnter", "BufNewFile" },
-    cond = require("plugins.utils").is_normal_file,
+    "folke/noice.nvim",
+    config = function() require("noice").setup() end,
+    event = { "VimEnter" },
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+  }
+  use {
+    "nvim-telescope/telescope.nvim",
+    event = { "VimEnter" },
+    requires = { { "folke/which-key.nvim", "nvim-lua/plenary.nvim" } },
   }
 end
 
