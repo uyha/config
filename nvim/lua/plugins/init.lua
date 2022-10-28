@@ -28,7 +28,7 @@ local startup = function(use)
       require("catppuccin").setup {
         flavour = "mocha", -- mocha, macchiato, frappe, latte
       }
-      vim.api.nvim_command "colorscheme catppuccin"
+      vim.cmd [[colorscheme catppuccin]]
     end,
     event = { "VimEnter" },
   }
@@ -49,44 +49,29 @@ local startup = function(use)
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
-    cmd = {
-      "TSInstall",
-      "TSInstallInfo",
-      "TSBufEnable",
-      "TSBufDisable",
-      "TSEnable",
-      "TSDisable",
-      "TSModuleInfo",
-      "TSUpdate",
-    },
     config = function() require("plugins.nvim-treesitter").setup() end,
-    event = { "BufRead", "BufWinEnter", "BufNewFile" },
-    cond = require("plugins.utils").is_normal_file,
+    event = { "VimEnter" },
   }
   use {
     "lewis6991/gitsigns.nvim",
     config = function() require("gitsigns").setup() end,
-    event = { "BufRead", "BufWinEnter", "BufNewFile" },
-    cond = require("plugins.utils").is_normal_file,
+    event = { "VimEnter" },
   }
   use {
     "numToStr/Comment.nvim",
     config = function() require("Comment").setup() end,
-    event = { "BufRead", "BufWinEnter", "BufNewFile" },
-    cond = require("plugins.utils").is_normal_file,
+    event = { "VimEnter" },
   }
   use {
     "jose-elias-alvarez/null-ls.nvim",
     requires = { "nvim-lua/plenary.nvim" },
     config = function() require("plugins.null-ls").setup() end,
-    event = { "BufRead", "BufWinEnter", "BufNewFile" },
-    cond = require("plugins.utils").is_normal_file,
+    event = { "VimEnter" },
   }
   use {
     "neovim/nvim-lspconfig",
     config = function() require("plugins.nvim-lspconfig").setup() end,
-    event = { "BufRead", "BufWinEnter", "BufNewFile" },
-    cond = require("plugins.utils").is_normal_file,
+    event = { "VimEnter" },
   }
   use {
     "folke/noice.nvim",
@@ -99,8 +84,14 @@ local startup = function(use)
   }
   use {
     "nvim-telescope/telescope.nvim",
+    config = function() require("plugins.telescope").setup() end,
     event = { "VimEnter" },
-    requires = { { "folke/which-key.nvim", "nvim-lua/plenary.nvim" } },
+    requires = { "nvim-lua/plenary.nvim" },
+  }
+  use {
+    "folke/which-key.nvim",
+    config = function() require("which-key").setup() end,
+    event = { "VimEnter" },
   }
 end
 
