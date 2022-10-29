@@ -18,7 +18,10 @@ local startup = function(use)
   }
   use {
     "feline-nvim/feline.nvim",
-    config = function() require("feline").setup() end,
+    config = function()
+      require("feline").setup()
+      require("feline").winbar.setup()
+    end,
     event = { "VimEnter" },
   }
   use {
