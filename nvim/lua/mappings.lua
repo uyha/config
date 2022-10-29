@@ -18,3 +18,9 @@ vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
+
+-- Noice
+vim.keymap.set("n", "<leader>nh", function() require("noice").cmd("history") end)
+vim.keymap.set("n", "<leader>nl", function() require("noice").cmd("last") end)
+vim.keymap.set("n", "<leader>ne", function() require("noice").cmd("errors") end)
+vim.keymap.set("n", "<leader>nt", function() require("noice").cmd("telescope") end)
