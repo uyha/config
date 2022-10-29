@@ -18,7 +18,6 @@ M.setup = function()
 
       -- Shell
       formatting.shfmt.with { extra_args = { "-i", "2" } },
-      diagnostics.shellcheck.with {},
       code_actions.shellcheck.with {},
 
       -- C/C++

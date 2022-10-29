@@ -18,10 +18,9 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "gr", vim.lsp.buf.references, opt)
 end
 
-local servers = { "pyright", "bashls", "svelte", "tsserver", "rust_analyzer", "cssls", "jsonls", "sumneko_lua" }
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 M.setup = function()
+  local servers = { "pyright", "bashls", "svelte", "tsserver", "rust_analyzer", "cssls", "jsonls", "sumneko_lua" }
+  local capabilities = require("cmp_nvim_lsp").default_capabilities()
   for _, lsp in ipairs(servers) do
     require("lspconfig")[lsp].setup { on_attach = on_attach, capabilities = capabilities }
   end
