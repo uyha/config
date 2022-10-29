@@ -12,6 +12,5 @@ if command -v nvim &>/dev/null; then
   export MANPAGER="nvim +Man!"
 fi
 
-if [[ -d "$LOCAL/bin" ]]; then
-  export PATH="$LOCAL/bin:$PATH"
-fi
+[[ -d "$LOCAL/bin" ]] && export PATH="$LOCAL/bin:$PATH"
+[[ -d "$LOCAL/opt/cargo/bin" ]] && export PATH="$LOCAL/opt/cargo/bin:$PATH"
