@@ -93,7 +93,7 @@ local startup = function(use)
   }
   use { "hrsh7th/nvim-cmp", config = function() require("plugins.nvim-cmp").setup() end, event = { "VimEnter" } }
 
-  use { "L3MON4D3/LuaSnip", after = { "nvim-cmp" } }
+  use { "L3MON4D3/LuaSnip", config = function() require("plugins.luasnip").setup() end, after = { "nvim-cmp" } }
   use { "saadparwaiz1/cmp_luasnip", after = { "LuaSnip" } }
 
   use { "hrsh7th/cmp-nvim-lsp", after = { "cmp_luasnip" } }
