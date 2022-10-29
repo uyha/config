@@ -4,8 +4,6 @@ vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 
-vim.keymap.set("n", "<leader>ll", function() vim.cmd [[luafile %]] end)
-
 -- Packer
 vim.keymap.set("n", "<leader>ps", function() vim.cmd [[PackerSync]] end)
 
@@ -20,7 +18,12 @@ vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
 
 -- Noice
-vim.keymap.set("n", "<leader>nh", function() require("noice").cmd("history") end)
-vim.keymap.set("n", "<leader>nl", function() require("noice").cmd("last") end)
-vim.keymap.set("n", "<leader>ne", function() require("noice").cmd("errors") end)
-vim.keymap.set("n", "<leader>nt", function() require("noice").cmd("telescope") end)
+vim.keymap.set("n", "<leader>nh", function() require("noice").cmd "history" end)
+vim.keymap.set("n", "<leader>nl", function() require("noice").cmd "last" end)
+vim.keymap.set("n", "<leader>ne", function() require("noice").cmd "errors" end)
+vim.keymap.set("n", "<leader>nt", function() require("noice").cmd "telescope" end)
+
+-- Misc
+vim.keymap.set("n", "<leader>p", [["+p]])
+vim.keymap.set("n", "<leader>y", [["*y]])
+vim.keymap.set("n", "<leader>ll", function() vim.cmd [[luafile %]] end)
