@@ -5,7 +5,7 @@ vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 
 -- Packer
-vim.keymap.set("n", "<leader>ps", function() vim.cmd [[PackerSync]] end)
+vim.keymap.set("n", "<leader><leader>s", function() vim.cmd [[PackerSync]] end)
 
 -- nvim-tree
 vim.keymap.set("n", "<C-n>", function() vim.cmd [[NvimTreeToggle]] end)
@@ -24,6 +24,6 @@ vim.keymap.set("n", "<leader>ne", function() require("noice").cmd "errors" end)
 vim.keymap.set("n", "<leader>nt", function() require("noice").cmd "telescope" end)
 
 -- Misc
-vim.keymap.set("n", "<leader>p", [["+p]])
-vim.keymap.set("n", "<leader>y", [["*y]])
+vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["*y]])
 vim.keymap.set("n", "<leader>ll", function() vim.cmd [[luafile %]] end)
