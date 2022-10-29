@@ -1,3 +1,14 @@
+local ensure_packer = function()
+  local install_path = vim.fn.stdpath "data" .. "/site/pack/packer/opt/packer.nvim"
+  if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+    vim.fn.system { "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path }
+    return true
+  end
+  return false
+end
+
+local should_sync = ensure_packer()
+
 vim.cmd [[packadd packer.nvim]]
 local startup = function(use)
   use {
@@ -26,9 +37,7 @@ local startup = function(use)
   }
   use {
     "folke/tokyonight.nvim",
-    config = function()
-      vim.cmd [[colorscheme tokyonight]]
-    end,
+    config = function() vim.cmd [[colorscheme tokyonight]] end,
     event = { "VimEnter" },
   }
   use {
@@ -131,6 +140,8 @@ local startup = function(use)
       "DiffviewRefresh",
     },
   }
+
+  if should_sync then require("packer").sync() end
 end
 
 local config = {
