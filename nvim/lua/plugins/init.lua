@@ -29,10 +29,7 @@ local startup = function(use)
   }
   use {
     "feline-nvim/feline.nvim",
-    config = function()
-      require("feline").setup()
-      require("feline").winbar.setup()
-    end,
+    config = function() require("plugins.feline").setup() end,
     event = { "VimEnter" },
   }
   use {
@@ -64,23 +61,23 @@ local startup = function(use)
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
     config = function() require("plugins.nvim-treesitter").setup() end,
-    event = { "VimEnter" },
+    event = { "BufRead", "BufWinEnter", "BufNewFile" },
   }
   use {
     "lewis6991/gitsigns.nvim",
     config = function() require("gitsigns").setup() end,
-    event = { "VimEnter" },
+    event = { "BufRead", "BufWinEnter", "BufNewFile" },
   }
   use {
     "numToStr/Comment.nvim",
     config = function() require("Comment").setup() end,
-    event = { "VimEnter" },
+    event = { "BufRead", "BufWinEnter", "BufNewFile" },
   }
   use {
     "jose-elias-alvarez/null-ls.nvim",
     requires = { "nvim-lua/plenary.nvim" },
     config = function() require("plugins.null-ls").setup() end,
-    event = { "VimEnter" },
+    event = { "BufRead", "BufWinEnter", "BufNewFile" },
   }
   use {
     "folke/noice.nvim",
@@ -112,7 +109,11 @@ local startup = function(use)
     config = function() require("which-key").setup() end,
     event = { "VimEnter" },
   }
-  use { "hrsh7th/nvim-cmp", config = function() require("plugins.nvim-cmp").setup() end, event = { "VimEnter" } }
+  use {
+    "hrsh7th/nvim-cmp",
+    config = function() require("plugins.nvim-cmp").setup() end,
+    event = { "BufRead", "BufWinEnter", "BufNewFile" },
+  }
 
   use { "L3MON4D3/LuaSnip", config = function() require("plugins.luasnip").setup() end, after = { "nvim-cmp" } }
   use { "saadparwaiz1/cmp_luasnip", after = { "LuaSnip" } }
@@ -125,13 +126,13 @@ local startup = function(use)
   use {
     "neovim/nvim-lspconfig",
     config = function() require("plugins.nvim-lspconfig").setup() end,
-    after = { "cmp-nvim-lsp" },
+    after = { "cmp-nvim-lsp", "nvim-navic" },
   }
 
   use {
     "lukas-reineke/indent-blankline.nvim",
     config = function() require("indent_blankline").setup() end,
-    event = { "VimEnter" },
+    event = { "BufRead", "BufWinEnter", "BufNewFile" },
   }
 
   use {
@@ -150,25 +151,32 @@ local startup = function(use)
   use {
     "kylechui/nvim-surround",
     config = function() require("nvim-surround").setup {} end,
-    event = { "VimEnter" },
+    event = { "BufRead", "BufWinEnter", "BufNewFile" },
   }
 
   use {
     "aserowy/tmux.nvim",
     config = function() require("tmux").setup() end,
+    event = { "VimEnter" },
   }
 
   use {
     "nvim-treesitter/nvim-treesitter-context",
     after = { "nvim-treesitter" },
-    requires = { "nvim-treesitter" },
+    requires = { "nvim-treesitter/nvim-treesitter" },
     config = function() require("treesitter-context").setup() end,
   }
 
   use {
     "p00f/nvim-ts-rainbow",
     after = { "nvim-treesitter" },
-    requires = { "nvim-treesitter" },
+    requires = { "nvim-treesitter/nvim-treesitter" },
+  }
+
+  use {
+    "SmiteshP/nvim-navic",
+    requires = { "neovim/nvim-lspconfig" },
+    event = { "BufRead", "BufWinEnter", "BufNewFile" },
   }
 
   if should_sync then require("packer").sync() end
