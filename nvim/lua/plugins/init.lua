@@ -36,10 +36,13 @@ local startup = function(use)
     event = { "VimEnter" },
   }
   use {
-    "navarasu/onedark.nvim",
+    "catppuccin/nvim",
+    as = "catppuccin",
     config = function()
-      require("onedark").setup { style = "darker" }
-      require("onedark").load()
+      require("catppuccin").setup {
+        flavour = "frappe", --[[ mocha, macchiato, frappe, latte ]]
+      }
+      vim.cmd [[colorscheme catppuccin]]
     end,
     event = { "VimEnter" },
   }
