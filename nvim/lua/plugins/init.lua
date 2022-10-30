@@ -153,6 +153,11 @@ local startup = function(use)
     event = { "VimEnter" },
   }
 
+  use {
+    "aserowy/tmux.nvim",
+    config = function() require("tmux").setup() end,
+  }
+
   if should_sync then require("packer").sync() end
 end
 
