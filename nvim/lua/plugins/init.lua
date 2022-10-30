@@ -36,8 +36,11 @@ local startup = function(use)
     event = { "VimEnter" },
   }
   use {
-    "folke/tokyonight.nvim",
-    config = function() vim.cmd [[colorscheme tokyonight]] end,
+    "navarasu/onedark.nvim",
+    config = function()
+      require("onedark").setup { style = "darker" }
+      require("onedark").load()
+    end,
     event = { "VimEnter" },
   }
   use {
@@ -139,6 +142,12 @@ local startup = function(use)
       "DiffviewFocusFiles",
       "DiffviewRefresh",
     },
+  }
+
+  use {
+    "kylechui/nvim-surround",
+    config = function() require("nvim-surround").setup {} end,
+    event = { "VimEnter" },
   }
 
   if should_sync then require("packer").sync() end

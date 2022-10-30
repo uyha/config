@@ -26,4 +26,4 @@ vim.keymap.set("n", "<leader>nt", function() require("noice").cmd "telescope" en
 -- Misc
 vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]])
 vim.keymap.set({ "n", "v" }, "<leader>y", [["*y]])
-vim.keymap.set("n", "<leader>ll", function() vim.cmd [[luafile %]] end)
+vim.keymap.set("n", "<leader><leader>l", function() vim.cmd [[luafile %]] end)
