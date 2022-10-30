@@ -158,6 +158,19 @@ local startup = function(use)
     config = function() require("tmux").setup() end,
   }
 
+  use {
+    "nvim-treesitter/nvim-treesitter-context",
+    after = { "nvim-treesitter" },
+    requires = { "nvim-treesitter" },
+    config = function() require("treesitter-context").setup() end,
+  }
+
+  use {
+    "p00f/nvim-ts-rainbow",
+    after = { "nvim-treesitter" },
+    requires = { "nvim-treesitter" },
+  }
+
   if should_sync then require("packer").sync() end
 end
 
