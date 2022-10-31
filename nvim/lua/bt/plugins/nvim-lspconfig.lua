@@ -16,14 +16,21 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opt)
   vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opt)
   vim.keymap.set("n", "gr", vim.lsp.buf.references, opt)
+
+  if client.server_capabilities.documentSymbolProvider then require("nvim-navic").attach(client, bufnr) end
 end
 
 M.setup = function()
+  local lspconfig = require "lspconfig"
   local servers = { "pyright", "bashls", "svelte", "tsserver", "rust_analyzer", "cssls", "jsonls", "sumneko_lua" }
   local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
   for _, lsp in ipairs(servers) do
-    require("lspconfig")[lsp].setup { on_attach = on_attach, capabilities = capabilities }
+    lspconfig[lsp].setup { on_attach = on_attach, capabilities = capabilities }
   end
+
+  capabilities = vim.tbl_deep_extend("force", capabilities, { offsetEncoding = { "utf-16" } })
+  lspconfig["clangd"].setup { on_attach = on_attach, capabilities = capabilities }
 end
 
 return M

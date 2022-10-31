@@ -1,3 +1,5 @@
-require "options"
-require "mappings"
-require "plugins"
+pcall(require, "impatient")
+
+require "bt.options"
+require "bt.mappings"
+require "bt.plugins"

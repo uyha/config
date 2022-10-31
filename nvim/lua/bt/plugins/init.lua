@@ -1,3 +1,5 @@
+pcall(require, "impatient")
+
 local ensure_packer = function()
   local install_path = vim.fn.stdpath "data" .. "/site/pack/packer/opt/packer.nvim"
   if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
@@ -27,6 +29,13 @@ local startup = function(use)
       "PackerLoad",
     },
   }
+  use { "lewis6991/impatient.nvim" }
+  use {
+    "SmiteshP/nvim-navic",
+    requires = { "neovim/nvim-lspconfig" },
+    event = { "BufRead", "BufWinEnter", "BufNewFile" },
+  }
+
   use {
     "feline-nvim/feline.nvim",
     config = function() require("plugins.feline").setup() end,
@@ -61,17 +70,17 @@ local startup = function(use)
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
     config = function() require("plugins.nvim-treesitter").setup() end,
-    event = { "BufRead", "BufWinEnter", "BufNewFile" },
+    event = { "BufEnter", "BufWinEnter", "BufNewFile" },
   }
   use {
     "lewis6991/gitsigns.nvim",
     config = function() require("gitsigns").setup() end,
-    event = { "BufRead", "BufWinEnter", "BufNewFile" },
+    event = { "VimEnter" },
   }
   use {
     "numToStr/Comment.nvim",
     config = function() require("Comment").setup() end,
-    event = { "BufRead", "BufWinEnter", "BufNewFile" },
+    event = { "VimEnter" },
   }
   use {
     "jose-elias-alvarez/null-ls.nvim",
@@ -79,6 +88,7 @@ local startup = function(use)
     config = function() require("plugins.null-ls").setup() end,
     event = { "BufRead", "BufWinEnter", "BufNewFile" },
   }
+
   use {
     "folke/noice.nvim",
     config = function()
@@ -109,10 +119,11 @@ local startup = function(use)
     config = function() require("which-key").setup() end,
     event = { "VimEnter" },
   }
+
   use {
     "hrsh7th/nvim-cmp",
     config = function() require("plugins.nvim-cmp").setup() end,
-    event = { "BufRead", "BufWinEnter", "BufNewFile" },
+    event = { "VimEnter" },
   }
 
   use { "L3MON4D3/LuaSnip", config = function() require("plugins.luasnip").setup() end, after = { "nvim-cmp" } }
@@ -151,7 +162,7 @@ local startup = function(use)
   use {
     "kylechui/nvim-surround",
     config = function() require("nvim-surround").setup {} end,
-    event = { "BufRead", "BufWinEnter", "BufNewFile" },
+    event = { "VimEnter" },
   }
 
   use {
@@ -161,23 +172,12 @@ local startup = function(use)
   }
 
   use {
-    "nvim-treesitter/nvim-treesitter-context",
-    after = { "nvim-treesitter" },
-    requires = { "nvim-treesitter/nvim-treesitter" },
-    config = function() require("treesitter-context").setup() end,
-  }
-
-  use {
     "p00f/nvim-ts-rainbow",
     after = { "nvim-treesitter" },
     requires = { "nvim-treesitter/nvim-treesitter" },
   }
 
-  use {
-    "SmiteshP/nvim-navic",
-    requires = { "neovim/nvim-lspconfig" },
-    event = { "BufRead", "BufWinEnter", "BufNewFile" },
-  }
+  use { "kevinhwang91/nvim-bqf", ft = "qf" }
 
   if should_sync then require("packer").sync() end
 end
