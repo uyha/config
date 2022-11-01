@@ -83,36 +83,31 @@ local startup = function(use)
     config = require("bt.plugins.null-ls").config,
   }
 
-  -- use {
-  --   "folke/noice.nvim",
-  --   config = function()
-  --     require("noice").setup {
-  --       lsp = {
-  --         override = {
-  --           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-  --           ["vim.lsp.util.stylize_markdown"] = true,
-  --           ["cmp.entry.get_documentation"] = true,
-  --         },
-  --       },
-  --     }
-  --   end,
-  --   event = { "VimEnter" },
-  --   requires = {
-  --     "MunifTanjim/nui.nvim",
-  --     "rcarriga/nvim-notify",
-  --   },
-  -- }
-  -- use {
-  --   "nvim-telescope/telescope.nvim",
-  --   config = function() require("bt.plugins.telescope").setup() end,
-  --   event = { "VimEnter" },
-  --   requires = { "nvim-lua/plenary.nvim" },
-  -- }
-  -- use {
-  --   "folke/which-key.nvim",
-  --   config = function() require("which-key").setup() end,
-  --   event = { "VimEnter" },
-  -- }
+  use {
+    "folke/noice.nvim",
+    config = function() require("bt.plugins.noice").config() end,
+    event = { "UIEnter" },
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+  }
+  use {
+    "nvim-telescope/telescope.nvim",
+    config = function() require("bt.plugins.telescope").setup() end,
+    requires = { "nvim-lua/plenary.nvim" },
+    keys = {
+      { "n", "<leader>ff" },
+      { "n", "<leader>fa" },
+      { "n", "<leader>fw" },
+      { "n", "<leader>fk" },
+    },
+  }
+
+  use {
+    "folke/which-key.nvim",
+    config = function() require("which-key").setup() end,
+  }
 
   -- use {
   --   "hrsh7th/nvim-cmp",
@@ -133,30 +128,37 @@ local startup = function(use)
     config = function() require("bt.plugins.nvim-lspconfig").setup() end,
   }
 
-  -- use {
-  --   "lukas-reineke/indent-blankline.nvim",
-  --   config = function() require("indent_blankline").setup() end,
-  --   event = { "BufRead", "BufWinEnter", "BufNewFile" },
-  -- }
+  use {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function() require("bt.plugins.indent-blankline").config() end,
+    after = "nvim-treesitter",
+  }
 
-  -- use {
-  --   "sindrets/diffview.nvim",
-  --   requires = { "nvim-lua/plenary.nvim" },
-  --   cmd = {
-  --     "DiffviewOpen",
-  --     "DiffviewFileHistory",
-  --     "DiffviewClose",
-  --     "DiffviewToggleFiles",
-  --     "DiffviewFocusFiles",
-  --     "DiffviewRefresh",
-  --   },
-  -- }
+  use {
+    "sindrets/diffview.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
+    cmd = {
+      "DiffviewOpen",
+      "DiffviewFileHistory",
+      "DiffviewClose",
+      "DiffviewToggleFiles",
+      "DiffviewFocusFiles",
+      "DiffviewRefresh",
+    },
+  }
 
-  -- use {
-  --   "kylechui/nvim-surround",
-  --   config = function() require("nvim-surround").setup {} end,
-  --   event = { "VimEnter" },
-  -- }
+  use {
+    "kylechui/nvim-surround",
+    config = function() require("nvim-surround").setup {} end,
+    keys = {
+      { "n", "ys" },
+      { "n", "S" },
+      { "n", "ds" },
+      { "n", "cs" },
+      { "v", "ys" },
+      { "v", "S" },
+    },
+  }
 
   use {
     "aserowy/tmux.nvim",
