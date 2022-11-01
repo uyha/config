@@ -33,8 +33,8 @@ local lazygit = Terminal:new {
 M.setup = function()
   require("toggleterm").setup {}
 
-  vim.keymap.set("n", "<M-t>", function() main:open() end)
-  vim.keymap.set("n", "<leader>lzg", function() lazygit:open() end)
+  vim.keymap.set("n", "<M-t>", function() main:open() end, { desc = "Open main terminal" })
+  vim.keymap.set("n", "<leader>lzg", function() lazygit:open() end, { desc = "Open lazygit" })
 end
 
 return M
