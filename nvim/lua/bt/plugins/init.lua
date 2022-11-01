@@ -66,11 +66,16 @@ local startup = function(use)
     setup = require("bt.plugins.gitsigns").setup,
     config = require("bt.plugins.gitsigns").config,
   }
-  -- use {
-  --   "numToStr/Comment.nvim",
-  --   config = function() require("Comment").setup() end,
-  --   event = { "VimEnter" },
-  -- }
+  use {
+    "numToStr/Comment.nvim",
+    config = function() require("Comment").setup() end,
+    keys = {
+      { "n", "gc" },
+      { "n", "gb" },
+      { "v", "gc" },
+      { "v", "gb" },
+    },
+  }
   -- use {
   --   "jose-elias-alvarez/null-ls.nvim",
   --   requires = { "nvim-lua/plenary.nvim" },
