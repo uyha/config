@@ -1,3 +1,4 @@
+-- Close quickfix with 'q' and automatically close quickfix when leave it
 vim.api.nvim_create_autocmd("FileType", {
   group = vim.api.nvim_create_augroup("BTQuickfixKeyMap", {}),
   callback = function(params)

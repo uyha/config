@@ -158,19 +158,24 @@ local startup = function(use)
   --   event = { "VimEnter" },
   -- }
 
-  -- use {
-  --   "aserowy/tmux.nvim",
-  --   config = function() require("tmux").setup() end,
-  --   event = { "VimEnter" },
-  -- }
+  use {
+    "aserowy/tmux.nvim",
+    config = function() require("tmux").setup() end,
+    keys = {
+      { "n", "<C-h>" },
+      { "n", "<C-j>" },
+      { "n", "<C-k>" },
+      { "n", "<C-l>" },
+    },
+  }
 
-  -- use {
-  --   "p00f/nvim-ts-rainbow",
-  --   after = { "nvim-treesitter" },
-  --   requires = { "nvim-treesitter/nvim-treesitter" },
-  -- }
+  use {
+    "p00f/nvim-ts-rainbow",
+    after = { "nvim-treesitter" },
+  }
 
   use { "kevinhwang91/nvim-bqf", ft = "qf" }
+  use { "windwp/nvim-autopairs", config = function() require("nvim-autopairs").setup {} end, event = "InsertEnter" }
 end
 
 local config = {

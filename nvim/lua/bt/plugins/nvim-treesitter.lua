@@ -9,6 +9,7 @@ M.setup = function()
       "cpp",
       "help",
       "javascript",
+      "json",
       "lua",
       "markdown",
       "markdown_inline",
