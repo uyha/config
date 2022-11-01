@@ -76,12 +76,13 @@ local startup = function(use)
       { "v", "gb" },
     },
   }
-  -- use {
-  --   "jose-elias-alvarez/null-ls.nvim",
-  --   requires = { "nvim-lua/plenary.nvim" },
-  --   config = function() require("bt.plugins.null-ls").setup() end,
-  --   event = { "BufRead", "BufWinEnter", "BufNewFile" },
-  -- }
+  use {
+    "jose-elias-alvarez/null-ls.nvim",
+    module = "null-ls",
+    requires = { "nvim-lua/plenary.nvim" },
+    setup = require("bt.plugins.null-ls").setup,
+    config = require("bt.plugins.null-ls").config,
+  }
 
   -- use {
   --   "folke/noice.nvim",
