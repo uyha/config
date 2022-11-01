@@ -109,19 +109,23 @@ local startup = function(use)
     config = function() require("which-key").setup() end,
   }
 
-  -- use {
-  --   "hrsh7th/nvim-cmp",
-  --   config = function() require("bt.plugins.nvim-cmp").setup() end,
-  --   event = { "VimEnter" },
-  -- }
+  use {
+    "hrsh7th/nvim-cmp",
+    config = function() require("bt.plugins.nvim-cmp").setup() end,
+    event = { "InsertEnter" },
+  }
 
-  -- use { "L3MON4D3/LuaSnip", --[[ config = function() require("bt.plugins.luasnip").setup() end ,]] after = { "nvim-cmp" } }
-  -- use { "saadparwaiz1/cmp_luasnip", after = { "LuaSnip" } }
+  use {
+    "L3MON4D3/LuaSnip",
+    config = function() require("bt.plugins.luasnip").setup() end,
+    after = { "nvim-cmp" },
+  }
+  use { "saadparwaiz1/cmp_luasnip", after = { "LuaSnip" } }
 
-  -- use { "hrsh7th/cmp-nvim-lsp", after = { "cmp_luasnip" } }
-  -- use { "hrsh7th/cmp-buffer", after = { "cmp-nvim-lsp" } }
-  -- use { "hrsh7th/cmp-path", after = { "cmp-buffer" } }
-  -- use { "hrsh7th/cmp-cmdline", after = { "cmp-path" } }
+  use { "hrsh7th/cmp-nvim-lsp", after = { "cmp_luasnip" } }
+  use { "hrsh7th/cmp-buffer", after = { "cmp-nvim-lsp" } }
+  use { "hrsh7th/cmp-path", after = { "cmp-buffer" } }
+  use { "hrsh7th/cmp-cmdline", after = { "cmp-path" } }
 
   use {
     "neovim/nvim-lspconfig",
@@ -178,6 +182,7 @@ local startup = function(use)
 
   use { "kevinhwang91/nvim-bqf", ft = "qf" }
   use { "windwp/nvim-autopairs", config = function() require("nvim-autopairs").setup {} end, event = "InsertEnter" }
+  use { "NvChad/nvim-colorizer.lua", config = function() require("colorizer").setup() end }
 end
 
 local config = {
