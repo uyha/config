@@ -29,11 +29,10 @@ local startup = function(use)
     config = function() require("bt.plugins.feline").setup() end,
   }
 
-  -- use {
-  --   "SmiteshP/nvim-navic",
-  --   requires = { "neovim/nvim-lspconfig" },
-  --   event = { "BufRead", "BufWinEnter", "BufNewFile" },
-  -- }
+  use {
+    "SmiteshP/nvim-navic",
+    requires = { "neovim/nvim-lspconfig" },
+  }
 
   use {
     "catppuccin/nvim",
@@ -129,13 +128,10 @@ local startup = function(use)
   -- use { "hrsh7th/cmp-path", after = { "cmp-buffer" } }
   -- use { "hrsh7th/cmp-cmdline", after = { "cmp-path" } }
 
-  -- use {
-  --   "neovim/nvim-lspconfig",
-  --   config = function() require("bt.plugins.nvim-lspconfig").setup() end,
-  --   event = { "BufRead", "BufWinEnter", "BufNewFile" },
-  --   cond = is_normal_file,
-  --    after = { "cmp-nvim-lsp", "nvim-navic" },
-  -- }
+  use {
+    "neovim/nvim-lspconfig",
+    config = function() require("bt.plugins.nvim-lspconfig").setup() end,
+  }
 
   -- use {
   --   "lukas-reineke/indent-blankline.nvim",
@@ -174,7 +170,7 @@ local startup = function(use)
   --   requires = { "nvim-treesitter/nvim-treesitter" },
   -- }
 
-  -- use { "kevinhwang91/nvim-bqf", ft = "qf" }
+  use { "kevinhwang91/nvim-bqf", ft = "qf" }
 end
 
 local config = {

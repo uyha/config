@@ -22,17 +22,21 @@ end
 
 M.setup = function()
   local lspconfig = require "lspconfig"
-  local servers = { "pyright", "bashls", "svelte", "tsserver", "rust_analyzer", "cssls", "jsonls", "sumneko_lua" }
-  -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
+  local servers = {
+    "bashls",
+    "clangd",
+    "cssls",
+    "jsonls",
+    "pyright",
+    "rust_analyzer",
+    "sumneko_lua",
+    "svelte",
+    "tsserver",
+  }
 
   for _, lsp in ipairs(servers) do
-    -- lspconfig[lsp].setup { on_attach = on_attach, capabilities = capabilities }
     lspconfig[lsp].setup { on_attach = on_attach }
   end
-
-  -- local capabilities = vim.tbl_deep_extend("force", capabilities, { offsetEncoding = { "utf-16" } })
-  -- lspconfig["clangd"].setup { on_attach = on_attach, capabilities = capabilities }
-  lspconfig["clangd"].setup { on_attach = on_attach }
 end
 
 return M
