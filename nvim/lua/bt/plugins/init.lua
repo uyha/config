@@ -27,12 +27,10 @@ local startup = function(use)
   use {
     "feline-nvim/feline.nvim",
     config = function() require("bt.plugins.feline").setup() end,
+    after = { "nvim-navic", "catppuccin" },
   }
 
-  use {
-    "SmiteshP/nvim-navic",
-    requires = { "neovim/nvim-lspconfig" },
-  }
+  use { "SmiteshP/nvim-navic" }
 
   use {
     "catppuccin/nvim",
@@ -130,12 +128,13 @@ local startup = function(use)
   use {
     "neovim/nvim-lspconfig",
     config = function() require("bt.plugins.nvim-lspconfig").setup() end,
+    after = { "nvim-navic" },
   }
 
   use {
     "lukas-reineke/indent-blankline.nvim",
     config = function() require("bt.plugins.indent-blankline").config() end,
-    after = "nvim-treesitter",
+    after = { "nvim-treesitter", "catppuccin" },
   }
 
   use {
