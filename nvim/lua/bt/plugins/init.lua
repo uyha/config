@@ -38,8 +38,8 @@ local startup = function(use)
     "catppuccin/nvim",
     as = "catppuccin",
     config = function()
-      require("catppuccin").setup { flavour = "frappe" }
-      vim.cmd [[colorscheme catppuccin-frappe]]
+      require("catppuccin").setup { flavour = "mocha" }
+      vim.cmd [[colorscheme catppuccin-mocha]]
     end,
   }
 

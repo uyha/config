@@ -5,7 +5,10 @@ vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 
 -- Packer
-vim.keymap.set("n", "<leader><leader>s", function() vim.cmd [[PackerSync]] end, { desc = "Run PackerSync" })
+vim.keymap.set("n", "<leader><leader>s", function()
+  vim.cmd([[luafile ]] .. vim.fn.stdpath("config") .. [[/lua/bt/plugins/init.lua]])
+  vim.cmd [[PackerSync]]
+end, { desc = "Run PackerSync" })
 
 -- nvim-tree
 vim.keymap.set("n", "<C-n>", function() vim.cmd [[NvimTreeToggle]] end)
