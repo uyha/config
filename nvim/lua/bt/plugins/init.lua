@@ -159,7 +159,6 @@ local startup = function(use)
       { "n", "S" },
       { "n", "ds" },
       { "n", "cs" },
-      { "v", "ys" },
       { "v", "S" },
     },
   }
