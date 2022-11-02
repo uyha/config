@@ -6,7 +6,7 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 
 -- Packer
 vim.keymap.set("n", "<leader><leader>s", function()
-  vim.cmd([[luafile ]] .. vim.fn.stdpath("config") .. [[/lua/bt/plugins/init.lua]])
+  vim.cmd([[luafile ]] .. vim.fn.stdpath "config" .. [[/lua/bt/plugins/init.lua]])
   vim.cmd [[PackerSync]]
 end, { desc = "Run PackerSync" })
 
@@ -31,8 +31,8 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to system clip
 vim.keymap.set("n", "<leader><leader>l", function() vim.cmd [[luafile %]] end, { desc = "Load the current lua file" })
 
 -- Movement
-vim.keymap.set("n", "j", [[v:count || mode(1)[0:1] == "no" ? "j" : "gj" ]], { expr = true })
-vim.keymap.set("n", "k", [[v:count || mode(1)[0:1] == "no" ? "k" : "gk" ]], { expr = true })
+vim.keymap.set({ "n", "v" }, "j", [[v:count || mode(1)[0:1] == "no" ? "j" : "gj" ]], { expr = true })
+vim.keymap.set({ "n", "v" }, "k", [[v:count || mode(1)[0:1] == "no" ? "k" : "gk" ]], { expr = true })
 
 -- Fold remap to always show indent-blankline
 local fold_keymaps = { "zo", "zO", "zc", "zC", "za", "zA", "zv", "zx", "zX", "zm", "zM", "zr", "zR" }
