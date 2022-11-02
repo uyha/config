@@ -1,6 +1,21 @@
 {
-    "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
-    "Lua.diagnostics.globals": [
+  "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+  "Lua": {
+    "diagnostics": {
+      "globals": [
         "vim"
-    ]
+      ]
+    },
+    "runtime": {
+      "version": "LuaJIT",
+      "path": [
+        "lua/?.lua"
+      ]
+    },
+    "workspace": {
+      "library": [
+        "/home/linuxbrew/.linuxbrew/Cellar/neovim/0.8.0/share/nvim/runtime"
+      ]
+    }
+  }
 }
