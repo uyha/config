@@ -21,3 +21,12 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  group = vim.api.nvim_create_augroup("BTNvimLuaSource", {}),
+  callback = function(params)
+    if vim.bo.filetype == "lua" then
+      vim.keymap.set("x", "<C-r>", ":source<cr>", { buffer = params.buf, silent = true })
+    end
+  end,
+})
