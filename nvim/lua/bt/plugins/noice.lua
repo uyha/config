@@ -2,6 +2,7 @@ local M = {}
 
 M.config = function()
   local noice = require "noice"
+  local notify = require "notify"
   noice.setup {
     lsp = {
       override = {
@@ -15,6 +16,8 @@ M.config = function()
   vim.keymap.set("n", "<leader>nl", function() noice.cmd "last" end, { desc = "Show the last message" })
   vim.keymap.set("n", "<leader>ne", function() noice.cmd "errors" end, { desc = "Show errors" })
   vim.keymap.set("n", "<leader>nt", function() noice.cmd "telescope" end, { desc = "Open messages with Telescope" })
+
+  vim.keymap.set("n", "<leader>nd", function() notify.dismiss() end, { desc = "Dismiss notification" })
 end
 
 return M
