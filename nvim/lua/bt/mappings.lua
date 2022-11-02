@@ -23,8 +23,8 @@ vim.keymap.set(
 )
 
 -- Misc
-vim.keymap.set({ "n", "v" }, "<leader>p", [["*p]], { desc = "Paste from system clipboard" })
-vim.keymap.set({ "n", "v" }, "<leader>y", [["*y]], { desc = "Yank to system clipboard" })
+vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]], { desc = "Paste from system clipboard" })
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to system clipboard" })
 vim.keymap.set("n", "<leader><leader>l", function() vim.cmd [[luafile %]] end, { desc = "Load the current lua file" })
 
 -- Movement
