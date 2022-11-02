@@ -2,6 +2,23 @@ local M = {}
 
 M.setup = function()
   require("nvim-treesitter.configs").setup {
+    ensure_installed = {
+      "bash",
+      "c",
+      "cmake",
+      "cpp",
+      "help",
+      "javascript",
+      "json",
+      "lua",
+      "markdown",
+      "markdown_inline",
+      "regex",
+      "rust",
+      "svelte",
+      "typescript",
+    },
+
     highlight = { enable = true, additional_vim_regex_highlighting = false },
     incremental_selection = {
       enable = true,

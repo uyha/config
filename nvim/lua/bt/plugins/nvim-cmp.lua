@@ -1,8 +1,8 @@
 local M = {}
 
-local cmp = require "cmp"
-
 M.setup = function()
+  local cmp = require "cmp"
+
   cmp.setup {
     snippet = {
       expand = function(args) require("luasnip").lsp_expand(args.body) end,
@@ -31,6 +31,18 @@ M.setup = function()
       { name = "path" },
     },
   }
+
+  cmp.setup.cmdline({ "/", "?" }, {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = "buffer" },
+    },
+  })
+
+  cmp.setup.cmdline(":", {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
+  })
 end
 
 return M

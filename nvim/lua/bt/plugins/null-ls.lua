@@ -1,12 +1,14 @@
 local M = {}
 
-local null_ls = require "null-ls"
-local builtins = null_ls.builtins
-local formatting = builtins.formatting
-local diagnostics = builtins.diagnostics
-local code_actions = builtins.code_actions
+M.setup = function() require("bt.plugins.utils").on_file_open "null-ls.nvim" end
 
-M.setup = function()
+M.config = function()
+  local null_ls = require "null-ls"
+  local builtins = null_ls.builtins
+  local formatting = builtins.formatting
+  local diagnostics = builtins.diagnostics
+  local code_actions = builtins.code_actions
+
   null_ls.setup {
     sources = {
       -- Web stuff
