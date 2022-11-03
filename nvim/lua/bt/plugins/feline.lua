@@ -92,6 +92,7 @@ components.statusline = function(palatte)
       {
         {
           provider = "▊ ",
+          enabled = function() return vim.bo.filetype ~= "NvimTree" end,
           hl = { fg = palatte.lavender },
         },
         {
@@ -120,14 +121,14 @@ components.winbar = function(palatte)
       {
         {
           provider = "file_type",
-          hl = { fg = palatte.text, bg = "bg", style = "bold" },
+          hl = { fg = palatte.text, bg = palatte.base, style = "bold" },
           left_sep = { "  " },
           right_sep = { "  " },
         },
         {
           provider = function() return require("nvim-navic").get_location() end,
           enabled = function() return require("nvim-navic").is_available() end,
-          hl = { fg = palatte.text, bg = "bg", style = "bold" },
+          hl = { fg = palatte.text, bg = palatte.base, style = "bold" },
         },
         {},
       },
@@ -136,7 +137,7 @@ components.winbar = function(palatte)
       {
         {
           provider = "file_type",
-          hl = { fg = palatte.text, bg = "bg", style = "bold" },
+          hl = { fg = palatte.text, bg = palatte.base, style = "bold" },
           left_sep = { "  " },
         },
       },
