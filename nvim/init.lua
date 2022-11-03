@@ -1,7 +1,7 @@
 pcall(require, "impatient")
 
 require "bt.options"
-require "bt.mappings"
+require "bt.keymaps"
 require "bt.autocmds"
 
 local should_sync = require("bt.plugins.utils").ensure_packer()
