@@ -7,6 +7,7 @@ M.setup = function()
       "c",
       "cmake",
       "cpp",
+      "dockerfile",
       "help",
       "javascript",
       "json",
