@@ -13,7 +13,7 @@ alias cp="cp -i"
 command -v nvim &>/dev/null && alias vim="nvim"
 command -v bat &>/dev/null && alias cat="bat"
 command -v lazygit &>/dev/null && alias lzg="lazygit"
-command -v fd &>/dev/null && alias fa="fd --no-ignore"
+command -v fd &>/dev/null && alias fa="fd --no-ignore --hidden"
 command -v explorer.exe &>/dev/null && alias explorer="explorer.exe"
 
 if command -v git &>/dev/null; then
