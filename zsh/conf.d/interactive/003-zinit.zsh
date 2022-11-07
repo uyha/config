@@ -2,8 +2,10 @@ if ! [[ -f "$HOMEBREW_PREFIX/opt/zinit/zinit.zsh" ]]; then
   return 0
 fi
 
-export ZINIT_HOME="$HOMEBREW_PREFIX/opt/zinit"
-source "$ZINIT_HOME/zinit.zsh"
+declare -A ZINIT
+export ZINIT[HOME_DIR]="$HOMEBREW_PREFIX/opt/zinit"
+export ZINIT[MAN_DIR]="${ZINIT[HOME_DIR]}/share/man"
+source "${ZINIT[HOME_DIR]}/zinit.zsh"
 
 zinit ice wait lucid
 zinit load "Aloxaf/fzf-tab"
