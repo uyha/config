@@ -1,7 +1,7 @@
 export LOCAL="$HOME/.local"
 export CONFIG="$HOME/.config"
 
-export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 export XDG_CONFIG_HOME="$CONFIG"
 export XDG_DATA_HOME="$LOCAL/share"
