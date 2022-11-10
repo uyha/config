@@ -14,6 +14,7 @@ M.setup = function()
       "lua",
       "markdown",
       "markdown_inline",
+      "python",
       "regex",
       "rust",
       "svelte",
