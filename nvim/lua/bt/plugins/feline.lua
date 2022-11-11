@@ -53,8 +53,25 @@ components.statusline = function(palatte)
       },
       {
         {
+          provider = "lsp_client_names",
+          hl = { fg = palatte.text, bg = palatte.surface2, style = "bold" },
+          left_sep = {
+            "slant_left_2",
+            { str = " ", hl = { bg = palatte.surface2, fg = "NONE" } },
+          },
+          right_sep = {
+            { str = " ", hl = { bg = palatte.surface2, fg = "NONE" } },
+            "slant_right_2",
+            " ",
+          },
+        },
+        {
           provider = "git_branch",
           hl = { fg = "white", bg = "bg", style = "bold" },
+          left_sep = {
+            str = " ",
+            hl = { fg = "NONE", bg = "bg" },
+          },
           right_sep = {
             str = " ",
             hl = { fg = "NONE", bg = "bg" },
