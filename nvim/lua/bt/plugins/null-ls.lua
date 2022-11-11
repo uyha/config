@@ -33,9 +33,6 @@ M.config = function()
 
       -- Rust
       formatting.rustfmt,
-
-      -- Git
-      code_actions.gitsigns,
     },
     on_attach = function(client)
       if client.server_capabilities.documentFormattingProvider then
