@@ -5,8 +5,7 @@ local on_attach = function(client, bufnr)
 
   local opt = { buffer = bufnr }
 
-  vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opt)
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, opt)
+  vim.keymap.set("n", "gd", function() vim.cmd [[TroubleToggle lsp_definitions]] end, opt)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, opt)
   vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opt)
   vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opt)
