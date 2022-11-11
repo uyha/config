@@ -39,7 +39,12 @@ local startup = function(use)
     config = function() require("bt.plugins.indent-blankline").config() end,
     after = { "nvim-treesitter", "catppuccin" },
   }
-  use { "kevinhwang91/nvim-bqf", ft = "qf" }
+  use {
+    "folke/trouble.nvim",
+    config = function() require("trouble").setup {} end,
+    cmd = { "Trouble", "TroubleClose", "TroubleToggle", "TroubleRefresh" },
+    requires = { "kyazdani42/nvim-web-devicons" },
+  }
 
   -- UI Components
   use {
