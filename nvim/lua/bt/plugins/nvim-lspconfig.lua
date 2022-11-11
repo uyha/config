@@ -24,7 +24,6 @@ M.setup = function()
   local lspconfig = require "lspconfig"
   local servers = {
     "bashls",
-    "clangd",
     "cssls",
     "jsonls",
     "pyright",
@@ -37,6 +36,13 @@ M.setup = function()
   for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup { on_attach = on_attach }
   end
+
+  local clangd_capabilities = vim.lsp.protocol.make_client_capabilities()
+  clangd_capabilities.offsetEncoding = "utf-8"
+  lspconfig["clangd"].setup {
+    on_attach = on_attach,
+    capabilities = clangd_capabilities,
+  }
 end
 
 return M
