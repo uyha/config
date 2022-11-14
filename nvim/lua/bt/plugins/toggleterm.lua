@@ -12,7 +12,7 @@ local main = Terminal:new {
   on_create = function(term)
     local config = { buffer = term.bufnr, silent = true }
 
-    vim.keymap.set({ "t", "n" }, "<M-t>", function() term:close() end, config)
+    vim.keymap.set({ "t", "n" }, "<M-t>", function() term:toggle() end, config)
 
     vim.keymap.set("t", "<Esc>", termesc(), config)
     vim.keymap.set("t", "<C-h>", termesc "<C-w>h", config)
@@ -33,7 +33,7 @@ local lazygit = Terminal:new {
 M.setup = function()
   require("toggleterm").setup {}
 
-  vim.keymap.set("n", "<M-t>", function() main:open() end, { desc = "Open main terminal" })
+  vim.keymap.set("n", "<M-t>", function() main:toggle() end, { desc = "Open main terminal" })
   vim.keymap.set("n", "<leader>lzg", function() lazygit:open() end, { desc = "Open lazygit" })
 end
 
