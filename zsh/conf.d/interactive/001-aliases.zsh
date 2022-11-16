@@ -23,6 +23,7 @@ exists ssh && alias unsafe-ssh="ssh -o UserKnownHostsFile=/dev/null -o StrictHos
 exists scp && alias unsafe-scp="scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 exists dust && alias du="dust"
 exists btm && alias top="btm"
+exists df && alias df="df -h"
 
 if exists git; then
   alias g="git"
