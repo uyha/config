@@ -10,6 +10,8 @@ local fmt = require("luasnip.extras.fmt").fmt
 local lambda = require("luasnip.extras").l
 local rp = require("luasnip.extras").rep
 
+local snippets = {}
+
 local function snake_case(str)
   str = str:gsub("::", "/")
   str = str:gsub("(%u+)(%u%l)", "%1_%2")
@@ -36,7 +38,7 @@ local function mixed_case(str)
   return str
 end
 
-local function add_cmake_snippets()
+table.insert(snippets, function()
   ls.add_snippets("cmake", {
     s(
       "project",
@@ -146,9 +148,9 @@ local function add_cmake_snippets()
       )
     ),
   })
-end
+end)
 
-local function add_cpp_snippets()
+table.insert(snippets, function()
   ls.add_snippets("cpp", {
     s(
       "error-category",
@@ -308,14 +310,16 @@ local function add_cpp_snippets()
       )
     ),
   })
-end
+end)
 
-local function add_sh_snippets()
-  ls.add_snippets("sh", {
-    s(
-      "bash",
-      fmt(
-        [[
+table.insert(
+  snippets,
+  function()
+    ls.add_snippets("sh", {
+      s(
+        "bash",
+        fmt(
+          [[
             #!/usr/bin/env bash
 
             set -euo pipefail
@@ -323,13 +327,13 @@ local function add_sh_snippets()
             #shellcheck disable=SC2034
             SCRIPT_DIR=$(cd "$(dirname "${{BASH_SOURCE[0]}}")" && pwd)
             ]],
-        {}
-      )
-    ),
-    s(
-      "colors",
-      fmt(
-        [[
+          {}
+        )
+      ),
+      s(
+        "colors",
+        fmt(
+          [[
             black="\e[30m"
             red="\e[31m"
             green="\e[32m"
@@ -355,26 +359,26 @@ local function add_sh_snippets()
 
             clear="\033[0K\r"
             ]],
-        {}
-      )
-    ),
-    s(
-      "paint",
-      fmt(
-        [[
+          {}
+        )
+      ),
+      s(
+        "paint",
+        fmt(
+          [[
             ${{{}}}{}${{reset}}{}
             ]],
-        {
-          i(1, "color"),
-          i(2, "var"),
-          i(0),
-        }
-      )
-    ),
-    s(
-      "parse",
-      fmt(
-        [=[
+          {
+            i(1, "color"),
+            i(2, "var"),
+            i(0),
+          }
+        )
+      ),
+      s(
+        "parse",
+        fmt(
+          [=[
             declare -a positional_args=()
 
             while [[ $# -gt 0 ]]; do
@@ -387,15 +391,15 @@ local function add_sh_snippets()
               esac
             done
             ]=],
-        {
-          i(0),
-        }
-      )
-    ),
-    s(
-      "arg",
-      fmt(
-        [=[
+          {
+            i(0),
+          }
+        )
+      ),
+      s(
+        "arg",
+        fmt(
+          [=[
             --{}|-{})
               {}="$2"
               shift 2
@@ -413,26 +417,26 @@ local function add_sh_snippets()
               shift 1
               ;;
             ]=],
-        {
-          i(1, "long"),
-          i(2, "short"),
-          i(3, "var"),
-          rp(1),
-          rp(3),
-          rp(1),
-          rp(2),
-          rp(3),
-          rp(2),
-          rp(2),
-          rp(3),
-          rp(2),
-        }
-      )
-    ),
-    s(
-      "join",
-      fmt(
-        [[
+          {
+            i(1, "long"),
+            i(2, "short"),
+            i(3, "var"),
+            rp(1),
+            rp(3),
+            rp(1),
+            rp(2),
+            rp(3),
+            rp(2),
+            rp(2),
+            rp(3),
+            rp(2),
+          }
+        )
+      ),
+      s(
+        "join",
+        fmt(
+          [[
             join() {{
               local delimiter="$1"
               local first="$2"
@@ -442,13 +446,13 @@ local function add_sh_snippets()
               fi
             }}
             ]],
-        {}
-      )
-    ),
-    s(
-      "contain",
-      fmt(
-        [=[
+          {}
+        )
+      ),
+      s(
+        "contain",
+        fmt(
+          [=[
             contain() {{
               declare -n array="$1"
               declare val="$2"
@@ -462,13 +466,13 @@ local function add_sh_snippets()
               return 1
             }}
             ]=],
-        {}
-      )
-    ),
-    s(
-      "readconfig",
-      fmt(
-        [[
+          {}
+        )
+      ),
+      s(
+        "readconfig",
+        fmt(
+          [[
             read-config() {{
               local expected_keys="$1"
               local config_file="$2"
@@ -487,32 +491,35 @@ local function add_sh_snippets()
               done < "$config_file"
             }}
             ]],
-        {}
-      )
-    ),
-    s("nounused", {
-      t { [=[#shellcheck disable=SC2034]=] },
-    }),
-    s(
-      "trim",
-      fmt(
-        [[
+          {}
+        )
+      ),
+      s("nounused", {
+        t { [=[#shellcheck disable=SC2034]=] },
+      }),
+      s(
+        "trim",
+        fmt(
+          [[
             trim() {{
               perl -pe "s/^\s*(.*)\s*$/\1/" 
             }}
             ]],
-        {}
-      )
-    ),
-  })
-end
+          {}
+        )
+      ),
+    })
+  end
+)
 
-local function add_systemd_snippets()
-  ls.add_snippets("systemd", {
-    s(
-      "service",
-      fmt(
-        [[
+table.insert(
+  snippets,
+  function()
+    ls.add_snippets("systemd", {
+      s(
+        "service",
+        fmt(
+          [[
             [Unit]
             Description={}
             Requires={}
@@ -526,21 +533,21 @@ local function add_systemd_snippets()
             [Install]
             WantedBy={}
             ]],
-        {
-          i(1),
-          i(2),
-          i(3),
-          i(4),
-          i(5),
-          i(6),
-          i(7, "multi-user.target"),
-        }
-      )
-    ),
-    s(
-      "path",
-      fmt(
-        [[
+          {
+            i(1),
+            i(2),
+            i(3),
+            i(4),
+            i(5),
+            i(6),
+            i(7, "multi-user.target"),
+          }
+        )
+      ),
+      s(
+        "path",
+        fmt(
+          [[
             [Unit]
             Description={}
 
@@ -551,18 +558,18 @@ local function add_systemd_snippets()
             [Install]
             WantedBy={}
             ]],
-        {
-          i(1),
-          i(2),
-          i(3),
-          i(4, "multi-user.target"),
-        }
-      )
-    ),
-    s(
-      "mount",
-      fmt(
-        [[
+          {
+            i(1),
+            i(2),
+            i(3),
+            i(4, "multi-user.target"),
+          }
+        )
+      ),
+      s(
+        "mount",
+        fmt(
+          [[
             [Unit]
             Description={}
             Requires={}
@@ -575,20 +582,20 @@ local function add_systemd_snippets()
             [Install]
             WantedBy={}
             ]],
-        {
-          i(1),
-          i(2),
-          i(3),
-          i(4),
-          i(5),
-          i(6, "multi-user.target"),
-        }
-      )
-    ),
-    s(
-      "timer",
-      fmt(
-        [[
+          {
+            i(1),
+            i(2),
+            i(3),
+            i(4),
+            i(5),
+            i(6, "multi-user.target"),
+          }
+        )
+      ),
+      s(
+        "timer",
+        fmt(
+          [[
         [Unit]
         Description={}
 
@@ -603,52 +610,50 @@ local function add_systemd_snippets()
         [Install]
         WantedBy={}
         ]],
-        { i(1), i(2), i(3, "multi-user.target") }
-      )
-    ),
-  })
-end
+          { i(1), i(2), i(3, "multi-user.target") }
+        )
+      ),
+    })
+  end
+)
 
-local function add_desktop_snippets()
-  ls.add_snippets("desktop", {
-    s(
-      "desktop",
-      fmt(
-        [[
+table.insert(
+  snippets,
+  function()
+    ls.add_snippets("desktop", {
+      s(
+        "desktop",
+        fmt(
+          [[
         [Desktop Entry]
         Type={}
         Name={}
         Exec={}
         ]],
-        { i(1, "Application"), i(2, "Application Name"), i(3) }
-      )
-    ),
-  })
-end
+          { i(1, "Application"), i(2, "Application Name"), i(3) }
+        )
+      ),
+    })
+  end
+)
 
-local function add_sshconfig_snippets()
-  ls.add_snippets("sshconfig", {
-    s(
-      "host",
-      fmt(
-        [[
+table.insert(
+  snippets,
+  function()
+    ls.add_snippets("sshconfig", {
+      s(
+        "host",
+        fmt(
+          [[
       Host {}
         HostName {}
       ]],
-        { i(1), i(2) }
-      )
-    ),
-  })
-end
-
-local function add_snippets()
-  add_cmake_snippets()
-  add_cpp_snippets()
-  add_sh_snippets()
-  add_systemd_snippets()
-  add_desktop_snippets()
-  add_sshconfig_snippets()
-end
+          { i(1), i(2) }
+        )
+      ),
+    })
+  end
+)
 
 M.setup = function()
   local luasnip = require "luasnip"
@@ -659,7 +664,10 @@ M.setup = function()
   }
 
   luasnip.config.set_config(options)
-  add_snippets()
+
+  for _, snippet_fn in ipairs(snippets) do
+    snippet_fn()
+  end
 end
 
 return M
