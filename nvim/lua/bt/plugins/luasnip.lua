@@ -44,11 +44,11 @@ table.insert(snippets, function()
       "project",
       fmt(
         [[
-            cmake_minimum_required(VERSION {})
-            project({} VERSION {} LANGUAGES {})
+          cmake_minimum_required(VERSION {})
+          project({} VERSION {} LANGUAGES {})
 
-            list(APPEND CMAKE_MODULE_PATH "${{CMAKE_CURRENT_SOURCE_DIR}}/cmake")
-            ]],
+          list(APPEND CMAKE_MODULE_PATH "${{CMAKE_CURRENT_SOURCE_DIR}}/cmake")
+        ]],
         {
           i(1, "3.21"),
           i(2, "Project Name"),
@@ -81,18 +81,18 @@ table.insert(snippets, function()
       "cmake-preset",
       fmt(
         [[
-            {{
-              "version": {},
-              "cmakeMinimumRequired": {{
-                "major": {},
-                "minor": {},
-                "patch": {}
-              }},
-              "configurePresets": [],
-              "buildPresets": [],
-              "testPresets": []
-            }}
-            ]],
+          {{
+            "version": {},
+            "cmakeMinimumRequired": {{
+              "major": {},
+              "minor": {},
+              "patch": {}
+            }},
+            "configurePresets": [],
+            "buildPresets": [],
+            "testPresets": []
+          }}
+        ]],
         {
           i(1, "3"),
           i(2, "3"),
@@ -105,17 +105,17 @@ table.insert(snippets, function()
       "cmake-config-preset",
       fmt(
         [[
-            {{
-              "name": "{}",
-              "displayName": "{}",
-              "description": "{}",
-              "generator": "{}",
-              "toolchainFile": "{}",
-              "binaryDir": "{}",
-              "cacheVariables": {{}},
-              "environment": {{}}
-            }}
-            ]],
+          {{
+            "name": "{}",
+            "displayName": "{}",
+            "description": "{}",
+            "generator": "{}",
+            "toolchainFile": "{}",
+            "binaryDir": "{}",
+            "cacheVariables": {{}},
+            "environment": {{}}
+          }}
+        ]],
         {
           i(1, "name"),
           i(2, "Display Name"),
@@ -130,15 +130,15 @@ table.insert(snippets, function()
       "cmake-build-preset",
       fmt(
         [[
-            {{
-              "name": "{}",
-              "displayName": "{}",
-              "description": "{}",
-              "environment": {{}},
-              "configurePreset": "{}",
-              "targets": []
-            }}
-            ]],
+          {{
+            "name": "{}",
+            "displayName": "{}",
+            "description": "{}",
+            "environment": {{}},
+            "configurePreset": "{}",
+            "targets": []
+          }}
+        ]],
         {
           i(1, "name"),
           i(2, "Display Name"),
@@ -156,17 +156,17 @@ table.insert(snippets, function()
       "error-category",
       fmt(
         [[
-            struct {} : std::error_category {{
-              auto name() const noexcept -> char const * {{
-                return "{}";
+          struct {} : std::error_category {{
+            auto name() const noexcept -> char const * {{
+              return "{}";
+            }}
+            auto messages(int error) const -> std::string {{
+              switch (static_cast<{}>(error)) {{
+              // default: return "Unknown error";
               }}
-              auto messages(int error) const -> std::string {{
-                switch (static_cast<{}>(error)) {{
-                // default: return "Unknown error";
-                }}
-              }}
-            }} {};
-            ]],
+            }}
+          }} {};
+        ]],
         {
           i(1),
           i(2),
@@ -179,12 +179,12 @@ table.insert(snippets, function()
       "ros-node",
       fmt(
         [[
-            class {} : public rclcpp::Node {{
-            public:
-              {} : Node({}) {{{}}}
-            private:
-            }};
-            ]],
+          class {} : public rclcpp::Node {{
+          public:
+            {} : Node({}) {{{}}}
+          private:
+          }};
+        ]],
         {
           i(1, "Node"),
           rp(1),
@@ -197,11 +197,11 @@ table.insert(snippets, function()
       "ros-main",
       fmt(
         [[
-            rlcpp::init(argc, argv);
-            auto node = std::make_shared<{}>({});
-            rclcpp::spin(node);
-            rclcpp::shutdown();
-            ]],
+          rlcpp::init(argc, argv);
+          auto node = std::make_shared<{}>({});
+          rclcpp::spin(node);
+          rclcpp::shutdown();
+        ]],
         {
           i(1),
           i(0),
@@ -212,10 +212,10 @@ table.insert(snippets, function()
       "header",
       fmt(
         [[
-            #pragma once
+          #pragma once
 
-            namespace {}{{{}}}
-            ]],
+          namespace {}{{{}}}
+        ]],
         {
           i(1),
           i(0),
@@ -226,21 +226,21 @@ table.insert(snippets, function()
       "unique-resource-class",
       fmt(
         [[
-            class {} {{
-            public:
-              {}({} const &) = delete;
-              auto operator=({} const &) -> {} & = delete;
+          class {} {{
+          public:
+            {}({} const &) = delete;
+            auto operator=({} const &) -> {} & = delete;
 
-              {}({} &&other) noexcept;
-              auto operator=({} &&other) noexcept -> {} &;
+            {}({} &&other) noexcept;
+            auto operator=({} &&other) noexcept -> {} &;
 
-              ~{}() noexcept;
-            private:
-              {}({} {}) noexcept;
+            ~{}() noexcept;
+          private:
+            {}({} {}) noexcept;
 
-              {} m_{};
-            }};
-            ]],
+            {} m_{};
+          }};
+        ]],
         {
           i(1, "ResourceType"), -- class name
           rp(1),
@@ -264,26 +264,26 @@ table.insert(snippets, function()
       "unique-resource-functions",
       fmt(
         [[
-            {}::{}({} &&other) noexcept : m_{}{{other.m_{}}} {{
-              other.m_{} = {};
+          {}::{}({} &&other) noexcept : m_{}{{other.m_{}}} {{
+            other.m_{} = {};
+          }}
+          auto {}::operator=({} &&other) noexcept -> {} & {{
+            this->~{}();
+
+            m_{}       = other.m_{};
+            other.m_{} = {};
+
+            return *this;
+          }}
+
+          {}::~{}() noexcept {{
+            if (m_{} == {}) {{
+              return ;
             }}
-            auto {}::operator=({} &&other) noexcept -> {} & {{
-              this->~{}();
 
-              m_{}       = other.m_{};
-              other.m_{} = {};
-
-              return *this;
-            }}
-
-            {}::~{}() noexcept {{
-              if (m_{} == {}) {{
-                return ;
-              }}
-
-              {}(m_{});
-            }}
-            ]],
+            {}(m_{});
+          }}
+        ]],
         {
           i(1, "ResourceType"),
           rp(1),
@@ -326,7 +326,7 @@ table.insert(
 
             #shellcheck disable=SC2034
             SCRIPT_DIR=$(cd "$(dirname "${{BASH_SOURCE[0]}}")" && pwd)
-            ]],
+          ]],
           {}
         )
       ),
@@ -358,7 +358,7 @@ table.insert(
             blinking="\e[5m"
 
             clear="\033[0K\r"
-            ]],
+          ]],
           {}
         )
       ),
@@ -367,7 +367,7 @@ table.insert(
         fmt(
           [[
             ${{{}}}{}${{reset}}{}
-            ]],
+          ]],
           {
             i(1, "color"),
             i(2, "var"),
@@ -390,7 +390,7 @@ table.insert(
                 ;;
               esac
             done
-            ]=],
+          ]=],
           {
             i(0),
           }
@@ -416,7 +416,7 @@ table.insert(
               {}="${{1#-{}}}"
               shift 1
               ;;
-            ]=],
+          ]=],
           {
             i(1, "long"),
             i(2, "short"),
@@ -445,7 +445,7 @@ table.insert(
                 printf "%s" "$first" "${{@/#/$delimiter}}"
               fi
             }}
-            ]],
+          ]],
           {}
         )
       ),
@@ -465,7 +465,7 @@ table.insert(
 
               return 1
             }}
-            ]=],
+          ]=],
           {}
         )
       ),
@@ -490,7 +490,7 @@ table.insert(
                 fi
               done < "$config_file"
             }}
-            ]],
+          ]],
           {}
         )
       ),
@@ -504,7 +504,7 @@ table.insert(
             trim() {{
               perl -pe "s/^\s*(.*)\s*$/\1/" 
             }}
-            ]],
+          ]],
           {}
         )
       ),
@@ -532,7 +532,7 @@ table.insert(
 
             [Install]
             WantedBy={}
-            ]],
+          ]],
           {
             i(1),
             i(2),
@@ -581,7 +581,7 @@ table.insert(
 
             [Install]
             WantedBy={}
-            ]],
+          ]],
           {
             i(1),
             i(2),
@@ -645,9 +645,9 @@ table.insert(
         "host",
         fmt(
           [[
-      Host {}
-        HostName {}
-      ]],
+            Host {}
+            HostName {}
+          ]],
           { i(1), i(2) }
         )
       ),
