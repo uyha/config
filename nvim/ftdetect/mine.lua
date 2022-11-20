@@ -9,8 +9,10 @@ vim.filetype.add {
     ---@param path string
     ---@return string | nil
     jinja = function(path)
-      local _, _, captured = path:find("%.(.*).jinja")
+      local _, _, captured = path:find "%.(.*).jinja"
       return captured
     end,
+
+    zsh = "bash",
   },
 }
