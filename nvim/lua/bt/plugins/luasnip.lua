@@ -182,17 +182,18 @@ table.insert(snippets, function()
       "ros-node",
       fmt(
         [[
-          class {} : public rclcpp::Node {{
+          class {node} : public rclcpp::Node {{
           public:
-            {} : Node({}) {{{}}}
+            {node} : Node({param}) {{
+              {body}
+            }}
           private:
           }};
         ]],
         {
-          i(1, "Node"),
-          rp(1),
-          lambda(snake_case(lambda._1), 1),
-          i(0),
+          node = i(1, "Node"),
+          param = lambda(snake_case(lambda._1), 1),
+          body = i(0),
         }
       )
     ),
@@ -229,37 +230,25 @@ table.insert(snippets, function()
       "unique-resource-class",
       fmt(
         [[
-          class {} {{
+          class {res} {{
           public:
-            {}({} const &) = delete;
-            auto operator=({} const &) -> {} & = delete;
+            {res}({res} const &) = delete;
+            auto operator=({res} const &) -> {res} & = delete;
 
-            {}({} &&other) noexcept;
-            auto operator=({} &&other) noexcept -> {} &;
+            {res}({res} &&other) noexcept;
+            auto operator=({res} &&other) noexcept -> {res} &;
 
-            ~{}() noexcept;
+            ~{res}() noexcept;
           private:
-            {}({} {}) noexcept;
+            {res}({handle_type} {handle}) noexcept;
 
-            {} m_{};
+            {handle_type} m_{handle};
           }};
         ]],
         {
-          i(1, "ResourceType"), -- class name
-          rp(1),
-          rp(1),
-          rp(1),
-          rp(1),
-          rp(1),
-          rp(1),
-          rp(1),
-          rp(1),
-          rp(1),
-          rp(1),
-          i(2, "handle_t"),
-          i(3, "handle"),
-          rp(2),
-          rp(3),
+          res = i(1, "ResourceType"), -- class name
+          handle_type = i(2, "handle_t"),
+          handle = i(3, "handle"),
         }
       )
     ),
@@ -267,48 +256,31 @@ table.insert(snippets, function()
       "unique-resource-functions",
       fmt(
         [[
-          {}::{}({} &&other) noexcept : m_{}{{other.m_{}}} {{
-            other.m_{} = {};
+          {res}::{res}({res} &&other) noexcept : m_{handle}{{other.m_{handle}}} {{
+            other.m_{handle} = {null};
           }}
-          auto {}::operator=({} &&other) noexcept -> {} & {{
-            this->~{}();
+          auto {res}::operator=({res} &&other) noexcept -> {res} & {{
+            this->~{res}();
 
-            m_{}       = other.m_{};
-            other.m_{} = {};
+            m_{handle}       = other.m_{handle};
+            other.m_{handle} = {null};
 
             return *this;
           }}
 
-          {}::~{}() noexcept {{
-            if (m_{} == {}) {{
+          {res}::~{res}() noexcept {{
+            if (m_{handle} == {null}) {{
               return ;
             }}
 
-            {}(m_{});
+            {destructor}(m_{handle});
           }}
         ]],
         {
-          i(1, "ResourceType"),
-          rp(1),
-          rp(1),
-          i(2, "handle"),
-          rp(2),
-          rp(2),
-          i(3, "uninitialized_value"),
-          rp(1),
-          rp(2),
-          rp(1),
-          rp(1),
-          rp(2),
-          rp(2),
-          rp(2),
-          rp(3),
-          rp(1),
-          rp(1),
-          rp(2),
-          rp(3),
-          i(4, "destruct_function"),
-          rp(2),
+          res = i(1, "ResourceType"),
+          handle = i(2, "handle"),
+          null = i(3, "uninitialized_value"),
+          destructor = i(4, "destruct_function"),
         }
       )
     ),
@@ -403,36 +375,27 @@ table.insert(
         "arg",
         fmt(
           [=[
-            --{}|-{})
-              {}="$2"
+            --{long}|-{short})
+              {var}="$2"
               shift 2
               ;;
-            --{}=*)
-              {}="${{1#--{}=}}"
+            --{long}=*)
+              {var}="${{1#--{long}=}}"
               shift 1
               ;;
-            -{}=*)
-              {}="${{1#-{}=}}"
+            -{short}=*)
+              {var}="${{1#-{short}=}}"
               shift 1
               ;;
-            -{}*)
-              {}="${{1#-{}}}"
+            -{short}*)
+              {var}="${{1#-{short}}}"
               shift 1
               ;;
           ]=],
           {
-            i(1, "long"),
-            i(2, "short"),
-            i(3, "var"),
-            rp(1),
-            rp(3),
-            rp(1),
-            rp(2),
-            rp(3),
-            rp(2),
-            rp(2),
-            rp(3),
-            rp(2),
+            long = i(1, "long"),
+            short = i(2, "s"),
+            var = i(3, "var"),
           }
         )
       ),
