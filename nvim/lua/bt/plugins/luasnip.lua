@@ -6,7 +6,10 @@ local s = ls.snippet
 local t = ls.text_node
 local i = ls.insert_node
 local c = ls.choice_node
-local fmt = require("luasnip.extras.fmt").fmt
+local fmt = function(format, args, opts)
+  opts = vim.tbl_extend("force", { repeat_duplicates = true }, opts or {})
+  return require("luasnip.extras.fmt").fmt(format, args, opts)
+end
 local lambda = require("luasnip.extras").l
 local rp = require("luasnip.extras").rep
 
