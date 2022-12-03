@@ -106,6 +106,7 @@ local startup = function(use)
     config = function() require("bt.plugins.nvim-treesitter").setup() end,
     event = { "BufRead", "BufWinEnter", "BufNewFile" },
   }
+  use { "nvim-treesitter/playground" }
   use { "p00f/nvim-ts-rainbow", after = { "nvim-treesitter" } }
 
   -- Editing

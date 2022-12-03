@@ -36,6 +36,9 @@ M.setup = function()
       enable = true,
       extended_mode = true,
     },
+    playground = {
+      enable = true
+    }
   }
 end
 
