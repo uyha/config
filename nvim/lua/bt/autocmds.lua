@@ -1,6 +1,6 @@
 -- Close quickfix with 'q' and automatically close quickfix when leave it
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  group = vim.api.nvim_create_augroup("BTQuickfixKeyMap", {}),
+  group = vim.api.nvim_create_augroup("MyAutoCmdForFileTypes", {}),
   callback = function(params)
     local filetype = vim.bo.filetype
     if filetype == "qf" or filetype == "Trouble" then
@@ -11,21 +11,11 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
         buffer = params.buf,
       })
     end
-  end,
-})
 
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  group = vim.api.nvim_create_augroup("BTHelpKeyMap", {}),
-  callback = function(params)
     if vim.bo.filetype == "help" or vim.bo.filetype == "checkhealth" or vim.bo.filetype == "tsplayground" then
       vim.keymap.set("n", "q", function() vim.api.nvim_win_close(0, true) end, { buffer = params.buf })
     end
-  end,
-})
 
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  group = vim.api.nvim_create_augroup("BTNvimLuaSource", {}),
-  callback = function(params)
     if vim.bo.filetype == "lua" then
       vim.keymap.set("x", "<leader><C-r>", ":source<cr>", { buffer = params.buf, silent = true })
       vim.keymap.set("n", "<leader><C-r>", ":source %<cr>", { buffer = params.buf, silent = true })
