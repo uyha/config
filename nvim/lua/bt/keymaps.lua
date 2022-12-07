@@ -29,6 +29,8 @@ vim.keymap.set(
 vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]], { desc = "Paste from system clipboard" })
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to system clipboard" })
 vim.keymap.set("n", "<leader><leader>l", function() vim.cmd [[luafile %]] end, { desc = "Load the current lua file" })
+vim.keymap.set({ "n", "i" }, "<C-s>", [[<cmd>w<CR>]], { desc = "Save current file", silent = true })
+vim.keymap.set({ "n", "i" }, "<C-S>", [[<cmd>wa<CR>]], { desc = "Save all files", silent = true })
 
 -- Movement
 vim.keymap.set({ "n", "v" }, "j", [[v:count || mode(1)[0:1] == "no" ? "j" : "gj" ]], { expr = true })
