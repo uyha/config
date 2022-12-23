@@ -42,6 +42,9 @@ vim.keymap.set({ "n", "i" }, "<C-S>", [[<cmd>wa<CR>]], { desc = "Save all files"
 vim.keymap.set({ "n", "v" }, "j", [[v:count || mode(1)[0:1] == "no" ? "j" : "gj" ]], { expr = true })
 vim.keymap.set({ "n", "v" }, "k", [[v:count || mode(1)[0:1] == "no" ? "k" : "gk" ]], { expr = true })
 
+-- Undotree
+vim.keymap.set("n", "<leader>ud", [[<cmd>UndotreeToggle<CR>]], { desc = "Toggle Undotree", silent = true })
+
 -- Fold remap to always show indent-blankline
 local fold_keymaps = { "zo", "zO", "zc", "zC", "za", "zA", "zv", "zx", "zX", "zm", "zM", "zr", "zR" }
 for _, keymap in pairs(fold_keymaps) do

@@ -166,6 +166,7 @@ local startup = function(use)
       { "n", "<C-l>" },
     },
   }
+  use { "mbbill/undotree", cmd = { "UndotreeToggle" } }
 end
 
 local config = {
