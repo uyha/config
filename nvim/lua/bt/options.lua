@@ -12,6 +12,9 @@ vim.o.backup = false
 vim.o.undodir = vim.fn.stdpath("data") .. "/undodir"
 vim.o.undofile = true
 
+vim.o.hlsearch = false
+vim.o.incsearch = true
+
 -- Use treesitter for folding
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
