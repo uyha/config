@@ -14,6 +14,8 @@ vim.o.undofile = true
 
 vim.o.hlsearch = false
 vim.o.incsearch = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
 -- Use treesitter for folding
 vim.o.foldmethod = "expr"
