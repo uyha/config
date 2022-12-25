@@ -37,6 +37,8 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to system clip
 vim.keymap.set("n", "<leader><leader>l", function() vim.cmd [[luafile %]] end, { desc = "Load the current lua file" })
 vim.keymap.set({ "n", "i" }, "<C-s>", [[<cmd>w<CR>]], { desc = "Save current file", silent = true })
 vim.keymap.set({ "n", "i" }, "<C-S>", [[<cmd>wa<CR>]], { desc = "Save all files", silent = true })
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection up", silent = true })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection down", silent = true })
 
 -- Movement
 vim.keymap.set({ "n", "v" }, "j", [[v:count || mode(1)[0:1] == "no" ? "j" : "gj" ]], { expr = true })
