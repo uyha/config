@@ -15,6 +15,21 @@ M.ensure_packer = function()
   return false
 end
 
+M.ensure_lazynvim = function()
+  local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+  if vim.fn.empty(vim.fn.glob(lazypath)) > 0 then
+    vim.fn.system {
+      "git",
+      "clone",
+      "--filter=blob:none",
+      "--single-branch",
+      "https://github.com/folke/lazy.nvim.git",
+      lazypath,
+    }
+  end
+  vim.opt.runtimepath:prepend(lazypath)
+end
+
 M.lazy_load = function(load_config)
   local augroup_name = "BTLazyLoad" .. load_config.name
   vim.api.nvim_create_autocmd(load_config.events, {
@@ -22,7 +37,7 @@ M.lazy_load = function(load_config)
     callback = function()
       if load_config.condition() then
         vim.api.nvim_del_augroup_by_name(augroup_name)
-        vim.defer_fn(function() require("packer").loader(load_config.name) end, 0)
+        vim.defer_fn(function() require("lazy").load { plugins = { load_config.name } } end, 0)
       end
     end,
   })

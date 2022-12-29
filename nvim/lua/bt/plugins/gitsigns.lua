@@ -1,16 +1,8 @@
 local M = {}
 
-M.setup = function()
-  vim.api.nvim_create_autocmd({ "BufRead" }, {
-    group = vim.api.nvim_create_augroup("BTGitSignsLazyLoad", {}),
-    callback = function()
-      vim.fn.system("git -C " .. vim.fn.expand "%:p:h" .. " rev-parse")
-      if vim.v.shell_error == 0 then
-        vim.api.nvim_del_augroup_by_name "BTGitSignsLazyLoad"
-        vim.schedule(function() require("packer").loader "gitsigns.nvim" end)
-      end
-    end,
-  })
+M.cond = function()
+  vim.fn.system { "git", "-C", vim.fn.expand "%:p:h", " rev-parse" }
+  return vim.v.shell_error == 0
 end
 
 M.config = function()

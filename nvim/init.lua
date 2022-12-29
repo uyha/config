@@ -4,8 +4,6 @@ require "bt.options"
 require "bt.keymaps"
 require "bt.autocmds"
 
-local should_sync = require("bt.plugins.utils").ensure_packer()
+require("bt.plugins.utils").ensure_lazynvim()
 
-require "bt.plugins"
-
-if should_sync then vim.cmd [[PackerSync]] end
+require("lazy").setup(require("bt.plugins").plugins)

@@ -1,6 +1,6 @@
 local M = {}
 
-M.setup = function() require("bt.plugins.utils").on_file_open "null-ls.nvim" end
+M.setup = function() require("bt.plugins.utils").on_file_open "null-ls" end
 
 M.config = function()
   local null_ls = require "null-ls"
