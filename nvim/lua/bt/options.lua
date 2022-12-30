@@ -6,6 +6,7 @@ vim.o.relativenumber = true
 vim.o.expandtab = true
 vim.o.shiftwidth = 2
 vim.o.virtualedit = "block"
+vim.o.scrolloff = 10
 
 vim.o.swapfile = false
 vim.o.backup = false
