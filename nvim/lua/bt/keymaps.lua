@@ -13,7 +13,7 @@ vim.keymap.set({ "n", "i", "t" }, "<M-->", "<cmd>resize -5<CR>", { silent = true
 -- Packer
 vim.keymap.set("n", "<leader><leader>s", function()
   vim.cmd([[luafile ]] .. vim.fn.stdpath "config" .. [[/lua/bt/plugins/init.lua]])
-  vim.cmd [[PackerSync]]
+  vim.cmd [[Lazy sync]]
 end, { desc = "Run PackerSync" })
 
 -- nvim-tree
