@@ -91,7 +91,7 @@ M.plugins = {
     event = { "BufRead", "BufWinEnter", "BufNewFile" },
   },
   { "nvim-treesitter/playground" },
-  { "p00f/nvim-ts-rainbow", after = { "nvim-treesitter" } },
+  { "p00f/nvim-ts-rainbow", dependencies = { "nvim-treesitter" } },
 
   -- Editing
   {
@@ -128,15 +128,15 @@ M.plugins = {
   {
     "neovim/nvim-lspconfig",
     config = function() require("bt.plugins.nvim-lspconfig").setup() end,
-    after = { "nvim-navic" },
+    dependencies = { "nvim-navic" },
   },
   { "hrsh7th/nvim-cmp", config = function() require("bt.plugins.nvim-cmp").setup() end, event = { "InsertEnter" } },
-  { "L3MON4D3/LuaSnip", config = function() require("bt.plugins.luasnip").setup() end, after = { "nvim-cmp" } },
-  { "saadparwaiz1/cmp_luasnip", after = { "LuaSnip" } },
-  { "hrsh7th/cmp-nvim-lsp", after = { "cmp_luasnip" } },
-  { "hrsh7th/cmp-buffer", after = { "cmp-nvim-lsp" } },
-  { "hrsh7th/cmp-path", after = { "cmp-buffer" } },
-  { "hrsh7th/cmp-cmdline", after = { "cmp-path" } },
+  { "L3MON4D3/LuaSnip", config = function() require("bt.plugins.luasnip").setup() end, dependencies = { "nvim-cmp" } },
+  { "saadparwaiz1/cmp_luasnip", dependencies = { "LuaSnip" } },
+  { "hrsh7th/cmp-nvim-lsp", dependencies = { "cmp_luasnip" } },
+  { "hrsh7th/cmp-buffer", dependencies = { "cmp-nvim-lsp" } },
+  { "hrsh7th/cmp-path", dependencies = { "cmp-buffer" } },
+  { "hrsh7th/cmp-cmdline", dependencies = { "cmp-path" } },
 
   -- Miscellaneous
   { "folke/which-key.nvim", config = function() require("which-key").setup() end },
