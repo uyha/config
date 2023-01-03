@@ -17,7 +17,7 @@ vim.keymap.set("n", "<leader><leader>s", function()
 end, { desc = "Run PackerSync" })
 
 -- nvim-tree
-vim.keymap.set("n", "<C-n>", function() vim.cmd [[NvimTreeToggle]] end)
+vim.keymap.set({ "n", "t" }, "<C-n>", function() vim.cmd [[NvimTreeToggle]] end)
 vim.keymap.set("n", "<C-f>", function() vim.cmd [[NvimTreeFindFile]] end)
 
 -- LSP
@@ -32,13 +32,13 @@ vim.keymap.set(
 )
 
 -- Misc
-vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]], { desc = "Paste from system clipboard" })
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to system clipboard" })
+vim.keymap.set({ "n", "v", "t" }, "<leader>p", [["+p]], { desc = "Paste from system clipboard" })
+vim.keymap.set({ "n", "v", "t" }, "<leader>y", [["+y]], { desc = "Yank to system clipboard" })
 vim.keymap.set("n", "<leader><leader>l", function() vim.cmd [[luafile %]] end, { desc = "Load the current lua file" })
-vim.keymap.set({ "n", "i" }, "<C-s>", [[<cmd>w<CR>]], { desc = "Save current file", silent = true })
-vim.keymap.set({ "n", "i" }, "<C-S>", [[<cmd>wa<CR>]], { desc = "Save all files", silent = true })
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection up", silent = true })
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection down", silent = true })
+vim.keymap.set({ "n", "i", "t" }, "<C-s>", [[<cmd>w<CR>]], { desc = "Save current file", silent = true })
+vim.keymap.set({ "n", "i", "t" }, "<C-S>", [[<cmd>wa<CR>]], { desc = "Save all files", silent = true })
+vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection up", silent = true })
+vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection down", silent = true })
 
 -- Movement
 vim.keymap.set({ "n", "v" }, "j", [[v:count || mode(1)[0:1] == "no" ? "j" : "gj" ]], { expr = true })
