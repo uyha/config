@@ -19,6 +19,7 @@ M.setup = function()
       "rust",
       "svelte",
       "typescript",
+      "vim",
     },
 
     highlight = { enable = true, additional_vim_regex_highlighting = false },
