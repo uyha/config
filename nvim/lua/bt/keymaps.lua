@@ -11,10 +11,7 @@ vim.keymap.set({ "n", "i", "t" }, "<M-=>", "<cmd>resize +5<CR>", { silent = true
 vim.keymap.set({ "n", "i", "t" }, "<M-->", "<cmd>resize -5<CR>", { silent = true })
 
 -- Packer
-vim.keymap.set("n", "<leader><leader>s", function()
-  vim.cmd([[luafile ]] .. vim.fn.stdpath "config" .. [[/lua/bt/plugins/init.lua]])
-  vim.cmd [[Lazy sync]]
-end, { desc = "Run PackerSync" })
+vim.keymap.set("n", "<leader><leader>s", "<cmd>Lazy sync<CR>", { desc = "Run Lazy Sync" })
 
 -- nvim-tree
 vim.keymap.set({ "n", "t" }, "<C-n>", function() vim.cmd [[NvimTreeToggle]] end)
