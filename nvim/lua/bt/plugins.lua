@@ -47,7 +47,6 @@ M.plugins = {
   {
     "folke/noice.nvim",
     config = function() require("bt.plugins.noice").config() end,
-    event = { "UIEnter" },
     dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
   },
   {
