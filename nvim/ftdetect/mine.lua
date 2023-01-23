@@ -15,4 +15,7 @@ vim.filetype.add {
 
     zsh = "bash",
   },
+  pattern = {
+    ['.*/include/.*.inc'] = 'bitbake'
+  }
 }
