@@ -24,6 +24,7 @@ exists scp && alias unsafe-scp="scp -o UserKnownHostsFile=/dev/null -o StrictHos
 exists dust && alias du="dust"
 exists btm && alias top="btm"
 exists df && alias df="df -h"
+exists xdg-open && alias open="xdg-open"
 
 if exists git; then
   alias g="git"
