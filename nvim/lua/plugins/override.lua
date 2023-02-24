@@ -43,7 +43,6 @@ return {
       },
     },
   },
-  -- then: setup supertab in cmp
   {
     "hrsh7th/nvim-cmp",
     ---@param opts cmp.ConfigSchema
@@ -82,5 +81,11 @@ return {
         end, { "i", "s" }),
       })
     end,
+  },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    opts = {
+      open_files_in_last_window = false,
+    },
   },
 }
