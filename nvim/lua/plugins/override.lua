@@ -82,10 +82,4 @@ return {
       })
     end,
   },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    opts = {
-      open_files_in_last_window = false,
-    },
-  },
 }
