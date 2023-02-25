@@ -44,6 +44,16 @@ return {
     },
   },
   {
+    "echasnovski/mini.surround",
+    opts = {
+      mappings = {
+        add = "ys",
+        delete = "ds",
+        replace = "cs",
+      },
+    },
+  },
+  {
     "hrsh7th/nvim-cmp",
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
