@@ -4,7 +4,6 @@
 
 vim.keymap.del("n", "<leader>gg")
 vim.keymap.del("n", "<leader>gG")
-vim.keymap.del("n", "<leader>ft")
 vim.keymap.del("n", "<leader>fT")
 vim.keymap.del("t", "<esc><esc>")
 
