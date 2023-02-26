@@ -31,6 +31,7 @@ return {
           ["S"] = "split_with_window_picker",
         },
       },
+      open_files_in_last_window = false,
     })
   end,
 }
