@@ -29,21 +29,6 @@ return {
     },
   },
   {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        neocmake = {},
-        clangd = {},
-        bashls = {},
-        cssls = {},
-        pyright = {},
-        rust_analyzer = {},
-        svelte = {},
-        tsserver = {},
-      },
-    },
-  },
-  {
     "echasnovski/mini.surround",
     opts = {
       mappings = {
