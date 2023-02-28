@@ -28,6 +28,7 @@ exists btm && alias top="btm"
 exists df && alias df="df -h"
 exists xdg-open && alias open="xdg-open"
 exists exit && alias :q="exit"
+exists exit && alias :qa="exit"
 
 if exists git; then
   alias g="git"
