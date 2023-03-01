@@ -1,8 +1,5 @@
 return {
   "L3MON4D3/LuaSnip",
-  keys = function()
-    return {}
-  end,
   config = function()
     local luasnip = require("luasnip")
 
