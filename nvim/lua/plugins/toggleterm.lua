@@ -25,7 +25,7 @@ return {
       direction = "float",
       hidden = true,
       exit_on_close = true,
-      on_close = function() require("neo-tree.events").fire_event("git_event") end,
+      on_close = function() vim.cmd([[NvimTreeRefresh]]) end,
     })
 
     require("toggleterm").setup({})
