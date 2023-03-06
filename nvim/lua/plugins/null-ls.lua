@@ -10,7 +10,7 @@ return {
     return {
       sources = {
         -- Web stuff
-        formatting.prettier.with({ extra_filetypes = { "svelte" } }),
+        formatting.prettierd.with({ extra_filetypes = { "svelte" } }),
 
         -- Lua
         formatting.stylua,
@@ -19,6 +19,7 @@ return {
         -- Shell
         formatting.shfmt.with({ extra_args = { "-i", "2" } }),
         code_actions.shellcheck.with({}),
+        diagnostics.shellcheck,
 
         -- C/C++
 
@@ -33,6 +34,9 @@ return {
 
         -- Rust
         formatting.rustfmt,
+
+        -- Github Action
+        diagnostics.actionlint,
       },
     }
   end,
