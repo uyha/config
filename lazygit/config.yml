@@ -1,3 +1,11 @@
 keybinding:
   universal:
-    appendNewline: '<c-n>'
+    appendNewline: "<c-n>"
+    scrollLeft: null
+    scrollRight: null
+    scrollUpMain-alt1: null
+    scrollDownMain-alt1: null
+    nextBlock: "J"
+    prevBlock: "K"
+    nextTab: "L"
+    prevTab: "H"
