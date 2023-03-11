@@ -22,7 +22,6 @@ return {
         diagnostics.shellcheck,
 
         -- C/C++
-
         formatting.clang_format,
 
         -- Python
