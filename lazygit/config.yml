@@ -5,7 +5,10 @@ keybinding:
     scrollRight: null
     scrollUpMain-alt1: null
     scrollDownMain-alt1: null
+    nextBlock-alt: null
+    prevBlock-alt: null
     nextBlock: "J"
     prevBlock: "K"
-    nextTab: "L"
-    prevTab: "H"
+    nextTab: "l"
+    prevTab: "h"
+    goInto: "L"
