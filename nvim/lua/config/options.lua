@@ -1,8 +1,6 @@
--- Options are automatically loaded before lazy.nvim startup
--- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
--- Add any additional options here
---
 vim.o.virtualedit = "block"
+vim.o.wrap = true
+vim.o.textwidth = 88
 
 -- Undotree
 vim.o.swapfile = false
