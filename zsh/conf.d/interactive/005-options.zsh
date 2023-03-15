@@ -3,3 +3,4 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 
 
 setopt SHARE_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
+setopt AUTO_CD
