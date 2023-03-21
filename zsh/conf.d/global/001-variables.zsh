@@ -16,4 +16,5 @@ if command -v nvim &>/dev/null; then
 fi
 
 [[ -d "$LOCAL/bin" ]] && export PATH="$LOCAL/bin:$PATH"
+[[ -d "$LOCAL/share/nvim/mason/bin" ]] && export PATH="$LOCAL/share/nvim/mason/bin:$PATH"
 [[ -d "$CARGO_HOME/bin" ]] && export PATH="$CARGO_HOME/bin:$PATH"
