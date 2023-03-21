@@ -48,3 +48,6 @@
 
 !zsh
 !zsh/**
+
+!bottom
+!bottom/**
