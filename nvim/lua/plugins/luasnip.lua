@@ -1,5 +1,13 @@
 return {
   "L3MON4D3/LuaSnip",
+  keys = {
+    {
+      "<M-c>",
+      function() require("luasnip.extras.select_choice")() end,
+      mode = { "i" },
+      desc = "LuaSnip: Open choice for choice_node",
+    },
+  },
   config = function()
     local luasnip = require("luasnip")
 
@@ -12,9 +20,11 @@ return {
 
     local ls = require("luasnip")
     local s = ls.snippet
+    local sn = ls.snippet_node
     local t = ls.text_node
     local i = ls.insert_node
     local c = ls.choice_node
+    local d = ls.dynamic_node
     local fmt = function(format, args, opts)
       opts = vim.tbl_extend("force", { repeat_duplicates = true }, opts or {})
       return require("luasnip.extras.fmt").fmt(format, args, opts)
@@ -22,6 +32,7 @@ return {
     local lambda = require("luasnip.extras").l
     ---@diagnostic disable-next-line: unused-local
     local rp = require("luasnip.extras").rep
+    local postfix = require("luasnip.extras.postfix").postfix
 
     local snake_case = function(str)
       str = str:gsub("::", "/")
@@ -291,6 +302,60 @@ return {
           }
         )
       ),
+      s(
+        "msgpack-adaptor-namespace",
+        fmt(
+          [[
+        namespace msgpack {{
+        inline namespace MSGPACK_DEFAULT_API_NS {{
+        namespace adaptor {{
+        {}
+        }}
+        }}
+        }}
+        ]],
+          {
+            i(0),
+          }
+        )
+      ),
+      s(
+        "msgpack-struct",
+        fmt(
+          [[
+        template<>
+        struct as<{type}> {{
+          auto operator()(msgpack::object const &object) const -> {type} {{
+            return {type}{{}};
+          }}
+        }};
+
+        template<>
+        struct pack<{type}> {{
+          template<typename Stream>
+          auto operator()(msgpack::packer<Stream> &packer, {type} const & value) const -> msgpack::packer<Stream> & {{
+            return packer;
+          }}
+        }};
+          ]],
+          { type = i(1, "StructType") }
+        )
+      ),
+      postfix(".msgpack-array-as", {
+        d(
+          1,
+          function(_, parent)
+            return sn(nil, {
+              t(parent.env.POSTFIX_MATCH),
+              t([[.via.array.ptr[]]),
+              i(1, "index"),
+              t([[].as<]]),
+              i(2, "type"),
+              t([[>()]]),
+            })
+          end
+        ),
+      }),
     })
 
     ls.add_snippets("sh", {
