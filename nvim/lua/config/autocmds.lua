@@ -4,7 +4,5 @@
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "cmake" },
-  callback = function()
-    vim.b.autoformat = false
-  end,
+  callback = function() vim.b.autoformat = false end,
 })
