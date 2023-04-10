@@ -3,7 +3,13 @@ return {
   opts = {
     servers = {
       bashls = {},
-      clangd = {},
+      clangd = {
+        cmd = {
+          "clangd",
+          "--clang-tidy",
+          "--header-insertion=never",
+        },
+      },
       cssls = {},
       neocmake = {},
       pyright = {},
