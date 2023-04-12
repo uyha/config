@@ -9,5 +9,5 @@ keybinding:
     prevBlock-alt: null
     nextBlock: "J"
     prevBlock: "K"
-    nextTab: "l"
-    prevTab: "h"
+    nextTab: "L"
+    prevTab: "H"
