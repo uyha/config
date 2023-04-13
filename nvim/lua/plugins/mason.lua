@@ -8,6 +8,7 @@ return {
       "prettierd",
       "shfmt",
       "shellcheck",
+      "pylint",
     },
   },
 }
