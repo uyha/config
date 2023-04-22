@@ -8,7 +8,7 @@ return {
       "cpp",
       "css",
       "dockerfile",
-      "help",
+      "vimdoc",
       "html",
       "javascript",
       "json",
