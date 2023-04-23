@@ -9,6 +9,7 @@ return {
       "shfmt",
       "shellcheck",
       "pylint",
+      "flake8"
     },
   },
 }

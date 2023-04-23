@@ -26,6 +26,7 @@ return {
 
         -- Python
         formatting.black,
+        diagnostics.pylint,
         diagnostics.flake8.with({ extra_args = { "--max-line-length", "88" } }), -- set max line length to 88 to match black
 
         -- Perl
