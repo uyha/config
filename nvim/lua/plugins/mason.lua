@@ -2,14 +2,21 @@ return {
   "williamboman/mason.nvim",
   opts = {
     ensure_installed = {
+      -- Linters
       "actionlint",
-      "black",
       "luacheck",
-      "prettierd",
-      "shfmt",
       "shellcheck",
       "pylint",
-      "flake8"
+      "flake8",
+
+      -- Formatters
+      "black",
+      "prettierd",
+      "shfmt",
+
+      -- DAP
+      "debugpy",
+      "cpptools",
     },
   },
 }
