@@ -41,7 +41,7 @@ return {
     }
     dap.configurations.cpp = {
       {
-        name = "Attach to GDB server",
+        name = "Launch an executable",
         type = "cppdbg",
         request = "launch",
         cwd = "${workspaceFolder}",
