@@ -25,5 +25,8 @@ return {
       "vim",
       "yaml",
     },
+    rainbow = {
+      enable = true,
+    },
   },
 }
