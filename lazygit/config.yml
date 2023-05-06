@@ -1,6 +1,5 @@
 keybinding:
   universal:
-    appendNewline: "<c-n>"
     scrollLeft: null
     scrollRight: null
     scrollUpMain-alt1: null
