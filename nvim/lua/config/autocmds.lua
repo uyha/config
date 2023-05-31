@@ -6,3 +6,13 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "cmake" },
   callback = function() vim.b.autoformat = false end,
 })
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "ledger" },
+  callback = function()
+    vim.keymap.set({ "n", "i" }, "<M-i>", function()
+      vim.api.nvim_put({ tostring(os.date("%Y-%m-%d")) }, "c", true, true)
+      vim.cmd([[startinsert!]])
+    end)
+  end,
+})
