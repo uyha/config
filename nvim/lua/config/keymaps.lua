@@ -14,3 +14,6 @@ vim.keymap.set({ "n", "i", "t" }, "<M-->", "<cmd>resize -5<CR>", { silent = true
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { silent = true })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { silent = true })
+
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
