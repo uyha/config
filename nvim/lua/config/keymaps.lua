@@ -19,3 +19,5 @@ vim.keymap.set("n", "N", "Nzzzv", { silent = true })
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
+
+vim.keymap.set("n", "D", "0d$", { silent = true })
