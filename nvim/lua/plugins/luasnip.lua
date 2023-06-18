@@ -356,6 +356,24 @@ return {
           end
         ),
       }),
+      s(
+        "test-case",
+        fmt(
+          [[
+          TEST_CASE("{name}") {{{body}}}
+          ]],
+          { name = i(1, "Test case name"), body = i(0) }
+        )
+      ),
+      s(
+        "section",
+        fmt(
+          [[
+          SECTION("{name}") {{{body}}}
+          ]],
+          { name = i(1, "Section name"), body = i(0) }
+        )
+      ),
     })
 
     ls.add_snippets("sh", {
