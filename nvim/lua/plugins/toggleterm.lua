@@ -16,6 +16,7 @@ return {
         vim.keymap.set("t", "<C-j>", termesc("<C-w>j"), config)
         vim.keymap.set("t", "<C-k>", termesc("<C-w>k"), config)
         vim.keymap.set("t", "<C-l>", termesc("<C-w>l"), config)
+        vim.keymap.set("n", "<M-s>", function() term.auto_scroll = not term.auto_scroll end, config)
         vim.keymap.set("n", "q", function() term:toggle() end, config)
       end,
     })
