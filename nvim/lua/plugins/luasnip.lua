@@ -258,7 +258,7 @@ return {
 
             ~{res}() noexcept;
           private:
-            {res}({handle_type} {handle}) noexcept;
+            explicit {res}({handle_type} {handle}) noexcept;
 
             {handle_type} m_{handle};
           }};
@@ -274,6 +274,8 @@ return {
         "unique-resource-functions",
         fmt(
           [[
+          {res}::{res}({handle_type} handle) noexcept : m_{handle}{{handle}} {{}}
+
           {res}::{res}({res} &&other) noexcept : m_{handle}{{other.m_{handle}}} {{
             other.m_{handle} = {null};
           }}
@@ -296,9 +298,10 @@ return {
         ]],
           {
             res = i(1, "ResourceType"),
-            handle = i(2, "handle"),
-            null = i(3, "uninitialized_value"),
-            destructor = i(4, "destruct_function"),
+            handle_type = i(2, "handle_type"),
+            handle = i(3, "handle"),
+            null = i(4, "uninitialized_value"),
+            destructor = i(5, "destruct_function"),
           }
         )
       ),
