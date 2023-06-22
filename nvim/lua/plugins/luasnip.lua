@@ -377,6 +377,16 @@ return {
           { name = i(1, "Section name"), body = i(0) }
         )
       ),
+      s(
+        "here",
+        fmt(
+          [[
+        fmt::print("{{}}:{{}}\n", __FILE__, __LINE__);
+        ::fflush(::stdout);
+        ]],
+          {}
+        )
+      ),
     })
 
     ls.add_snippets("sh", {
