@@ -11,18 +11,22 @@ return {
           },
         },
       })
-      vim.keymap.set("n", "<leader>e", function() vim.cmd([[NvimTreeToggle]]) end, { desc = "Toggle nvim-tree" })
       vim.keymap.set(
         "n",
-        "<C-f>",
-        function() vim.cmd([[NvimTreeFindFile]]) end,
+        "<leader>e",
+        function() require("nvim-tree.api").tree.toggle() end,
+        { desc = "Toggle nvim-tree" }
+      )
+      vim.keymap.set(
+        "n",
+        "<M-f>",
+        function() require("nvim-tree.api").tree.find_file({ open = true, focus = true }) end,
         { desc = "Show current file in nvim-tree" }
       )
     end,
-    cmd = { "NvimTreeRefresh" },
     keys = {
       { "<leader>e", desc = "Toggle nvim-tree" },
-      { "<C-f>", desc = "Show current file in nvim-tree" },
+      { "<M-f>", desc = "Show current file in nvim-tree" },
     },
   },
   {
