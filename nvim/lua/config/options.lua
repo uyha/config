@@ -11,3 +11,6 @@ vim.o.undofile = true
 -- Use treesitter for folding
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+
+-- What to restore when persisted.nvim runs
+vim.o.sessionoptions = "buffers,curdir,folds,globals,help,skiprtp,tabpages,winpos,winsize"
