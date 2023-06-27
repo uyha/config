@@ -15,7 +15,7 @@ return {
     keys = {
       { "<leader>e", function() require("nvim-tree.api").tree.toggle() end, desc = "Toggle nvim-tree" },
       {
-        "<M-f>",
+        "<C-p>",
         function() require("nvim-tree.api").tree.find_file({ open = true, focus = true }) end,
         desc = "Show current file in nvim-tree",
       },
