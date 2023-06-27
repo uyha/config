@@ -1,10 +1,9 @@
 font:
   normal:
-    family: JetBrainsMonoNL Nerd Font Mono
+    family: JetBrainsMonoNLNerdFont
   bold:
-    family: JetBrainsMonoNL Nerd Font Mono
+    family: JetBrainsMonoNLNerdFont
   italic:
-    family: JetBrainsMonoNL Nerd Font Mono
+    family: JetBrainsMonoNLNerdFont
   bold_italic:
-    family: JetBrainsMonoNL Nerd Font Mono
-
+    family: JetBrainsMonoNLNerdFont
