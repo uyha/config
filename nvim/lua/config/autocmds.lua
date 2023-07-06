@@ -4,7 +4,12 @@
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "cmake" },
-  callback = function() vim.b.autoformat = false end,
+  callback = function()
+    -- There is a bug somewhere that makes the cursor jump 2 lines below the jumping
+    -- mark
+    vim.keymap.set("n", "<leader>i", "gg=G``kk", { silent = true, buffer = true })
+    vim.b.autoformat = false
+  end,
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
