@@ -1,3 +1,7 @@
+if is-tmux; then
+  return 0
+fi
+
 # zsh-autosuggestions
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
