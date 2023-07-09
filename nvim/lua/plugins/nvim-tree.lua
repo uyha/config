@@ -10,6 +10,9 @@ return {
             resize_window = false,
           },
         },
+        git = {
+          timeout = 1000,
+        },
       })
     end,
     keys = {
