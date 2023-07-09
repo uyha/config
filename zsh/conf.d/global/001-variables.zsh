@@ -11,10 +11,6 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export CARGO_HOME="$HOME/.cargo"
 export RUSTUP_HOME="$HOME/.rustup"
 
-if command -v nvim &>/dev/null; then
-  export MANPAGER="nvim +Man!"
-fi
-
 [[ -d "$LOCAL/bin" ]] && export PATH="$LOCAL/bin:$PATH"
 [[ -d "$LOCAL/share/nvim/mason/bin" ]] && export PATH="$LOCAL/share/nvim/mason/bin:$PATH"
 [[ -d "$CARGO_HOME/bin" ]] && export PATH="$CARGO_HOME/bin:$PATH"

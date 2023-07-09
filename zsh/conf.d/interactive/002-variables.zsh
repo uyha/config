@@ -5,6 +5,10 @@ export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=10000
 export SAVEHIST=10000
 
+if command -v nvim &>/dev/null; then
+  export MANPAGER="nvim +Man!"
+fi
+
 # Catppuccin for fzf
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
