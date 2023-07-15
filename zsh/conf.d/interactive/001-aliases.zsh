@@ -26,8 +26,12 @@ exists dust && alias du="dust"
 exists btm && alias top="btm"
 exists df && alias df="df -h"
 exists xdg-open && alias open="xdg-open"
-exists exit && alias :q="exit"
-exists exit && alias :qa="exit"
+exists rg && alias ra="rg --no-ignore --hidden"
+
+if exists exit; then
+  alias :q="exit"
+  alias :qa="exit"
+fi
 
 if exists rsync; then
   alias rsync="rsync -Pv"
