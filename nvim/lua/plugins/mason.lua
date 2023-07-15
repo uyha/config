@@ -13,10 +13,6 @@ return {
       "black",
       "prettierd",
       "shfmt",
-
-      -- DAP
-      "debugpy",
-      "cpptools",
     },
   },
 }
