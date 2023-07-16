@@ -6,8 +6,9 @@ return {
       clangd = {
         cmd = {
           "clangd",
+          "--background-index",
+          "--header-insertion=iwyu",
           "--clang-tidy",
-          "--header-insertion=never",
         },
       },
       cssls = {},
