@@ -54,3 +54,6 @@
 
 !bat
 !bat/**
+
+!clangd
+!clangd/**
