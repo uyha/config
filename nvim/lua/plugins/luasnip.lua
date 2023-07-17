@@ -2,9 +2,9 @@ return {
   "L3MON4D3/LuaSnip",
   keys = {
     {
-      "<M-c>",
+      "<C-c>",
       function() require("luasnip.extras.select_choice")() end,
-      mode = { "i" },
+      mode = { "i", "s" },
       desc = "LuaSnip: Open choice for choice_node",
     },
   },
@@ -381,12 +381,28 @@ return {
         "here",
         fmt(
           [[
-        fmt::print("{{}}:{{}}\n", __FILE__, __LINE__);
-        ::fflush(::stdout);
-        ]],
+          fmt::print("{{}}:{{}}\n", __FILE__, __LINE__);
+          ::fflush(::stdout);
+          ]],
           {}
         )
       ),
+    })
+
+    ls.add_snippets("cpp", {
+      s("nolint", fmt([[// NOLINT({})]], { i(1) })),
+      s(
+        "nolint-scope",
+        fmt(
+          [[
+          // NOLINTBEGIN({lint})
+
+          // NOLINTEND({lint})
+          ]],
+          { lint = i(1) }
+        )
+      ),
+      s("nolint-line", fmt([[// NOLINTNEXTLINE({})]], { i(1) })),
     })
 
     ls.add_snippets("sh", {
