@@ -405,6 +405,39 @@ return {
       s("nolint-line", fmt([[// NOLINTNEXTLINE({})]], { i(1) })),
     })
 
+    ls.add_snippets("cpp", {
+      s(
+        "zmqhandle",
+        fmt(
+          [[
+          auto message = zmq::message_t{{}};
+          auto result  = {socket}.recv(message);
+
+          while (not result.has_value()) {{
+            result = {socket}.recv(message);
+          }}
+          if (message.more()) {{
+            consume_all({socket});
+          }}
+
+          try {{
+            {impl}
+            return success({socket}, {buffer});
+          }} catch (msgpack::type_error &) {{
+            return bad_request({socket}, {buffer});
+          }} catch (msgpack::insufficient_bytes &) {{
+            return bad_request({socket}, {buffer});
+          }}
+          ]],
+          {
+            socket = i(1, "m_socket"),
+            buffer = i(2, "m_buffer"),
+            impl = i(0),
+          }
+        )
+      ),
+    })
+
     ls.add_snippets("sh", {
       s(
         "bash",
