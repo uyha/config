@@ -21,6 +21,7 @@ return {
     local ls = require("luasnip")
     local s = ls.snippet
     local sn = ls.snippet_node
+    local f = ls.function_node
     local t = ls.text_node
     local i = ls.insert_node
     local c = ls.choice_node
@@ -363,9 +364,15 @@ return {
         "test-case",
         fmt(
           [[
-          TEST_CASE("{name}") {{{body}}}
+          TEST_CASE("{name}"{}{tags}{}) {{{body}}}
           ]],
-          { name = i(1, "Test case name"), body = i(0) }
+          {
+            f(function(args) return string.len(args[1][1]) > 0 and [[, "]] or "" end, { 2 }),
+            f(function(args) return string.len(args[1][1]) > 0 and [["]] or "" end, { 2 }),
+            name = i(1, "Test case name"),
+            tags = i(2),
+            body = i(0),
+          }
         )
       ),
       s(
