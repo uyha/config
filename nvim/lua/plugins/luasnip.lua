@@ -397,19 +397,19 @@ return {
     })
 
     ls.add_snippets("cpp", {
-      s("nolint", fmt([[// NOLINT({})]], { i(1) })),
+      s("nolint", fmt([[/* NOLINT({}) */]], { i(1) })),
       s(
         "nolint-scope",
         fmt(
           [[
-          // NOLINTBEGIN({lint})
+          /* NOLINTBEGIN({lint}) */
 
-          // NOLINTEND({lint})
+          /* NOLINTEND({lint}) */
           ]],
           { lint = i(1) }
         )
       ),
-      s("nolint-line", fmt([[// NOLINTNEXTLINE({})]], { i(1) })),
+      s("nolint-line", fmt([[/* NOLINTNEXTLINE({}) */]], { i(1) })),
     })
 
     ls.add_snippets("cpp", {
