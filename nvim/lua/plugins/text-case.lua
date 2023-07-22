@@ -2,31 +2,31 @@ return {
   "johmsalas/text-case.nvim",
   keys = {
     {
-      "<leader>cs",
+      "<leader>Cs",
       function() require("textcase").current_word("to_snake_case") end,
       mode = { "n", "v" },
       desc = "Change word to snake case",
     },
     {
-      "<leader>c-",
+      "<leader>C-",
       function() require("textcase").current_word("to_dash_case") end,
       mode = { "n", "v" },
       desc = "Change word to dash case",
     },
     {
-      "<leader>cm",
+      "<leader>Cm",
       function() require("textcase").current_word("to_constant_case") end,
       mode = { "n", "v" },
       desc = "Change word to macro case",
     },
     {
-      "<leader>cc",
+      "<leader>Cc",
       function() require("textcase").current_word("to_camel_case") end,
       mode = { "n", "v" },
       desc = "Change word to camel case",
     },
     {
-      "<leader>cp",
+      "<leader>Cp",
       function() require("textcase").current_word("to_path_case") end,
       mode = { "n", "v" },
       desc = "Change word to path case",
