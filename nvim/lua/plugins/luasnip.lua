@@ -3,7 +3,10 @@ return {
   keys = {
     {
       "<C-c>",
-      function() require("luasnip.extras.select_choice")() end,
+      function()
+        local luasnip = require("luasnip")
+        if luasnip.choice_active() then require("luasnip.extras.select_choice")() end
+      end,
       mode = { "i", "s" },
       desc = "LuaSnip: Open choice for choice_node",
     },
