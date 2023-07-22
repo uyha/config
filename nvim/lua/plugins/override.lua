@@ -10,6 +10,12 @@ return {
     },
   },
   {
+    "nvim-telescope/telescope.nvim",
+    keys = {
+      { "<leader><space>", require("lazyvim.util").telescope("files", { cwd = false }), desc = "Find Files (cwd)" },
+    },
+  },
+  {
     "hrsh7th/nvim-cmp",
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
