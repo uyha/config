@@ -27,5 +27,14 @@ return {
       end,
       desc = "Fuzzy find a directory and open it in nvim-tree",
     },
+    {
+      "<leader>fa",
+      function()
+        require("telescope.builtin").find_files({
+          find_command = { "fd", "--no-ignore", "--hidden", "--exclude", ".git", "--exclude", ".idea" },
+        })
+      end,
+      desc = "Fuzzy find everything",
+    },
   },
 }
