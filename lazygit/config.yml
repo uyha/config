@@ -1,11 +1,11 @@
 keybinding:
   universal:
-    scrollLeft: null
-    scrollRight: null
-    scrollUpMain-alt1: null
-    scrollDownMain-alt1: null
-    nextBlock-alt: null
-    prevBlock-alt: null
+    scrollLeft: ""
+    scrollRight: ""
+    scrollUpMain-alt1: ""
+    scrollDownMain-alt1: ""
+    nextBlock-alt: ""
+    prevBlock-alt: ""
     nextBlock: "J"
     prevBlock: "K"
     nextTab: "L"
