@@ -22,13 +22,14 @@ return {
     luasnip.config.set_config(options)
 
     local ls = require("luasnip")
-    local s = ls.snippet
-    local sn = ls.snippet_node
-    local f = ls.function_node
-    local t = ls.text_node
-    local i = ls.insert_node
     local c = ls.choice_node
     local d = ls.dynamic_node
+    local f = ls.function_node
+    local i = ls.insert_node
+    local r = ls.restore_node
+    local s = ls.snippet
+    local sn = ls.snippet_node
+    local t = ls.text_node
     local fmt = function(format, args, opts)
       opts = vim.tbl_extend("force", { repeat_duplicates = true }, opts or {})
       return require("luasnip.extras.fmt").fmt(format, args, opts)
@@ -394,6 +395,26 @@ return {
           fmt::print("{{}}:{{}}\n", __FILE__, __LINE__);
           ::fflush(::stdout);
           ]],
+          {}
+        )
+      ),
+      s(
+        "ns",
+        fmt(
+          [[
+          namespace {} {{
+          {}
+          }}
+          ]],
+          { i(1), i(0) }
+        )
+      ),
+      s(
+        "unu",
+        fmt(
+          [=[
+          [[maybe_unused]]
+          ]=],
           {}
         )
       ),
