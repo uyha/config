@@ -349,21 +349,6 @@ return {
           { type = i(1, "StructType") }
         )
       ),
-      postfix(".msgpack-array-as", {
-        d(
-          1,
-          function(_, parent)
-            return sn(nil, {
-              t(parent.env.POSTFIX_MATCH),
-              t([[.via.array.ptr[]]),
-              i(1, "index"),
-              t([[].as<]]),
-              i(2, "type"),
-              t([[>()]]),
-            })
-          end
-        ),
-      }),
       s(
         "test-case",
         fmt(
