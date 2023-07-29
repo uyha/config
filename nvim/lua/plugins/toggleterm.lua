@@ -6,6 +6,7 @@ return {
   dependencies = { "nvim-tree/nvim-tree.lua" },
   config = function()
     local Terminal = require("toggleterm.terminal").Terminal
+    ---@diagnostic disable-next-line: missing-fields
     local main = Terminal:new({
       hidden = false,
       start_in_insert = true,
@@ -17,7 +18,10 @@ return {
         vim.keymap.set("t", "<C-j>", termesc("<C-w>j"), config)
         vim.keymap.set("t", "<C-k>", termesc("<C-w>k"), config)
         vim.keymap.set("t", "<C-l>", termesc("<C-w>l"), config)
-        vim.keymap.set("n", "<M-s>", function() term.auto_scroll = not term.auto_scroll end, config)
+        vim.keymap.set({ "n", "t" }, "<M-s>", function()
+          term.auto_scroll = not term.auto_scroll
+          vim.notify(term.auto_scroll and "Autoscroll enabled" or "Autoscroll disabled")
+        end, vim.tbl_extend("force", config, { desc = "Toggle auto scroll" }))
         vim.keymap.set("n", "q", function() term:toggle() end, config)
       end,
     })
