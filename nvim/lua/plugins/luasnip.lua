@@ -378,7 +378,7 @@ return {
         fmt(
           [[
           fmt::print("{{}}:{{}}\n", __FILE__, __LINE__);
-          ::fflush(::stdout);
+          (void)::fflush(::stdout);
           ]],
           {}
         )
