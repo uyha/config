@@ -15,5 +15,6 @@ return {
         "prettierd",
       })
     end
+    opts.PATH = "skip"
   end,
 }
