@@ -1,5 +1,5 @@
 is-tmux() {
-  [[ -n "$TMUX" ]] && [[ "$TERM" == tmux* ]]
+  [[ -n "$TMUX" ]]
 }
 
 for f in "$HOME"/.config/zsh/conf.d/global/*; do
