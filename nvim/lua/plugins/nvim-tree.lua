@@ -10,6 +10,9 @@ return {
             resize_window = false,
           },
         },
+        filters = {
+          dotfiles = true,
+        },
         git = {
           timeout = 1000,
         },
