@@ -26,7 +26,11 @@ exists dust && alias du="dust"
 exists btm && alias top="btm"
 exists df && alias df="df -h"
 exists xdg-open && alias open="xdg-open"
-exists rg && alias ra="rg --no-ignore --hidden"
+
+if exists rg; then
+  alias rg="rg --smart-case"
+  alias ra="rg --no-ignore --hidden"
+fi
 
 if exists exit; then
   alias :q="exit"
