@@ -4,6 +4,8 @@ return {
     "nvim-tree/nvim-tree.lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
+      local api = require("nvim-tree.api")
+
       require("nvim-tree").setup({
         actions = {
           open_file = {
@@ -16,6 +18,15 @@ return {
         git = {
           timeout = 1000,
         },
+        on_attach = function(buffer_num)
+          local opts = function(options) return vim.tbl_extend("keep", { buffer = buffer_num }, options) end
+
+          api.config.mappings.default_on_attach(buffer_num)
+
+          vim.keymap.set("n", "zR", api.tree.expand_all, opts({ desc = "nvim-tree: Expand all" }))
+          vim.keymap.set("n", "zM", api.tree.collapse_all, opts({ desc = "nvim-tree: Collapse all" }))
+          vim.keymap.set("n", "zc", api.node.navigate.parent_close, opts({ desc = "nvim-tree: Close parent" }))
+        end,
       })
     end,
     keys = {
