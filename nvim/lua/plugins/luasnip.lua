@@ -767,5 +767,20 @@ return {
         )
       ),
     })
+
+    ls.add_snippets("toml", {
+      s(
+        "enum",
+        fmt(
+          [[
+            [enums.{name}]
+            integral = {type}
+            [enums.{name}.values]
+            {values}
+          ]],
+          { name = i(1), type = i(2), values = i(3) }
+        )
+      ),
+    })
   end,
 }
