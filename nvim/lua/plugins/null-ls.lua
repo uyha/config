@@ -31,9 +31,6 @@ return {
         -- Perl
         formatting.perltidy,
 
-        -- Rust
-        formatting.rustfmt,
-
         -- Github Action
         diagnostics.actionlint,
       },

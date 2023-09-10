@@ -5,7 +5,6 @@ return {
       bashls = {},
       cssls = {},
       neocmake = {},
-      rust_analyzer = {},
       svelte = {},
       tsserver = {},
 

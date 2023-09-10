@@ -19,7 +19,6 @@ return {
         "markdown_inline",
         "query",
         "regex",
-        "rust",
         "svelte",
         "tsx",
         "typescript",
