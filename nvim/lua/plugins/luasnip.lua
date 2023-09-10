@@ -452,6 +452,27 @@ return {
           }
         )
       ),
+      s(
+        "canopensim",
+        fmt(
+          [=[
+          class {class} : lely::canopen::BasicSlave {{
+          public:
+            using BasicSlave::BasicSlave;
+
+            [[nodiscard]] auto is_done() const -> bool {{
+              return true;
+            }}
+          private:
+            auto OnWrite(u16 index, u8 sub) noexcept -> void override {{
+              (void)index;
+              (void)sub;
+            }}
+          }}
+          ]=],
+          { class = i(1, "Sim") }
+        )
+      ),
     })
 
     ls.add_snippets("sh", {
