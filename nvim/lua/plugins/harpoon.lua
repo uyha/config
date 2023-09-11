@@ -45,13 +45,13 @@ return {
       desc = "Harpoon: Navigate to 4th file",
     },
     {
-      "<C-[>",
+      "_",
       function() require("harpoon.ui").nav_prev() end,
       mode = { "n" },
-      desc = "Harpoon: Navigate to previous file",
+      desc = "Harpoon: Navigate to next file",
     },
     {
-      "<C-]>",
+      "+",
       function() require("harpoon.ui").nav_next() end,
       mode = { "n" },
       desc = "Harpoon: Navigate to next file",
