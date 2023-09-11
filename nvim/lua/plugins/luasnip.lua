@@ -468,7 +468,7 @@ return {
               (void)index;
               (void)sub;
             }}
-          }}
+          }};
           ]=],
           { class = i(1, "Sim") }
         )
