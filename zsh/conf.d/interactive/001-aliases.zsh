@@ -21,7 +21,6 @@ exists fd && alias fa="fd --no-ignore --hidden"
 exists explorer.exe && alias explorer="explorer.exe"
 exists ssh && alias ussh="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 exists scp && alias uscp="scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
-exists ssh && exists rsync && alias ursync="rsync --rsh='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'"
 exists dust && alias du="dust"
 exists btm && alias top="btm"
 exists df && alias df="df -h"
@@ -38,8 +37,11 @@ if exists exit; then
 fi
 
 if exists rsync; then
-  alias rsync="rsync -Pv"
-  alias dsync="rsync -P --delete -rd"
+  alias rsync="rsync --info=progress2 -v"
+  alias dsync="rsync --info=progress2 --delete -rd"
+  if exists ssh; then
+    alias ursync="rsync --info=progress2 -v --rsh='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'"
+  fi
 fi
 
 if exists git; then
