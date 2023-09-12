@@ -458,6 +458,7 @@ return {
           [=[
           class {class} : lely::canopen::BasicSlave {{
           public:
+            using BasicSlave::Reset;
             using BasicSlave::BasicSlave;
 
             [[nodiscard]] auto is_done() const -> bool {{
@@ -468,9 +469,54 @@ return {
               (void)index;
               (void)sub;
             }}
+
+            auto OnCommand(lely::canopen::NmtCommand command) noexcept -> void override {{
+              using namespace neobot::literals;
+
+              if (command != lely::canopen::NmtCommand::START) {{
+                return;
+              }}
+            }}
+
           }};
           ]=],
           { class = i(1, "Sim") }
+        )
+      ),
+      s(
+        "operatest",
+        fmt(
+          [[
+          TEST_CASE("{name}", "[operation]") {{
+            using namespace neobot::literals;
+
+            using boost::sml::logger;
+            using boost::sml::process_queue;
+            using boost::sml::X;
+            using neobot::operation::Operation;
+            using neobot::tests::operation::canopen_simulator;
+
+            START_PROGRAM("CANOPEN_SERVER", "CANBUS");
+            // /* NOLINTNEXTLINE(*mt-unsafe) */
+            auto const *const bus_name = std::getenv("CANBUS");
+
+            auto context = zmq::context_t{{}};
+            auto poller  = neobot::Poller{{}};
+            auto log     = neobot::sml::Logger{{}};
+
+            auto operation =
+                Operation<StateMachine, process_queue<std::queue>, logger<neobot::sml::Logger>>{{
+                    context,
+                    poller,
+                    log,
+                }};
+
+            while (not operation.get_state_machine().is(X)) {{
+              poller.process();
+            }}
+          }}
+          ]],
+          { name = i(1, "test name") }
         )
       ),
     })
