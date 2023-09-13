@@ -419,6 +419,17 @@ return {
         )
       ),
       s("nolint-line", fmt([[/* NOLINTNEXTLINE({}) */]], { i(1) })),
+      s(
+        "format-off",
+        fmt(
+          [[
+          // clang-format off
+          {}
+          // clang-format on
+          ]],
+          { i(0) }
+        )
+      ),
     })
 
     ls.add_snippets("cpp", {
