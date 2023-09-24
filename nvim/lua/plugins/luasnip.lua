@@ -202,40 +202,6 @@ return {
         )
       ),
       s(
-        "ros-node",
-        fmt(
-          [[
-          class {node} : public rclcpp::Node {{
-          public:
-            {node} : Node({param}) {{
-              {body}
-            }}
-          private:
-          }};
-        ]],
-          {
-            node = i(1, "Node"),
-            param = lambda(snake_case(lambda._1), 1),
-            body = i(0),
-          }
-        )
-      ),
-      s(
-        "ros-main",
-        fmt(
-          [[
-          rlcpp::init(argc, argv);
-          auto node = std::make_shared<{}>({});
-          rclcpp::spin(node);
-          rclcpp::shutdown();
-        ]],
-          {
-            i(1),
-            i(0),
-          }
-        )
-      ),
-      s(
         "header",
         fmt(
           [[
@@ -384,6 +350,15 @@ return {
         )
       ),
       s(
+        "print",
+        fmt(
+          [[
+          fmt::print("{{}}\n", {});
+          ]],
+          { i(0) }
+        )
+      ),
+      s(
         "ns",
         fmt(
           [[
@@ -395,10 +370,10 @@ return {
         )
       ),
       s(
-        "unu",
+        "nouse",
         fmt(
           [=[
-          [[maybe_unused]]
+          [[maybe_unused]] 
           ]=],
           {}
         )
@@ -528,6 +503,100 @@ return {
           }}
           ]],
           { name = i(1, "test name") }
+        )
+      ),
+      s(
+        "solcheck",
+        fmt(
+          [[
+          template <typename Handler>
+          auto sol_lua_check(sol::types<{type}>,
+                             lua_State *L,
+                             int index,
+                             Handler &&handler,
+                             sol::stack::record &tracking) -> bool {{
+            if (not sol::stack::check_usertype<{type}>(L, index)
+                and not sol::stack::check<sol::table>(L, index)) {{
+              handler(L,
+                      index,
+                      sol::type_of(L, index),
+                      sol::type::userdata,
+                      "expected a {type} or a table");
+              return false;
+            }}
+
+            tracking.use(1);
+            return true;
+          }}
+          template <typename Handler>
+          auto sol_lua_check(sol::types<sol::nested<{type}>>,
+                             lua_State *L,
+                             int index,
+                             Handler &&handler,
+                             sol::stack::record &tracking) -> bool {{
+            return sol_lua_check<Handler>(
+              sol::types<{type}>{{}},
+              L,
+              index,
+              std::forward<Handler>(handler),
+              tracking
+            );
+          }}
+          ]],
+          { type = i(1, "CustomType") }
+        )
+      ),
+      s(
+        "soldeclget",
+        fmt(
+          [[
+          auto sol_lua_get(sol::types<{type}>,
+                           lua_State *L,
+                           int index,
+                           sol::stack::record &tracking) -> {type};
+          auto sol_lua_get(sol::types<sol::nested<{type}>>,
+                           lua_State *L,
+                           int index,
+                           sol::stack::record &tracking) -> {type} {{
+            return sol_lua_get(sol::types<{type}>{{}}, L, index, tracking);
+          }}
+          ]],
+          { type = i(1, "CustomType") }
+        )
+      ),
+      s(
+        "solget",
+        fmt(
+          [[
+          auto sol_lua_get(sol::types<{type}>,
+                           lua_State *L,
+                           int index,
+                           sol::stack::record &tracking) -> {type} {{
+            if (sol::stack::check_usertype<{type}>(L, index)) {{
+              return sol::stack::get_usertype<{type}>(L, index, tracking);
+            }}
+
+            auto result = {type}{{}};
+            auto object = sol::stack::get<sol::table>(L, lua_absindex(L, index));
+            tracking.use(1);
+
+            {}
+
+            return result;
+          }}
+          ]],
+          { i(0), type = i(1, "CustomType") }
+        )
+      ),
+      s(
+        "solset",
+        fmt(
+          [[
+          if ({object}["{key}"].get_type() != sol::type::nil) {{
+            {result}.{key} = {object}["{key}"].get<{type}>();
+          }}
+          ]],
+          { object = i(1, "object"), key = i(2, "key"), result = i(3, "result"), type = i(4, "type") }
         )
       ),
     })
