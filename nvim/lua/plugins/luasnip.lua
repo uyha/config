@@ -343,10 +343,10 @@ return {
         "here",
         fmt(
           [[
-          fmt::print("{{}}:{{}}\n", __FILE__, __LINE__);
+          fmt::print("{{}}:{{}}{}\n", __FILE__, __LINE__);
           (void)::fflush(::stdout);
           ]],
-          {}
+          { i(0) }
         )
       ),
       s(
