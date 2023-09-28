@@ -373,7 +373,7 @@ return {
         "nouse",
         fmt(
           [=[
-          [[maybe_unused]] 
+          [[maybe_unused]]
           ]=],
           {}
         )
@@ -515,8 +515,10 @@ return {
                              int index,
                              Handler &&handler,
                              sol::stack::record &tracking) -> bool {{
+            auto object = sol::stack::get<sol::table>(L, lua_absindex(L, index));
+            tracking.use(1);
             if (not sol::stack::check_usertype<{type}>(L, index)
-                and not sol::stack::check<sol::table>(L, index)) {{
+                and object.get_type() != sol::type::table) {{
               handler(L,
                       index,
                       sol::type_of(L, index),
@@ -577,7 +579,7 @@ return {
             }}
 
             auto result = {type}{{}};
-            auto object = sol::stack::get<sol::table>(L, lua_absindex(L, index));
+            auto object = sol::stack::get<{native_type}>(L, lua_absindex(L, index));
             tracking.use(1);
 
             {}
@@ -585,7 +587,7 @@ return {
             return result;
           }}
           ]],
-          { i(0), type = i(1, "CustomType") }
+          { i(0), type = i(1, "CustomType"), native_type = i(2, "sol::table") }
         )
       ),
       s(
@@ -779,7 +781,7 @@ return {
         fmt(
           [[
             trim() {{
-              perl -pe "s/^\s*(.*)\s*$/\1/" 
+              perl -pe "s/^\s*(.*)\s*$/\1/"
             }}
           ]],
           {}
