@@ -67,6 +67,10 @@ return {
       return str
     end
 
+    ls.add_snippets("lua", {
+      s("here", fmt([[print(debug.getinfo(1).source, debug.getinfo(1).currentline{})]], { i(0) })),
+    })
+
     ls.add_snippets("cmake", {
       s(
         "project",
@@ -928,6 +932,38 @@ return {
             {values}
           ]],
           { name = i(1), type = i(2), values = i(3) }
+        )
+      ),
+    })
+
+    ls.add_snippets("ledger", {
+      s(
+        "transaction",
+        fmt(
+          [[
+          {date} * {name}
+            {type}  {amount} {unit}
+            {from}
+          ]],
+          {
+            date = d(
+              1,
+              function()
+                return sn(nil, {
+                  i(1, tostring(os.date("%Y"))),
+                  t("-"),
+                  i(2, tostring(os.date("%m"))),
+                  t("-"),
+                  i(3, tostring(os.date("%d"))),
+                })
+              end
+            ),
+            name = i(2, "name"),
+            type = i(3, "type"),
+            amount = i(4, "0.00"),
+            unit = i(5, "EUR"),
+            from = i(6, "Nordea"),
+          }
         )
       ),
     })
