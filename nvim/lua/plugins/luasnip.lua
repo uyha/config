@@ -69,6 +69,7 @@ return {
 
     ls.add_snippets("lua", {
       s("here", fmt([[print(debug.getinfo(1).source, debug.getinfo(1).currentline{})]], { i(0) })),
+      s("luajit", fmt([[#!/usr/bin/env luajit]], {})),
     })
 
     ls.add_snippets("cmake", {
