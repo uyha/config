@@ -38,5 +38,8 @@ return {
     vim.keymap.set("n", "<leader>ft", function() main:toggle() end, { desc = "Open main terminal" })
     vim.keymap.set("n", "<leader>fl", function() lazygit:open() end, { desc = "Open lazygit" })
   end,
-  keys = { { "<leader>ft", desc = "Open main terminal" }, { "<leader>fl", desc = "Open lazygit" } },
+  keys = {
+    { "<leader>ft", desc = "Open main terminal" },
+    { "<leader>fl", desc = "Open lazygit" },
+  },
 }
