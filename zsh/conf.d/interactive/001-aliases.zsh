@@ -2,8 +2,8 @@ exists() {
   command -v "$1" &>/dev/null
 }
 
-if exists exa; then
-  alias ls="exa"
+if exists eza; then
+  alias ls="eza"
   alias tree="ls --tree"
 fi
 
