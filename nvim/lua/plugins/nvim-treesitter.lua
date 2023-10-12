@@ -4,16 +4,33 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      {
+        "IndianBoy42/tree-sitter-just",
+        ft = "just",
+        config = function()
+          ---@diagnostic disable-next-line: inject-field
+          require("nvim-treesitter.parsers").get_parser_configs().just = {
+            install_info = {
+              url = "https://github.com/IndianBoy42/tree-sitter-just", -- local path or git repo
+              files = { "src/parser.c", "src/scanner.cc" },
+              branch = "main",
+            },
+            maintainers = { "@IndianBoy42" },
+          }
+        end,
+      },
+    },
     opts = {
       ensure_installed = {
         "bash",
         "cmake",
         "css",
         "dockerfile",
-        "vimdoc",
         "html",
         "javascript",
         "json",
+        "just",
         "lua",
         "markdown",
         "markdown_inline",
@@ -23,6 +40,7 @@ return {
         "tsx",
         "typescript",
         "vim",
+        "vimdoc",
         "yaml",
       },
       rainbow = {
