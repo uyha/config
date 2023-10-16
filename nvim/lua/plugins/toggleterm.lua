@@ -3,7 +3,6 @@ local termesc = function(sequence) return termcodes("<C-\\><C-N>" .. (sequence o
 
 return {
   "akinsho/toggleterm.nvim",
-  dependencies = { "nvim-tree/nvim-tree.lua" },
   config = function()
     local Terminal = require("toggleterm.terminal").Terminal
     ---@diagnostic disable-next-line: missing-fields
@@ -30,7 +29,6 @@ return {
       direction = "float",
       hidden = true,
       exit_on_close = true,
-      on_close = function() require("nvim-tree.api").tree.reload() end,
     })
 
     require("toggleterm").setup({})
