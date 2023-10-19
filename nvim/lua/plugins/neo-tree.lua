@@ -1,5 +1,20 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
+  dependencies = {
+    "s1n7ax/nvim-window-picker",
+    config = function()
+      require("window-picker").setup({
+        filter_rules = {
+          include_current_win = false,
+          autoselect_one = true,
+          bo = {
+            filetype = { "neo-tree", "neo-tree-popup", "notify" },
+            buftype = { "terminal", "quickfix" },
+          },
+        },
+      })
+    end,
+  },
   opts = {
     event_handlers = {
       {
@@ -13,6 +28,12 @@ return {
         handler = function(args)
           if args.position == "left" or args.position == "right" then vim.cmd("wincmd =") end
         end,
+      },
+    },
+    window = {
+      mappings = {
+        ["S"] = "split_with_window_picker",
+        ["s"] = "vsplit_with_window_picker",
       },
     },
   },
