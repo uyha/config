@@ -14,6 +14,7 @@ return {
             buftype = { "terminal", "quickfix", "nofile" },
           },
         },
+        show_prompt = false,
       })
     end,
   },
