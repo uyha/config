@@ -627,30 +627,29 @@ return {
         "colors",
         fmt(
           [[
-            black="\e[30m"
-            red="\e[31m"
-            green="\e[32m"
-            brown="\e[33m"
-            blue="\e[34m"
-            purple="\e[35m"
-            cyan="\e[36m"
-            gray="\e[37m"
+            black="$(tput setaf 0)"
+            red="$(tput setaf 1)"
+            green="$(tput setaf 2)"
+            brown="$(tput setaf 3)"
+            blue="$(tput setaf 4)"
+            purple="$(tput setaf 5)"
+            cyan="$(tput setaf 6)"
+            gray="$(tput setaf 7)"
 
-            black_bg="\e[40m"
-            red_bg="\e[41m"
-            green_bg="\e[42m"
-            brown_bg="\e[43m"
-            blue_bg="\e[44m"
-            purple_bg="\e[45m"
-            cyan_bg="\e[46m"
-            gray_bg="\e[47m"
-            reset="\e[0m"
+            black_bg="$(tput setab 0)"
+            red_bg="$(tput setab 1)"
+            green_bg="$(tput setab 2)"
+            brown_bg="$(tput setab 3)"
+            blue_bg="$(tput setab 4)"
+            purple_bg="$(tput setab 5)"
+            cyan_bg="$(tput setab 6)"
+            gray_bg="$(tput setab 7)"
 
-            bold="\e[1m"
-            uline="\e[4m"
-            blinking="\e[5m"
+            bold="$(tput bold)"
+            uline="$(tput smul)"
+            blink="$(tput blink)"
 
-            clear="\033[0K\r"
+            reset="$(tput sgr0)"
           ]],
           {}
         )
