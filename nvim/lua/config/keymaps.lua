@@ -22,3 +22,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
 
 vim.keymap.set("n", "D", "0d$", { silent = true })
 vim.keymap.set("n", "C", "0c$", { silent = true })
+
+vim.keymap.set("n", "<M-r>", function()
+  vim.bo.modifiable = not vim.bo.modifiable
+  vim.notify("Modifiable: " .. tostring(vim.bo.modifiable))
+end)
