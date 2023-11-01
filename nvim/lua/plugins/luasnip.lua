@@ -81,13 +81,25 @@ return {
           project({} VERSION {} LANGUAGES {})
 
           list(APPEND CMAKE_MODULE_PATH "${{CMAKE_CURRENT_SOURCE_DIR}}/cmake")
-        ]],
+          ]],
           {
             i(1, "3.21"),
             i(2, "Project Name"),
             i(3, "0.1.0"),
             i(4, "CXX"),
           }
+        )
+      ),
+      s(
+        "parse",
+        fmt(
+          [[
+          set(options ";")
+          set(singles ";")
+          set(multis ";")
+          cmake_parse_arguments(arg "${{options}}" "${{singles}}" "${{multis}}" ${{ARGN}})
+          ]],
+          {}
         )
       ),
     })
