@@ -38,7 +38,15 @@ return {
         ["<cr>"] = "open_with_window_picker",
         ["<C-x>"] = "split_with_window_picker",
         ["<C-v>"] = "vsplit_with_window_picker",
+        ["o"] = "system_open",
       },
+    },
+    commands = {
+      system_open = function(state)
+        local node = state.tree:get_node()
+        local path = node:get_id()
+        vim.fn.jobstart({ "xdg-open", path }, { detach = true })
+      end,
     },
   },
 }
