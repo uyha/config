@@ -1,10 +1,10 @@
 font:
   normal:
-    family: JetBrainsMonoNLNerdFont
+    family: JetBrainsMonoNLNF
   bold:
-    family: JetBrainsMonoNLNerdFont
+    family: JetBrainsMonoNLNF
   italic:
-    family: JetBrainsMonoNLNerdFont
+    family: JetBrainsMonoNLNF
   bold_italic:
-    family: JetBrainsMonoNLNerdFont
+    family: JetBrainsMonoNLNF
   size: 10.0
