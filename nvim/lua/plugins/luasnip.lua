@@ -322,7 +322,10 @@ return {
 
             template <{template_params}>
             struct convert<{type}> {{
-              auto operator()(msgpack::object const &object, {type} &value) const -> msgpack::object const & {{}}
+              auto operator()(msgpack::object const &object, {type} &value) const -> msgpack::object const & {{
+                value = object.as<{type}>();
+                return object;
+              }}
             }};
 
             template <{template_params}>
