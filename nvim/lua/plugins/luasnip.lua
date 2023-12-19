@@ -314,22 +314,30 @@ return {
         "msgpack-struct",
         fmt(
           [[
-        template<>
-        struct as<{type}> {{
-          auto operator()(msgpack::object const &object) const -> {type} {{
-            return {type}{{}};
-          }}
-        }};
+            /* NOLINTBEGIN(*union-access, *pointer-arithmetic) */
+            template <{template_params}>
+            struct as<{type}> {{
+              auto operator()(msgpack::object const &object) const -> {type} {{}}
+            }};
 
-        template<>
-        struct pack<{type}> {{
-          template<typename Stream>
-          auto operator()(msgpack::packer<Stream> &packer, {type} const & value) const -> msgpack::packer<Stream> & {{
-            return packer;
-          }}
-        }};
+            template <{template_params}>
+            struct convert<{type}> {{
+              auto operator()(msgpack::object const &object, {type} &value) const -> msgpack::object const & {{}}
+            }};
+
+            template <{template_params}>
+            struct pack<{type}> {{
+              template <typename Stream>
+              auto operator()(msgpack::packer<Stream> &packer, {type} const &value) const -> msgpack::packer<Stream> & {{}}
+            }};
+
+            template <{template_params}>
+            struct object_with_zone<{type}> {{
+              auto operator()(msgpack::object::with_zone &object, {type} const &value) const -> void {{}}
+            }};
+            /* NOLINTEND(*union-access, *pointer-arithmetic) */
           ]],
-          { type = i(1, "StructType") }
+          { template_params = i(1, "Ts"), type = i(2, "StructType") }
         )
       ),
       s(
