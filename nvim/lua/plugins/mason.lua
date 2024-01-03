@@ -8,7 +8,6 @@ return {
         "luacheck",
         "shellcheck",
         "pylint",
-        "flake8",
 
         -- Formatters
         "black",
