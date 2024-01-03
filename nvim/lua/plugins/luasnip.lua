@@ -437,6 +437,29 @@ return {
 
     ls.add_snippets("cpp", {
       s(
+        "no-copy",
+        fmt(
+          [[
+          {class}({class} const &) = delete;
+          auto operator=({class} const &) -> {class} & = delete;
+          ]],
+          { class = i(1) }
+        )
+      ),
+      s(
+        "no-move",
+        fmt(
+          [[
+          {class}({class} &&) = delete;
+          auto operator=({class} &&) -> {class} & = delete;
+          ]],
+          { class = i(1) }
+        )
+      ),
+    })
+
+    ls.add_snippets("cpp", {
+      s(
         "zmqhandle",
         fmt(
           [[
