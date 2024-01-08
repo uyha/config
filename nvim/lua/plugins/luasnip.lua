@@ -297,12 +297,8 @@ return {
         "msgpack-adaptor-namespace",
         fmt(
           [[
-        namespace msgpack {{
-        inline namespace MSGPACK_DEFAULT_API_NS {{
-        namespace adaptor {{
+        namespace msgpack::inline MSGPACK_DEFAULT_API_NS::adaptor {{
         {}
-        }}
-        }}
         }}
         ]],
           {
