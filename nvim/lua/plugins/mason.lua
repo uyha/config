@@ -7,10 +7,8 @@ return {
         "actionlint",
         "luacheck",
         "shellcheck",
-        "pylint",
 
         -- Formatters
-        "black",
         "prettierd",
       })
     end
