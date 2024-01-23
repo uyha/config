@@ -20,7 +20,7 @@ return {
       local diagnostics = builtins.diagnostics
 
       vim.list_extend(opts.sources, {
-        formatting.sqlfluff,
+        formatting.sqlfluff.with({ timeout = 5000 }),
         diagnostics.sqlfluff,
       })
     end,

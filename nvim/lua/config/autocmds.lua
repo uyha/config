@@ -24,5 +24,5 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "sql" },
-  callback = function() vim.lsp.buf.format({ timeout_ms = 3000 }) end,
+  callback = function() vim.bo.shiftwidth = 4 end,
 })
