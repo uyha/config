@@ -1,6 +1,7 @@
 vim.o.virtualedit = "block"
 vim.o.wrap = true
 vim.o.textwidth = 88
+vim.wo.colorcolumn = "+1"
 
 -- Undotree
 vim.o.swapfile = false
