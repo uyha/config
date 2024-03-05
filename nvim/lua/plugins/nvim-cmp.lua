@@ -28,26 +28,6 @@ return {
       compare.length,
       compare.order,
     }
-
-    opts.mapping = vim.tbl_extend("force", opts.mapping, {
-      ["<Tab>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_next_item()
-        else
-          fallback()
-        end
-      end, { "i", "s" }),
-      ["<S-Tab>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_prev_item()
-        else
-          fallback()
-        end
-      end, { "i", "s" }),
-      ["<C-o>"] = cmp.mapping(function(fallback)
-        if not cmp.complete() then fallback() end
-      end, { "i", "s" }),
-    })
     return opts
   end,
 }
