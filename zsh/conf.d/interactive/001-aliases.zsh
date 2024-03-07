@@ -21,7 +21,6 @@ exists fd && alias fa="fd --no-ignore --hidden"
 exists explorer.exe && alias explorer="explorer.exe"
 exists ssh && alias ussh="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 exists scp && alias uscp="scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
-exists dust && alias du="dust"
 exists btm && alias top="btm"
 exists df && alias df="df -h"
 exists xdg-open && alias open="xdg-open"
@@ -48,6 +47,11 @@ if exists git; then
   alias g="git"
   alias pgit="GIT_SSH_COMMAND='ssh -i ~/.ssh/personal' git"
   alias wgit="GIT_SSH_COMMAND='ssh -i ~/.ssh/work' git"
+fi
+
+if exists dust; then
+  alias du="dust"
+  alias du1="du -d1"
 fi
 
 unfunction exists
