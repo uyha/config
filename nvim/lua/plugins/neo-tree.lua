@@ -52,6 +52,7 @@ return {
         local node = state.tree:get_node()
         local path = vim.fn.fnamemodify(node:get_id(), ":.")
         vim.fn.setreg("+", path)
+        vim.notify(path .. " is copied to the clipboard")
       end,
     },
   },
