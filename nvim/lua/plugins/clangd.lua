@@ -1,7 +1,9 @@
 return {
   "neovim/nvim-lspconfig",
-  opts = {
-    servers = {
+  opts = function(_, opts)
+    if type(opts.servers) ~= "table" then return end
+
+    vim.tbl_extend("force", opts.servers, {
       clangd = {
         cmd = {
           "clangd",
@@ -12,7 +14,10 @@ return {
           "--function-arg-placeholders",
           "--fallback-style=llvm",
         },
+        keys = {
+          { "<leader>cs", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
+        },
       },
-    },
-  },
+    })
+  end,
 }

@@ -18,31 +18,26 @@ return {
         end,
       },
     },
-    opts = {
-      ensure_installed = {
-        "bash",
-        "cmake",
-        "css",
-        "dockerfile",
-        "html",
-        "javascript",
-        "json",
-        "just",
-        "lua",
-        "markdown",
-        "markdown_inline",
-        "query",
-        "regex",
-        "svelte",
-        "tsx",
-        "typescript",
-        "vim",
-        "vimdoc",
-        "yaml",
-      },
-      rainbow = {
-        enable = true,
-      },
-    },
+    opts = function(_, opts)
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, {
+          "dockerfile",
+          "html",
+          "javascript",
+          "json",
+          "just",
+          "lua",
+          "markdown",
+          "markdown_inline",
+          "query",
+          "regex",
+          "tsx",
+          "typescript",
+          "vim",
+          "vimdoc",
+          "yaml",
+        })
+      end
+    end,
   },
 }

@@ -17,3 +17,12 @@ vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 vim.o.sessionoptions = "buffers,curdir,folds,globals,help,skiprtp,tabpages,winpos,winsize"
 
 vim.lsp.set_log_level("OFF")
+
+for _, value in ipairs({
+  "loaded_python3_provider",
+  "loaded_ruby_provider",
+  "loaded_node_provider",
+  "loaded_perl_provider",
+}) do
+  vim.g[value] = 0
+end
