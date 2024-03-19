@@ -2,7 +2,6 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
-      { "mrjones2014/nvim-ts-rainbow" },
       {
         "IndianBoy42/tree-sitter-just",
         ft = "just",
