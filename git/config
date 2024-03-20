@@ -35,6 +35,9 @@
 [merge]
   tool = "nvim"
 
+[rebase]
+  updateRefs = true
+
 [interactive]
   diffFilter = "delta --color-only --features=interactive"
 
