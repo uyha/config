@@ -1,7 +1,7 @@
 [core]
-  editor=nvim
-  autocrlf=input
-  pager=delta
+  editor = nvim
+  autocrlf = input
+  pager = delta
 
 [alias]
   sm = submodule
@@ -11,37 +11,37 @@
   m  = mergetool
 
 [pull]
-  ff=only
+  ff = only
 
 [diff]
-  colorMoved=default
+  colorMoved = default
   tool = "nvimdiff"
 
 [difftool]
-  prompt=false
+  prompt = false
 
 [difftool "nvimdiff"]
-  cmd="nvim -d \"$LOCAL\" \"$REMOTE\""
+  cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 
 [add.interactive]
-  useBuiltin=false
+  useBuiltin = false
 
 [merge]
-  conflictStyle=diff3
+  conflictStyle = diff3
 
 [mergetool "nvim"]
-  cmd="nvim -c DiffviewOpen"
+  cmd = "nvim -c DiffviewOpen"
 
 [merge]
-  tool="nvim"
+  tool = "nvim"
 
 [interactive]
-  diffFilter="delta --color-only --features=interactive"
+  diffFilter = "delta --color-only --features=interactive"
 
 [delta]
-  navigate=true
-  light=false
-  features=decorations
+  navigate = true
+  light = false
+  features = decorations
   side-by-side = true
 
 [delta "interactive"]
