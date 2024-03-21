@@ -31,5 +31,6 @@ vim.filetype.add({
   pattern = {
     [".*/include/.*.inc"] = "bitbake",
     [".*/.config/git/.*"] = "gitconfig",
+    ["justfile"] = "just",
   },
 })
