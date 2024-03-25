@@ -2,6 +2,7 @@ return {
   "nvim-neorg/neorg",
   dependencies = {
     "folke/zen-mode.nvim",
+    "vhyrro/luarocks.nvim",
   },
   ft = "norg",
   opts = {
