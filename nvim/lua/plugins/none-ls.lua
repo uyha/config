@@ -18,9 +18,6 @@ return {
       -- Shell
       formatting.shfmt.with({ extra_args = { "-i", "2" } }),
 
-      -- C/C++
-      formatting.clang_format,
-
       -- Github Action
       diagnostics.actionlint,
     })
