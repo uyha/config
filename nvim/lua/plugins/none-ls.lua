@@ -12,12 +12,6 @@ return {
       -- Web stuff
       formatting.prettierd.with({ extra_filetypes = { "svelte" } }),
 
-      -- Lua
-      formatting.stylua,
-
-      -- Shell
-      formatting.shfmt.with({ extra_args = { "-i", "2" } }),
-
       -- Github Action
       diagnostics.actionlint,
     })
