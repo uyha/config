@@ -1,5 +1,5 @@
 if is-tmux; then
-  return 0
+	return 0
 fi
 
 export LOCAL="$HOME/.local"
@@ -15,6 +15,14 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export CARGO_HOME="$HOME/.cargo"
 export RUSTUP_HOME="$HOME/.rustup"
 
-[[ -d "$LOCAL/bin" ]] && export PATH="$LOCAL/bin:$PATH"
-[[ -d "$LOCAL/share/nvim/mason/bin" ]] && export PATH="$LOCAL/share/nvim/mason/bin:$PATH"
-[[ -d "$CARGO_HOME/bin" ]] && export PATH="$CARGO_HOME/bin:$PATH"
+extra_bins=(
+	"$LOCAL/bin"
+	"$LOCAL/share/nvim/mason/bin"
+	"$CARGO_HOME/bin"
+)
+
+for extra in "${extra_bins[@]}"; do
+  if [[ -d "$extra" ]]; then
+    export PATH="$extra:$PATH"
+  fi
+done
