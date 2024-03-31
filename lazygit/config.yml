@@ -10,3 +10,6 @@ keybinding:
     prevBlock: "K"
     nextTab: "L"
     prevTab: "H"
+git:
+  commit:
+    autoWrapWidth: 88
