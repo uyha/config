@@ -19,10 +19,11 @@ extra_bins=(
 	"$LOCAL/bin"
 	"$LOCAL/share/nvim/mason/bin"
 	"$CARGO_HOME/bin"
+	"$HOMEBREW_PREFIX/opt/clang-format/bin"
 )
 
 for extra in "${extra_bins[@]}"; do
   if [[ -d "$extra" ]]; then
-    export PATH="$extra:$PATH"
+    export PATH="$PATH:$extra"
   fi
 done
