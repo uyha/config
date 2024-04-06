@@ -456,6 +456,42 @@ return {
 
     ls.add_snippets("cpp", {
       s(
+        "lifetime",
+        fmt(
+          [[
+          struct Lifetime {{
+            Lifetime() {{
+              fmt::print("Default constructor\n");
+            }}
+
+            Lifetime(Lifetime const &) {{
+              fmt::print("Copy constructor\n");
+            }}
+            auto operator=(Lifetime const &) -> Lifetime & {{
+              fmt::print("Copy assignment\n");
+              return *this;
+            }}
+
+            Lifetime(Lifetime &&) noexcept {{
+              fmt::print("Move constructor\n");
+            }}
+            auto operator=(Lifetime &&) -> Lifetime & {{
+              fmt::print("Move assignment\n");
+              return *this;
+            }}
+
+            ~Lifetime() noexcept {{
+              fmt::print("Destructor\n");
+            }}
+          }};
+          ]],
+          {}
+        )
+      ),
+    })
+
+    ls.add_snippets("cpp", {
+      s(
         "zmqhandle",
         fmt(
           [[
