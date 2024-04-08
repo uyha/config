@@ -26,3 +26,15 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "sql" },
   callback = function() vim.bo.shiftwidth = 4 end,
 })
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "cpp2" },
+  callback = function()
+    require("nvim-treesitter.parsers").get_parser_configs().cpp2 = {
+      install_info = {
+        url = "~/Personal/tree-sitter-cpp2",
+        files = { "src/parser.c" },
+      },
+    }
+  end,
+})

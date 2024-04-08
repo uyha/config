@@ -25,6 +25,8 @@ vim.filetype.add({
       return captured
     end,
 
+    cpp2 = "cpp2",
+
     zsh = "bash",
     eds = "eds",
   },
