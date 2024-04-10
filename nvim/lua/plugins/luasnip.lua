@@ -767,25 +767,63 @@ return {
         )
       ),
       s(
-        "arg",
+        "opt",
         fmt(
           [=[
-            --{long}|-{short})
-              {var}="$2"
-              shift 2
-              ;;
-            --{long}=*)
-              {var}="${{1#--{long}=}}"
-              shift 1
-              ;;
-            -{short}=*)
-              {var}="${{1#-{short}=}}"
-              shift 1
-              ;;
-            -{short}*)
-              {var}="${{1#-{short}}}"
-              shift 1
-              ;;
+          -{short})
+            {var}=$((${{{var}:-0}} + 1))
+            shift 1
+            ;;
+          -{short}*)
+            {var}=$((${{{var}:-0}} + 1))
+            set -- "-${{1:2}}" "${{@:2}}"
+            ;;
+          ]=],
+          {
+            short = i(1, "s"),
+            var = i(2, "var"),
+          }
+        )
+      ),
+      s(
+        "l-arg",
+        fmt(
+          [=[
+          --{long})
+            {var}="$2"
+            shift 2
+            ;;
+          --{long}=*)
+            {var}="${{1#--{long}=}}"
+            shift 1
+            ;;
+          ]=],
+          {
+            long = i(1, "long"),
+            var = i(2, "var"),
+          }
+        )
+      ),
+      s(
+        "sl-arg",
+        fmt(
+          [=[
+          --{long}|-{short})
+            {var}="$2"
+            shift 2
+            ;;
+          --{long}=*)
+            {var}="${{1#--{long}=}}"
+            shift 1
+            ;;
+          -{short}=*)
+            {var}="${{1#-{short}=}}"
+            shift 1
+            ;;
+          -{short}*)
+            {var}="${{1#-{short}}}"
+            shift 1
+            ;;
           ]=],
           {
             long = i(1, "long"),
