@@ -27,3 +27,5 @@ vim.keymap.set("n", "<M-r>", function()
   vim.bo.modifiable = not vim.bo.modifiable
   vim.notify("Modifiable: " .. tostring(vim.bo.modifiable))
 end)
+
+vim.keymap.set("x", "p", "P")
