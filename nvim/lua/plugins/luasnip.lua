@@ -196,25 +196,63 @@ return {
 
     ls.add_snippets("cpp", {
       s(
-        "error-category",
+        "errdecl",
         fmt(
-          [[
-          struct {} : std::error_category {{
-            auto name() const noexcept -> char const * {{
-              return "{}";
-            }}
-            auto messages(int error) const -> std::string {{
-              switch (static_cast<{}>(error)) {{
-              // default: return "Unknown error";
-              }}
-            }}
-          }} {};
-        ]],
+          [=[
+          enum class {error} : int {{
+            no_error = 0,
+            {members}
+          }};
+          [[nodiscard]] auto make_error_code({error} error) noexcept -> std::error_code;
+          namespace detail {{
+          struct {error}Category : std::error_category {{
+            [[nodiscard]] auto name() const noexcept -> char const * override;
+            [[nodiscard]] auto message(int error) const -> std::string override; 
+          }};
+          [[nodiscard]] auto get_{name}_category() -> {error}Category const &;
+          }}
+
+          template <>
+          struct std::is_error_code_enum<{error}> : std::true_type {{}};
+          ]=],
           {
-            i(1),
-            i(2),
-            i(3),
-            lambda(snake_case(lambda._1), 1),
+            error = i(1),
+            members = i(2),
+            name = lambda(snake_case(lambda._1), 1),
+          }
+        )
+      ),
+      s(
+        "errdefn",
+        fmt(
+          [=[
+          auto make_error_code({error} error) noexcept -> std::error_code {{
+            return std::error_code{{
+              static_cast<int>(error),
+              detail::get_{name}_category(),
+            }};
+          }}
+          namespace detail {{
+          auto {error}Category::name() const noexcept -> char const * {{
+            return "{error}";
+          }}
+          auto {error}Category::message(int error) const -> std::string {{
+            switch (static_cast<{error}>(error)) {{
+            case {error}::no_error: break;
+            {messages}
+            }}
+            return "Unrecognized error";
+          }}
+          auto get_{name}_category() -> {error}Category const & {{
+            static auto category = {error}Category{{}};
+            return category;
+          }}
+          }}
+          ]=],
+          {
+            messages = i(0),
+            error = i(1),
+            name = lambda(snake_case(lambda._1), 1),
           }
         )
       ),
