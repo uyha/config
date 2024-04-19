@@ -1121,5 +1121,31 @@ return {
         )
       ),
     })
+
+    ls.add_snippets("sql", {
+      s(
+        "datable",
+        fmt(
+          [[
+          CREATE TABLE "{name}" (
+              ebox_id INTEGER NOT NULL,
+              time TIMESTAMPTZ NOT NULL,
+              value {type} NOT NULL,
+              FOREIGN KEY (ebox_id) REFERENCES "Ebox" (id)
+          );
+          SELECT create_hypertable('"{name}"', 'time');
+          ALTER TABLE "{name}" SET (
+              timescaledb.compress,
+              timescaledb.compress_orderby = 'time DESC',
+              timescaledb.compress_segmentby = 'ebox_id'
+          );
+          ]],
+          {
+            name = i(1, "TableName"),
+            type = i(2, "DATATYPE"),
+          }
+        )
+      ),
+    })
   end,
 }
