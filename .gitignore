@@ -57,3 +57,6 @@
 
 !clangd
 !clangd/**
+
+!copyq
+!copyq/**
