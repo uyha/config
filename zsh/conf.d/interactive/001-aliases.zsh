@@ -37,7 +37,7 @@ fi
 
 if exists rsync; then
   alias rsync="rsync --info=progress2 -tv"
-  alias dsync="rsync --delete -rd"
+  alias dsync="rsync --recursive --dirs"
   if exists ssh; then
     alias ursync="rsync --info=progress2 -v --rsh='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'"
   fi
