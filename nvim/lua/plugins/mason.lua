@@ -5,9 +5,6 @@ return {
       vim.list_extend(opts.ensure_installed, {
         -- Linters
         "actionlint",
-
-        -- Formatters
-        "prettierd",
       })
     end
     opts.PATH = "skip"
