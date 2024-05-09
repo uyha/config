@@ -19,6 +19,9 @@ return {
     end,
   },
   opts = {
+    filesystem = {
+      follow_current_file = { enabled = false },
+    },
     event_handlers = {
       {
         event = "neo_tree_window_after_open",
@@ -39,6 +42,7 @@ return {
         ["<C-x>"] = "split_with_window_picker",
         ["<C-v>"] = "vsplit_with_window_picker",
         ["Y"] = "copy_relative_path",
+        ["<Tab>"] = "open",
       },
     },
     commands = {
@@ -56,6 +60,14 @@ return {
       function() require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() }) end,
       desc = "Explorer NeoTree (cwd)",
       remap = true,
+    },
+    {
+      "<Tab>",
+      function()
+        local path = vim.fn.expand("%:p")
+        require("neo-tree.command").execute({ reveal_file = path })
+      end,
+      desc = "Locate current file in NeoTree",
     },
   },
 }
