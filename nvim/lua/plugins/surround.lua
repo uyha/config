@@ -1,6 +1,7 @@
 return {
   {
     "echasnovski/mini.surround",
+    enabled = false,
     opts = {
       mappings = {
         add = "ys",
@@ -10,9 +11,8 @@ return {
     },
   },
   {
-    "nvim-telescope/telescope.nvim",
-    keys = {
-      { "<leader><space>", require("lazyvim.util").telescope("files", { cwd = false }), desc = "Find Files (cwd)" },
-    },
+    "kylechui/nvim-surround",
+    event = "VeryLazy",
+    config = function() require("nvim-surround").setup({}) end,
   },
 }
