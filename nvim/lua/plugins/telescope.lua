@@ -11,6 +11,11 @@ return {
         end,
         desc = "Fuzzy find everything",
       },
+      {
+        "<leader><space>",
+        require("lazyvim.util").telescope("files", { cwd = false }),
+        desc = "Find Files (cwd)",
+      },
     },
   },
   {
