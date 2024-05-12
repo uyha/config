@@ -39,6 +39,39 @@ return {
         end,
       },
     },
+    document_symbols = {
+      follow_cursor = true,
+      window = {
+        mappings = {
+          ["o"] = "expand_node",
+          ["O"] = "expand_all",
+        },
+      },
+      commands = {
+        expand_node = function(state)
+          local renderer = require("neo-tree.ui.renderer")
+          if state.tree:get_node():expand() then renderer.redraw(state) end
+        end,
+        expand_all = function(state)
+          local renderer = require("neo-tree.ui.renderer")
+
+          local root = state.tree:get_nodes()[1]
+          local stack = { root }
+
+          while next(stack) ~= nil do
+            local node = table.remove(stack)
+
+            node:expand()
+            local children = state.tree:get_nodes(node:get_id())
+            for _, child in ipairs(children) do
+              table.insert(stack, child)
+            end
+          end
+
+          renderer.redraw(state)
+        end,
+      },
+    },
     event_handlers = {
       {
         event = "neo_tree_window_after_open",
@@ -63,11 +96,18 @@ return {
     },
     {
       "<Tab>",
-      function()
-        local path = vim.fn.expand("%:p")
-        require("neo-tree.command").execute({ reveal_file = path })
-      end,
+      function() require("neo-tree.command").execute({ reveal = true }) end,
       desc = "Locate current file in NeoTree",
+    },
+    {
+      "<S-Tab>",
+      function()
+        require("neo-tree.command").execute({
+          source = "document_symbols",
+          position = "right",
+        })
+      end,
+      desc = "Open document symbols",
     },
   },
 }
