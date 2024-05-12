@@ -21,6 +21,23 @@ return {
   opts = {
     filesystem = {
       follow_current_file = { enabled = false },
+      window = {
+        mappings = {
+          ["<cr>"] = "open_with_window_picker",
+          ["<C-x>"] = "split_with_window_picker",
+          ["<C-v>"] = "vsplit_with_window_picker",
+          ["Y"] = "copy_relative_path",
+          ["<Tab>"] = "open",
+        },
+      },
+      commands = {
+        copy_relative_path = function(state)
+          local node = state.tree:get_node()
+          local path = vim.fn.fnamemodify(node:get_id(), ":.")
+          vim.fn.setreg("+", path)
+          vim.notify(path .. " is copied to the clipboard")
+        end,
+      },
     },
     event_handlers = {
       {
@@ -35,23 +52,6 @@ return {
           if args.position == "left" or args.position == "right" then vim.cmd("wincmd =") end
         end,
       },
-    },
-    window = {
-      mappings = {
-        ["<cr>"] = "open_with_window_picker",
-        ["<C-x>"] = "split_with_window_picker",
-        ["<C-v>"] = "vsplit_with_window_picker",
-        ["Y"] = "copy_relative_path",
-        ["<Tab>"] = "open",
-      },
-    },
-    commands = {
-      copy_relative_path = function(state)
-        local node = state.tree:get_node()
-        local path = vim.fn.fnamemodify(node:get_id(), ":.")
-        vim.fn.setreg("+", path)
-        vim.notify(path .. " is copied to the clipboard")
-      end,
     },
   },
   keys = {
