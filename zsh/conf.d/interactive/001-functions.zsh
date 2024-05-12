@@ -25,5 +25,3 @@ exists docker && docker-nuke() {
 is-wsl && function wsl-shutdown() {
   /mnt/c/Windows/System32/wsl.exe --shutdown
 }
-
-unfunction exists

@@ -1,7 +1,3 @@
-exists() {
-  command -v "$1" &>/dev/null
-}
-
 if exists eza; then
   alias ls="eza"
   alias tree="ls --tree"
@@ -53,5 +49,3 @@ if exists dust; then
   alias du="dust"
   alias du1="du -d1"
 fi
-
-unfunction exists
