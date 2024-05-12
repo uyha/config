@@ -3,7 +3,7 @@ exists() {
 }
 
 is-wsl(){
-  [[ "$(uname -a | perl -ne 'print lc')" =~ wsl ]]
+  [[ "${$(uname -a):l}" =~ wsl ]]
 }
 
 exists docker && docker-nuke() {
