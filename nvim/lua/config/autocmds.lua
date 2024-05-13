@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     -- There is a bug somewhere that makes the cursor jump 2 lines below the jumping
     -- mark
     vim.keymap.set("n", "<leader>i", "gg=G``kk", { silent = true, buffer = true })
-    vim.b.autoformat = false
+    vim.b["autoformat"] = false
   end,
 })
 
