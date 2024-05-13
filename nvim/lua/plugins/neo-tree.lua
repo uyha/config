@@ -45,6 +45,7 @@ return {
         mappings = {
           ["o"] = "expand_node",
           ["O"] = "expand_all",
+          ["<S-Tab>"] = "open",
         },
       },
       commands = {
@@ -98,16 +99,6 @@ return {
       "<Tab>",
       function() require("neo-tree.command").execute({ reveal = true }) end,
       desc = "Locate current file in NeoTree",
-    },
-    {
-      "<S-Tab>",
-      function()
-        require("neo-tree.command").execute({
-          source = "document_symbols",
-          position = "right",
-        })
-      end,
-      desc = "Open document symbols",
     },
   },
 }
