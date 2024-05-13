@@ -10,11 +10,12 @@ return {
   ft = "norg",
   opts = {
     load = {
-      ["core.defaults"] = {},
-      ["core.concealer"] = {},
       ["core.completion"] = { config = { engine = "nvim-cmp" } },
-      ["core.presenter"] = { config = { zen_mode = "zen-mode" } },
+      ["core.concealer"] = {},
+      ["core.defaults"] = {},
+      ["core.export"] = {},
       ["core.keybinds"] = { config = { neorg_leader = " " } },
+      ["core.presenter"] = { config = { zen_mode = "zen-mode" } },
     },
   },
 }
