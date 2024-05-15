@@ -28,7 +28,12 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "norg" },
+  pattern = { "toml" },
+  callback = function() vim.bo.shiftwidth = 4 end,
+})
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "norg", "rst" },
   callback = function() vim.opt_local.spell = true end,
 })
 
