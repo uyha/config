@@ -27,7 +27,7 @@ return {
           ["<C-x>"] = "split_with_window_picker",
           ["<C-v>"] = "vsplit_with_window_picker",
           ["Y"] = "copy_relative_path",
-          ["<Tab>"] = "open",
+          ["<C-g>"] = "open",
         },
       },
       commands = {
@@ -96,7 +96,7 @@ return {
       remap = true,
     },
     {
-      "<Tab>",
+      "<C-g>",
       function() require("neo-tree.command").execute({ reveal = true }) end,
       desc = "Locate current file in NeoTree",
     },
