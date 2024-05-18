@@ -743,29 +743,29 @@ return {
         "colors",
         fmt(
           [[
-            black="$(tput setaf 0)"
-            red="$(tput setaf 1)"
-            green="$(tput setaf 2)"
-            brown="$(tput setaf 3)"
-            blue="$(tput setaf 4)"
-            purple="$(tput setaf 5)"
-            cyan="$(tput setaf 6)"
-            gray="$(tput setaf 7)"
+            black="$(tput setaf 0 || true)"
+            red="$(tput setaf 1 || true)"
+            green="$(tput setaf 2 || true)"
+            brown="$(tput setaf 3 || true)"
+            blue="$(tput setaf 4 || true)"
+            purple="$(tput setaf 5 || true)"
+            cyan="$(tput setaf 6 || true)"
+            gray="$(tput setaf 7 || true)"
 
-            black_bg="$(tput setab 0)"
-            red_bg="$(tput setab 1)"
-            green_bg="$(tput setab 2)"
-            brown_bg="$(tput setab 3)"
-            blue_bg="$(tput setab 4)"
-            purple_bg="$(tput setab 5)"
-            cyan_bg="$(tput setab 6)"
-            gray_bg="$(tput setab 7)"
+            black_bg="$(tput setab 0 || true)"
+            red_bg="$(tput setab 1 || true)"
+            green_bg="$(tput setab 2 || true)"
+            brown_bg="$(tput setab 3 || true)"
+            blue_bg="$(tput setab 4 || true)"
+            purple_bg="$(tput setab 5 || true)"
+            cyan_bg="$(tput setab 6 || true)"
+            gray_bg="$(tput setab 7 || true)"
 
-            bold="$(tput bold)"
-            uline="$(tput smul)"
-            blink="$(tput blink)"
+            bold="$(tput bold || true)"
+            uline="$(tput smul || true)"
+            blink="$(tput blink || true)"
 
-            reset="$(tput sgr0)"
+            reset="$(tput sgr0 || true)"
           ]],
           {}
         )
