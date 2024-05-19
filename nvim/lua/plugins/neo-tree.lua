@@ -23,6 +23,10 @@ return {
       follow_current_file = { enabled = false },
       window = {
         mappings = {
+          ["o"] = {
+            function(state) require("lazy.util").open(state.tree:get_node().path, { system = true }) end,
+            desc = "Open with System Application",
+          },
           ["<cr>"] = "open_with_window_picker",
           ["<C-x>"] = "split_with_window_picker",
           ["<C-v>"] = "vsplit_with_window_picker",
