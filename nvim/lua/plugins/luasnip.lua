@@ -766,6 +766,16 @@ return {
             blink="$(tput blink || true)"
 
             reset="$(tput sgr0 || true)"
+
+            clr-primary() {{
+              printf "%s%s%s" "$green$bold" "$*" "$reset"
+            }}
+            clr-warning() {{
+              printf "%s%s%s" "$brown$bold" "$*" "$reset"
+            }}
+            clr-error() {{
+              printf "%s%s%s" "$red$bold" "$*" "$reset"
+            }}
           ]],
           {}
         )
