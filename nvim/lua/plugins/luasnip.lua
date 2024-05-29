@@ -1157,5 +1157,9 @@ return {
         )
       ),
     })
+
+    ls.add_snippets("zig", {
+      s("here", t([[std.debug.print("{s}:{} ({s})\n", .{ @src().file, @src().line, @src().fn_name });]])),
+    })
   end,
 }
