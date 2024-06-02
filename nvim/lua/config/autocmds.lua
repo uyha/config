@@ -56,3 +56,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "eds" },
+  callback = function()
+    local eds_client = vim.lsp.start_client({
+      name = "kantools",
+      cmd = { "/home/uy/Personal/kantools/zig-out/bin/kantools" },
+    })
+
+    if eds_client ~= nil then vim.lsp.buf_attach_client(0, eds_client) end
+  end,
+})
