@@ -1,6 +1,7 @@
 return {
   {
     "linux-cultist/venv-selector.nvim",
+    branch = "regexp",
     keys = {
       { "<leader>vc", "<cmd>:VenvSelectCached<cr>", desc = "Select the previous venv for this project" },
     },
