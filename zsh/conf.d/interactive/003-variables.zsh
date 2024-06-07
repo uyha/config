@@ -2,6 +2,8 @@ if is-tmux; then
   return 0
 fi
 
+export HOMEBREW_NO_ENV_HINTS=1
+
 # zsh-autosuggestions
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
