@@ -13,7 +13,7 @@ return {
       },
       {
         "<leader><space>",
-        require("lazyvim.util").telescope("files", { cwd = false }),
+        require("lazyvim.util").pick("files", {}),
         desc = "Find Files (cwd)",
       },
     },
