@@ -16,6 +16,8 @@ vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 -- What to restore when persisted.nvim runs
 vim.o.sessionoptions = "buffers,curdir,folds,globals,help,skiprtp,tabpages,winpos,winsize"
 
+vim.g.lazygit_config = false
+
 vim.lsp.set_log_level("OFF")
 
 for _, value in ipairs({
