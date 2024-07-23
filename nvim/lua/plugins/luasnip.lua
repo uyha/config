@@ -1161,5 +1161,19 @@ return {
     ls.add_snippets("zig", {
       s("here", t([[std.debug.print("{s}:{} ({s})\n", .{ @src().file, @src().line, @src().fn_name });]])),
     })
+
+    ls.add_snippets("python", {
+      s(
+        "stack trace",
+        fmt(
+          [[
+          import traceback
+
+          print(traceback.format_exc())
+          ]],
+          {}
+        )
+      ),
+    })
   end,
 }
