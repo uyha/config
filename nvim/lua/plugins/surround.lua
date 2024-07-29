@@ -13,6 +13,12 @@ return {
   {
     "kylechui/nvim-surround",
     event = "VeryLazy",
-    config = function() require("nvim-surround").setup({}) end,
+    config = function()
+      require("nvim-surround").setup({
+        keymaps = {
+          visual = "as",
+        },
+      })
+    end,
   },
 }
