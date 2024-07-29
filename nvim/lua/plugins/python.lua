@@ -5,6 +5,14 @@ return {
     keys = {
       { "<leader>vc", "<cmd>:VenvSelectCached<cr>", desc = "Select the previous venv for this project" },
     },
+    opts = function(_, opts)
+      if type(opts.settings.search) == "nil" then opts.settings.search = {} end
+      if type(opts.settings.search) ~= "table" then return end
+
+      opts.settings.search.dotvevn = {
+        command = "fd '.venv/bin/python$' .. --full-path --no-ignore --hidden --absolute-path",
+      }
+    end,
   },
   {
     "nvimtools/none-ls.nvim",
