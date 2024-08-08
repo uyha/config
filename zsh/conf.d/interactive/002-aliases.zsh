@@ -10,16 +10,17 @@ alias rm="rm -I"
 alias mv="mv -i"
 alias cp="cp -i"
 
-exists nvim && alias vim="nvim"
-exists bat && alias cat="bat"
-exists lazygit && alias lzg="lazygit"
-exists fd && alias fa="fd --no-ignore --hidden"
-exists explorer.exe && alias explorer="explorer.exe"
-exists ssh && alias ussh="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
-exists scp && alias uscp="scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
-exists btm && alias top="btm"
-exists df && alias df="df -h"
-exists xdg-open && alias open="xdg-open"
+if exists nvim; then alias vim="nvim"; fi
+if exists bat; then alias cat="bat"; fi
+if exists lazygit; then alias lzg="lazygit"; fi
+if exists fd; then alias fa="fd --no-ignore --hidden"; fi
+if exists explorer.exe; then alias explorer="explorer.exe"; fi
+if exists ssh; then alias ussh="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"; fi
+if exists scp; then alias uscp="scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"; fi
+if exists btm; then alias top="btm"; fi
+if exists df; then alias df="df -h"; fi
+if exists xdg-open; then alias open="xdg-open"; fi
+if exists just; then alias j="just";fi
 
 if exists rg; then
   alias rg="rg --smart-case"
