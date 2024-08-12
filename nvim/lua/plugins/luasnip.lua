@@ -1175,5 +1175,19 @@ return {
         )
       ),
     })
+
+    ls.add_snippets("just", {
+      s(
+        "bash",
+        fmt(
+          [[
+          #!/usr/bin/env bash
+
+          set -euo pipefail
+          ]],
+          {}
+        )
+      ),
+    })
   end,
 }
