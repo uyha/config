@@ -7,3 +7,13 @@ mods = "Shift"
 chars = "\u001B[13;5u"
 key = "Return"
 mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u001B[["
+key = "["
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001B[]"
+key = "]"
+mods = "Alt"
