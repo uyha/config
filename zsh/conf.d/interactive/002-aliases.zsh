@@ -1,6 +1,7 @@
 if exists eza; then
   alias ls="eza"
   alias tree="ls --tree"
+  alias trea="ls --tree -a"
 fi
 
 alias la="ls -a"
