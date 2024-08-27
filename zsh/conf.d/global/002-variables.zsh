@@ -27,3 +27,7 @@ for extra in "${extra_bins[@]}"; do
     export PATH="$PATH:$extra"
   fi
 done
+
+for extra in "$LOCAL/opt"/*/bin; do
+  export PATH="$PATH:$extra"
+done
