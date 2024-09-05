@@ -1189,5 +1189,39 @@ return {
         )
       ),
     })
+
+    ls.add_snippets("bitbake", {
+      s(
+        "recipe",
+        fmt(
+          [[
+          SUMMARY = "{summary}"
+          DESCRIPTION = "{description}"
+          HOMEPAGE = "{homepage}"
+          LICENSE = "{license}"
+          LIC_FILES_CHKSUM = "file://{license_file};md5={md5}"
+
+          SRC_URI = "{uri}"
+          SRCREV = "{rev}"
+
+          S = "${{WORKDIR}}/git"
+
+          inherit cmake
+
+          BBCLASSEXTEND = "native nativesdk"
+          ]],
+          {
+            summary = i(1, "summary"),
+            description = i(2, "description"),
+            homepage = i(3, "homepage"),
+            license = i(4, "license"),
+            license_file = i(5, "license_file"),
+            md5 = i(6, "md5"),
+            uri = i(7, "uri"),
+            rev = i(8, "rev"),
+          }
+        )
+      ),
+    })
   end,
 }
