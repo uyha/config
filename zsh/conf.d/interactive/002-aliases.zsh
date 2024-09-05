@@ -51,3 +51,7 @@ if exists dust; then
   alias du="dust"
   alias du1="du -d1"
 fi
+
+if is-tmux; then
+  alias clear="clear -T tmux-256color"
+fi
