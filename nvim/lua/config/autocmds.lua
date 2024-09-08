@@ -13,6 +13,11 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "markdown" },
+  callback = function() vim.bo.textwidth = 80 end,
+})
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "ledger" },
   callback = function()
     vim.keymap.set({ "n", "i" }, "<M-i>", function()
