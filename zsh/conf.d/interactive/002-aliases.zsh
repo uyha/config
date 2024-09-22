@@ -21,7 +21,8 @@ if exists scp; then alias uscp="scp -o UserKnownHostsFile=/dev/null -o StrictHos
 if exists btm; then alias top="btm"; fi
 if exists df; then alias df="df -h"; fi
 if exists xdg-open; then alias open="xdg-open"; fi
-if exists just; then alias j="just";fi
+if exists just; then alias j="just"; fi
+if exists bc; then alias bc="bc -l";fi
 
 if exists rg; then
   alias rg="rg --smart-case"
