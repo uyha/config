@@ -12,7 +12,6 @@ alias mv="mv -i"
 alias cp="cp -i"
 
 if exists nvim; then alias vim="nvim"; fi
-if exists bat; then alias cat="bat"; fi
 if exists lazygit; then alias lzg="lazygit"; fi
 if exists fd; then alias fa="fd --no-ignore --hidden"; fi
 if exists explorer.exe; then alias explorer="explorer.exe"; fi
