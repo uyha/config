@@ -27,4 +27,5 @@ end)
 
 vim.keymap.set("x", "p", "P")
 
-vim.keymap.set("i", "<C-j>", "<Esc>", { silent = true })
+vim.keymap.set("i", "<C-a>", "<Esc>", { silent = true })
+vim.keymap.set("n", "<C-a>", "a", { silent = true })
