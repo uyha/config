@@ -2,6 +2,7 @@ vim.o.virtualedit = "block"
 vim.o.wrap = true
 vim.o.textwidth = 88
 vim.wo.colorcolumn = "+1"
+vim.wo.relativenumber = false
 
 -- Undotree
 vim.o.swapfile = false
@@ -17,8 +18,6 @@ vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 vim.o.sessionoptions = "buffers,curdir,folds,globals,help,skiprtp,tabpages,winpos,winsize"
 
 vim.g.lazygit_config = false
-
-vim.lsp.set_log_level("OFF")
 
 for _, value in ipairs({
   "loaded_python3_provider",
