@@ -32,6 +32,38 @@ return {
           ["<C-v>"] = "vsplit_with_window_picker",
           ["Y"] = "copy_relative_path",
           ["<C-g>"] = "open",
+          ["t"] = {
+            function(state)
+              local path = state.tree:get_node().path
+              local success, stats = pcall(vim.loop.fs_stat, path)
+
+              if not success then
+                vim.notify("Could not determine the type of " .. path)
+                return
+              end
+
+              local is_directory = stats.type == "directory"
+              local target_path
+              if is_directory then
+                target_path = path
+              else
+                target_path = vim.fs.dirname(path)
+              end
+
+              local proc = io.popen("tmux new-window -P -c " .. target_path)
+              if not proc then
+                vim.notify("Could not open a new tmux window")
+                return
+              end
+
+              --- @type string
+              local winid = proc:read("*a")
+              winid = winid:gsub("%s*$", "")
+
+              os.execute("tmux send-keys -t " .. winid .. [[ "vim ." Enter]])
+            end,
+            desc = "Open nvim in a new tmux window",
+          },
         },
       },
       commands = {
