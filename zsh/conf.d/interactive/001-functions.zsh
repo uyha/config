@@ -29,3 +29,7 @@ is-wsl && function wsl-shutdown() {
 free-swap() {
   sudo swapoff -a && sudo swapon -a
 }
+
+cprev() {
+  git rev-parse @ | tr -d '\n' | xclip -selection clipboard
+}
