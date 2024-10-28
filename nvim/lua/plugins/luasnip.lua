@@ -196,6 +196,26 @@ return {
 
     ls.add_snippets("cpp", {
       s(
+        "virspec",
+        fmt(
+          [=[
+          {name}({name} const&)                     = {copy};
+          auto operator=({name} const&) -> {name} & = {copy};
+
+          {name}({name} &&)                     = {move};
+          auto operator=({name} &&) -> {name} & = {move};
+
+          virtual ~{name}() = default;
+
+          ]=],
+          {
+            name = i(1),
+            copy = i(2),
+            move = i(3),
+          }
+        )
+      ),
+      s(
         "errdecl",
         fmt(
           [=[
