@@ -305,6 +305,7 @@ return {
             ~{res}() noexcept;
           private:
             explicit {res}({handle_type} {handle}) noexcept;
+            auto destroy() noexcept -> void;
 
             {handle_type} m_{handle};
           }};
@@ -326,7 +327,7 @@ return {
             other.m_{handle} = {null};
           }}
           auto {res}::operator=({res} &&other) noexcept -> {res} & {{
-            this->~{res}();
+            destroy();
 
             m_{handle}       = other.m_{handle};
             other.m_{handle} = {null};
@@ -335,11 +336,15 @@ return {
           }}
 
           {res}::~{res}() noexcept {{
+            destroy();
+          }}
+          auto {res}::destroy() noexcept -> void {{
             if (m_{handle} == {null}) {{
               return ;
             }}
 
             {destructor}(m_{handle});
+            m_{handle} = {null};
           }}
         ]],
           {
@@ -425,19 +430,19 @@ return {
         "here",
         fmt(
           [[
-          fmt::print("{{}}:{{}}{}\n", __FILE__, __LINE__);
+          fmt::print("{{}}:{{}}{}\n", __FILE__, __LINE__{});
           (void)::fflush(::stdout);
           ]],
-          { i(0) }
+          { i(1), i(0, ", ") }
         )
       ),
       s(
         "print",
         fmt(
           [[
-          fmt::print("{{}}\n", {});
+          fmt::print("{}\n"{});
           ]],
-          { i(0) }
+          { i(1), i(0, ", ") }
         )
       ),
       s(
