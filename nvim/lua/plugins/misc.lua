@@ -9,16 +9,4 @@ return {
       { "<C-l>", mode = "n" },
     },
   },
-  {
-    "mbbill/undotree",
-    keys = {
-      {
-        "<leader>U",
-        [[<cmd>UndotreeToggle<CR>]],
-        mode = "n",
-        desc = "Toggle Undotree",
-        silent = true,
-      },
-    },
-  },
 }

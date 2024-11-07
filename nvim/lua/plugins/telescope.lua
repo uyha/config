@@ -26,4 +26,22 @@ return {
       { "<leader>fB", "<cmd>Telescope file_browser<CR>", desc = "Open Telescope File Browser" },
     },
   },
+  {
+    "debugloop/telescope-undo.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+    config = function()
+      require("telescope").setup({
+        extensions = {
+          undo = {
+            layout_strategy = "vertical",
+            initial_mode = "normal",
+          },
+        },
+      })
+      require("telescope").load_extension("undo")
+    end,
+    keys = {
+      { "<leader>fu", "<cmd>Telescope undo<CR>", desc = "Open Telescope Undo" },
+    },
+  },
 }
