@@ -11,7 +11,7 @@ return {
           autoselect_one = true,
           bo = {
             filetype = { "neo-tree", "neo-tree-popup", "notify" },
-            buftype = { "terminal", "quickfix", "nofile" },
+            buftype = { "terminal", "quickfix" },
           },
         },
         show_prompt = false,
