@@ -47,6 +47,7 @@ return {
         end,
         open_in_tmux_window = function(state)
           local path = state.tree:get_node().path
+          ---@diagnostic disable-next-line: undefined-field
           local success, stats = pcall(vim.loop.fs_stat, path)
 
           if not success then
@@ -128,7 +129,10 @@ return {
   keys = {
     {
       "<leader>e",
-      function() require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() }) end,
+      function()
+        ---@diagnostic disable-next-line: undefined-field
+        require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
+      end,
       desc = "Explorer NeoTree (cwd)",
       remap = true,
     },
