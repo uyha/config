@@ -30,7 +30,10 @@ return {
           ["<cr>"] = "open_with_window_picker",
           ["<C-x>"] = "split_with_window_picker",
           ["<C-v>"] = "vsplit_with_window_picker",
-          ["Y"] = "copy_relative_path",
+          ["c"] = "copy_to_clipboard",
+          ["C"] = "copy",
+          ["y"] = "copy_relative_path",
+          ["Y"] = "copy_absolute_path",
           ["<C-g>"] = "open",
           ["t"] = {
             "open_in_tmux_window",
@@ -39,11 +42,17 @@ return {
         },
       },
       commands = {
+        copy_absolute_path = function(state)
+          local node = state.tree:get_node()
+          local path = vim.fn.fnamemodify(node:get_id(), ":p")
+          vim.fn.setreg("+", path)
+          vim.notify("`" .. path .. "` is copied to the clipboard")
+        end,
         copy_relative_path = function(state)
           local node = state.tree:get_node()
           local path = vim.fn.fnamemodify(node:get_id(), ":.")
           vim.fn.setreg("+", path)
-          vim.notify(path .. " is copied to the clipboard")
+          vim.notify("`" .. path .. "` is copied to the clipboard")
         end,
         open_in_tmux_window = function(state)
           local path = state.tree:get_node().path
