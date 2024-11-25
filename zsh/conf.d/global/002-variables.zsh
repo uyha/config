@@ -15,8 +15,9 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export CARGO_HOME="$HOME/.cargo"
 export RUSTUP_HOME="$HOME/.rustup"
 
+export PATH="$LOCAL/bin:$PATH"
+
 extra_bins=(
-	"$LOCAL/bin"
 	"$LOCAL/share/nvim/mason/bin"
 	"$CARGO_HOME/bin"
 	"$HOMEBREW_PREFIX/opt/clang-format/bin"
