@@ -11,7 +11,7 @@
                  (string_content) @injection.content)
                )
 
-  (#eq? @object "conn")
+  (#any-of? @object "conn" "cursor")
   (#eq? @function "execute")
   (#set! injection.language "sql")
   )
