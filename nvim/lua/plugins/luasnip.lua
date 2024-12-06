@@ -1185,6 +1185,27 @@ return {
 
     ls.add_snippets("zig", {
       s("here", t([[std.debug.print("{s}:{} ({s})\n", .{ @src().file, @src().line, @src().fn_name });]])),
+      s(
+        "prelude",
+        fmt(
+          [[
+          const std = @import("std");
+
+          ]],
+          {}
+        )
+      ),
+      s(
+        "main",
+        fmt(
+          [[
+          pub fn main() !void {{
+            {}
+          }}
+          ]],
+          { i(0) }
+        )
+      ),
     })
 
     ls.add_snippets("python", {
