@@ -21,6 +21,8 @@ return {
 
     luasnip.config.set_config(options)
 
+    ---@diagnostic disable: unused-function, unused-local
+
     local ls = require("luasnip")
     local c = ls.choice_node
     local d = ls.dynamic_node
@@ -35,7 +37,6 @@ return {
       return require("luasnip.extras.fmt").fmt(format, args, opts)
     end
     local lambda = require("luasnip.extras").l
-    ---@diagnostic disable-next-line: unused-local
     local rp = require("luasnip.extras").rep
     local postfix = require("luasnip.extras.postfix").postfix
 
@@ -49,7 +50,6 @@ return {
       return str:lower()
     end
 
-    ---@diagnostic disable-next-line: unused-function
     local camel_case = function(str)
       str = str:gsub("-", "_")
 
@@ -61,11 +61,12 @@ return {
       return str
     end
 
-    ---@diagnostic disable-next-line: unused-function, unused-local
     local mixed_case = function(str)
       str = camel_case(str):gsub("^(_*%l)", string.upper)
       return str
     end
+
+    ---@diagnostic enable: unused-function, unused-local
 
     ls.add_snippets("lua", {
       s("here", fmt([[print(debug.getinfo(1).source, debug.getinfo(1).currentline{})]], { i(0) })),
@@ -1204,6 +1205,18 @@ return {
           }}
           ]],
           { i(0) }
+        )
+      ),
+      s(
+        "struct",
+        fmt(
+          [[
+          const {} = struct {{
+            const Self = @This();
+            {}
+          }};
+          ]],
+          { i(1), i(0) }
         )
       ),
     })
