@@ -1219,6 +1219,35 @@ return {
           { i(1), i(0) }
         )
       ),
+      s(
+        "fn",
+        fmt(
+          [[
+          fn {}({}) {} {{
+            {}
+          }}
+          ]],
+          { i(1), i(2), i(3, "!void"), i(0) }
+        )
+      ),
+      s(
+        "print",
+        fmt(
+          [[
+          std.debug.print("{}", .{{{}}});
+          ]],
+          { i(1), i(0) }
+        )
+      ),
+      s(
+        "println",
+        fmt(
+          [[
+          std.debug.print("{}\n", .{{{}}});
+          ]],
+          { i(1), i(0) }
+        )
+      ),
     })
 
     ls.add_snippets("python", {
