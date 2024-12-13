@@ -9,4 +9,10 @@ return {
       { "<C-l>", mode = "n" },
     },
   },
+  {
+    "snacks.nvim",
+    opts = {
+      scroll = { enabled = false },
+    },
+  },
 }
