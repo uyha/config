@@ -41,23 +41,3 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "norg", "rst" },
   callback = function() vim.opt_local.spell = true end,
 })
-
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client == nil then return end
-    if client.server_capabilities.documentSymbolProvider then
-      vim.keymap.set(
-        "n",
-        "<S-Tab>",
-        function()
-          require("neo-tree.command").execute({
-            source = "document_symbols",
-            position = "right",
-          })
-        end,
-        { buffer = args.buf, desc = "Open document symbols" }
-      )
-    end
-  end,
-})
