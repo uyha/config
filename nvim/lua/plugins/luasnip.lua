@@ -16,7 +16,7 @@ return {
 
     local options = {
       history = true,
-      updateevents = "TextChanged,TextChangedI",
+      updateevents = "TextChanged",
     }
 
     luasnip.config.set_config(options)
@@ -1128,7 +1128,7 @@ return {
 
     ls.add_snippets("ledger", {
       s(
-        "transaction",
+        "trans",
         fmt(
           [[
           {date} * {name}
