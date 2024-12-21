@@ -1128,7 +1128,7 @@ return {
 
     ls.add_snippets("ledger", {
       s(
-        "trans",
+        "transaction",
         fmt(
           [[
           {date} * {name}
