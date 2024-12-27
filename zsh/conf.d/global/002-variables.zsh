@@ -15,6 +15,8 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export CARGO_HOME="$HOME/.cargo"
 export RUSTUP_HOME="$HOME/.rustup"
 
+export CMAKE_GENERATOR=Ninja
+
 export PATH="$LOCAL/bin:$PATH"
 
 extra_bins=(
