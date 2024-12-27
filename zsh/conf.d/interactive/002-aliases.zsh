@@ -5,7 +5,7 @@ if exists eza; then
 fi
 
 alias la="ls -a"
-alias ll="ls -la"
+alias ll="ls -la --git --icons=always"
 
 alias rm="rm -I"
 alias mv="mv -i"
