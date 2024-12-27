@@ -1,5 +1,5 @@
 if is-tmux; then
-	return 0
+  return 0
 fi
 
 export LOCAL="$HOME/.local"
@@ -18,9 +18,9 @@ export RUSTUP_HOME="$HOME/.rustup"
 export PATH="$LOCAL/bin:$PATH"
 
 extra_bins=(
-	"$LOCAL/share/nvim/mason/bin"
-	"$CARGO_HOME/bin"
-	"$HOMEBREW_PREFIX/opt/clang-format/bin"
+  "$LOCAL/share/nvim/mason/bin"
+  "$CARGO_HOME/bin"
+  "$HOMEBREW_PREFIX/opt/clang-format/bin"
 )
 
 for extra in "${extra_bins[@]}"; do
