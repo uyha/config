@@ -1,11 +1,11 @@
 if exists eza; then
-  alias ls="eza"
+  alias ls="eza --git --icons=always"
   alias tree="ls --tree"
   alias trea="ls --tree -a"
 fi
 
 alias la="ls -a"
-alias ll="ls -la --git --icons=always"
+alias ll="ls -la"
 
 alias rm="rm -I"
 alias mv="mv -i"
