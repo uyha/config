@@ -4,7 +4,6 @@ return {
   ft = "norg",
   opts = {
     load = {
-      ["core.completion"] = { config = { engine = "nvim-cmp" } },
       ["core.concealer"] = {},
       ["core.defaults"] = {},
       ["core.export"] = {},
