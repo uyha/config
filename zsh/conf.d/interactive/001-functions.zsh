@@ -33,3 +33,31 @@ free-swap() {
 cprev() {
   git rev-parse @ | tr -d '\n' | xclip -selection clipboard
 }
+
+c2f() {
+  if ! [[ $# -eq 1 ]]; then
+    echo "Expecting exactly 1 number" >&2
+    return 22
+  fi
+
+  if ! [[ $1 =~ ^[+-]?[0-9]*\.?[0-9]+$ ]]; then
+    echo "$1 is not a number" >&2
+    return 22
+  fi
+
+  echo $(($1 * 1.8 + 32))
+}
+
+f2c() {
+  if ! [[ $# -eq 1 ]]; then
+    echo "Expecting exactly 1 number" >&2
+    return 22
+  fi
+
+  if ! [[ $1 =~ ^[+-]?[0-9]*\.?[0-9]+$ ]]; then
+    echo "$1 is not a number" >&2
+    return 22
+  fi
+
+  echo $((($1 - 32) / 1.8 ))
+}
