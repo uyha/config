@@ -41,3 +41,11 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "norg", "rst" },
   callback = function() vim.opt_local.spell = true end,
 })
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "gdscript" },
+  callback = function()
+    vim.bo.expandtab = false
+    vim.bo.shiftwidth = 2
+  end,
+})
