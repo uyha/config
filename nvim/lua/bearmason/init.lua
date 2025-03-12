@@ -1,3 +1,3 @@
 return {
-  ["vscode-bitbake"] = "bearmason.vscode-bitbake",
+  -- ["vscode-bitbake"] = "bearmason.vscode-bitbake",
 }
