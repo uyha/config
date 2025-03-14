@@ -466,6 +466,7 @@ return {
           {}
         )
       ),
+      s("nodc", t("[[nodiscard]]")),
     })
 
     ls.add_snippets("cpp", {
