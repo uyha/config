@@ -438,15 +438,6 @@ return {
         )
       ),
       s(
-        "print",
-        fmt(
-          [[
-          fmt::print("{}\n"{});
-          ]],
-          { i(1), i(0) }
-        )
-      ),
-      s(
         "ns",
         fmt(
           [[
@@ -467,6 +458,24 @@ return {
         )
       ),
       s("nodc", t("[[nodiscard]]")),
+      s(
+        "oprint",
+        fmt(
+          [[
+          fmt::print("{}\n"{});
+          ]],
+          { i(1), i(0) }
+        )
+      ),
+      s(
+        "eprint",
+        fmt(
+          [[
+          fmt::print(stderr, "{}\n"{});
+          ]],
+          { i(1), i(0) }
+        )
+      ),
     })
 
     ls.add_snippets("cpp", {
