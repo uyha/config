@@ -459,7 +459,7 @@ return {
       ),
       s("nodc", t("[[nodiscard]]")),
       s(
-        "oprint",
+        "print",
         fmt(
           [[
           fmt::print("{}\n"{});
@@ -1195,7 +1195,17 @@ return {
     })
 
     ls.add_snippets("zig", {
-      s("here", t([[std.debug.print("{s}:{} ({s})\n", .{ @src().file, @src().line, @src().fn_name });]])),
+      s(
+        "here",
+        fmt(
+          [[
+          std.debug.print("{{s}}:{{}} ({{s}}){}", .{{ @src().file, @src().line, @src().fn_name }});
+          ]],
+          {
+            i(0, "\\n"),
+          }
+        )
+      ),
       s(
         "prelude",
         fmt(
