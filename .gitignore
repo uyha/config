@@ -60,3 +60,6 @@
 
 !copyq
 !copyq/**
+
+!harper-ls
+!harper-ls/**
