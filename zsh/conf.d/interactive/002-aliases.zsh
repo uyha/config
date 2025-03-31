@@ -21,7 +21,10 @@ if exists btm; then alias top="btm"; fi
 if exists df; then alias df="df -h"; fi
 if exists xdg-open; then alias open="xdg-open"; fi
 if exists just; then alias j="just"; fi
-if exists watchexec; then alias we="watchexec"; fi
+if exists watchexec; then
+  alias watchexec="watchexec --clear=clear --restart"
+  alias we="watchexec"
+fi
 if exists bc; then alias bc="bc -l"; fi
 if exists xclip; then alias xclip="xclip -selection clipboard"; fi
 
