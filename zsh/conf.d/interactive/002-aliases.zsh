@@ -7,7 +7,6 @@ fi
 alias la="ls -a"
 alias ll="ls -la"
 
-alias rm="rm -I"
 alias mv="mv -i"
 alias cp="cp -i"
 
