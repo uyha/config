@@ -1,6 +1,6 @@
 vim.o.virtualedit = "block"
 vim.o.wrap = true
-vim.o.textwidth = 88
+vim.o.textwidth = 80
 vim.wo.colorcolumn = "+1"
 vim.wo.relativenumber = false
 
