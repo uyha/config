@@ -512,6 +512,8 @@ return {
           [[
             class {class} {{
             public:
+              {class}() = default;
+
               {class}({class} const &)                     = delete;
               auto operator=({class} const &) -> {class} & = delete;
 
