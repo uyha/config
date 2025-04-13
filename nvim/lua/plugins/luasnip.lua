@@ -507,6 +507,24 @@ return {
 
     ls.add_snippets("cpp", {
       s(
+        "interface",
+        fmt(
+          [[
+            class {class} {{
+            public:
+              {class}({class} const &)                     = delete;
+              auto operator=({class} const &) -> {class} & = delete;
+
+              {class}({class} &&)                     = delete;
+              auto operator=({class} &&) -> {class} & = delete;
+
+              virtual ~{class}() noexcept = default;
+            }};
+            ]],
+          { class = i(1) }
+        )
+      ),
+      s(
         "no-copy",
         fmt(
           [[
