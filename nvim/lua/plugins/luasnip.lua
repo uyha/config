@@ -36,7 +36,7 @@ return {
       opts = vim.tbl_extend("force", { repeat_duplicates = true }, opts or {})
       return require("luasnip.extras.fmt").fmt(format, args, opts)
     end
-    local lambda = require("luasnip.extras").l
+    local l = require("luasnip.extras").l
     local rp = require("luasnip.extras").rep
     local postfix = require("luasnip.extras.postfix").postfix
 
@@ -239,7 +239,7 @@ return {
           {
             error = i(1),
             members = i(2),
-            name = lambda(snake_case(lambda._1), 1),
+            name = l(snake_case(l._1), 1),
           }
         )
       ),
@@ -273,7 +273,7 @@ return {
           {
             messages = i(0),
             error = i(1),
-            name = lambda(snake_case(lambda._1), 1),
+            name = l(snake_case(l._1), 1),
           }
         )
       ),
@@ -1286,6 +1286,18 @@ return {
           std.debug.print("{}\n", .{{{}}});
           ]],
           { i(1), i(0) }
+        )
+      ),
+      s(
+        "use",
+        fmt(
+          [[
+          const {name} = {value};
+          ]],
+          {
+            name = l(l._1:gsub("@import%((.*)%)", "%1"):gsub(".*%.", ""), 1),
+            value = i(1),
+          }
         )
       ),
     })
