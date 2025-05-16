@@ -1,7 +1,6 @@
 return {
   {
-    "williamboman/mason.nvim",
-    version = "1.11.0",
+    "mason-org/mason.nvim",
     opts = function(_, opts)
       opts.registries = {
         "lua:bearmason",
@@ -16,5 +15,4 @@ return {
       opts.PATH = "skip"
     end,
   },
-  { "mason-org/mason-lspconfig.nvim", version = "1.32.0" },
 }
