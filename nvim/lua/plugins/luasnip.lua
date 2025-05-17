@@ -1300,6 +1300,7 @@ return {
           }
         )
       ),
+      s("meh", fmt([[_ = &{};]], { i(1) })),
     })
 
     ls.add_snippets("python", {
