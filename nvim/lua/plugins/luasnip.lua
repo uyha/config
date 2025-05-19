@@ -1301,6 +1301,20 @@ return {
         )
       ),
       s("meh", fmt([[_ = &{};]], { i(1) })),
+      s(
+        "lambda",
+        fmt(
+          [[
+          struct {{ fn f({args}) {rtype} {{ {body} }} }}.f {close}
+          ]],
+          {
+            args = i(1),
+            rtype = i(2, "void"),
+            body = i(4),
+            close = i(3),
+          }
+        )
+      ),
     })
 
     ls.add_snippets("python", {
