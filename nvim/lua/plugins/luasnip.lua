@@ -1315,6 +1315,26 @@ return {
           }
         )
       ),
+      s(
+        "strongint",
+        fmt(
+          [[
+          enum({itype}) {{
+            _,
+
+            pub fn from(raw: {itype}) @This() {{
+              return @enumFromInt(raw);
+            }}
+            pub fn to(self: @This()) {itype} {{
+              return @intFromEnum(raw);
+            }}
+          }};
+          ]],
+          {
+            itype = i(0),
+          }
+        )
+      ),
     })
 
     ls.add_snippets("python", {
