@@ -1158,7 +1158,7 @@ return {
 
     ls.add_snippets("ledger", {
       s(
-        "transaction",
+        "tranx",
         fmt(
           [[
           {date} * {name}
@@ -1182,7 +1182,7 @@ return {
             type = i(3, "type"),
             amount = i(4, "0.00"),
             unit = i(5, "EUR"),
-            from = i(6, "Liab:Nordea"),
+            from = i(6, "Nordea"),
           }
         )
       ),
