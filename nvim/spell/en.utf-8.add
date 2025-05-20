@@ -43,3 +43,7 @@ MessagePack
 Zig
 struct
 structs
+KAdmin
+Certbot
+nginx
+PostgreSQL

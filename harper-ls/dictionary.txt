@@ -9,6 +9,7 @@ CANopenNode
 CME
 CMS
 CTS
+Certbot
 Ctrl
 Cô
 DMAs
@@ -19,6 +20,7 @@ GmbH
 Huế
 I2C
 IOC
+KAdmin
 KEWAZO
 KOS
 Kimball
@@ -59,6 +61,7 @@ S1
 S2
 SDO
 SIM7600
+SSL
 STM
 STM32
 STM32CubeIDE
@@ -101,6 +104,7 @@ neobot
 neodata
 neonet
 neoservice
+nginx
 pXnY
 poller
 polymorphism
