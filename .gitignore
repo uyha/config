@@ -63,3 +63,5 @@
 
 !harper-ls
 !harper-ls/**
+
+!justfile
