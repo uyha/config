@@ -1,4 +1,5 @@
 ADS1115's
+Accessor
 Bò
 Bún
 C1
@@ -14,6 +15,7 @@ Ctrl
 Cô
 DMAs
 DS301
+EC2
 Freiheit
 GPIO
 GmbH
@@ -45,6 +47,7 @@ NOLINTBEGIN
 NOLINTEND
 NOLINTNEXTLINE
 OTA
+PDM
 PDO
 PDOs
 PR
@@ -94,6 +97,7 @@ err58
 estop
 fd
 implementator
+kollector
 kwz
 kz
 malloc
