@@ -12,6 +12,14 @@ return {
       opts.settings.search.dotvevn = {
         command = "fd '.venv/bin/python$' .. --full-path --no-ignore --hidden --absolute-path",
       }
+      opts.settings.search.uv = {
+        command = "fd 'bin/python$' "
+          .. vim.fn.expand("~")
+          .. "/.cache/uv "
+          .. "--full-path --absolute-path "
+          .. "--no-ignore --hidden "
+          .. "--type=executable --type=symlink ",
+      }
     end,
   },
   {
