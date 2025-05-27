@@ -28,7 +28,6 @@ KOS
 Kimball
 LSBs
 Lely
-Liftbot
 M1
 M2
 M3
@@ -64,6 +63,7 @@ S1
 S2
 SDO
 SIM7600
+SMS
 SSL
 STM
 STM32
@@ -71,6 +71,8 @@ STM32CubeIDE
 STMCubeIDE
 SWUpdate
 Submodule
+T1
+T2
 TIM2
 TODO
 Thiện
@@ -86,6 +88,7 @@ Wifi
 Yocto
 ZeroMQ
 adaptor
+altrad
 baudrate
 bugprone
 chả
@@ -93,6 +96,7 @@ clangd
 configurability
 cpp
 deployability
+elmo
 err58
 estop
 fd
@@ -100,6 +104,7 @@ implementator
 kollector
 kwz
 kz
+liftbot
 malloc
 mem
 msgpack
@@ -127,6 +132,7 @@ tyfu
 uWS's
 unmoveable
 utilise
+v1
 v2
 zincom
 zlib
