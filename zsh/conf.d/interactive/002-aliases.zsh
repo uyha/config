@@ -59,3 +59,5 @@ fi
 if is-tmux; then
   alias clear="clear -T tmux-256color"
 fi
+
+if exists delta; then alias diff=delta; fi
