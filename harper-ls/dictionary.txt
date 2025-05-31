@@ -22,6 +22,7 @@ GmbH
 Huế
 I2C
 IOC
+JWT
 KAdmin
 KEWAZO
 KOS
@@ -71,8 +72,6 @@ STM32CubeIDE
 STMCubeIDE
 SWUpdate
 Submodule
-T1
-T2
 TIM2
 TODO
 Thiện
@@ -124,6 +123,10 @@ subindex
 supercut
 swappable
 systemd
+t1
+t2
+t3
+timescaledb
 tp
 treesitter
 ttymxc1
@@ -132,6 +135,7 @@ tyfu
 uWS's
 unmoveable
 utilise
+uv
 v1
 v2
 zincom
