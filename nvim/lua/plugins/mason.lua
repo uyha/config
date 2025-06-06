@@ -8,7 +8,7 @@ return {
           "actionlint",
         })
       end
-      opts.PATH = "skip"
+      opts.PATH = "append"
     end,
   },
 }
