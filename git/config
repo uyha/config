@@ -67,3 +67,6 @@
 
 [includeIf "gitdir:~/Personal/"]
   path = "~/Personal/.gitconfig"
+
+[url "git@github.com"]
+  insteadof = "gh"
