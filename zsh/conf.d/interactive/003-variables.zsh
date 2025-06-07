@@ -29,7 +29,10 @@ if [[ -d /var/lib/flatpak/exports/share ]]; then
   export XDG_DATA_DIRS="$XDG_DATA_DIRS:/var/lib/flatpak/exports/share"
 fi
 
-if [[ -d "$XDG_DATA_HOME/flatpak/exports/share" ]] ; then
+if [[ -d "$XDG_DATA_HOME/flatpak/exports/share" ]]; then
   export XDG_DATA_DIRS="$XDG_DATA_DIRS:$XDG_DATA_HOME/flatpak/exports/share"
 fi
 
+if exists nvim; then
+  export SUDO_EDITOR=$(which nvim)
+fi
