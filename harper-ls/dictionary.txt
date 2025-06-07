@@ -89,6 +89,7 @@ ZeroMQ
 adaptor
 altrad
 baudrate
+bootloader
 bugprone
 chả
 clangd
