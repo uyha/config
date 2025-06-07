@@ -61,3 +61,34 @@ f2c() {
 
   echo $((($1 - 32) / 1.8 ))
 }
+
+add() {
+  if ! [[ $# -eq 2 ]]; then
+    echo "Expecting exactly 2 arguments" >&2
+    return 22
+  fi
+
+  manager=$1
+  program=$2
+
+  case "$manager" in
+    apt)
+      if sudo apt install "$program"; then
+        echo "$program" >> "$HOME/.local/share/personal/apt/programs"
+      fi
+      ;;
+    brew)
+      if brew install "$program"; then
+        echo "$program" >> "$HOME/.local/share/personal/brew/programs"
+      fi
+      ;;
+    flatpak)
+      if flatpak install --app "$program"; then
+        echo "$program" >> "$HOME/.local/share/personal/flatpak/programs"
+      fi
+      ;;
+    *)
+      printf "%s is not supported\n" "$manager"
+      ;;
+  esac
+}
