@@ -62,7 +62,7 @@ f2c() {
   echo $((($1 - 32) / 1.8 ))
 }
 
-add() {
+add() (
   if ! [[ $# -eq 2 ]]; then
     echo "Expecting exactly 2 arguments" >&2
     return 22
@@ -70,6 +70,8 @@ add() {
 
   manager=$1
   program=$2
+
+  set -euo pipefail
 
   case "$manager" in
     apt)
@@ -91,4 +93,4 @@ add() {
       printf "%s is not supported\n" "$manager"
       ;;
   esac
-}
+)
