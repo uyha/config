@@ -95,3 +95,36 @@ add() (
   echo "$program" >> "$list_file"
   sort --unique --output "$list_file" "$list_file"
 )
+
+remove() (
+  if ! [[ $# -eq 2 ]]; then
+    echo "Expecting exactly 2 arguments" >&2
+    return 22
+  fi
+
+  manager=$1
+  program=$2
+
+  set -euo pipefail
+
+  case "$manager" in
+    apt)
+      list_file=$HOME/.local/share/personal/apt/programs
+      sudo apt remove "$program"
+      ;;
+    brew)
+      list_file=$HOME/.local/share/personal/brew/programs
+      brew uninstall "$program"
+      ;;
+    flatpak)
+      list_file=$HOME/.local/share/personal/flatpak/programs
+      flatpak uninstall --app "$program"
+      ;;
+    *)
+      printf "%s is not supported\n" "$manager"
+      exit 1
+      ;;
+  esac
+
+  perl -i -ne "print unless /$program/" "$list_file"
+)
