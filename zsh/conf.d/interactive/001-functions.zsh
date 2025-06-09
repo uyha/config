@@ -75,22 +75,23 @@ add() (
 
   case "$manager" in
     apt)
-      if sudo apt install "$program"; then
-        echo "$program" >> "$HOME/.local/share/personal/apt/programs"
-      fi
+      list_file=$HOME/.local/share/personal/apt/programs
+      sudo apt install "$program"
       ;;
     brew)
-      if brew install "$program"; then
-        echo "$program" >> "$HOME/.local/share/personal/brew/programs"
-      fi
+      list_file=$HOME/.local/share/personal/brew/programs
+      brew install "$program"
       ;;
     flatpak)
-      if flatpak install --app "$program"; then
-        echo "$program" >> "$HOME/.local/share/personal/flatpak/programs"
-      fi
+      list_file=$HOME/.local/share/personal/flatpak/programs
+      flatpak install --app "$program"
       ;;
     *)
       printf "%s is not supported\n" "$manager"
+      exit 1
       ;;
   esac
+
+  echo "$program" >> "$list_file"
+  sort --unique --output "$list_file" "$list_file"
 )
