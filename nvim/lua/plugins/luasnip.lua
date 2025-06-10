@@ -1349,6 +1349,17 @@ return {
           {}
         )
       ),
+      s(
+        "here",
+        fmt(
+          [[
+          from inspect import currentframe, getframeinfo
+          fi = getframeinfo(currentframe())  # type: ignore
+          print(f"{{fi.filename}}:{{fi.lineno}}")
+          ]],
+          {}
+        )
+      ),
     })
 
     ls.add_snippets("just", {
