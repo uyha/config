@@ -80,3 +80,5 @@ t2
 estop
 t1
 timescaledb
+SIGHUP
+timerfd

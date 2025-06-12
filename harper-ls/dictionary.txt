@@ -74,6 +74,7 @@ RX
 S1
 S2
 SDO
+SIGHUP
 SIM7600
 SMS
 SSL
@@ -138,6 +139,7 @@ systemd
 t1
 t2
 t3
+timerfd
 timescaledb
 tp
 treesitter
