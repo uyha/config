@@ -68,6 +68,24 @@ return {
 
     ---@diagnostic enable: unused-function, unused-local
 
+    ls.add_snippets("", {
+      s(
+        "uv",
+        fmt(
+          [[
+      #!/usr/bin/env -S uv run --script
+
+      # /// script
+      # dependencies = [
+      #
+      # ]
+      # ///
+      ]],
+          {}
+        )
+      ),
+    })
+
     ls.add_snippets("lua", {
       s("here", fmt([[print(debug.getinfo(1).source, debug.getinfo(1).currentline{})]], { i(0) })),
       s("luajit", fmt([[#!/usr/bin/env luajit]], {})),
