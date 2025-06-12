@@ -92,6 +92,7 @@ UART
 Undotree
 Unmount
 Uy
+VeryLazy
 Vy
 WSK
 Weltgeist
@@ -100,6 +101,7 @@ Yocto
 ZeroMQ
 adaptor
 altrad
+autocmds
 baudrate
 bootloader
 bugprone
