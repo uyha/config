@@ -1,5 +1,6 @@
 ADS1115's
 Accessor
+Aentron
 Bò
 Bún
 C1
@@ -20,13 +21,21 @@ Freiheit
 GPIO
 GmbH
 Huế
+Hạ
 I2C
 IOC
+Inventus
 JWT
 KAdmin
 KEWAZO
 KOS
 Kimball
+LB1
+LB14
+LB21
+LB32
+LB34
+LB41
 LSBs
 Lely
 M1
@@ -40,6 +49,7 @@ M8
 MSBs
 MapBox
 MessagePack
+Millivolt
 Münchner
 NMT
 NOLINT
@@ -47,6 +57,7 @@ NOLINTBEGIN
 NOLINTEND
 NOLINTNEXTLINE
 OTA
+OpenAPI
 PDM
 PDO
 PDOs
