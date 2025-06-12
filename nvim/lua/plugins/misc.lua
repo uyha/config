@@ -15,4 +15,15 @@ return {
       scroll = { enabled = false },
     },
   },
+  {
+    "monaqa/dial.nvim",
+    opts = function(_, opts)
+      if type(opts.groups.default) ~= "table" then return end
+
+      local augend = require("dial.augend")
+      vim.list_extend(opts.groups.default, {
+        augend.date.alias["%Y-%m-%d"],
+      })
+    end,
+  },
 }
