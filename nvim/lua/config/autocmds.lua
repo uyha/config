@@ -13,8 +13,8 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "markdown" },
-  callback = function() vim.bo.textwidth = 80 end,
+  pattern = { "typst", "python" },
+  callback = function() vim.bo.textwidth = 88 end,
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
