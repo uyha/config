@@ -12,7 +12,7 @@ return {
     opts = function(_, opts)
       if type(opts.servers) ~= "table" then return end
 
-      vim.tbl_extend("force", opts.servers, { neocmake = {} })
+      opts.servers = vim.tbl_extend("force", opts.servers, { neocmake = {} })
     end,
   },
 }

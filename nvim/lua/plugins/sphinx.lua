@@ -4,7 +4,7 @@ return {
     opts = function(_, opts)
       if type(opts.ensure_installed) ~= "table" then return end
 
-      -- The tree-sitter parser for rst is incomplete, hence removing it to be less
+      -- The tree-sitter parser for RST is incomplete, hence removing it to be less
       -- annoying
       for index, value in ipairs(opts.ensure_installed) do
         if value == "rst" then
@@ -19,7 +19,7 @@ return {
     opts = function(_, opts)
       if type(opts.servers) ~= "table" then return end
 
-      vim.tbl_extend("force", opts.servers, { esbonio = {} })
+      opts.servers = vim.tbl_extend("force", opts.servers, { esbonio = {} })
     end,
   },
   {
