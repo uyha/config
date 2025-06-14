@@ -24,6 +24,16 @@ return {
       vim.list_extend(opts.groups.default, {
         augend.date.alias["%Y-%m-%d"],
       })
+      opts.groups = vim.tbl_extend("force", opts.groups, {
+        zig = {
+          augend.constant.new({
+            elements = { "and", "or" },
+            word = true,
+            cyclic = true,
+          }),
+        },
+      })
+      opts.dials_by_ft = vim.tbl_extend("force", opts.dials_by_ft, { zig = "zig" })
     end,
   },
 }
