@@ -45,11 +45,7 @@ if exists rsync; then
   fi
 fi
 
-if exists git; then
-  alias g="git"
-  alias pgit="GIT_SSH_COMMAND='ssh -i ~/.ssh/personal' git"
-  alias wgit="GIT_SSH_COMMAND='ssh -i ~/.ssh/work' git"
-fi
+if exists git; then alias g="git"; fi
 
 if exists dust; then
   alias du="dust"
