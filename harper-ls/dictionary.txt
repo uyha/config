@@ -69,6 +69,7 @@ RPDO1
 RPDO2
 RSC
 RSCs
+RST
 RTS
 RX
 S1
@@ -144,6 +145,7 @@ t3
 timerfd
 timescaledb
 tp
+tree-sitter
 treesitter
 ttymxc1
 ttymxc4
