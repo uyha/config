@@ -31,6 +31,8 @@ for extra in "${extra_bins[@]}"; do
   fi
 done
 
-for extra in "$LOCAL/opt"/*/bin; do
-  export PATH="$PATH:$extra"
-done
+if [[ -d "$LOCAL/opt" ]]; then
+  for extra in "$LOCAL/opt"/*/bin; do
+    export PATH="$PATH:$extra"
+  done
+fi
