@@ -68,5 +68,11 @@
 [includeIf "gitdir:~/Personal/"]
   path = "~/Personal/.gitconfig"
 
+[includeIf "gitdir:~/.config/"]
+  path = "~/.config/.gitconfig"
+
+[includeIf "gitdir:~/.local/"]
+  path = "~/.local/.gitconfig"
+
 [url "git@github.com"]
   insteadof = "gh"
