@@ -24,7 +24,21 @@
                  (string_content) @injection.content)
                )
 
-  (#eq? @function "SQL")
+  (#match? @function "^[sS][qQ][lL]$")
+  (#set! injection.language "sql")
+  )
+
+(call
+  function: (
+             attribute
+             attribute: (identifier) @function
+             )
+  arguments: (argument_list
+               (string
+                 (string_content) @injection.content)
+               )
+
+  (#match? @function "^[sS][qQ][lL]$")
   (#set! injection.language "sql")
   )
 
