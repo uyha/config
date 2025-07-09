@@ -1,6 +1,7 @@
 ADS1115's
 Accessor
 Aentron
+Autec
 Bò
 Bún
 C1
@@ -100,6 +101,7 @@ Weltgeist
 Wifi
 Yocto
 ZeroMQ
+ZeroMQ's
 adaptor
 altrad
 autocmds
@@ -111,10 +113,12 @@ clangd
 configurability
 cpp
 deployability
+ebox
 elmo
 err58
 estop
 fd
+i1
 implementator
 kollector
 kwz
@@ -142,6 +146,7 @@ systemd
 t1
 t2
 t3
+t4
 timerfd
 timescaledb
 tp
