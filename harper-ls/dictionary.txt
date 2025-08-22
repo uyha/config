@@ -15,6 +15,7 @@ CTS
 Certbot
 Ctrl
 Cô
+DMA1
 DMAs
 DS301
 EC2
@@ -24,6 +25,7 @@ GmbH
 Huế
 Hạ
 I2C
+IO
 IOC
 Inventus
 JWT
@@ -90,6 +92,7 @@ STM32CubeProgrammer
 STMCubeIDE
 SWUpdate
 Submodule
+TIM1
 TIM2
 TODO
 Thiện
@@ -138,6 +141,7 @@ neodata
 neonet
 neoservice
 nginx
+ns
 pXnY
 poller
 polymorphism

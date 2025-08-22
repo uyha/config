@@ -93,3 +93,7 @@ PA13
 STM32CubeProgrammer
 KIO
 WS2812
+busctl
+DBus
+CMAKE
+CMake
