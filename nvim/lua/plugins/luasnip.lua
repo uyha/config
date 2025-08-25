@@ -67,6 +67,29 @@ return {
     end
 
     ---@diagnostic enable: unused-function, unused-local
+    ls.add_snippets("csv", {
+      s(
+        "",
+        fmt([[{now}]], {
+          now = d(
+            1,
+            function()
+              return sn(nil, {
+                i(1, tostring(os.date("%Y"))),
+                t("-"),
+                i(2, tostring(os.date("%m"))),
+                t("-"),
+                i(3, tostring(os.date("%d"))),
+                t(" "),
+                i(4, tostring(os.date("%H"))),
+                t(":"),
+                i(5, tostring(os.date("%M"))),
+              })
+            end
+          ),
+        })
+      ),
+    })
 
     ls.add_snippets("", {
       s(
