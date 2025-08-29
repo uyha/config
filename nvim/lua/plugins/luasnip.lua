@@ -1450,5 +1450,22 @@ return {
         )
       ),
     })
+
+    ls.add_snippets("markdown", {
+      s(
+        "nolint",
+        fmt(
+          [[
+          <!-- markdownlint-disable {rule} -->
+          {body}
+          <!-- markdownlint-enable {rule} -->
+          ]],
+          {
+            rule = i(1, "rule"),
+            body = i(0),
+          }
+        )
+      ),
+    })
   end,
 }
