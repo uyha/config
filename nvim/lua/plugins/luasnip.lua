@@ -1376,6 +1376,7 @@ return {
           }
         )
       ),
+      s("todo", fmt([[@panic({msg});]], { msg = i(1, [["todo"]]) })),
     })
 
     ls.add_snippets("python", {
