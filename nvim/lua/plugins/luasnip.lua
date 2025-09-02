@@ -69,24 +69,23 @@ return {
     ---@diagnostic enable: unused-function, unused-local
     ls.add_snippets("csv", {
       s(
-        "",
+        "now",
         fmt([[{now}]], {
-          now = d(
-            1,
-            function()
-              return sn(nil, {
-                i(1, tostring(os.date("%Y"))),
-                t("-"),
-                i(2, tostring(os.date("%m"))),
-                t("-"),
-                i(3, tostring(os.date("%d"))),
-                t(" "),
-                i(4, tostring(os.date("%H"))),
-                t(":"),
-                i(5, tostring(os.date("%M"))),
-              })
-            end
-          ),
+          now = d(1, function()
+            local minute = math.floor(tonumber(os.date("%M")) / 5) * 5
+
+            return sn(nil, {
+              i(1, os.date("%Y")),
+              t("-"),
+              i(2, os.date("%m")),
+              t("-"),
+              i(3, os.date("%d")),
+              t(" "),
+              i(4, os.date("%H")),
+              t(":"),
+              i(5, string.format("%02d", minute)),
+            })
+          end),
         })
       ),
     })
