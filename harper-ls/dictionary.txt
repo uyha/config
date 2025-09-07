@@ -1,9 +1,11 @@
 ADS1115's
+APB2ENR
 Accessor
 Aentron
 Autec
 Bò
 Bún
+C0301
 C1
 C2
 C3
@@ -11,6 +13,7 @@ CANopen
 CANopenNode
 CME
 CMS
+CR
 CTS
 Certbot
 Ctrl
@@ -22,11 +25,14 @@ EC2
 Freiheit
 GPIO
 GmbH
+HSION
+HSIRDY
 Huế
 Hạ
 I2C
 IO
 IOC
+IOPxEN
 Inventus
 JWT
 KAdmin
@@ -51,6 +57,7 @@ M5
 M6
 M7
 M8
+MCU
 MSBs
 MapBox
 MessagePack
@@ -68,7 +75,9 @@ PDM
 PDO
 PDOs
 PR
+PWM
 RAII
+RCC
 ROOTFS
 RPDO
 RPDO1
@@ -89,11 +98,14 @@ STM
 STM32
 STM32CubeIDE
 STM32CubeProgrammer
+STM32F103C8
 STMCubeIDE
 SWUpdate
 Submodule
 TIM1
 TIM2
+TIM3
+TIM3's
 TODO
 Thiện
 Thư
@@ -118,6 +130,7 @@ bootloader
 bugprone
 chả
 clangd
+cmake
 configurability
 cpp
 deployability
@@ -170,6 +183,7 @@ utilise
 uv
 v1
 v2
+xB
 zincom
 zlib
 zlib's
