@@ -1,8 +1,11 @@
+2s
 ADS1115's
+AFIO
 APB2ENR
 Accessor
 Aentron
 Autec
+BRG
 Bò
 Bún
 C0301
@@ -11,6 +14,8 @@ C2
 C3
 CANopen
 CANopenNode
+CCR
+CH1
 CME
 CMS
 CR
@@ -38,7 +43,6 @@ JWT
 KAdmin
 KData
 KEWAZO
-KIO
 KOS
 Kimball
 LB1
@@ -68,9 +72,15 @@ NOLINT
 NOLINTBEGIN
 NOLINTEND
 NOLINTNEXTLINE
+OC
+OC1
 OTA
 OpenAPI
 PA13
+PB0
+PB10
+PB11
+PB7
 PDM
 PDO
 PDOs
@@ -110,6 +120,9 @@ TODO
 Thiện
 Thư
 UART
+UART1
+UART3
+USARTDIV
 Undotree
 Unmount
 Uy
@@ -125,6 +138,10 @@ ZeroMQ's
 adaptor
 altrad
 autocmds
+b00
+b01
+b10
+b11
 baudrate
 bootloader
 bugprone
@@ -134,6 +151,7 @@ cmake
 configurability
 cpp
 deployability
+dest
 ebox
 elmo
 err58
@@ -141,6 +159,7 @@ estop
 fd
 i1
 implementator
+kio
 kollector
 kwz
 kz
