@@ -16,6 +16,10 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "typst", "python" },
   callback = function() vim.bo.textwidth = 88 end,
 })
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "c", "cpp" },
+  callback = function() vim.bo.textwidth = 90 end,
+})
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "ledger" },
@@ -28,12 +32,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "sql" },
-  callback = function() vim.bo.shiftwidth = 4 end,
-})
-
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "toml" },
+  pattern = { "toml", "sql" },
   callback = function() vim.bo.shiftwidth = 4 end,
 })
 
