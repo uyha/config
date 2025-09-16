@@ -1,5 +1,6 @@
 vim.filetype.add({
   extension = {
+    h = "c",
     service = "systemd",
     target = "systemd",
     path = "systemd",
