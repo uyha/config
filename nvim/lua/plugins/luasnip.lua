@@ -235,6 +235,24 @@ return {
       ),
     })
 
+    ls.add_snippets("c", {
+      s(
+        "cppguard",
+        fmt(
+          [[
+          #ifdef __cplusplus
+          extern "C" {{
+          #endif
+          {}
+          #ifdef __cplusplus
+          }}
+          #endif
+          ]],
+          { i(0) }
+        )
+      ),
+    })
+
     ls.add_snippets("cpp", {
       s(
         "virspec",
