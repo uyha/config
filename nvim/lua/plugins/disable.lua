@@ -1,6 +1,6 @@
 return {
   {
-    "folke/flash.nvim",
+    "folke/tokyonight.nvim",
     enabled = false,
   },
 }
