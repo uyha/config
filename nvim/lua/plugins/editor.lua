@@ -12,7 +12,7 @@ return {
     event = "VeryLazy",
     opts = {
       keymaps = {
-        visual = "as",
+        visual = "s",
       },
     },
     config = true,
