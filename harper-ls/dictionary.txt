@@ -30,6 +30,7 @@ EC2
 Freiheit
 GPIO
 GmbH
+HSE
 HSION
 HSIRDY
 Huế
@@ -84,6 +85,8 @@ PB7
 PDM
 PDO
 PDOs
+PLL
+PLLCLK
 PR
 PWM
 RAII
@@ -152,6 +155,7 @@ configurability
 cpp
 deployability
 dest
+dma
 ebox
 elmo
 err58
@@ -202,6 +206,8 @@ utilise
 uv
 v1
 v2
+x4
+x8
 xB
 zincom
 zlib
