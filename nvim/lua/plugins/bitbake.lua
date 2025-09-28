@@ -3,22 +3,20 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        bitbake_ls = {},
+        bitbake_language_server = {},
       },
     },
   },
   {
     "mason-org/mason.nvim",
-    opts = function(_, opts)
-      if type(opts.ensure_installed) ~= "table" then return end
-
-      vim.list_extend(opts.ensure_installed, { "language-server-bitbake" })
-    end,
+    opts = {
+      ensure_installed = { "language-server-bitbake" },
+    },
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      if type(opts.ensure_installed) ~= table then vim.list_extend(opts.ensure_installed, { "bitbake" }) end
-    end,
+    opts = {
+      ensure_installed = { "bitbake" },
+    },
   },
 }
