@@ -6,14 +6,16 @@ add-plugin() {
   if ! [[ -d "$dir" ]]; then
     git clone "$url" "$dir"
   fi
+
+  for source in "$dir"/*.plugin.zsh; do
+    source "$source"
+  done
 }
 
-add-plugin "https://github.com/Aloxaf/fzf-tab"
+ZVM_INIT_MODE=sourcing
+
 add-plugin "https://github.com/zsh-users/zsh-autosuggestions"
 add-plugin "https://github.com/zsh-users/zsh-syntax-highlighting"
 add-plugin "https://github.com/zsh-users/zsh-completions"
 add-plugin "https://github.com/jeffreytse/zsh-vi-mode"
-
-for script in $XDG_DATA_HOME/zsh-plugins/*/*.plugin.zsh; do
-  source "$script"
-done
+add-plugin "https://github.com/Aloxaf/fzf-tab"
