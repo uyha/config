@@ -8,6 +8,7 @@ return {
             ["harper-ls"] = {
               linters = {
                 ExpandTimeShorthands = false,
+                ToDoHyphen = false,
               },
             },
           },
