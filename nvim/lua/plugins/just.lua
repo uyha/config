@@ -3,12 +3,12 @@ return {
   opts = {
     ensure_installed = { "just" },
   },
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        just = {},
-      },
-    },
-  },
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   opts = {
+  --     servers = {
+  --       just = {},
+  --     },
+  --   },
+  -- },
 }

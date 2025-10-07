@@ -18,6 +18,7 @@ C0301
 C1
 C2
 C3
+CAN1
 CANopen
 CANopenNode
 CCR
@@ -26,6 +27,7 @@ CME
 CMS
 CR
 CTS
+Carbonara
 Certbot
 Cogwork
 Ctrl
@@ -40,6 +42,7 @@ GmbH
 Greymoor
 Grindle
 HSE
+HSI
 HSION
 HSIRDY
 Huế
@@ -88,6 +91,8 @@ OC
 OC1
 OTA
 OpenAPI
+PA11
+PA12
 PA13
 PB0
 PB10
@@ -97,6 +102,7 @@ PDM
 PDO
 PDOs
 PLL
+PLL's
 PLLCLK
 PR
 PWM
@@ -159,6 +165,7 @@ Yocto
 ZeroMQ
 ZeroMQ's
 adaptor
+al
 altrad
 autocmds
 b00
@@ -173,16 +180,20 @@ clangd
 cmake
 configurability
 cpp
+dente
 deployability
 dest
 dma
+doneness
 ebox
 elmo
 err58
 estop
 fd
+guanciale
 i1
 implementator
+kcal
 kio
 kollector
 kwz
@@ -199,6 +210,7 @@ neoservice
 nginx
 ns
 pXnY
+pecorino
 poller
 polymorphism
 prescaler
