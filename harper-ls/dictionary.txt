@@ -95,6 +95,7 @@ PA11
 PA12
 PA13
 PB0
+PB1
 PB10
 PB11
 PB7
@@ -187,6 +188,7 @@ dma
 doneness
 ebox
 elmo
+env
 err58
 estop
 fd
@@ -235,6 +237,7 @@ ttymxc4
 tyfu
 uWS's
 unmoveable
+usr
 utilise
 uv
 v1
