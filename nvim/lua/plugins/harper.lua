@@ -9,6 +9,7 @@ return {
               linters = {
                 ExpandTimeShorthands = false,
                 ToDoHyphen = false,
+                Dashes = false,
               },
             },
           },
