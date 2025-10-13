@@ -264,7 +264,7 @@ return {
           {name}({name} &&)                     = {move};
           auto operator=({name} &&) -> {name} & = {move};
 
-          virtual ~{name}() = default;
+          virtual ~{name}() noexcept = default;
 
           ]=],
           {
