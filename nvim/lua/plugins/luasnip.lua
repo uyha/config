@@ -269,8 +269,8 @@ return {
           ]=],
           {
             name = i(1),
-            copy = i(2),
-            move = i(3),
+            copy = i(2, "delete"),
+            move = i(3, "delete"),
           }
         )
       ),
