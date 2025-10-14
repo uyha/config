@@ -258,6 +258,8 @@ return {
         "virspec",
         fmt(
           [=[
+          {name}() = default;
+
           {name}({name} const&)                     = {copy};
           auto operator=({name} const&) -> {name} & = {copy};
 
