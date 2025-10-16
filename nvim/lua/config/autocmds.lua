@@ -48,3 +48,11 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     vim.bo.shiftwidth = 2
   end,
 })
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "bitbake" },
+  callback = function()
+    vim.bo.expandtab = true
+    vim.bo.shiftwidth = 2
+  end,
+})
