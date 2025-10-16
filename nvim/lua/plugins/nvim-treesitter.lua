@@ -1,25 +1,17 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
-    opts = {
-      select = {
-        enable = true,
-        lookahead = true,
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    keys = {
+      {
+        "<leader>al",
+        function() require("nvim-treesitter-textobjects.swap").swap_next("@parameter.inner", "textobjects") end,
+        desc = "Swap with next argument",
       },
-      swap = {
-        enable = true,
-        swap_next = { ["<leader>tl"] = "@parameter.inner" },
-        swap_previous = { ["<leader>th"] = "@parameter.inner" },
-      },
-      move = {
-        enable = true,
-        set_jumps = true,
-        goto_next_start = {
-          ["]a"] = "@parameter.inner",
-        },
-        goto_previous_start = {
-          ["[a"] = "@parameter.inner",
-        },
+      {
+        "<leader>ah",
+        function() require("nvim-treesitter-textobjects.swap").swap_previous("@parameter.inner", "textobjects") end,
+        desc = "Swap with next argument",
       },
     },
   },
