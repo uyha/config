@@ -36,6 +36,7 @@ DMA1
 DMAs
 DS301
 EC2
+EnumType
 Freiheit
 GPIO
 GmbH
@@ -47,10 +48,10 @@ HSION
 HSIRDY
 Huế
 Hạ
-I2C
 IO
 IOC
 IOPxEN
+IWYU
 Inventus
 JWT
 KAdmin
@@ -82,6 +83,7 @@ MessagePack
 Millivolt
 Mosshome
 Münchner
+NB
 NMT
 NOLINT
 NOLINTBEGIN
@@ -98,6 +100,7 @@ PB0
 PB1
 PB10
 PB11
+PB6
 PB7
 PDM
 PDO
@@ -110,6 +113,7 @@ PWM
 Pharloom
 RAII
 RCC
+RH
 ROOTFS
 RPDO
 RPDO1
@@ -194,6 +198,7 @@ estop
 fd
 guanciale
 i1
+i2c
 implementator
 kcal
 kio
@@ -216,6 +221,7 @@ pecorino
 poller
 polymorphism
 prescaler
+python3
 req
 s
 schmier
@@ -236,6 +242,7 @@ ttymxc1
 ttymxc4
 tyfu
 uWS's
+uncopyable
 unmoveable
 usr
 utilise
