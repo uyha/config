@@ -574,16 +574,16 @@ return {
             public:
               {class}() = default;
 
-              {class}({class} const &)                     = delete;
-              auto operator=({class} const &) -> {class} & = delete;
+              {class}({class} const &)                     = {copy};
+              auto operator=({class} const &) -> {class} & = {copy};
 
-              {class}({class} &&)                     = delete;
-              auto operator=({class} &&) -> {class} & = delete;
+              {class}({class} &&)                     = {move};
+              auto operator=({class} &&) -> {class} & = {move};
 
               virtual ~{class}() noexcept = default;
             }};
             ]],
-          { class = i(1) }
+          { class = i(1), copy = i(2, "default"), move = i(3, "default") }
         )
       ),
       s(
