@@ -227,6 +227,7 @@ python3
 req
 s
 schmier
+sig
 subindex
 supercut
 swappable
