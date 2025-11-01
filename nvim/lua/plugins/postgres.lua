@@ -10,7 +10,7 @@ return {
   {
     "mason-org/mason.nvim",
     opts = {
-      ensure_installed = { "postgrestools" },
+      ensure_installed = { "postgres-language-server" },
     },
   },
 }
