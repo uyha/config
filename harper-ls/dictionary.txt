@@ -6,7 +6,6 @@ APB2ENR
 Accessor
 Aentron
 Atla
-Autec
 BRG
 BTR
 Beastfly
@@ -52,7 +51,6 @@ IO
 IOC
 IOPxEN
 IWYU
-Inventus
 JWT
 KAdmin
 KData
@@ -80,7 +78,6 @@ MSBs
 MapBox
 Memorium
 MessagePack
-Millivolt
 Mosshome
 Münchner
 NB
@@ -126,6 +123,7 @@ RX
 S1
 S2
 SDO
+SICK's
 SIGHUP
 SIM7600
 SMS
@@ -172,6 +170,7 @@ ZeroMQ's
 adaptor
 al
 altrad
+autec
 autocmds
 b00
 b01
@@ -197,9 +196,11 @@ err58
 estop
 fd
 guanciale
+hal
 i1
 i2c
 implementator
+inventus
 kcal
 kio
 kollector
@@ -209,6 +210,7 @@ liftbot
 mV
 malloc
 mem
+millivolt
 msgpack
 mzg
 neobot
@@ -219,6 +221,7 @@ nginx
 noti
 ns
 pXnY
+pcon
 pecorino
 poller
 polymorphism
