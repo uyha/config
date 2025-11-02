@@ -577,13 +577,18 @@ return {
               {class}({class} const &)                     = {copy};
               auto operator=({class} const &) -> {class} & = {copy};
 
-              {class}({class} &&)                     = {move};
-              auto operator=({class} &&) -> {class} & = {move};
+              {class}({class} &&) {noexcept}                     = {move};
+              auto operator=({class} &&) {noexcept} -> {class} & = {move};
 
               virtual ~{class}() noexcept = default;
             }};
             ]],
-          { class = i(1), copy = i(2, "default"), move = i(3, "default") }
+          {
+            class = i(1),
+            copy = i(2, "default"),
+            noexcept = i(3, "noexcept"),
+            move = i(4, "default"),
+          }
         )
       ),
       s(
