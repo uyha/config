@@ -183,6 +183,7 @@ chả
 clangd
 cmake
 configurability
+coord
 cpp
 dente
 deployability
