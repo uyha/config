@@ -651,6 +651,51 @@ return {
 
     ls.add_snippets("cpp", {
       s(
+        "setup-noti",
+        fmt(
+          [[
+          m_noti_socket.set(zmq::sockopt::subscribe, "noti");
+
+          auto ping_socket = zmq::socket_t{{context, zmq::socket_type::push}};
+          ping_socket.connect(endpoints.sick.ping);
+          m_noti_socket.set(zmq::sockopt::subscribe, "ping");
+          SCOPE_EXIT([&] {{ m_noti_socket.set(zmq::sockopt::unsubscribe, "ping"); }});
+
+          force_ping(m_noti_socket, ping_socket, m_message);
+
+          // No need to catch exception, if we fail here, something is very wrong
+          m_state = unpack(m_message)->as<State>();
+          ]],
+          {}
+        )
+      ),
+      s(
+        "process-noti",
+        fmt(
+          [[
+          if (event.socket != m_noti_socket) {{
+            return false;
+          }}
+
+          if (not m_noti_socket.recv(m_message, zmq::recv_flags::dontwait)) {{
+            throw WouldBlockError{{}};
+          }}
+          // Skip checking topic since we only subscribe to "noti"
+
+          if (not m_noti_socket.recv(m_message, zmq::recv_flags::dontwait)) {{
+            throw MissingFrameError{{}};
+          }}
+          if (m_message.more()) {{
+            consume_all(m_noti_socket);
+          }}
+          ]],
+          {}
+        )
+      ),
+    })
+
+    ls.add_snippets("cpp", {
+      s(
         "zmqhandle",
         fmt(
           [[
