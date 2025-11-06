@@ -508,15 +508,7 @@ return {
           { i(1), i(0) }
         )
       ),
-      s(
-        "nouse",
-        fmt(
-          [=[
-          [[maybe_unused]]
-          ]=],
-          {}
-        )
-      ),
+      s("nouse", t("[[maybe_unused]]")),
       s("nodc", t("[[nodiscard]]")),
       s(
         "print",
@@ -649,47 +641,83 @@ return {
       ),
     })
 
+    -- Work related snippets
     ls.add_snippets("cpp", {
       s(
-        "setup-noti",
+        "client-info-impl",
         fmt(
           [[
-          m_noti_socket.set(zmq::sockopt::subscribe, "noti");
+          {class}::{class}(zmq::context_t &context,
+                           Endpoints const &endpoints)
+              : m_noti_socket{{context, endpoints.{endpoint}.noti}} {{}}
 
-          auto ping_socket = zmq::socket_t{{context, zmq::socket_type::push}};
-          ping_socket.connect(endpoints.sick.ping);
-          m_noti_socket.set(zmq::sockopt::subscribe, "ping");
-          SCOPE_EXIT([&] {{ m_noti_socket.set(zmq::sockopt::unsubscribe, "ping"); }});
+          auto {class}::add(zmq::poller_t<> &poller) -> void {{
+            poller.add(m_noti_socket.socket, zmq::event_flags::pollin);
+          }}
+          auto {class}::try_sync(zmq::context_t &context,
+                                 Endpoints const &endpoints,
+                                 kz::usize trials,
+                                 std::chrono::steady_clock::duration wait)
+              -> SyncResult {{
+            if (not m_noti_socket.sync(context, endpoints.{endpoint}.ping.c_str(), trials, wait)) {{
+              return SyncResult::gave_up;
+            }}
+            if (not m_noti_socket.message.more()) {{
+              return SyncResult::missing_frame;
+            }}
 
-          force_ping(m_noti_socket, ping_socket, m_message);
+            (void)m_noti_socket.socket.recv(m_noti_socket.message, zmq::recv_flags::dontwait);
 
-          // No need to catch exception, if we fail here, something is very wrong
-          m_state = unpack(m_message)->as<State>();
+            m_state = unpack(m_noti_socket.message)->as<State>();
+
+            return SyncResult::success;
+          }}
+          auto {class}::process(zmq::poller_event<> const &event) -> bool {{
+            if (not m_noti_socket.process(event)) {{
+              return false;
+            }}
+
+            try {{
+              std::visit(
+                [&]<typename T>(T data) {{
+                  auto const old = std::get<T>(m_state);
+                  std::get<T>(m_state) = data;
+                  process_data(old);
+                }},
+                unpack(m_noti_socket.message)->as<Data>());
+            }} catch (std::exception const &e) {{
+              fmt::print(stderr, "{{}}\n", e.what());
+            }}
+
+            return true;
+          }}
           ]],
-          {}
+          { class = i(1, "InfoClass"), endpoint = i(2, "endpoint") }
         )
       ),
       s(
-        "process-noti",
+        "client-info-def",
         fmt(
           [[
-          if (event.socket != m_noti_socket) {{
-            return false;
-          }}
+          class {class} : ClientInfo {{
+          public:
+            static auto create(Version version, zmq::context_t &context, Endpoints const &endpoints)
+                -> std::unique_ptr<{class}>;
 
-          if (not m_noti_socket.recv(m_message, zmq::recv_flags::dontwait)) {{
-            throw WouldBlockError{{}};
-          }}
-          // Skip checking topic since we only subscribe to "noti"
+            auto add(zmq::poller_t<> &poller) -> void final;
+            auto try_sync(zmq::context_t &context,
+                          Endpoints const &endpoints,
+                          kz::usize trials,
+                          std::chrono::steady_clock::duration wait) -> SyncResult final;
+            auto process(zmq::poller_event<> const &event) -> bool final;
 
-          if (not m_noti_socket.recv(m_message, zmq::recv_flags::dontwait)) {{
-            throw MissingFrameError{{}};
-          }}
-          if (m_message.more()) {{
-            consume_all(m_noti_socket);
-          }}
+            Emitter<{signal}> signal{{}};
+          }};
           ]],
-          {}
+          {
+            class = i(1),
+            signal = i(2),
+          }
         )
       ),
     })
