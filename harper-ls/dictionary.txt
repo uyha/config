@@ -219,6 +219,7 @@ neodata
 neonet
 neoservice
 nginx
+nlohmann
 noti
 ns
 pXnY
@@ -232,6 +233,7 @@ req
 s
 schmier
 sig
+sml
 subindex
 supercut
 swappable
@@ -242,6 +244,7 @@ t3
 t4
 timerfd
 timescaledb
+tmp
 tp
 tree-sitter
 treesitter
