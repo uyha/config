@@ -682,7 +682,9 @@ return {
                 [&]<typename T>(T data) {{
                   auto const old = std::get<T>(m_state);
                   std::get<T>(m_state) = data;
-                  process_data(old);
+                  if constexpr (requires {{ process_data(old); }}) {{
+                    process_data(old);
+                  }}
                 }},
                 unpack(m_noti_socket.message)->as<Data>());
             }} catch (std::exception const &e) {{
