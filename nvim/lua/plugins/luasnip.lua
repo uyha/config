@@ -720,6 +720,43 @@ return {
           }
         )
       ),
+      s(
+        "server-consumer-impl",
+        fmt(
+          [[
+            auto {class}::add(zmq::poller_t<> &poller) -> void {{
+              poller.add(m_ctrl_socket, zmq::event_flags::pollin);
+            }}
+            auto {class}::process(zmq::poller_event<> const &event) -> bool {{
+              if (event.socket != m_ctrl_socket) {{
+                return false;
+              }}
+
+              if (not m_ctrl_socket.recv(m_ctrl_message, zmq::recv_flags::dontwait)) {{
+                throw WouldBlock{{}};
+              }}
+
+              if (m_ctrl_message.more()) {{
+                consume_all(m_ctrl_socket);
+              }}
+
+              try {{
+                std::visit([this](auto const &value) {{ {handle}(value); }},
+                           neobot::unpack(m_ctrl_message)->as<{command}>());
+              }} catch (std::exception const &e) {{
+                fmt::print(stderr, "{{}}\n", e.what());
+              }}
+
+              return true;
+            }}
+            ]],
+          {
+            class = i(1),
+            command = i(2),
+            handle = i(3, "handle"),
+          }
+        )
+      ),
     })
 
     ls.add_snippets("cpp", {
