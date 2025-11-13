@@ -134,6 +134,7 @@ STM32CubeIDE
 STM32CubeProgrammer
 STM32F103C8
 STMCubeIDE
+STOs
 SWUpdate
 Shellwood
 Silksong
@@ -144,6 +145,7 @@ TIM2
 TIM3
 TIM3's
 TODO
+TPDO
 Thiện
 Thư
 UART
@@ -213,6 +215,7 @@ malloc
 mem
 millivolt
 msgpack
+mutator
 mzg
 neobot
 neodata
