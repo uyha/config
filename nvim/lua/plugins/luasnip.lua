@@ -700,17 +700,10 @@ return {
         "client-info-def",
         fmt(
           [[
-          class {class} : ClientInfo {{
+          class {class} : public ClientInfo {{
           public:
             static auto create(Version version, zmq::context_t &context, Endpoints const &endpoints)
                 -> std::unique_ptr<{class}>;
-
-            auto add(zmq::poller_t<> &poller) -> void final;
-            auto try_sync(zmq::context_t &context,
-                          Endpoints const &endpoints,
-                          kz::usize trials,
-                          std::chrono::steady_clock::duration wait) -> SyncResult final;
-            auto process(zmq::poller_event<> const &event) -> bool final;
 
             Emitter<{signal}> signal{{}};
           }};
