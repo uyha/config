@@ -3,6 +3,13 @@ return {
     "folke/snacks.nvim",
     opts = {
       picker = {
+        win = {
+          input = {
+            keys = {
+              ["<C-h>"] = { "toggle_hidden", mode = { "i", "n" } },
+            },
+          },
+        },
         sources = {
           explorer = {
             win = {
@@ -15,6 +22,18 @@ return {
             },
           },
         },
+      },
+    },
+    keys = {
+      {
+        "<leader>fa",
+        function() require("snacks").picker.files({ hidden = true }) end,
+        desc = "Find files (including hidden)",
+      },
+      {
+        "<leader>fi",
+        function() require("snacks").picker.files({ hidden = true, ignored = true }) end,
+        desc = "Find all files",
       },
     },
   },
