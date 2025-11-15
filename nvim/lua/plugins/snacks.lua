@@ -16,12 +16,42 @@ return {
               list = {
                 keys = {
                   ["<C-g>"] = function()
-                    local explorers = Snacks.picker.get({ source = "explorer" })
-                    if #explorers ~= 0 then
-                      explorers[1]:action("confirm")
-                      explorers[1]:close()
-                    end
+                    local explorer = Snacks.picker.get({ source = "explorer" })[1]
+                    explorer:action("confirm")
+                    explorer:close()
                   end,
+                  ["y"] = {
+                    function()
+                      local picker = Snacks.picker.get({ source = "explorer" })[1]
+                      local files = {} ---@type string[]
+                      if vim.fn.mode():find("^[vV]") then picker.list:select() end
+                      for _, item in ipairs(picker:selected({ fallback = true })) do
+                        local path = Snacks.picker.util.path(item)
+                        assert(path ~= nil)
+                        table.insert(files, vim.fs.relpath(picker:cwd(), path))
+                      end
+                      picker.list:set_selected() -- clear selection
+                      local value = table.concat(files, "\n")
+                      vim.fn.setreg(vim.v.register or "+", value, "l")
+                      Snacks.notify.info("Yanked " .. #files .. (#files == 1 and " file" or " files"))
+                    end,
+                    mode = { "n", "v" },
+                  },
+                  ["Y"] = {
+                    function()
+                      local picker = Snacks.picker.get({ source = "explorer" })[1]
+                      local files = {} ---@type string[]
+                      if vim.fn.mode():find("^[vV]") then picker.list:select() end
+                      for _, item in ipairs(picker:selected({ fallback = true })) do
+                        table.insert(files, Snacks.picker.util.path(item))
+                      end
+                      picker.list:set_selected() -- clear selection
+                      local value = table.concat(files, "\n")
+                      vim.fn.setreg(vim.v.register or "+", value, "l")
+                      Snacks.notify.info("Yanked " .. #files .. (#files == 1 and " file" or " files"))
+                    end,
+                    mode = { "n", "v" },
+                  },
                   ["<C-l>"] = { function() vim.cmd([[wincmd l]]) end },
                 },
               },
