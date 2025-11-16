@@ -13,12 +13,8 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "typst", "python" },
+  pattern = { "typst", "python", "zig", "c", "cpp" },
   callback = function() vim.bo.textwidth = 88 end,
-})
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "c", "cpp" },
-  callback = function() vim.bo.textwidth = 90 end,
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
