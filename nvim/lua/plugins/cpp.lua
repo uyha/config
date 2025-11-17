@@ -17,7 +17,7 @@ return {
 
       if type(clangd.keys) == "table" then
         vim.list_extend(clangd.keys, {
-          { "gt", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
+          { "gs", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
         })
       end
 
