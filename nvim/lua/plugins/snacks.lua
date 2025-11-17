@@ -6,7 +6,13 @@ return {
         win = {
           input = {
             keys = {
-              ["<C-h>"] = { "toggle_hidden", mode = { "i", "n" } },
+              ["<Esc>"] = { "toggle_focus", mode = { "i" } },
+            },
+          },
+          list = {
+            keys = {
+              ["H"] = "toggle_hidden",
+              ["I"] = "toggle_ignored",
             },
           },
         },
