@@ -58,7 +58,11 @@ return {
                     end,
                     mode = { "n", "v" },
                   },
-                  ["<C-l>"] = { function() vim.cmd([[wincmd l]]) end },
+                  ["<C-l>"] = {
+                    function() vim.cmd([[wincmd l]]) end,
+                    mode = { "n" },
+                  },
+                  ["z"] = "explorer_close_all",
                 },
               },
             },
