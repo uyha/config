@@ -1410,18 +1410,18 @@ return {
         fmt(
           [[
           fn juicyMain(gpa: Allocator, io: Io) !void {{
-            _ = &gpa;
-            _ = &io;
+              _ = &gpa;
+              _ = &io;
           }}
           pub fn main() !void {{
-            var allocator : std.heap.DebugAllocator(.{{}}) = .init;
-            defer _ = allocator.deinit();
-            const gpa = allocator.allocator();
+              var allocator : std.heap.DebugAllocator(.{{}}) = .init;
+              defer _ = allocator.deinit();
+              const gpa = allocator.allocator();
 
-            var runtime: std.Io.Threaded = .init(gpa);
-            defer runtime.deinit();
+              var runtime: std.Io.Threaded = .init(gpa);
+              defer runtime.deinit();
 
-            try juicyMain(gpa, runtime.io());
+              try juicyMain(gpa, runtime.io());
           }}
 
           const std = @import("std");

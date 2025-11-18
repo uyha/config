@@ -134,6 +134,7 @@ STM32CubeIDE
 STM32CubeProgrammer
 STM32F103C8
 STMCubeIDE
+STO
 STOs
 SWUpdate
 Shellwood
@@ -251,6 +252,7 @@ tmp
 tp
 tree-sitter
 treesitter
+ttyUSB2
 ttymxc1
 ttymxc4
 tyfu
