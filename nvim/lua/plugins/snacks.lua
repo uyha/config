@@ -18,6 +18,7 @@ return {
         },
         sources = {
           explorer = {
+            matcher = { fuzzy = true },
             win = {
               list = {
                 keys = {
