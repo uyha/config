@@ -127,6 +127,7 @@ SICK's
 SIGHUP
 SIM7600
 SMS
+SQLITE
 SSL
 STM
 STM32
@@ -232,6 +233,7 @@ pecorino
 poller
 polymorphism
 prescaler
+psycopg
 python3
 req
 s
