@@ -223,6 +223,8 @@ neobot
 neodata
 neonet
 neoservice
+neoverse
+neoworld
 nginx
 nlohmann
 noti
