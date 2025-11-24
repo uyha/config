@@ -22,6 +22,8 @@ CANopen
 CANopenNode
 CCR
 CH1
+CH3
+CH6
 CME
 CMS
 CR
@@ -229,6 +231,7 @@ nginx
 nlohmann
 noti
 ns
+nullopt
 pXnY
 pcon
 pecorino
@@ -238,6 +241,7 @@ prescaler
 psycopg
 python3
 req
+rhs
 s
 schmier
 sig
