@@ -22,3 +22,8 @@ vim.keymap.set("n", "<M-r>", function()
   vim.bo.modifiable = not vim.bo.modifiable
   vim.notify("Modifiable: " .. tostring(vim.bo.modifiable))
 end)
+
+vim.keymap.set("n", "<M-c>", function()
+  vim.fn.setreg(vim.v.register or "+", vim.fn.expand("%"), "l")
+  vim.notify("Current file path copied")
+end)
