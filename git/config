@@ -26,9 +26,6 @@
 [add.interactive]
   useBuiltin = false
 
-[merge]
-  conflictStyle = diff3
-
 [mergetool "nvim"]
   cmd = "nvim -c DiffviewOpen"
 
