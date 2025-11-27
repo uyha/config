@@ -1,4 +1,6 @@
 2s
+ACK
+ADDR
 ADS1115's
 AFIO
 APB1
@@ -40,6 +42,7 @@ EC2
 EnumType
 Freiheit
 GPIO
+GPIOB
 GmbH
 Greymoor
 Grindle
@@ -49,6 +52,7 @@ HSION
 HSIRDY
 Huế
 Hạ
+I2C1
 IO
 IOC
 IOPxEN
@@ -83,6 +87,7 @@ MessagePack
 Mosshome
 Münchner
 NB
+NACK
 NMT
 NOLINT
 NOLINTBEGIN
@@ -101,6 +106,7 @@ PB10
 PB11
 PB6
 PB7
+PCLK1
 PDM
 PDO
 PDOs
@@ -124,12 +130,17 @@ RTS
 RX
 S1
 S2
+SB
+SCL
+SDA
 SDO
 SICK's
 SIGHUP
 SIM7600
+SML
 SMS
-SQLITE
+SQLite
+SR1
 SSL
 STM
 STM32
