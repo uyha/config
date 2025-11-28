@@ -8,11 +8,13 @@ APB2ENR
 Accessor
 Aentron
 Atla
+B1
 BRG
 BTR
 Beastfly
 Bellhart
 Bilewater
+Bit2
 Bò
 Bún
 C0301
@@ -225,6 +227,7 @@ kollector
 kwz
 kz
 liftbot
+lte
 mV
 malloc
 mem
@@ -257,6 +260,7 @@ s
 schmier
 sig
 sml
+sql
 subindex
 supercut
 swappable
