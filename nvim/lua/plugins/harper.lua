@@ -7,9 +7,10 @@ return {
           settings = {
             ["harper-ls"] = {
               linters = {
+                Dashes = false,
+                ExpandMemoryShorthands = false,
                 ExpandTimeShorthands = false,
                 ToDoHyphen = false,
-                Dashes = false,
               },
             },
           },
