@@ -26,4 +26,8 @@ return {
       { "<leader>bh", "<Cmd>BufferLineCloseLeft<CR>", desc = "Delete Buffers to the Left" },
     },
   },
+  {
+    "https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
+    event = "VeryLazy",
+  },
 }
