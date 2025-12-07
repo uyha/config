@@ -1396,16 +1396,6 @@ return {
         )
       ),
       s(
-        "prelude",
-        fmt(
-          [[
-          const std = @import("std");
-
-          ]],
-          {}
-        )
-      ),
-      s(
         "jmain",
         fmt(
           [[
@@ -1433,56 +1423,12 @@ return {
         )
       ),
       s(
-        "struct",
-        fmt(
-          [[
-          const {} = struct {{
-            const Self = @This();
-            {}
-          }};
-          ]],
-          { i(1), i(0) }
-        )
-      ),
-      s(
-        "fn",
-        fmt(
-          [[
-          fn {}({}) {} {{
-            {}
-          }}
-          ]],
-          { i(1), i(2), i(3, "!void"), i(0) }
-        )
-      ),
-      s(
         "print",
         fmt(
           [[
           std.debug.print("{}", .{{{}}});
           ]],
           { i(1), i(0) }
-        )
-      ),
-      s(
-        "println",
-        fmt(
-          [[
-          std.debug.print("{}\n", .{{{}}});
-          ]],
-          { i(1), i(0) }
-        )
-      ),
-      s(
-        "use",
-        fmt(
-          [[
-          const {name} = {value};
-          ]],
-          {
-            name = l(l._1:gsub("@import%((.*)%)", "%1"):gsub(".*%.", ""), 1),
-            value = i(1),
-          }
         )
       ),
       s("meh", fmt([[_ = &{};]], { i(1) })),
@@ -1521,6 +1467,31 @@ return {
         )
       ),
       s("todo", fmt([[@panic({msg});]], { msg = i(1, [["todo"]]) })),
+      s(
+        "add-executable",
+        fmt(
+          [[
+          const {name}_mod = b.createModule(.{{
+              .root_source_file = b.path("{path}"),
+              .target = {target},
+              .optimize = {optimize},
+          }});
+          const {name}_exe = b.addExecutable(.{{
+              .name = "{name}",
+              .root_module = {name}_mod,
+          }});
+          const {name}_run = b.addRunArtifact({name}_exe);
+          const {name}_step = b.step("{name}", "Run {name}");
+          {name}_step.dependOn(&{name}_run.step);
+          ]],
+          {
+            name = i(1),
+            path = i(2),
+            target = i(3, "target"),
+            optimize = i(4, "optimize"),
+          }
+        )
+      ),
     })
 
     ls.add_snippets("python", {
