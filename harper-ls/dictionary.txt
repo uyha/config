@@ -41,6 +41,7 @@ DMA1
 DMAs
 DS301
 EC2
+EINTR
 EnumType
 Freiheit
 GPIO
@@ -88,8 +89,8 @@ Memorium
 MessagePack
 Mosshome
 Münchner
-NB
 NACK
+NB
 NMT
 NOLINT
 NOLINTBEGIN
@@ -118,6 +119,7 @@ PLLCLK
 PR
 PWM
 Pharloom
+QCRMCALL
 RAII
 RCC
 RH
@@ -139,7 +141,6 @@ SDO
 SICK's
 SIGHUP
 SIM7600
-SML
 SMS
 SQLite
 SR1
@@ -173,6 +174,7 @@ Underworks
 Undotree
 Unmount
 Uy
+V4
 Ventrica
 VeryLazy
 Vy
@@ -215,6 +217,7 @@ env
 err58
 estop
 fd
+fmt
 guanciale
 hal
 i1
