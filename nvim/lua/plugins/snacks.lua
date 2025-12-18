@@ -1,3 +1,23 @@
+---@param absolute boolean Specification for paths being copied as absolute or relative
+local function yank_files(absolute)
+  local picker = Snacks.picker.get({ source = "explorer" })[1]
+  local files = {} ---@type string[]
+  if vim.fn.mode():find("^[vV]") then picker.list:select() end
+  for _, item in ipairs(picker:selected({ fallback = true })) do
+    local path = Snacks.picker.util.path(item)
+    assert(path ~= nil)
+    if absolute then
+      table.insert(files, path)
+    else
+      table.insert(files, vim.fs.relpath(picker:cwd(), path))
+    end
+  end
+  picker.list:set_selected() -- clear selection
+  local value = table.concat(files, "\n")
+  vim.fn.setreg(vim.v.register or "+", value, "c")
+  Snacks.notify.info("Yanked " .. #files .. (#files == 1 and " file" or " files"))
+end
+
 return {
   {
     "folke/snacks.nvim",
@@ -28,35 +48,11 @@ return {
                     explorer:close()
                   end,
                   ["y"] = {
-                    function()
-                      local picker = Snacks.picker.get({ source = "explorer" })[1]
-                      local files = {} ---@type string[]
-                      if vim.fn.mode():find("^[vV]") then picker.list:select() end
-                      for _, item in ipairs(picker:selected({ fallback = true })) do
-                        local path = Snacks.picker.util.path(item)
-                        assert(path ~= nil)
-                        table.insert(files, vim.fs.relpath(picker:cwd(), path))
-                      end
-                      picker.list:set_selected() -- clear selection
-                      local value = table.concat(files, "\n")
-                      vim.fn.setreg(vim.v.register or "+", value, "l")
-                      Snacks.notify.info("Yanked " .. #files .. (#files == 1 and " file" or " files"))
-                    end,
+                    function() yank_files(false) end,
                     mode = { "n", "v" },
                   },
                   ["Y"] = {
-                    function()
-                      local picker = Snacks.picker.get({ source = "explorer" })[1]
-                      local files = {} ---@type string[]
-                      if vim.fn.mode():find("^[vV]") then picker.list:select() end
-                      for _, item in ipairs(picker:selected({ fallback = true })) do
-                        table.insert(files, Snacks.picker.util.path(item))
-                      end
-                      picker.list:set_selected() -- clear selection
-                      local value = table.concat(files, "\n")
-                      vim.fn.setreg(vim.v.register or "+", value, "l")
-                      Snacks.notify.info("Yanked " .. #files .. (#files == 1 and " file" or " files"))
-                    end,
+                    function() yank_files(true) end,
                     mode = { "n", "v" },
                   },
                   ["<C-l>"] = {
