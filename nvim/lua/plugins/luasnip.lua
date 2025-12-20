@@ -1112,10 +1112,9 @@ return {
             join() {{
               local delimiter="$1"
               local first="$2"
+              shift 2
 
-              if shift 2; then
-                printf "%s" "$first" "${{@/#/$delimiter}}"
-              fi
+              printf "%s" "$first" "${{@/#/$delimiter}}"
             }}
           ]],
           {}
