@@ -9,7 +9,11 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        neocmake = {},
+        neocmake = {
+          init_options = {
+            lint = { enable = false },
+          },
+        },
       },
     },
   },
