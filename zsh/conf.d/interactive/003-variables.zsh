@@ -35,4 +35,5 @@ fi
 
 if exists nvim; then
   export SUDO_EDITOR=$(which nvim)
+  export EDITOR=$(which nvim)
 fi
