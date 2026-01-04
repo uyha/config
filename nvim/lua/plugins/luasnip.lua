@@ -528,6 +528,189 @@ return {
           { i(1), i(0) }
         )
       ),
+      s(
+        "info-client-decl",
+        fmt(
+          [=[
+          class {name}Info : public kz::Pollable {{
+          public:
+            {name}Info(zmq::context_t &context, neoworld::Endpoints const &endpoints);
+
+            auto add(zmq::poller_t<> &poller) -> void final;
+            [[nodiscard]] auto process(zmq::poller_event<> const &event) -> bool final;
+
+            [[nodiscard]] auto {data}() const -> {type} const &;
+            [[nodiscard]] auto pulse() const -> kz::Pulse;
+            [[nodiscard]] auto synced() const -> bool;
+
+            [[nodiscard]] auto timer() const -> kz::Timer const &;
+            auto process_timer() -> bool;
+
+            struct Signal {{
+              tyfu::convert_t<{type}, kz::Emitter> {data}{{}};
+              kz::Emitter<kz::Pulse> pulse{{}};
+              kz::Emitter<bool> synced{{}};
+            }} signal{{}};
+
+          private:
+            kz::LazyNotiSocket m_noti;
+            kz::LifeSocket m_life;
+
+            kz::Pulse m_pulse = kz::Pulse::down;
+            bool m_synced     = false;
+
+            {type} m_{data}{{}};
+            kz::Timer m_timer{{}};
+
+            auto poke() -> void;
+            auto ping() -> void;
+
+            auto process_noti(kz::NotiContent content) -> void;
+            auto process_life() -> void;
+          }};
+          ]=],
+          { name = i(1, "Name"), type = i(2, "Type"), data = i(3, "data") }
+        )
+      ),
+      s(
+        "info-client-def",
+        fmt(
+          [[
+          {name}Info::{name}Info(zmq::context_t &context, neoworld::Endpoints const &endpoints)
+              : m_noti{{context,
+                      endpoints.{endpoint}.noti.c_str(),
+                      endpoints.{endpoint}.ping.c_str()}}
+              , m_life{{
+                    context, endpoints.{endpoint}.life.c_str(), endpoints.{endpoint}.poke.c_str()}} {{
+            using namespace std::chrono_literals;
+
+            m_timer.set(1ms);
+          }}
+
+          auto {name}Info::add(zmq::poller_t<> &poller) -> void {{
+            poller.add(m_noti.noti, zmq::event_flags::pollin);
+            m_life.add(poller);
+          }}
+          auto {name}Info::process(zmq::poller_event<> const &event) -> bool {{
+            using enum kz::NotiContent;
+
+            if (auto const content = m_noti.process(event); content) {{
+              process_noti(*content);
+              return true;
+            }}
+
+            if (m_life.process(event)) {{
+              process_life();
+              return true;
+            }}
+
+            return false;
+          }}
+          auto {name}Info::poke() -> void {{
+            kz::send(m_life.poke);
+          }}
+          auto {name}Info::ping() -> void {{
+            kz::send(m_noti.ping);
+          }}
+
+          auto {name}Info::{data}() const -> {type} const & {{
+            return m_{data};
+          }}
+          auto {name}Info::pulse() const -> kz::Pulse {{
+            return m_pulse;
+          }}
+          auto {name}Info::synced() const -> bool {{
+            return m_synced;
+          }}
+          auto {name}Info::process_noti(kz::NotiContent content) -> void {{
+            try {{
+              switch (content) {{
+              case kz::NotiContent::noti:
+                kz::ivisit(
+                    [this]<usize index>(auto const &data, std::integral_constant<usize, index>) {{
+                      using boost::pfr::get;
+
+                      if (get<index>(m_{data}) == data) {{
+                        return;
+                      }}
+
+                      get<index>(m_{data}) = data;
+                      signal.{data}.publish<index>(data);
+                    }},
+                    kz::unpack(m_noti.message)->as<tyfu::convert_t<{type}, std::variant>>());
+                break;
+              case kz::NotiContent::ping:
+                if (m_synced) {{
+                  return;
+                }}
+
+                m_{data}  = kz::unpack(m_noti.message)->as<{type}>();
+                m_synced = true;
+
+                signal.synced.publish(m_synced);
+
+                break;
+              }}
+            }} catch (std::exception const &e) {{
+              spdlog::warn("{{}}: {{}} [{{}}]",
+                          std::source_location::current(),
+                          e.what(),
+                          kz::HexDump{{m_noti.message}});
+            }}
+          }}
+          auto {name}Info::process_life() -> void {{
+            using namespace std::chrono_literals;
+
+            try {{
+              auto const new_pulse = kz::unpack(m_life.message)->as<kz::Pulse>();
+              auto const old_pulse = std::exchange(m_pulse, new_pulse);
+              if (old_pulse == m_pulse) {{
+                return;
+              }}
+
+              auto const old_synced = m_synced;
+              if (m_pulse == kz::Pulse::down) {{
+                m_synced = false;
+                m_timer.set(5s);
+              }}
+
+              signal.pulse.publish(m_pulse);
+              signal.synced.publish(m_synced);
+            }} catch (std::exception const &e) {{
+              spdlog::warn("{{}}: {{}} [{{}}]",
+                          std::source_location::current(),
+                          e.what(),
+                          kz::HexDump{{m_life.message}});
+            }}
+          }}
+          auto {name}Info::timer() const -> kz::Timer const & {{
+            return m_timer;
+          }}
+          auto {name}Info::process_timer() -> bool {{
+            using namespace std::chrono_literals;
+
+            if (not m_timer.process()) {{
+              return false;
+            }}
+            if (m_pulse != kz::Pulse::up) {{
+              poke();
+              m_timer.set(5s);
+            }} else if (not m_synced) {{
+              ping();
+              m_timer.set(50ms);
+            }}
+
+            return true;
+          }}
+          ]],
+          {
+            name = i(1, "Name"),
+            endpoint = i(2, "endpoint"),
+            type = i(3, "Type"),
+            data = i(4, "data"),
+          }
+        )
+      ),
     })
 
     ls.add_snippets("cpp", {
@@ -1407,7 +1590,7 @@ return {
               defer _ = allocator.deinit();
               const gpa = allocator.allocator();
 
-              var runtime: std.Io.Threaded = .init(gpa);
+              var runtime: std.Io.Threaded = .init(gpa, .{{}});
               defer runtime.deinit();
 
               try juicyMain(gpa, runtime.io());
