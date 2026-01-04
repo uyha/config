@@ -31,6 +31,7 @@ CH6
 CME
 CMS
 CR
+CREG
 CTS
 Carbonara
 Certbot
@@ -53,6 +54,7 @@ HSE
 HSI
 HSION
 HSIRDY
+HSML
 Huế
 Hạ
 I2C1
@@ -249,6 +251,7 @@ nlohmann
 noti
 ns
 nullopt
+nullptr
 pXnY
 pcon
 pecorino
