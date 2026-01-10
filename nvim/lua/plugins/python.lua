@@ -1,9 +1,15 @@
 return {
   {
     "linux-cultist/venv-selector.nvim",
-    branch = "main",
-    keys = {
-      { "<leader>vc", "<cmd>:VenvSelectCached<cr>", desc = "Select the previous venv for this project" },
+    opts = {
+      search = {
+        kos = {
+          command = "fd --full-path 'x86_64.*python3$' /opt/kos",
+        },
+        uv = {
+          command = "uv python find --script '$CURRENT_FILE'",
+        },
+      },
     },
   },
   {
