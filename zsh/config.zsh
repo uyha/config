@@ -13,4 +13,8 @@ if [[ $- == *i* ]]; then
 
   autoload -Uz compinit
   compinit
+
+  for f in "$HOME"/.config/zsh/conf.d/interactive/postcompinit/*.zsh; do
+    source "$f"
+  done
 fi
