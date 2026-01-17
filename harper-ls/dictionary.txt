@@ -285,6 +285,7 @@ ttyUSB2
 ttymxc1
 ttymxc4
 tyfu
+tz
 uWS's
 uncopyable
 unmoveable
