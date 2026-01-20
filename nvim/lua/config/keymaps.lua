@@ -24,6 +24,7 @@ vim.keymap.set("n", "<M-r>", function()
 end)
 
 vim.keymap.set("n", "<M-c>", function()
-  vim.fn.setreg(vim.v.register or "+", vim.fn.expand("%"), "l")
+  local path = vim.fs.relpath(vim.fn.getcwd(), vim.fn.expand("%"))
+  vim.fn.setreg(vim.v.register or "+", path, "c")
   vim.notify("Current file path copied")
 end)
