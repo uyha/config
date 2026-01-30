@@ -105,6 +105,7 @@ OpenAPI
 PA11
 PA12
 PA13
+PA7
 PB0
 PB1
 PB10
@@ -228,6 +229,7 @@ implementator
 inventus
 kcal
 kio
+klient
 kollector
 kwz
 kz
@@ -242,6 +244,7 @@ mutator
 mzg
 neobot
 neodata
+neodoc
 neonet
 neoservice
 neoverse
