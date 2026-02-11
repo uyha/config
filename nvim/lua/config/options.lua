@@ -6,7 +6,9 @@ vim.wo.relativenumber = false
 
 -- Undotree
 vim.o.swapfile = false
-vim.o.backup = false
+vim.o.backup = true
+vim.o.backupext = ".bak"
+vim.o.backupdir = vim.fn.stdpath("data") .. "/backup"
 vim.o.undodir = vim.fn.stdpath("data") .. "/undodir"
 vim.o.undofile = true
 
