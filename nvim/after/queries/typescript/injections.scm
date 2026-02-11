@@ -8,3 +8,13 @@
   (#set! injection.language "typescript")
   )
 
+(call_expression
+  function: (member_expression
+    property: (property_identifier) @func)
+  arguments: (arguments
+               (template_string
+                 (string_fragment) @injection.content))
+
+  (#any-of? @func "exec" "prepare")
+  (#set! injection.language "sql")
+)
