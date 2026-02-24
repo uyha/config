@@ -12,11 +12,28 @@ return {
     "kylechui/nvim-surround",
     event = "VeryLazy",
     opts = {
-      keymaps = {
-        visual = "s",
+      surrounds = {
+        ["d"] = {
+          add = { "if (false) {", "}" },
+          delete = "(if%s*%(%s*false%s*%)%s*{)().*(})()",
+          find = "(if%s*%(%s*false%s*%)%s*{)().*(})()",
+        },
       },
     },
-    config = true,
+    keys = {
+      {
+        "s",
+        "<Plug>(nvim-surround-visual)",
+        desc = "Add a surrounding pair around a visual selection",
+        mode = "x",
+      },
+      {
+        "gs",
+        "<Plug>(nvim-surround-visual-line)",
+        desc = "Add a surrounding pair around a visual selection, on new lines",
+        mode = "x",
+      },
+    },
   },
   { "rcarriga/nvim-dap-ui", opts = {} },
   {
