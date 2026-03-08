@@ -1674,6 +1674,17 @@ return {
           }
         )
       ),
+      s(
+        "rng",
+        fmt(
+          [[
+          const seed: u64 = @intCast(Clock.boot.now({}).nanoseconds);
+          var prng: std.Random.DefaultPrng = .init(seed);
+          const random = prng.random();
+          ]],
+          { i(1, "init.io") }
+        )
+      ),
     })
 
     ls.add_snippets("python", {
