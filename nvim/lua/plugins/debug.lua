@@ -1,4 +1,5 @@
 return {
+  { "rcarriga/nvim-dap-ui", enabled = false },
   {
     "mfussenegger/nvim-dap",
 
@@ -7,8 +8,17 @@ return {
       { "<Left>", function() require("dap").step_out() end, desc = "Step Out" },
       { "<Down>", function() require("dap").step_over() end, desc = "Step Over" },
       { "<Up>", function() require("dap").step_back() end, desc = "Step Back" },
-      { "<F9>", function() require("dap").run_last() end, desc = "Start/Continue" },
+      { "<F9>", function() require("dap").run_last() end, desc = "Run Last/Continue" },
       { "<F10>", function() require("dap").continue() end, desc = "Start/Continue" },
+    },
+  },
+  {
+    "igorlfs/nvim-dap-view",
+    lazy = false,
+    ---@module 'dap-view'
+    ---@type dapview.Config
+    opts = {
+      auto_toggle = true,
     },
   },
 }
