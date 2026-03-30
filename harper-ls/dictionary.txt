@@ -98,6 +98,7 @@ NOLINT
 NOLINTBEGIN
 NOLINTEND
 NOLINTNEXTLINE
+Niebler
 OC
 OC1
 OTA
@@ -159,6 +160,7 @@ STOs
 SWUpdate
 Shellwood
 Silksong
+Sommerlad
 Songclave
 Submodule
 TIM1
@@ -237,6 +239,7 @@ liftbot
 lte
 mV
 malloc
+maxint
 mem
 millivolt
 msgpack
@@ -287,6 +290,7 @@ treesitter
 ttyUSB2
 ttymxc1
 ttymxc4
+txt
 tyfu
 tz
 uWS's
