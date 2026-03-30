@@ -1632,19 +1632,20 @@ return {
         "strongint",
         fmt(
           [[
-          enum({itype}) {{
+          const {name} = enum({itype}) {{
             _,
 
-            pub fn from(raw: {itype}) @This() {{
+            pub fn from(raw: {itype}) {name} {{
               return @enumFromInt(raw);
             }}
-            pub fn to(self: @This()) {itype} {{
+            pub fn back(self: {name}) {itype} {{
               return @intFromEnum(raw);
             }}
           }};
           ]],
           {
-            itype = i(0),
+            name = i(1),
+            itype = i(2),
           }
         )
       ),
