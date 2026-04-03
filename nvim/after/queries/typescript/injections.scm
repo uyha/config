@@ -18,3 +18,17 @@
   (#any-of? @func "exec" "prepare")
   (#set! injection.language "sql")
 )
+
+(call_expression
+  (non_null_expression
+    (instantiation_expression
+      (await_expression
+        (identifier) @identifier
+      )
+    )
+  )
+  (template_string (string_fragment) @injection.content)
+  (#any-of? @identifier "sql")
+  (#set! injection.language "sql")
+)
+
