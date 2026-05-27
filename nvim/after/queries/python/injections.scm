@@ -51,3 +51,13 @@
   (#lua-match? @object ".*query$")
   (#set! injection.language "sql")
   )
+
+(assignment
+  left: (identifier) @object
+  right: (string
+           (string_content) @injection.content
+           )
+
+  (#lua-match? @object "^query.*")
+  (#set! injection.language "sql")
+  )
