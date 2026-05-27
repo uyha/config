@@ -33,6 +33,7 @@ CMS
 CR
 CREG
 CTS
+CTest
 Carbonara
 Certbot
 Cogwork
@@ -55,6 +56,7 @@ HSI
 HSION
 HSIRDY
 HSML
+HW
 Huế
 Hạ
 I2C1
@@ -76,6 +78,7 @@ LB34
 LB41
 LSBs
 Lely
+LuaJIT
 M1
 M2
 M3
@@ -163,6 +166,7 @@ Silksong
 Sommerlad
 Songclave
 Submodule
+SvelteKit
 TIM1
 TIM2
 TIM3
@@ -204,6 +208,7 @@ b10
 b11
 baudrate
 bootloader
+boto3
 bugprone
 chả
 clangd
@@ -228,6 +233,7 @@ hal
 i1
 i2c
 implementator
+inter-process
 inventus
 kcal
 kio
@@ -270,8 +276,11 @@ req
 rhs
 s
 schmier
+sdbus
+sht4x
 sig
 sml
+sol2
 sql
 subindex
 supercut
@@ -285,6 +294,7 @@ timerfd
 timescaledb
 tmp
 tp
+tqdm
 tree-sitter
 treesitter
 ttyUSB2
