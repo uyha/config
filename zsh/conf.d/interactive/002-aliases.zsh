@@ -58,3 +58,4 @@ fi
 
 if exists delta; then alias diff=delta; fi
 if exists dysk; then alias df=dysk; fi
+alias amongus='echo -e "\uD9e"'
