@@ -18,6 +18,11 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "javascript", "typescript" },
+  callback = function() vim.bo.textwidth = 88 end,
+})
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "ledger" },
   callback = function()
     vim.keymap.set({ "n", "i" }, "<M-i>", function()

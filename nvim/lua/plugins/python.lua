@@ -13,9 +13,22 @@ return {
     },
   },
   {
-    "mason-org/mason.nvim",
+    "nvim-treesitter/nvim-treesitter",
+    opts = { ensure_installed = { "ninja", "rst" } },
+  },
+  {
+
+    "neovim/nvim-lspconfig",
     opts = {
-      ensure_installed = { "black" },
+      servers = {
+        ty = {},
+        ruff = {},
+        ruff_lsp = {},
+      },
     },
+  },
+  {
+    "mason-org/mason.nvim",
+    opts = { ensure_installed = { "ruff" } },
   },
 }
