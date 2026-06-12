@@ -7,6 +7,7 @@ APB1
 APB2ENR
 Accessor
 Aentron
+Args
 Atla
 B1
 BRG
@@ -67,7 +68,6 @@ IWYU
 JWT
 KAdmin
 KData
-KEWAZO
 KOS
 Kimball
 LB1
@@ -178,6 +178,7 @@ Thư
 UART
 UART1
 UART3
+UDS
 USARTDIV
 Underworks
 Undotree
@@ -216,6 +217,7 @@ cmake
 configurability
 coord
 cpp
+dataframe
 dente
 deployability
 dest
@@ -223,6 +225,7 @@ dma
 doneness
 ebox
 elmo
+endblock
 env
 err58
 estop
@@ -236,6 +239,7 @@ implementator
 inter-process
 inventus
 kcal
+kewazo
 kio
 klient
 kollector
@@ -264,6 +268,7 @@ noti
 ns
 nullopt
 nullptr
+nvim
 pXnY
 pcon
 pecorino
