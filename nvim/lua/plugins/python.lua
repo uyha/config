@@ -21,7 +21,7 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        ty = {},
+        pyrefly = {},
         ruff = {},
         ruff_lsp = {},
       },
