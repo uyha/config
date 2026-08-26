@@ -10,6 +10,7 @@ Aentron
 Args
 Atla
 B1
+BLE001
 BRG
 BTR
 Beastfly
@@ -23,7 +24,6 @@ C1
 C2
 C3
 CAN1
-CANopen
 CANopenNode
 CCR
 CH1
@@ -43,6 +43,7 @@ Cô
 DMA1
 DMAs
 DS301
+Dataclass
 EC2
 EINTR
 EnumType
@@ -70,6 +71,7 @@ KAdmin
 KData
 KOS
 Kimball
+Ktools
 LB1
 LB14
 LB21
@@ -102,6 +104,7 @@ NOLINTBEGIN
 NOLINTEND
 NOLINTNEXTLINE
 Niebler
+NodeJS
 OC
 OC1
 OTA
@@ -211,6 +214,7 @@ baudrate
 bootloader
 boto3
 bugprone
+canopen
 chả
 clangd
 cmake
@@ -251,6 +255,7 @@ lte
 mV
 malloc
 maxint
+md
 mem
 millivolt
 msgpack
@@ -265,6 +270,7 @@ neoverse
 neoworld
 nginx
 nlohmann
+noqa
 noti
 ns
 nullopt
