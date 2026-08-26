@@ -34,7 +34,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "toml", "sql" },
-  callback = function() vim.bo.shiftwidth = 4 end,
+  callback = function() vim.bo.shiftwidth = 2 end,
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
