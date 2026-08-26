@@ -236,6 +236,7 @@ hal
 i1
 i2c
 implementator
+inproc
 inter-process
 inventus
 kcal
@@ -269,6 +270,7 @@ ns
 nullopt
 nullptr
 nvim
+oauthlib
 pXnY
 pcon
 pecorino
@@ -276,6 +278,7 @@ poller
 polymorphism
 prescaler
 psycopg
+pyrefly
 python3
 req
 rhs
