@@ -3,7 +3,16 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        cssls = {},
+        cssls = {
+          settings = {
+            css = {
+              lint = {
+                -- Outlook-only properties used in email templates
+                validProperties = { "mso-table-lspace", "mso-table-rspace", "mso-hide" },
+              },
+            },
+          },
+        },
       },
     },
   },
