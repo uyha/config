@@ -57,3 +57,5 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     vim.bo.shiftwidth = 2
   end,
 })
+
+require("editorconfig").properties.spell = function(_, val) vim.api.nvim_set_option_value("spell", val == "true", {}) end
