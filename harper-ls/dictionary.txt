@@ -5,6 +5,7 @@ ADS1115's
 AFIO
 APB1
 APB2ENR
+ASYNC230
 Accessor
 Aentron
 Args
@@ -13,6 +14,7 @@ B1
 BLE001
 BRG
 BTR
+Bahru
 Beastfly
 Bellhart
 Bilewater
@@ -35,6 +37,7 @@ CR
 CREG
 CTS
 CTest
+Capita
 Carbonara
 Certbot
 Cogwork
@@ -46,6 +49,7 @@ DS301
 Dataclass
 EC2
 EINTR
+EU
 EnumType
 Freiheit
 GPIO
@@ -70,6 +74,7 @@ JWT
 KAdmin
 KData
 KOS
+Kapi
 Kimball
 Ktools
 LB1
@@ -93,6 +98,7 @@ MCU
 MSBs
 MapBox
 Memorium
+Merlion
 MessagePack
 Mosshome
 Münchner
@@ -107,6 +113,7 @@ Niebler
 NodeJS
 OC
 OC1
+OK
 OTA
 OpenAPI
 PA11
@@ -164,8 +171,10 @@ STMCubeIDE
 STO
 STOs
 SWUpdate
+Sentosa
 Shellwood
 Silksong
+SkyPark
 Sommerlad
 Songclave
 Submodule
@@ -178,6 +187,7 @@ TODO
 TPDO
 Thiện
 Thư
+Tiong
 UART
 UART1
 UART3
@@ -243,6 +253,7 @@ implementator
 inproc
 inter-process
 inventus
+jose
 kcal
 kewazo
 kio
@@ -284,6 +295,8 @@ poller
 polymorphism
 prescaler
 psycopg
+py
+pydantic
 pyrefly
 python3
 req
@@ -325,6 +338,7 @@ utilise
 uv
 v1
 v2
+vibot
 x4
 x8
 xB
